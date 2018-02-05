@@ -42,7 +42,7 @@
     "json-loader": "0.5.7",
     "ng2-toasty": "^4.0.3",
     "ng2-translate": "^5.0.0",
-    "nova-forms": "0.0.1",
+    "nova-forms": "file:../../Angular/Packages/nova-forms-0.0.0.tgz",
     "nova-paper": "0.0.2",
     "nova-workflow": "0.0.0",
     "popper.js": "^1.12.9",
