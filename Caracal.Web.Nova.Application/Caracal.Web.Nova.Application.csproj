@@ -23,8 +23,6 @@
     <Folder Include="Core\Models" />
     <Folder Include="Core\Persistance" />
     <Folder Include="ClientApp\app\services\" />
-    <Folder Include="ClientApp\paper\" />
-    <Folder Include="ClientApp\paper\components\" />
   </ItemGroup>
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->
