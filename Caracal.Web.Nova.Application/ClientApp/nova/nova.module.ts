@@ -20,7 +20,7 @@ import {NovaInputComponent} from "./components/nova-input/nova-input.component";
 })
 export class NovaModule {
     public static getComponents() {
-        var components = new Array<{ key: string, component: any }>();
+        var components = [];
         components.push({key: "nova-input", component: NovaInputComponent});
 
         return components;

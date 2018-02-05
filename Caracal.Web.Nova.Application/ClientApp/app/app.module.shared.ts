@@ -24,19 +24,23 @@ import {
     NovaFormService
 } from 'nova-workflow';
 import {NovaModule} from "../nova/nova.module";
+import {MagicInputComponent} from "./components/magic-input/nova-input.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
         FetchDataComponent,
-        HomeComponent
+        HomeComponent,
+        MagicInputComponent
     ],
     providers: [
         ToastyNotificationsService,
         {provide: ErrorHandler, useClass: AppErrorHandler}
     ],
-    entryComponents: [],
+    entryComponents: [
+        MagicInputComponent
+    ],
     imports: [
         CommonModule,
         HttpModule,
@@ -71,8 +75,12 @@ import {NovaModule} from "../nova/nova.module";
 })
 export class AppModuleShared {
     constructor() {
+        var components = [];
+        components.push({key: "magic-input", component: MagicInputComponent});
+        
         DynamicFormModule.registerComponents();
         DynamicFormModule.addModules(PaperModule.getComponents());
         DynamicFormModule.addModules(NovaModule.getComponents());
+        DynamicFormModule.addModules(components);
     }
 }

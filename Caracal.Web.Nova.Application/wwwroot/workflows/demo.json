@@ -100,6 +100,13 @@
             "validation": ""
           },
           {
+            "type": "magic-input",
+            "label": "Middlename Label",
+            "name": "middleName",
+            "placeholder": "Please enter your middle name",
+            "validation": ""
+          },
+          {
             "type": "input",
             "label": "Surname Label",
             "name": "surname",
