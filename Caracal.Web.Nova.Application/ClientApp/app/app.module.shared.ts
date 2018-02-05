@@ -53,7 +53,7 @@ import {NovaModule} from "../nova/nova.module";
         HttpModule,
         FormsModule,       
         DynamicFormModule.forRoot(),
-        PaperModule.forRoot(), 
+        PaperModule, 
         NovaModule,
         ToastyModule.forRoot(),
         TranslateModule.forRoot({
