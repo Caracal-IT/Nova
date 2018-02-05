@@ -6863,9 +6863,30 @@
         "zone.js": "0.8.20"
       }
     },
+    "nova-paper": {
+      "version": "0.0.2",
+      "resolved": "https://registry.npmjs.org/nova-paper/-/nova-paper-0.0.2.tgz",
+      "integrity": "sha512-zmKyyCEXcRww/O3EO6N+dUPqbqHzwD0S9RaZnNFZ1qBhvR5V1kNK92UWq9YbTWyY+wL5iIIZYV9rmLr+Zgmiow==",
+      "requires": {
+        "@angular/animations": "5.2.3",
+        "@angular/common": "5.2.3",
+        "@angular/compiler": "5.2.3",
+        "@angular/core": "5.2.3",
+        "@angular/forms": "5.2.3",
+        "@angular/http": "5.2.3",
+        "@angular/platform-browser": "5.2.3",
+        "@angular/platform-browser-dynamic": "5.2.3",
+        "@angular/router": "5.2.3",
+        "core-js": "2.5.3",
+        "rxjs": "5.5.6",
+        "tslib": "1.9.0",
+        "zone.js": "0.8.20"
+      }
+    },
     "nova-workflow": {
-      "version": "file:../../Angular/Packages/nova-workflow-0.0.0.tgz",
-      "integrity": "sha512-PcaeeL9ljznIkVOuJ+68+dCYx2GevGdjhD+rBeNbWF9d1WJg9E2turLX7rCxUmueU6Rh1+pzA7PXZS6UWjfbrA==",
+      "version": "0.0.0",
+      "resolved": "https://registry.npmjs.org/nova-workflow/-/nova-workflow-0.0.0.tgz",
+      "integrity": "sha512-KXFO/YMQqpNLAVhE68d4yVpfQC2PFlSJ9OnbksMJR/tUMuIw8O2/mNOgffWn/0MUiUbqIS3V1rKbZ5kH0clcbA==",
       "requires": {
         "@angular/animations": "5.2.3",
         "@angular/common": "5.2.3",
