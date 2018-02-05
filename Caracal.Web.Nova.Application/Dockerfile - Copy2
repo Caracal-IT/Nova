@@ -1,0 +1,24 @@
+FROM microsoft/aspnetcore-build:2.0 AS build-env
+WORKDIR /app
+
+RUN npm install -g @angular/cli@latest
+RUN npm cache clean
+
+# Copy csproj and restore as distinct layers
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copy everything else and build
+COPY . ./
+
+RUN npm install
+RUN npm rebuild node-sass --force
+RUN npm rebuild rxjs --force
+
+RUN dotnet publish -c Release -o out
+
+# Build runtime image
+FROM microsoft/aspnetcore:2.0
+WORKDIR /app
+COPY --from=build-env /app/out .
+ENTRYPOINT ["dotnet", "Caracal.Web.Nova.Application.dll"]

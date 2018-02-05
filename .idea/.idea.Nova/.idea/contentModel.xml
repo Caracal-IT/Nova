@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="Caracal.Web.Nova.Application" t="IncludeRecursive">
+        <e p=".dockerignore" t="Include" />
+        <e p=".gitignore" t="Include" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Caracal.Web.Nova.Application.csproj" t="IncludeRecursive" />
+        <e p="ClientApp" t="Include">
+          <e p="app" t="Include">
+            <e p="app.module.browser.ts" t="Include" />
+            <e p="app.module.server.ts" t="Include" />
+            <e p="app.module.shared.ts" t="Include" />
+            <e p="components" t="Include">
+              <e p="app" t="Include">
+                <e p="app.component.css" t="Include" />
+                <e p="app.component.html" t="Include" />
+                <e p="app.component.ts" t="Include" />
+              </e>
+              <e p="fetchdata" t="Include">
+                <e p="fetchdata.component.html" t="Include" />
+                <e p="fetchdata.component.ts" t="Include" />
+              </e>
+              <e p="home" t="Include">
+                <e p="home.component.html" t="Include" />
+                <e p="home.component.ts" t="Include" />
+              </e>
+              <e p="navmenu" t="Include">
+                <e p="navmenu.component.css" t="Include" />
+                <e p="navmenu.component.html" t="Include" />
+                <e p="navmenu.component.ts" t="Include" />
+              </e>
+            </e>
+            <e p="services" t="Include">
+              <e p="app.error-handler.ts" t="Include" />
+              <e p="notifications.service.ts" t="Include" />
+            </e>
+          </e>
+          <e p="boot.browser.ts" t="Include" />
+          <e p="boot.server.ts" t="Include" />
+          <e p="dist" t="Include">
+            <e p="89889688147bd7575d6327160d64e760.svg" t="Include" />
+            <e p="main-server.js" t="Include" />
+            <e p="vendor.js" t="Include" />
+          </e>
+          <e p="Nova" t="Include">
+            <e p="components" t="Include">
+              <e p="nova-input" t="Include">
+                <e p="nova-input.component.ts" t="Include" />
+              </e>
+            </e>
+            <e p="nova.module.ts" t="Include" />
+          </e>
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="HomeController.cs" t="Include" />
+          <e p="Resources" t="Include" />
+          <e p="SampleDataController.cs" t="Include" />
+          <e p="StateMachineController.cs" t="Include" />
+        </e>
+        <e p="core" t="Include">
+          <e p="Models" t="Include" />
+          <e p="Persistance" t="Include" />
+          <e p="Repositories" t="Include">
+            <e p="FileStateMachineRepository.cs" t="Include" />
+            <e p="StateMachineRepository.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Dockerfile" t="Include" />
+        <e p="Dockerfile - Copy2" t="Include" />
+        <e p="npm-shrinkwrap.json" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.0" t="Include">
+              <e p="Caracal.Web.Nova.Application.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="package.json" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Startup.cs" t="Include" />
+        <e p="tsconfig.json" t="Include" />
+        <e p="Views" t="Include">
+          <e p="_ViewImports.cshtml" t="Include" />
+          <e p="_ViewStart.cshtml" t="Include" />
+          <e p="home" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Shared" t="Include">
+            <e p="_Layout.cshtml" t="Include" />
+            <e p="Error.cshtml" t="Include" />
+          </e>
+        </e>
+        <e p="webpack.config.js" t="Include" />
+        <e p="webpack.config.vendor.js" t="Include" />
+        <e p="wwwroot" t="Include">
+          <e p="assets" t="Include">
+            <e p="i18n" t="Include">
+              <e p="af.json" t="Include" />
+              <e p="en.json" t="Include" />
+              <e p="it.json" t="Include" />
+            </e>
+          </e>
+          <e p="dist" t="Include">
+            <e p="main-client.js" t="Include" />
+            <e p="main-client.js.map" t="Include" />
+            <e p="vendor-manifest.json" t="Include" />
+            <e p="vendor.css" t="Include" />
+            <e p="vendor.js" t="Include" />
+          </e>
+          <e p="favicon.ico" t="Include" />
+          <e p="workflows" t="Include">
+            <e p="demo.json" t="Include" />
+            <e p="demo2.json" t="Include" />
+            <e p="demo77.json" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Nova.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2017.3/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_Nova.-493384392.00" t="ExcludeRecursive" />
+  </component>
+</project>

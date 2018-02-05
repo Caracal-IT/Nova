@@ -1,0 +1,30 @@
+﻿{
+  "SiteName": "Poseidon",
+  "WelcomeMessage": "Benvenuti a Poseidone",
+  "Home" : "Casa",
+  "Edit" : "Modifica",
+  "EnterValue" : "Per favore inserisci un valore",
+  "Wait" : "Aspettare",
+  "Workflow": "Flusso di lavoro",
+  "Loading" : "Caricamento in corso ....",
+  "Vehicle": {
+    "Menu": "Veicolo",
+    "Plural": "Veicoli",
+    "Make": "Produrre",
+    "MakeHelpText": "Inserisci la marca, Ford, BMW, ecc.",
+    "Model": "Modello",
+    "Info": "Inserisci i dettagli del veicolo",
+    "Header": "Veicolo - {{make}} [{{model}}]",
+    "Name": "Veicolo",
+    "SaveMessage": "Il veicolo è stato salvato!",
+    "NextButton": "Il prossimo",
+    "Saved" : {
+      "Title" : "Salvato",
+      "Message" : "Il veicolo è stato salvato!"
+    }
+  },
+  "Errors" : {
+    "Title": "Errore",
+    "General": "Si è verificato un errore imprevisto."
+  }
+}

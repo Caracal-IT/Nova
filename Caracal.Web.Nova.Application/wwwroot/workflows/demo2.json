@@ -1,0 +1,86 @@
+{
+  "name": "demo2",
+  "activities": [
+    {
+      "form": {
+        "controls": [
+          {
+            "type": "header",
+            "label": "Weather Forcast",
+            "name": "header",
+            "placeholder": null,
+            "validation": null
+          },
+          {
+            "type": "input",
+            "label": "City",
+            "name": "City",
+            "placeholder": "EnterValue",
+            "validation": ""
+          },
+          {
+            "type": "input",
+            "label": "Tempreture",
+            "name": "tempreture",
+            "placeholder": "Please enter the tempreture",
+            "validation": ""
+          },
+          {
+            "type": "button",
+            "label": "Next Activity",
+            "name": "nextActivity",
+            "style": "btn btn-outline-danger",
+            "nextActivity": "nextActivity"
+          },
+          {
+            "type": "button",
+            "label": "Vehicle.Name",
+            "name": "alertActivity",
+            "style": "btn btn-outline-info",
+            "nextActivity": "alertActivity"
+          }
+        ]
+      },
+      "name": "start",
+      "type": "FormActivity"
+    },
+    {
+      "code": "\n            \tclass Activity {\n                   \n            \t\tconstructor(model, params, workflowService, notificationsService){\n            \t\t\tthis.model = model;\n            \t\t\tthis.params = params;\n            \t\t\tthis.wf = workflowService;\n            \t\t\tthis.notificationsService=notificationsService;\n            \t\t}\n            \t\t\n            \t\texecute() {\n            \t\t\tthis.notificationsService.success('Vehicle.Saved.Title', 'Vehicle.Saved.Message');\n            \t\t\tthis.wf.next('nextActivity');\n            \t\t}\n        \t\t}",
+      "name": "alertActivity",
+      "type": "CodeActivity"
+    },
+    {
+      "form": {
+        "controls": [
+          {
+            "type": "header",
+            "label": "Next Activity",
+            "name": "header"
+          },
+          {
+            "type": "button",
+            "label": "Weather Forcast",
+            "name": "weatherForcast",
+            "style": "btn btn-outline-primary",
+            "nextActivity": "start"
+          }
+        ]
+      },
+      "name": "nextActivity",
+      "type": "FormActivity"
+    },
+    {
+      "form": {
+        "controls": [
+          {
+            "type": "header",
+            "label": "Errors.Title",
+            "name": "header"
+          }
+        ]
+      },
+      "name": "error",
+      "type": "FormActivity"
+    }
+  ]
+}

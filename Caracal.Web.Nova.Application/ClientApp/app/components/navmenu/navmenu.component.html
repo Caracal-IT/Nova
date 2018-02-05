@@ -1,0 +1,36 @@
+<div class='main-nav bg-dark'>
+
+    <nav class="navbar navbar-toggleable navbar-dark bg-dark">
+        <a class="navbar-brand" [routerLink]="['/home']">Nova Workflow</a>
+        <div class="navbar-header">
+            <button class="navbar-toggler-right bg-dark" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+       </div>
+        
+        <div class='navbar-collapse collapse'>
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <hr style="background-color: hotpink; height: 1px; border: 0;"/>
+                </li>
+                <li class="nav-item">
+                    <a class="badge badge-pill" [ngClass]="{'badge-danger': language!='af','badge-success': language=='af'}" style='color:white;cursor: pointer' (click)="changeLanguage('af')">Afrikaans</a>
+                    <a class="badge badge-pill" [ngClass]="{'badge-danger': language!='en','badge-success': language=='en'}" style='color:white;cursor: pointer' (click)="changeLanguage('en')">English</a>
+                    <a class="badge badge-pill" [ngClass]="{'badge-danger': language!='it','badge-success': language=='it'}" style='color:white;cursor: pointer' (click)="changeLanguage('it')">Italiano</a>
+                </li>
+                <li class="nav-item">
+                    <hr style="background-color: hotpink; height: 1px; border: 0;"/>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/home']">Home</a>
+                </li>               
+                <li class="nav-item">
+                    <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/fetch-data']">Fetch data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/demo']">Demo</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

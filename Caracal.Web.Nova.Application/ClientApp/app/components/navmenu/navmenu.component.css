@@ -1,0 +1,30 @@
+
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    
+}
+
+.navbar-collapse {
+    border-top: 1px solid #444;
+}
+
+@media (min-width: 768px) {
+    .main-nav {
+        height: 100%;
+        width: calc(25% - 20px);
+    }
+    
+    .navbar-collapse {
+        border-top: 0;
+        padding: 0px;
+        display: block;
+    }
+
+    .navbar-header {
+        display: none;
+    }
+}
