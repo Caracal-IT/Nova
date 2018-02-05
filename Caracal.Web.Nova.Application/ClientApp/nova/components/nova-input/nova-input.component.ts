@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'nova-input',
-  template: `
+    selector: 'nova-input',
+    template: `
       <div class="form-group">
         <label [for]="config.name">{{config.label|translate}}</label>
         <input
@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
   `
 })
 export class NovaInputComponent {
-  config: any;
-  model: any;
-  wf: any;
+    config: any;
+    model: any;
+    wf: any;
 }

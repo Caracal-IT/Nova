@@ -8,18 +8,17 @@ import {NovaTranslationsService} from "nova-forms";
 })
 export class NavMenuComponent implements OnInit {
     language = "en";
-    
-    constructor(
-        private translate: NovaTranslationsService
-    ) { }
-    
-    ngOnInit(){
+
+    constructor(private translate: NovaTranslationsService) {
+    }
+
+    ngOnInit() {
         this.language = this.translate.currentLang;
     }
 
-    changeLanguage(lang: string){
+    changeLanguage(lang: string) {
         this.translate.use(lang);
-        
+
         this.language = lang;
     }
 }
