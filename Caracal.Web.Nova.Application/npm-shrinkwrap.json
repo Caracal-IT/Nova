@@ -5862,9 +5862,9 @@
       }
     },
     "nova-paper": {
-      "version": "0.0.2",
-      "resolved": "https://registry.npmjs.org/nova-paper/-/nova-paper-0.0.2.tgz",
-      "integrity": "sha512-zmKyyCEXcRww/O3EO6N+dUPqbqHzwD0S9RaZnNFZ1qBhvR5V1kNK92UWq9YbTWyY+wL5iIIZYV9rmLr+Zgmiow==",
+      "version": "1.0.3",
+      "resolved": "https://registry.npmjs.org/nova-paper/-/nova-paper-1.0.3.tgz",
+      "integrity": "sha512-GU/Z8hXUGty019zELM/+PdlEYjr+Y0x4P0dMOj/EyEnNFxZzV4WjgGfh2JS1fHboh1yRL4bPaVBVSG8mQ+xBHg==",
       "requires": {
         "@angular/animations": "5.2.3",
         "@angular/common": "5.2.3",
@@ -5876,6 +5876,7 @@
         "@angular/platform-browser-dynamic": "5.2.3",
         "@angular/router": "5.2.3",
         "core-js": "2.5.3",
+        "ng2-translate": "5.0.0",
         "rxjs": "5.5.6",
         "tslib": "1.9.0",
         "zone.js": "0.8.20"

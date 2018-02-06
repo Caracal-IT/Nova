@@ -50,7 +50,7 @@ import {MagicInputComponent} from "./components/magic-input/nova-input.component
         NovaModule,
         ToastyModule.forRoot(),
         TranslateModule.forRoot({
-            provide: TranslateLoader, // './assets/i18n'   ./api/localize
+            provide: TranslateLoader,
             useFactory: ((http: Http) => new TranslateStaticLoader(http, './assets/i18n', '.json')),
             deps: [Http]
         }),
