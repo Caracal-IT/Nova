@@ -44,7 +44,7 @@
     "ng2-translate": "^5.0.0",
     "nova-forms": "^0.0.4",
     "nova-paper": "^0.0.2",
-    "nova-workflow": "^0.0.0",
+    "nova-workflow": "^0.1.0",
     "popper.js": "^1.12.9",
     "preboot": "4.5.2",
     "reflect-metadata": "0.1.12",
