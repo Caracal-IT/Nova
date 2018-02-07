@@ -19,7 +19,7 @@
             "validation": ""
           },
           {
-            "type": "input",
+            "type": "nova-input",
             "label": "Tempreture",
             "name": "tempreture",
             "placeholder": "Please enter the tempreture",
@@ -45,7 +45,7 @@
       "type": "FormActivity"
     },
     {
-      "code": "\n            \tclass Activity {\n                   \n            \t\tconstructor(model, params, workflowService, notificationsService){\n            \t\t\tthis.model = model;\n            \t\t\tthis.params = params;\n            \t\t\tthis.wf = workflowService;\n            \t\t\tthis.notificationsService=notificationsService;\n            \t\t}\n            \t\t\n            \t\texecute() {\n            \t\t\tthis.notificationsService.success('Vehicle.Saved.Title', 'Vehicle.Saved.Message');\n            \t\t\tthis.wf.next('nextActivity');\n            \t\t}\n        \t\t}",
+      "code": "\n            \tclass Activity {                   \n            \t\tconstructor(model, params, workflowService, notificationsService){\n            \t\t\tthis.model = model;\n            \t\t\tthis.params = params;\n            \t\t\tthis.wf = workflowService;\n            \t\t\tthis.notificationsService=notificationsService;\n            \t\t}\n            \t\t\n            \t\texecute() {\n            \t\t\tthis.notificationsService.success('Vehicle.Saved.Title', 'Vehicle.Saved.Message');\n            \t\t\tthis.wf.next('nextActivity');\n            \t\t}\n        \t\t}",
       "name": "alertActivity",
       "type": "CodeActivity"
     },
@@ -63,11 +63,85 @@
             "name": "weatherForcast",
             "style": "btn btn-outline-primary",
             "nextActivity": "start"
+          },
+          {
+            "type": "button",
+            "label": "Form Activity",
+            "name": "formActivity",
+            "style": "btn btn-outline-info",
+            "nextActivity": "form-activity"
           }
         ]
       },
       "name": "nextActivity",
       "type": "FormActivity"
+    },
+    {
+      "form": {
+        "controls": [
+          {
+            "type": "header",
+            "label": "Form View",
+            "name": "header"
+          },
+          {
+            "type": "input",
+            "label": "Name Label",
+            "name": "name",
+            "placeholder": "Please enter your name",
+            "validation": ""
+          },
+          {
+            "type": "magic-input",
+            "label": "Middlename Label",
+            "name": "middleName",
+            "placeholder": "Please enter your middle name",
+            "validation": ""
+          },
+          {
+            "type": "input",
+            "label": "Surname Label",
+            "name": "surname",
+            "placeholder": "Please enter your surname",
+            "validation": ""
+          },
+          {
+            "type": "paper-password",
+            "label": "Password Label",
+            "name": "password",
+            "placeholder": "Please enter your password",
+            "validation": ""
+          },
+          {
+            "type": "button",
+            "label": "Weather Forcast",
+            "name": "weatherForcast",
+            "style": "btn btn-outline-success",
+            "nextActivity": "start"
+          },
+          {
+            "type": "button",
+            "label": "Next",
+            "name": "nextActivity",
+            "style": "btn btn-outline-danger",
+            "nextActivity": "nextActivity"
+          },
+          {
+            "type": "button",
+            "label": "Workflow",
+            "name": "nextActivity",
+            "style": "btn btn-outline-info",
+            "nextActivity": "alertActivity2"
+          }
+        ]
+      },
+      "name": "form-activity",
+      "type": "FormActivity"
+    },
+    {
+      "code": "\n            \tclass Activity {\n            \t\tconstructor(model, params, workflowService, notificationsService){\n            \t\t\tthis.model = model;\n            \t\t\tthis.params = params;\n            \t\t\tthis.wf = workflowService;\n            \t\t\tthis.notificationsService=notificationsService;\n            \t\t}\n            \t\t\n            \t\texecute() {\n            \t\t\tvar el = document.querySelector('#name');\n            \t\t\tel.style.backgroundColor = '#'+ Math.random().toString(16).substr(-6);\n            \t\t\tel.style.color = '#'+ Math.random().toString(16).substr(-6);\n            \t\t\tel.value = el.style.backgroundColor;\n            \t\t\t\n            \t\t\tvar el2 = document.querySelector('label[for=name]');\n            \t\t\tel2.style.fontWeight = 900;\n            \t\t\tel2.style.color = '#'+Math.random().toString(16).substr(-6);\n            \t\t\t\n            \t\t\tthis.model.surname = 'Mare ' + (Math.floor(Math.random() * 100) + 1);\n            \t\t}\n            \t}",
+      "name": "alertActivity2",
+      "type": "CodeActivity"
     },
     {
       "form": {

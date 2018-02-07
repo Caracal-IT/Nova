@@ -63,6 +63,10 @@ export class ToastyNotificationsService {
             }), err => console.log(err));
     }
 
+    cancelWait(){
+        this.clearAll();
+    }
+    
     clearAll() {
         this.toastyService.clearAll();
     }

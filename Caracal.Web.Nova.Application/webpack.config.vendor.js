@@ -19,7 +19,7 @@ const nonTreeShakableModules = [
     'ng2-toasty/bundles/style-bootstrap.css',
     'ng2-translate',
     'nova-forms',
-    
+    'nova-paper',
     'nova-workflow',
     'angular2-template-loader',
     'bootstrap',
