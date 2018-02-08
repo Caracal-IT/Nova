@@ -3,7 +3,6 @@ import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs/Subscription";
 import {ToastyNotificationsService} from "../../services/notifications.service";
 import {WorkflowModule} from 'nova-workflow';
-import {NovaTranslationsService} from "nova-forms";
 import {TranslateService} from "ng2-translate";
 
 @Component({

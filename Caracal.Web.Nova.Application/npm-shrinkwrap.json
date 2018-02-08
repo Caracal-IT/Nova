@@ -5842,9 +5842,8 @@
       }
     },
     "nova-forms": {
-      "version": "1.0.0",
-      "resolved": "https://registry.npmjs.org/nova-forms/-/nova-forms-1.0.0.tgz",
-      "integrity": "sha512-k2q+EYipA9EfmL3Itu38lmAfRf8hBL4uwbn0/JqGMSMbhX+hl7mPEwdMU72MS1icIrtnUIEgnEzxdEqAT7EetA==",
+      "version": "file:../../Angular/Packages/nova-forms-1.0.1.tgz",
+      "integrity": "sha512-nI+BrQokhInVlGhKuxw1dotwfaJgziSc7997J1OPjy2jHc02s3Tqw40DHwQvaD3AvIM3Lc7zKarqlmMo25WFgw==",
       "requires": {
         "@angular/animations": "5.2.4",
         "@angular/common": "5.2.4",

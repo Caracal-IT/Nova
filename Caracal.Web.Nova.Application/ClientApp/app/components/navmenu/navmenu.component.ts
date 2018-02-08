@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {NovaTranslationsService} from "nova-forms";
 import {TranslateService} from "ng2-translate";
 
 @Component({

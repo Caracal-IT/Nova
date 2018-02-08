@@ -18,4 +18,5 @@ export class MagicInputComponent {
     config: any;
     model: any;
     wf: any;
+    testModel="testing{{middleName}}"
 }
