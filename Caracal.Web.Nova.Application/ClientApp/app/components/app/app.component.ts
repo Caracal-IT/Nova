@@ -4,6 +4,7 @@ import {Subscription} from "rxjs/Subscription";
 import {ToastyNotificationsService} from "../../services/notifications.service";
 import {WorkflowModule} from 'nova-workflow';
 import {NovaTranslationsService} from "nova-forms";
+import {TranslateService} from "ng2-translate";
 
 @Component({
     selector: 'app',
@@ -18,12 +19,12 @@ export class AppComponent {
 
     constructor(public elementRef: ElementRef,
                 private notificationsService: ToastyNotificationsService,
-                private translate: NovaTranslationsService,
+                private translate: TranslateService,
                 private activatedRoute: ActivatedRoute) {
 
         let native = this.elementRef.nativeElement;
         let parameters = native.getAttribute("parameters");
-
+        
         if (parameters) {
             this.params = JSON.parse(parameters);
 
@@ -38,7 +39,7 @@ export class AppComponent {
     ngOnInit() {
         this.translate.addLangs(["en", "af", "it"]);
         this.translate.setDefaultLang('en');
-
+        
         let browserLang = this.translate.getBrowserLang();
         this.translate.use(browserLang.match(/en|af|it/) ? browserLang : 'en');
 
@@ -57,5 +58,4 @@ export class AppComponent {
         if (this.subscription)
             this.subscription.unsubscribe();
     }
-
 }

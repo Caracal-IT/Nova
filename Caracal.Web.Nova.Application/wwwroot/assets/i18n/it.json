@@ -1,7 +1,7 @@
 ﻿{
   "SiteName": "Poseidon",
   "WelcomeMessage": "Benvenuti a Poseidone",
-  "Home" : "Casa",
+  "Home" : "Casa{{City}}",
   "Edit" : "Modifica",
   "EnterValue" : "Per favore inserisci un valore",
   "Wait" : "Aspettare",

@@ -1,7 +1,7 @@
 ﻿{
   "SiteName": "Poseidon",
   "WelcomeMessage": "Welkom by Poseidon",
-  "Home": "Tuis",
+  "Home": "Tuis{{City}}",
   "Edit" : "Wysig",
   "EnterValue" : "Voer asseblief 'n waarde in",
   "Workflow": "Werkvloei",

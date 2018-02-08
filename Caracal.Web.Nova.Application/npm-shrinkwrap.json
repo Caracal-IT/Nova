@@ -5,33 +5,33 @@
   "requires": true,
   "dependencies": {
     "@angular/animations": {
-      "version": "5.2.3",
-      "resolved": "https://registry.npmjs.org/@angular/animations/-/animations-5.2.3.tgz",
-      "integrity": "sha512-K9rOsRGwt7Zmp/rNdvBmgBKqvEdgCyZF0kvwxrmZfq1Zj0GAkfTAKPL007493O6XFd+icfu/+kmYeqXBGB4gKA==",
+      "version": "5.2.4",
+      "resolved": "https://registry.npmjs.org/@angular/animations/-/animations-5.2.4.tgz",
+      "integrity": "sha512-kLOUORV/2GdYsNSwmUsB3eEL+nAoBZYKgibYLkVy6oecrIbdFMWiNzLcFjX/avcMnb1UNMk24Hd7Of4C2UawPA==",
       "requires": {
         "tslib": "1.9.0"
       }
     },
     "@angular/common": {
-      "version": "5.2.3",
-      "resolved": "https://registry.npmjs.org/@angular/common/-/common-5.2.3.tgz",
-      "integrity": "sha512-RwQ/IjmpDdMecTz/wwQlKpHgF4Crr8kyqV9FJ+c+cHR8Riqlu2DOXSU7LIfDdGoo6Mpixdxd1rtHYfs7l9YBSA==",
+      "version": "5.2.4",
+      "resolved": "https://registry.npmjs.org/@angular/common/-/common-5.2.4.tgz",
+      "integrity": "sha512-PNtg7lzCBUgYo5Rj+/j11EVKhLfrUkkh81ecBwexk6VcDJebmvBO1HdGppV5UPzEH/StL1mTwLc95dOI0hHSJA==",
       "requires": {
         "tslib": "1.9.0"
       }
     },
     "@angular/compiler": {
-      "version": "5.2.3",
-      "resolved": "https://registry.npmjs.org/@angular/compiler/-/compiler-5.2.3.tgz",
-      "integrity": "sha512-OynSzUdEHwajQMoV2JuYq5IdiR2dlTCTAHhTLzrym85wOihvTvovEQwVhYYHyKERu85JIoaF1sXA42KIjMGfkw==",
+      "version": "5.2.4",
+      "resolved": "https://registry.npmjs.org/@angular/compiler/-/compiler-5.2.4.tgz",
+      "integrity": "sha512-KFaGcm/5OKJRxXIxrS53IYPtqta9u2xLLedrWspxIvI59ImfzeZGnLGPhfrI0pbK7wY0rJ5YdGYQnzq33dh01A==",
       "requires": {
         "tslib": "1.9.0"
       }
     },
     "@angular/compiler-cli": {
-      "version": "5.2.3",
-      "resolved": "https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-5.2.3.tgz",
-      "integrity": "sha512-uoCxeyQSd8R/cwEbd0FIUXjnbPq0HXEsyu3WSu9Ek2jt52HL+x/gZQdFCRtjW/mvQNOqxrgrTtEkhJ398+VkXg==",
+      "version": "5.2.4",
+      "resolved": "https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-5.2.4.tgz",
+      "integrity": "sha512-nODdd7EuGzk1ME5UzpVa/lN1oKNypRt2oZoNYOkgNO2TQWD1jqOcozruit1eOEFHQhXO2JvPTzlt1dd6viHSCQ==",
       "requires": {
         "chokidar": "1.7.0",
         "minimist": "1.2.0",
@@ -47,49 +47,49 @@
       }
     },
     "@angular/core": {
-      "version": "5.2.3",
-      "resolved": "https://registry.npmjs.org/@angular/core/-/core-5.2.3.tgz",
-      "integrity": "sha512-tL9O8KA6KGjnlxqjuTytpC2OeKbxe/yHev0kmwo5CK0lDZU4UFetcItAzUXU1dyRuILTcBkbnFt9+nr1SZs/cQ==",
+      "version": "5.2.4",
+      "resolved": "https://registry.npmjs.org/@angular/core/-/core-5.2.4.tgz",
+      "integrity": "sha512-GPnxUf7g8Mz0AUttKKcqaw0m2xZujwwzojkg3xUIvHrNFFF5/HH5549PfnE1jD7qkmnDFx5j3IPuNkwYHW6XvA==",
       "requires": {
         "tslib": "1.9.0"
       }
     },
     "@angular/forms": {
-      "version": "5.2.3",
-      "resolved": "https://registry.npmjs.org/@angular/forms/-/forms-5.2.3.tgz",
-      "integrity": "sha512-PsMGbj/Slvsxxyl61QSSSFDCGHN1XK6kNxVQTVmAlVhP1LlaYqBOIgQy4K9CYWUeHqU/YCdhVaFb5quzZLtPYA==",
+      "version": "5.2.4",
+      "resolved": "https://registry.npmjs.org/@angular/forms/-/forms-5.2.4.tgz",
+      "integrity": "sha512-0k6rs2k85wcBq0WPAjxNbtBu1wq/1fUSFaBLbpnrwwHeCLJI5aAjG2/f3jv/17a/ek7/WZ3lxXtHzNMMdaD/Iw==",
       "requires": {
         "tslib": "1.9.0"
       }
     },
     "@angular/http": {
-      "version": "5.2.3",
-      "resolved": "https://registry.npmjs.org/@angular/http/-/http-5.2.3.tgz",
-      "integrity": "sha512-3kAj7YYws8J2zRu46fEXk6lYrgSK9s5YA6O4REZkLox/suK0wb6TsDIIhoMzScGctSzZESVyuWsvYMrDYCflPA==",
+      "version": "5.2.4",
+      "resolved": "https://registry.npmjs.org/@angular/http/-/http-5.2.4.tgz",
+      "integrity": "sha512-WjZTNqHw9cT/mIRenIGKKlJRdm9ZdDl7IqnX+OnAdO/c6hmoQwy9fkSLRLmcXw4FBM+ASfjWu4ybodaZ8Tv6xQ==",
       "requires": {
         "tslib": "1.9.0"
       }
     },
     "@angular/platform-browser": {
-      "version": "5.2.3",
-      "resolved": "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-5.2.3.tgz",
-      "integrity": "sha512-60LgA4KK3BufBR7vwwcn3zTYuLlfDG3jFip7bvdgsDpURrUB0j6/pL5cbGElww4jnnxZ72uJzJRzSiGEofjc3g==",
+      "version": "5.2.4",
+      "resolved": "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-5.2.4.tgz",
+      "integrity": "sha512-chv6h2aHQ/QoVA4Y6rpPpSju7vyLg/iMh516GxpGYVk6bHEdrH9pHJPulPcrt/LTd7lMAAHE3YmvYWVU6aDsaQ==",
       "requires": {
         "tslib": "1.9.0"
       }
     },
     "@angular/platform-browser-dynamic": {
-      "version": "5.2.3",
-      "resolved": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-5.2.3.tgz",
-      "integrity": "sha512-PheS+KJQJiyvQg1lr+eX0/1b/rjLnDjgI1qvzwikrvGYymb2JdZ+rjllHBs1iotzQ+tG+hRnlktvgdFN134x/g==",
+      "version": "5.2.4",
+      "resolved": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-5.2.4.tgz",
+      "integrity": "sha512-B3pv6FUTWA1daDYhx6b77FCFCzHQPuCyrsJQwMSSu6Xt+CYn2gc3dS0ph3B6cV6mnt1qIbEpML+Vp5Bi9x0Mkw==",
       "requires": {
         "tslib": "1.9.0"
       }
     },
     "@angular/platform-server": {
-      "version": "5.2.3",
-      "resolved": "https://registry.npmjs.org/@angular/platform-server/-/platform-server-5.2.3.tgz",
-      "integrity": "sha512-rFeKYyHO2JSH2RfVHCX/hYFEsaGhwLbYdPbI2UV62ZNSMdeaFXCgXx7RUXVlLeVSG210G3+sZIvHea8bBwx7Dg==",
+      "version": "5.2.4",
+      "resolved": "https://registry.npmjs.org/@angular/platform-server/-/platform-server-5.2.4.tgz",
+      "integrity": "sha512-SxepfNo5pfo/fyYQMDXXxzSp6ssdoejN2n+2IGGeJ+v92ZnZ/f2QCVgeQLnUaWu3xlziaFrg8eyqd09iCfIzYg==",
       "requires": {
         "domino": "1.0.30",
         "tslib": "1.9.0",
@@ -97,9 +97,9 @@
       }
     },
     "@angular/router": {
-      "version": "5.2.3",
-      "resolved": "https://registry.npmjs.org/@angular/router/-/router-5.2.3.tgz",
-      "integrity": "sha512-XVEpwNZta76FYas1gZSSGvkQoiGgQjvXfab6CwOh958d4c0C+9pJsykqsv6X/n8TSTShQt7wjs/vp/copXeuoA==",
+      "version": "5.2.4",
+      "resolved": "https://registry.npmjs.org/@angular/router/-/router-5.2.4.tgz",
+      "integrity": "sha512-sg3iCThhbfv/6zARdKbHNLc7Xe1Rt1deit55b3K+WlrHX7GhsuJPLcitrNaADIcgDKbNT9XrwBaNirAEip9hxA==",
       "requires": {
         "tslib": "1.9.0"
       }
@@ -5842,19 +5842,19 @@
       }
     },
     "nova-forms": {
-      "version": "0.0.4",
-      "resolved": "https://registry.npmjs.org/nova-forms/-/nova-forms-0.0.4.tgz",
-      "integrity": "sha512-geZ1VoeTSZ3rvFNa3fPBqaqekGpbBQQX+8MmduTwwnZkbH2v02sODIBujtIiedG8KoaXuknvb2H41KZ7P+RTPg==",
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/nova-forms/-/nova-forms-1.0.0.tgz",
+      "integrity": "sha512-k2q+EYipA9EfmL3Itu38lmAfRf8hBL4uwbn0/JqGMSMbhX+hl7mPEwdMU72MS1icIrtnUIEgnEzxdEqAT7EetA==",
       "requires": {
-        "@angular/animations": "5.2.3",
-        "@angular/common": "5.2.3",
-        "@angular/compiler": "5.2.3",
-        "@angular/core": "5.2.3",
-        "@angular/forms": "5.2.3",
-        "@angular/http": "5.2.3",
-        "@angular/platform-browser": "5.2.3",
-        "@angular/platform-browser-dynamic": "5.2.3",
-        "@angular/router": "5.2.3",
+        "@angular/animations": "5.2.4",
+        "@angular/common": "5.2.4",
+        "@angular/compiler": "5.2.4",
+        "@angular/core": "5.2.4",
+        "@angular/forms": "5.2.4",
+        "@angular/http": "5.2.4",
+        "@angular/platform-browser": "5.2.4",
+        "@angular/platform-browser-dynamic": "5.2.4",
+        "@angular/router": "5.2.4",
         "core-js": "2.5.3",
         "ng2-translate": "5.0.0",
         "rxjs": "5.5.6",
@@ -5862,19 +5862,19 @@
       }
     },
     "nova-paper": {
-      "version": "1.0.3",
-      "resolved": "https://registry.npmjs.org/nova-paper/-/nova-paper-1.0.3.tgz",
-      "integrity": "sha512-GU/Z8hXUGty019zELM/+PdlEYjr+Y0x4P0dMOj/EyEnNFxZzV4WjgGfh2JS1fHboh1yRL4bPaVBVSG8mQ+xBHg==",
+      "version": "1.1.7",
+      "resolved": "https://registry.npmjs.org/nova-paper/-/nova-paper-1.1.7.tgz",
+      "integrity": "sha512-1fmBp7q+ovcXRSzLx1FBblVJmXj6ebKGl9k9G9gbTtSqxiI+rInq8GB9P8ooqOXaSMTtb06T2x34Ox53j/+I+w==",
       "requires": {
-        "@angular/animations": "5.2.3",
-        "@angular/common": "5.2.3",
-        "@angular/compiler": "5.2.3",
-        "@angular/core": "5.2.3",
-        "@angular/forms": "5.2.3",
-        "@angular/http": "5.2.3",
-        "@angular/platform-browser": "5.2.3",
-        "@angular/platform-browser-dynamic": "5.2.3",
-        "@angular/router": "5.2.3",
+        "@angular/animations": "5.2.4",
+        "@angular/common": "5.2.4",
+        "@angular/compiler": "5.2.4",
+        "@angular/core": "5.2.4",
+        "@angular/forms": "5.2.4",
+        "@angular/http": "5.2.4",
+        "@angular/platform-browser": "5.2.4",
+        "@angular/platform-browser-dynamic": "5.2.4",
+        "@angular/router": "5.2.4",
         "core-js": "2.5.3",
         "ng2-translate": "5.0.0",
         "rxjs": "5.5.6",
@@ -5887,15 +5887,15 @@
       "resolved": "https://registry.npmjs.org/nova-workflow/-/nova-workflow-0.1.40.tgz",
       "integrity": "sha512-E3exkaTfr5OtksbstBkBOaT4wxpqeMTXSfNF3oJJBYw+XcMzGepfm388zOB9eqcFKB2x4iegbnkB3glTSyVtVA==",
       "requires": {
-        "@angular/animations": "5.2.3",
-        "@angular/common": "5.2.3",
-        "@angular/compiler": "5.2.3",
-        "@angular/core": "5.2.3",
-        "@angular/forms": "5.2.3",
-        "@angular/http": "5.2.3",
-        "@angular/platform-browser": "5.2.3",
-        "@angular/platform-browser-dynamic": "5.2.3",
-        "@angular/router": "5.2.3",
+        "@angular/animations": "5.2.4",
+        "@angular/common": "5.2.4",
+        "@angular/compiler": "5.2.4",
+        "@angular/core": "5.2.4",
+        "@angular/forms": "5.2.4",
+        "@angular/http": "5.2.4",
+        "@angular/platform-browser": "5.2.4",
+        "@angular/platform-browser-dynamic": "5.2.4",
+        "@angular/router": "5.2.4",
         "core-js": "2.5.3",
         "rxjs": "5.5.6",
         "zone.js": "0.8.20"

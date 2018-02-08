@@ -45,13 +45,13 @@ import {MagicInputComponent} from "./components/magic-input/nova-input.component
         CommonModule,
         HttpModule,
         FormsModule,
-        DynamicFormModule.forRoot(),
+        DynamicFormModule,
         PaperModule,
         NovaModule,
         ToastyModule.forRoot(),
         TranslateModule.forRoot({
             provide: TranslateLoader,
-            useFactory: ((http: Http) => new TranslateStaticLoader(http, './assets/i18n', '.json')),
+            useFactory: (http: Http) => new TranslateStaticLoader(http, './assets/i18n', '.json'),
             deps: [Http]
         }),
         WorkflowModule.forRoot(
@@ -84,3 +84,5 @@ export class AppModuleShared {
         DynamicFormModule.addModules(components);
     }
 }
+
+

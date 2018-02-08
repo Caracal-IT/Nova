@@ -13,14 +13,14 @@
       "form": {
         "controls": [
           {
-            "type": "header",
+            "type": "paper-header",
             "label": "Weather Forcast",
             "name": "header",
             "placeholder": null,
             "validation": null
           },
           {
-            "type": "input",
+            "type": "paper-input",
             "label": "City",
             "name": "City",
             "placeholder": "EnterValue",
@@ -34,14 +34,14 @@
             "validation": ""
           },
           {
-            "type": "button",
+            "type": "paper-button",
             "label": "Next Activity",
             "name": "nextActivity",
             "style": "btn btn-outline-danger",
             "nextActivity": "nextActivity"
           },
           {
-            "type": "button",
+            "type": "paper-button",
             "label": "Vehicle.Name",
             "name": "alertActivity",
             "style": "btn btn-outline-info",
@@ -61,19 +61,19 @@
       "form": {
         "controls": [
           {
-            "type": "header",
+            "type": "paper-header",
             "label": "Next Activity",
             "name": "header"
           },
           {
-            "type": "button",
+            "type": "paper-button",
             "label": "Weather Forcast",
             "name": "weatherForcast",
             "style": "btn btn-outline-primary",
             "nextActivity": "weather-forcast"
           },
           {
-            "type": "button",
+            "type": "paper-button",
             "label": "Form Activity",
             "name": "formActivity",
             "style": "btn btn-outline-info",
@@ -88,12 +88,12 @@
       "form": {
         "controls": [
           {
-            "type": "header",
+            "type": "paper-header",
             "label": "Form View",
             "name": "header"
           },
           {
-            "type": "input",
+            "type": "paper-input",
             "label": "Name Label",
             "name": "name",
             "placeholder": "Please enter your name",
@@ -107,7 +107,7 @@
             "validation": ""
           },
           {
-            "type": "input",
+            "type": "paper-input",
             "label": "Surname Label",
             "name": "surname",
             "placeholder": "Please enter your surname",
@@ -121,21 +121,21 @@
             "validation": ""
           },
           {
-            "type": "button",
+            "type": "paper-button",
             "label": "Weather Forcast",
             "name": "weatherForcast",
             "style": "btn btn-outline-success",
             "nextActivity": "weather-forcast"
           },
           {
-            "type": "button",
+            "type": "paper-button",
             "label": "Next",
             "name": "nextActivity",
             "style": "btn btn-outline-danger",
             "nextActivity": "nextActivity"
           },
           {
-            "type": "button",
+            "type": "paper-button",
             "label": "Workflow",
             "name": "nextActivity",
             "style": "btn btn-outline-info",
@@ -155,7 +155,7 @@
       "form": {
         "controls": [
           {
-            "type": "header",
+            "type": "paper-header",
             "label": "Errors.Title",
             "name": "header"
           }

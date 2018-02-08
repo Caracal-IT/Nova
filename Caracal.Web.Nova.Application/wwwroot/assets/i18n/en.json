@@ -1,7 +1,7 @@
 ﻿{
   "SiteName": "Poseidon",
   "WelcomeMessage": "Welcome to Poseidon",
-  "Home" : "Home",
+  "Home" : "Home{{City}}",
   "Edit" : "Edit",
   "EnterValue" : "Please enter a value",
   "Workflow": "Workflow",

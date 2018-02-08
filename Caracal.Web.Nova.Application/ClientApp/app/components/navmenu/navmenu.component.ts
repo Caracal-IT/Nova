@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NovaTranslationsService} from "nova-forms";
+import {TranslateService} from "ng2-translate";
 
 @Component({
     selector: 'nav-menu',
@@ -9,7 +10,7 @@ import {NovaTranslationsService} from "nova-forms";
 export class NavMenuComponent implements OnInit {
     language = "en";
 
-    constructor(private translate: NovaTranslationsService) {
+    constructor(private translate: TranslateService) {
     }
 
     ngOnInit() {

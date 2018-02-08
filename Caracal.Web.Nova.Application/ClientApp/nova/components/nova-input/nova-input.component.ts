@@ -4,13 +4,13 @@ import {Component} from '@angular/core';
     selector: 'nova-input',
     template: `
       <div class="form-group">
-        <label [for]="config.name">{{config.label|translate}}</label>
+        <label [for]="config.name">{{config.label|translate:model}}</label>
         <input
           style="background-color: lightpink"           
           class="form-control" 
           [id]="config.name"
           [(ngModel)]="model[config.name]"
-          placeholder="{{config.placeholder|translate}}">
+          placeholder="{{config.placeholder|translate:model}}">
       </div>
   `
 })

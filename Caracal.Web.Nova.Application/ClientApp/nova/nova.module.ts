@@ -9,7 +9,7 @@ import {NovaInputComponent} from "./components/nova-input/nova-input.component";
     imports: [
         CommonModule,
         FormsModule,
-        TranslateModule
+        TranslateModule.forRoot()
     ],
     declarations: [
         NovaInputComponent
