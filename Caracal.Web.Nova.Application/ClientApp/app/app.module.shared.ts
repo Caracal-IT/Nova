@@ -69,6 +69,7 @@ import {MagicInputComponent} from "./components/magic-input/nova-input.component
             {path: 'home', component: HomeComponent},
             {path: 'fetch-data', component: FetchDataComponent},
             {path: ':wf', component: WorkflowComponent},
+            {path: ':wf/:act', component: WorkflowComponent},
             {path: '**', redirectTo: 'home'}
         ])
     ]

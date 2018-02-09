@@ -27,6 +27,13 @@
             "validation": ""
           },
           {
+            "type": "paper-input",
+            "label": "City 2",
+            "name": "City 2",
+            "placeholder": "EnterValue",
+            "validation": ""
+          },
+          {
             "type": "nova-input",
             "label": "Tempreture",
             "name": "tempreture",
@@ -147,7 +154,7 @@
       "type": "FormActivity"
     },
     {
-      "code": "\n            \tclass Activity {\n            \t\tconstructor(model, params, workflowService, notificationsService){\n            \t\t\tthis.model = model;\n            \t\t\tthis.params = params;\n            \t\t\tthis.wf = workflowService;\n            \t\t\tthis.notificationsService=notificationsService;\n            \t\t}\n            \t\t\n            \t\texecute() {\n            \t\t\tvar el = document.querySelector('#name');\n            \t\t\tel.style.backgroundColor = '#'+ Math.random().toString(16).substr(-6);\n            \t\t\tel.style.color = '#'+ Math.random().toString(16).substr(-6);\n            \t\t\tel.value = el.style.backgroundColor;\n            \t\t\t\n            \t\t\tvar el2 = document.querySelector('label[for=name]');\n            \t\t\tel2.style.fontWeight = 900;\n            \t\t\tel2.style.color = '#'+Math.random().toString(16).substr(-6);\n            \t\t\t\n            \t\t\tthis.model.surname = 'Mare ' + (Math.floor(Math.random() * 100) + 1);\n            \t\t}\n            \t}",
+      "code": "\n            \tclass Activity {\n            \t\tconstructor(model, params, workflowService, notificationsService){\n            \t\t\tthis.model = model;\n            \t\t\tthis.params = params;\n            \t\t\tthis.wf = workflowService;\n            \t\t\tthis.notificationsService=notificationsService;\n            \t\t}\n            \t\t\n            \t\texecute() {\n            \t\t\t/*\n            \t\t\tvar el = document.querySelector('#name');\n            \t\t\tel.style.backgroundColor = '#'+ Math.random().toString(16).substr(-6);\n            \t\t\tel.style.color = '#'+ Math.random().toString(16).substr(-6);\n            \t\t\tel.value = el.style.backgroundColor;\n            \t\t\t\n            \t\t\tvar el2 = document.querySelector('label[for=name]');\n            \t\t\tel2.style.fontWeight = 900;\n            \t\t\tel2.style.color = '#'+Math.random().toString(16).substr(-6);\n            \t\t\t\n            \t\t\tthis.model.surname = 'Mare ' + (Math.floor(Math.random() * 100) + 1);\n            \t\t\t*/\n            \t\t\t\n            \t\t\t\n            \t\t\twindow.location = 'http://localhost/demo'\n            \t\t    \n            \t\t}\n            \t}",
       "name": "alertActivity2",
       "type": "CodeActivity"
     },

@@ -5842,8 +5842,9 @@
       }
     },
     "nova-forms": {
-      "version": "file:../../Angular/Packages/nova-forms-1.0.1.tgz",
-      "integrity": "sha512-nI+BrQokhInVlGhKuxw1dotwfaJgziSc7997J1OPjy2jHc02s3Tqw40DHwQvaD3AvIM3Lc7zKarqlmMo25WFgw==",
+      "version": "1.0.2",
+      "resolved": "https://registry.npmjs.org/nova-forms/-/nova-forms-1.0.2.tgz",
+      "integrity": "sha512-BJ08Fkwcc8Hf6L7yNlE9BSjj540sENhMwVi/0VByZXHUqavMOWMlidG9OobR9Z2tRtaenykHKaDP1gYEZ02/pw==",
       "requires": {
         "@angular/animations": "5.2.4",
         "@angular/common": "5.2.4",
@@ -5882,9 +5883,9 @@
       }
     },
     "nova-workflow": {
-      "version": "0.1.40",
-      "resolved": "https://registry.npmjs.org/nova-workflow/-/nova-workflow-0.1.40.tgz",
-      "integrity": "sha512-E3exkaTfr5OtksbstBkBOaT4wxpqeMTXSfNF3oJJBYw+XcMzGepfm388zOB9eqcFKB2x4iegbnkB3glTSyVtVA==",
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/nova-workflow/-/nova-workflow-1.0.0.tgz",
+      "integrity": "sha512-paCjQ5qj5Ei7bufqt7MlggLMmFDJsY5DZ4mkY5yejFlOpeHQFtXQTjPhuINs1314EDu+gxbC6z/fu1cD70i5yg==",
       "requires": {
         "@angular/animations": "5.2.4",
         "@angular/common": "5.2.4",
