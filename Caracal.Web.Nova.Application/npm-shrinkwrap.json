@@ -5883,9 +5883,8 @@
       }
     },
     "nova-workflow": {
-      "version": "1.0.0",
-      "resolved": "https://registry.npmjs.org/nova-workflow/-/nova-workflow-1.0.0.tgz",
-      "integrity": "sha512-paCjQ5qj5Ei7bufqt7MlggLMmFDJsY5DZ4mkY5yejFlOpeHQFtXQTjPhuINs1314EDu+gxbC6z/fu1cD70i5yg==",
+      "version": "file:../../Angular/Packages/nova-workflow-1.1.0.tgz",
+      "integrity": "sha512-3mVWjnkShcLnooVC10Af5hqi24fWrCkuo1eCh2O3PijjdQix1rXf0Xje5AWLNKSJWm6ZzZkQ9abONge0tB+kNg==",
       "requires": {
         "@angular/animations": "5.2.4",
         "@angular/common": "5.2.4",

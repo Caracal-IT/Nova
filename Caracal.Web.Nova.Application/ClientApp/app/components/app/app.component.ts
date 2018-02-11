@@ -19,11 +19,12 @@ export class AppComponent {
     constructor(public elementRef: ElementRef,
                 private notificationsService: ToastyNotificationsService,
                 private translate: TranslateService,
-                private activatedRoute: ActivatedRoute) {
+                private activatedRoute: ActivatedRoute
+    ) {
 
         let native = this.elementRef.nativeElement;
         let parameters = native.getAttribute("parameters");
-        
+
         if (parameters) {
             this.params = JSON.parse(parameters);
 
@@ -34,23 +35,21 @@ export class AppComponent {
                 WorkflowModule.setWorkflowServerUrl(this.params.workflowServer);
         }
     }
-
+    
     ngOnInit() {
         this.translate.addLangs(["en", "af", "it"]);
         this.translate.setDefaultLang('en');
         
         let browserLang = this.translate.getBrowserLang();
         this.translate.use(browserLang.match(/en|af|it/) ? browserLang : 'en');
-
-        this.notificationsService.success('SiteName', 'WelcomeMessage')
-
+        
         this.subscription = this.activatedRoute.queryParams.subscribe(
             (param: any) => {
                 let locale = param['locale'];
 
                 if (locale !== undefined)
                     this.translate.use(locale);
-            });
+            });        
     }
 
     ngOnDestroy() {
