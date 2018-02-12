@@ -44,7 +44,7 @@
     "ng2-translate": "^5.0.0",
     "nova-forms": "^1.0.2",
     "nova-paper": "^1.1.7",
-    "nova-workflow": "file:../../Angular/Packages/nova-workflow-1.1.0.tgz",
+    "nova-workflow": "^1.1.1",
     "popper.js": "^1.12.9",
     "preboot": "4.5.2",
     "reflect-metadata": "0.1.12",
