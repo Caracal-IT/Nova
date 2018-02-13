@@ -1,6 +1,6 @@
 import {ErrorHandler, Inject} from '@angular/core';
 import {ToastyNotificationsService} from "./notifications.service";
-import {AnalyticsService} from "./analytics.service";
+import {AnalyticsService} from "nova-analytics";
 
 export class AppErrorHandler implements ErrorHandler {
     constructor(

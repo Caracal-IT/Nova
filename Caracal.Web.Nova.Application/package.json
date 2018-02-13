@@ -42,6 +42,7 @@
     "json-loader": "0.5.7",
     "ng2-toasty": "^4.0.3",
     "ng2-translate": "^5.0.0",
+    "nova-analytics": "^0.0.4",
     "nova-forms": "^1.0.2",
     "nova-paper": "^1.1.7",
     "nova-workflow": "^1.1.1",
