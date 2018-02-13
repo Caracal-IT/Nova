@@ -105,9 +105,9 @@
       }
     },
     "@ngtools/webpack": {
-      "version": "1.9.7",
-      "resolved": "https://registry.npmjs.org/@ngtools/webpack/-/webpack-1.9.7.tgz",
-      "integrity": "sha512-D5QuaT9wENeM2j9g2qvW9Ls1tGqRz26Lp+jxwb2ZGFep7Ik1fFOX3ROLfgkxNlxZGVmbxJjsfrYUCyGlzj8gWg==",
+      "version": "1.9.8",
+      "resolved": "https://registry.npmjs.org/@ngtools/webpack/-/webpack-1.9.8.tgz",
+      "integrity": "sha512-V4cFDBpWMU11KWod4qW3rJ00dBeBKYxwzD2r2kwDQl5NogVTeBacz2gq6udUfwJ/yMxJTTFdpV7NKsydTb0BoA==",
       "requires": {
         "chalk": "2.2.2",
         "enhanced-resolve": "3.4.1",
@@ -4684,9 +4684,9 @@
       "dev": true
     },
     "jasmine-core": {
-      "version": "2.9.1",
-      "resolved": "https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.9.1.tgz",
-      "integrity": "sha1-trvB2OZSUNVvWIhGFwXr7uuI8i8=",
+      "version": "2.99.1",
+      "resolved": "https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.99.1.tgz",
+      "integrity": "sha1-5kAN8ea1bhMLYcS80JPap/boyhU=",
       "dev": true
     },
     "jquery": {
@@ -5346,7 +5346,7 @@
       "resolved": "https://registry.npmjs.org/mem/-/mem-1.1.0.tgz",
       "integrity": "sha1-Xt1StIXKHZAP5kiVUFOZoN+kX3Y=",
       "requires": {
-        "mimic-fn": "1.1.0"
+        "mimic-fn": "1.2.0"
       }
     },
     "memory-fs": {
@@ -5441,9 +5441,9 @@
       }
     },
     "mimic-fn": {
-      "version": "1.1.0",
-      "resolved": "https://registry.npmjs.org/mimic-fn/-/mimic-fn-1.1.0.tgz",
-      "integrity": "sha1-5md4PZLonb00KBi1IwudYqZyrRg="
+      "version": "1.2.0",
+      "resolved": "https://registry.npmjs.org/mimic-fn/-/mimic-fn-1.2.0.tgz",
+      "integrity": "sha512-jf84uxzwiuiIVKiOLpfYk7N46TSy8ubTonmneY9vrpHNAnp0QBt2BxWV9dO3/j+BoVAb+a5G6YDPW3M5HOdMWQ=="
     },
     "minimalistic-assert": {
       "version": "1.0.0",
@@ -5842,9 +5842,51 @@
       }
     },
     "nova-analytics": {
-      "version": "0.0.4",
-      "resolved": "https://registry.npmjs.org/nova-analytics/-/nova-analytics-0.0.4.tgz",
-      "integrity": "sha512-w3ng7evxYGij7dClSg4ZFVTnX9JeMwxYbl0HiXNEf8dryiXOY90LB+vUnYISh4oPj2Qka42RyhP1i6WoqoIIKw==",
+      "version": "file:../../Angular/Packages/nova-analytics-0.0.5.tgz",
+      "integrity": "sha512-pmnDe/lUcyEQxfuH3bKaOaqn3LwkZAmhgUaL9O7Dvf2IIQtw/w/XlH5QUtkvLn62syWZqKpIdT4l74A/KOfYyg==",
+      "requires": {
+        "@angular/animations": "5.2.4",
+        "@angular/common": "5.2.4",
+        "@angular/compiler": "5.2.4",
+        "@angular/core": "5.2.4",
+        "@angular/forms": "5.2.4",
+        "@angular/http": "5.2.4",
+        "@angular/platform-browser": "5.2.4",
+        "@angular/platform-browser-dynamic": "5.2.4",
+        "@angular/router": "5.2.4",
+        "core-js": "2.5.3",
+        "nova-core-lib": "0.0.6",
+        "rxjs": "5.5.6",
+        "tslib": "1.9.0",
+        "zone.js": "0.8.20"
+      },
+      "dependencies": {
+        "nova-core-lib": {
+          "version": "0.0.6",
+          "resolved": "https://registry.npmjs.org/nova-core-lib/-/nova-core-lib-0.0.6.tgz",
+          "integrity": "sha512-u29L5y9D+/CtZv2Pg9KEx9Nd0eVR0F9BSZteuzx/PS8akdOilpQHA24o5pWcqJkSJiJoF5UBLn5/lY+u3BCJPQ==",
+          "requires": {
+            "@angular/animations": "5.2.4",
+            "@angular/common": "5.2.4",
+            "@angular/compiler": "5.2.4",
+            "@angular/core": "5.2.4",
+            "@angular/forms": "5.2.4",
+            "@angular/http": "5.2.4",
+            "@angular/platform-browser": "5.2.4",
+            "@angular/platform-browser-dynamic": "5.2.4",
+            "@angular/router": "5.2.4",
+            "core-js": "2.5.3",
+            "rxjs": "5.5.6",
+            "tslib": "1.9.0",
+            "zone.js": "0.8.20"
+          }
+        }
+      }
+    },
+    "nova-core-lib": {
+      "version": "0.0.6",
+      "resolved": "https://registry.npmjs.org/nova-core-lib/-/nova-core-lib-0.0.6.tgz",
+      "integrity": "sha512-u29L5y9D+/CtZv2Pg9KEx9Nd0eVR0F9BSZteuzx/PS8akdOilpQHA24o5pWcqJkSJiJoF5UBLn5/lY+u3BCJPQ==",
       "requires": {
         "@angular/animations": "5.2.4",
         "@angular/common": "5.2.4",
@@ -9058,14 +9100,14 @@
       }
     },
     "webpack": {
-      "version": "3.10.0",
-      "resolved": "https://registry.npmjs.org/webpack/-/webpack-3.10.0.tgz",
-      "integrity": "sha512-fxxKXoicjdXNUMY7LIdY89tkJJJ0m1Oo8PQutZ5rLgWbV5QVKI15Cn7+/IHnRTd3vfKfiwBx6SBqlorAuNA8LA==",
+      "version": "3.11.0",
+      "resolved": "https://registry.npmjs.org/webpack/-/webpack-3.11.0.tgz",
+      "integrity": "sha512-3kOFejWqj5ISpJk4Qj/V7w98h9Vl52wak3CLiw/cDOfbVTq7FeoZ0SdoHHY9PYlHr50ZS42OfvzE2vB4nncKQg==",
       "requires": {
         "acorn": "5.3.0",
         "acorn-dynamic-import": "2.0.2",
-        "ajv": "5.5.2",
-        "ajv-keywords": "2.1.1",
+        "ajv": "6.1.1",
+        "ajv-keywords": "3.1.0",
         "async": "2.5.0",
         "enhanced-resolve": "3.4.1",
         "escope": "3.6.0",
@@ -9086,6 +9128,21 @@
         "yargs": "8.0.2"
       },
       "dependencies": {
+        "ajv": {
+          "version": "6.1.1",
+          "resolved": "https://registry.npmjs.org/ajv/-/ajv-6.1.1.tgz",
+          "integrity": "sha1-l41Zf7wrfQ5aXD3esUmmgvKr+g4=",
+          "requires": {
+            "fast-deep-equal": "1.0.0",
+            "fast-json-stable-stringify": "2.0.0",
+            "json-schema-traverse": "0.3.1"
+          }
+        },
+        "ajv-keywords": {
+          "version": "3.1.0",
+          "resolved": "https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-3.1.0.tgz",
+          "integrity": "sha1-rCsnk5xUPpXSwG5/f1wnvkqlQ74="
+        },
         "loader-utils": {
           "version": "1.1.0",
           "resolved": "https://registry.npmjs.org/loader-utils/-/loader-utils-1.1.0.tgz",

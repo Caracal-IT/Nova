@@ -19,7 +19,6 @@
     <Content Remove="ClientApp\**" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ClientApp\app\configs" />
     <Folder Include="Core\Models" />
     <Folder Include="Core\Persistance" />
     <Folder Include="ClientApp\app\services\" />

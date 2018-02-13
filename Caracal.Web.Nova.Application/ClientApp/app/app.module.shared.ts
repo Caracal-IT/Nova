@@ -29,6 +29,7 @@ import {MagicInputComponent} from "./components/magic-input/nova-input.component
 import {AnalyticsModule, AnalyticsService} from "nova-analytics";
 import {EventConfig} from "./config/event.config";
 import {WorkflowEventConfig} from "./config/workflow.event.config";
+import {NovaCoreLibModule, NovaHttpClient} from "nova-core-lib";
 
 @NgModule({
     declarations: [
@@ -52,10 +53,18 @@ import {WorkflowEventConfig} from "./config/workflow.event.config";
         CommonModule,
         HttpModule,
         FormsModule,
+        NovaCoreLibModule.forRoot(),
         DynamicFormModule,
         PaperModule,
         NovaModule,
-        AnalyticsModule.forRoot(),
+        AnalyticsModule.forRoot(
+            {
+                provide: NovaHttpClient,
+                useClass: NovaHttpClient
+            },
+            WorkflowEventConfig,
+            EventConfig
+        ),
         ToastyModule.forRoot(),
         TranslateModule.forRoot({
             provide: TranslateLoader,
@@ -93,6 +102,3 @@ export class AppModuleShared {
         DynamicFormModule.addModules(components);        
     }
 }
-
-AnalyticsService.addEvents(WorkflowEventConfig.getEvents());
-AnalyticsService.addEvents(EventConfig.getEvents());
