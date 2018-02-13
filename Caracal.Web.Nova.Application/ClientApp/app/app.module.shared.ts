@@ -93,7 +93,7 @@ import {NovaCoreLibModule, NovaHttpClient} from "nova-core-lib";
 })
 export class AppModuleShared {
     constructor() {
-        var components = [];
+        let components = [];
         components.push({key: "magic-input", component: MagicInputComponent});
         
         DynamicFormModule.registerComponents();
