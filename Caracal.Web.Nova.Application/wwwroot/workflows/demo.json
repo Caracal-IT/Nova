@@ -14,7 +14,7 @@
         "controls": [
           {
             "type": "paper-header",
-            "label": "Weather Forcast",
+            "label": "Weather Forcast {{City}}",
             "name": "header",
             "placeholder": null,
             "validation": null
@@ -34,9 +34,30 @@
             "validation": ""
           },
           {
+            "type": "paper-input",
+            "label": "Make",
+            "name": "make",
+            "placeholder": "EnterValue",
+            "validation": ""
+          },
+          {
+            "type": "paper-input",
+            "label": "Model",
+            "name": "model",
+            "placeholder": "EnterValue",
+            "validation": ""
+          },
+          {
             "type": "nova-input",
-            "label": "Tempreture",
+            "label": "Vehicle.Header",
             "name": "tempreture",
+            "placeholder": "Please enter the tempreture",
+            "validation": ""
+          },
+          {
+            "type": "nova-input",
+            "label": "{{City}} - {{tempreture}}",
+            "name": "tempreture2",
             "placeholder": "Please enter the tempreture",
             "validation": ""
           },

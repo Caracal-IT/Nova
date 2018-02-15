@@ -7,6 +7,7 @@ export class EventConfig {
             {
                 key: "offline"
             },
+            /*
             {
                 key: "load",
                 fields: [
@@ -63,7 +64,7 @@ export class EventConfig {
                     {name: "error_message", key: "detail.error.message"},
                     {name: "error_stacktrace", key: "detail.error.stack"}
                 ]
-            }
+            }*/
 
         ];
     }

@@ -12,11 +12,11 @@ import {ToastyNotificationsService} from "./services/notifications.service";
 import {ToastyModule} from "ng2-toasty";
 import {
     TranslateLoader,
-    TranslateModule,
+    TranslateModule, TranslateService,
     TranslateStaticLoader
 } from "ng2-translate";
 import {PaperModule} from "nova-paper";
-import {DynamicFormModule, DynamicFormService} from "nova-forms";
+import {DynamicFormModule, DynamicFormService, NovaTranslatorService} from "nova-forms";
 import {
     WorkflowModule,
     WorkflowComponent,
@@ -26,10 +26,13 @@ import {
 import {NovaModule} from "../nova/nova.module";
 import {MagicInputComponent} from "./components/magic-input/nova-input.component";
 
-import {AnalyticsModule, AnalyticsService} from "nova-analytics";
+import {AnalyticsClient, AnalyticsModule, AnalyticsService, GeoLocation, SpatialClient} from "nova-analytics";
 import {EventConfig} from "./config/event.config";
 import {WorkflowEventConfig} from "./config/workflow.event.config";
-import {NovaCoreLibModule, NovaHttpClient} from "nova-core-lib";
+import {NovaCoreLibModule} from "nova-core-lib";
+import {ElasticAnalyticsClient} from "./clients/elastic-analytics.client";
+import {NovaSpatialClient} from "./clients/nova-spatial.client";
+import {NgTranslateTranslatorService} from "./services/nova-translator.service";
 
 @NgModule({
     declarations: [
@@ -40,10 +43,10 @@ import {NovaCoreLibModule, NovaHttpClient} from "nova-core-lib";
         MagicInputComponent
     ],
     providers: [
-        //AnalyticsService,
-        //AnalyticsServer,
+        GeoLocation,
         AnalyticsService,
         ToastyNotificationsService,
+        NotificationsService,
         {provide: ErrorHandler, useClass: AppErrorHandler}
     ],
     entryComponents: [
@@ -54,13 +57,22 @@ import {NovaCoreLibModule, NovaHttpClient} from "nova-core-lib";
         HttpModule,
         FormsModule,
         NovaCoreLibModule.forRoot(),
-        DynamicFormModule,
+        DynamicFormModule.forRoot(
+            {
+                provide: NovaTranslatorService,
+                useClass: NgTranslateTranslatorService
+            }
+        ),
         PaperModule,
         NovaModule,
         AnalyticsModule.forRoot(
             {
-                provide: NovaHttpClient,
-                useClass: NovaHttpClient
+                provide: AnalyticsClient,
+                useClass: ElasticAnalyticsClient
+            },
+            {
+                provide: SpatialClient,
+                useClass: NovaSpatialClient
             },
             WorkflowEventConfig,
             EventConfig
