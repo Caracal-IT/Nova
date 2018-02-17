@@ -2,11 +2,17 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewData["Title"] - Caracal.Web.Nova.Application</title>
     <base href="~/" />
 
     <link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/toggle-switch.css" asp-append-version="false" />
+    <style>
+        html,body {
+            height:100%;
+        }
+    </style>
 </head>
 <body>
     @RenderBody()

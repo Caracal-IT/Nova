@@ -1910,6 +1910,11 @@
         "regexpu-core": "1.0.0"
       }
     },
+    "css-toggle-switch": {
+      "version": "4.1.0",
+      "resolved": "https://registry.npmjs.org/css-toggle-switch/-/css-toggle-switch-4.1.0.tgz",
+      "integrity": "sha512-XdA6fyaQqlBqTmFa6NX58tLPJj4SgDLAxV4Ec73GHQYRTYUTZoEyYHYxWGacLNTP8sTiVycKcAMBrPBKaiIZ9g=="
+    },
     "cssesc": {
       "version": "0.1.0",
       "resolved": "https://registry.npmjs.org/cssesc/-/cssesc-0.1.0.tgz",
@@ -5901,9 +5906,9 @@
       }
     },
     "nova-paper": {
-      "version": "1.1.7",
-      "resolved": "https://registry.npmjs.org/nova-paper/-/nova-paper-1.1.7.tgz",
-      "integrity": "sha512-1fmBp7q+ovcXRSzLx1FBblVJmXj6ebKGl9k9G9gbTtSqxiI+rInq8GB9P8ooqOXaSMTtb06T2x34Ox53j/+I+w==",
+      "version": "1.1.10",
+      "resolved": "https://registry.npmjs.org/nova-paper/-/nova-paper-1.1.10.tgz",
+      "integrity": "sha512-L5ySoSFHkLEci8sNgpaL40qx+TuHl1XT7Hnyyez32oSwqr8BxwjRVLVxjp3hjIqQMSXeJ1BLDXHvv4GTVtaJMQ==",
       "requires": {
         "@angular/animations": "5.2.4",
         "@angular/common": "5.2.4",

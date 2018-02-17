@@ -16,6 +16,10 @@ namespace Caracal.Web.Nova.Application.Controllers {
 
             return View();
         }
+        
+        public IActionResult Test() {
+            return View();
+        }
 
         public IActionResult Error() {
             ViewData["RequestId"] = Activity.Current?.Id ?? HttpContext.TraceIdentifier;

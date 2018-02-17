@@ -40,6 +40,10 @@ namespace Caracal.Web.Nova.Application {
 
             app.UseMvc(routes => {
                 routes.MapRoute(
+                    name: "default_test",
+                    template: "Home/Test");
+                
+                routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
                 

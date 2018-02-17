@@ -1,0 +1,457 @@
+﻿@{
+    ViewBag.Title = "Nova Test Harness";
+    Layout = "_Layout";
+}
+
+<div style="top: 41px; left: 20px;z-index: 9999;position: absolute;">
+    <a id="test" onclick="showTestHarness()" class="badge badge-pill badge-info" style="color:white;cursor: pointer">Test</a>
+    <a id="record" onclick="startRecord()" class="badge badge-pill badge-success" style="width: 80px;color:white;cursor: pointer">Record</a>
+    <a id="play" onclick="play()" class="badge badge-pill badge-warning" style="color:white;cursor: pointer">Play</a>
+</div>
+
+<iframe
+    seamless="1"
+    style="width: 100%;height:100%"
+    id="novaApp"
+    class="embed-responsive-item"
+    src="/">
+</iframe>
+
+
+<div id="testHarness" style="display: none">
+    <hr />
+    <div style="margin: auto;width: 80%;padding: 10px;font-weight:bolder;">
+        <h1 style="display: inline-block">Nova Testing</h1>
+        <button class="btn btn-outline-success" onclick="run()">Run</button>
+        <button class="btn btn-outline-danger" onclick="runUntilBreak()">Break</button>
+        <hr/>
+        <div class="progress" style="height: 30px">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <hr/>
+    </div>
+    
+    <div class="navbar-dark bg-dark" id="results" style="color: whitesmoke;margin: auto;width: 80%;padding: 10px;font-weight:bolder;"></div>
+</div>
+
+
+
+
+
+
+
+
+
+<script src="~/js/nova-tester.js" asp-append-version="false"></script>
+<script src="~/dist/vendor.js" asp-append-version="false"></script>
+<script>
+    class Recorder {
+        constructor(container) {
+            this.container = container;
+            this.steps = [];
+            this.testData = [];
+            this.counter = 0;
+        }
+        
+        start() {
+            this.steps = [];
+            this.addEvents();
+            this.counter = 0;
+        }
+        
+        stop() {
+            this.removeEvents();
+        }
+        
+        addEvents() {
+            this.changeEvent = event => this.addEvent(event);
+            this.container.addEventListener('change', this.changeEvent, true);
+
+            this.clickEvent = event => this.addClickEvent(event);
+            this.container.addEventListener('click', this.clickEvent, true);
+        }
+        
+        removeEvents() {
+            this.container.removeEventListener('change', this.changeEvent, true);
+            this.container.removeEventListener('click', this.clickEvent, true);
+        }
+        
+        addClickEvent(event) {
+            if(event.srcElement.type === 'submit') 
+                this.addEvent(event);
+        }
+        
+        addEvent(event) {
+            const component = this.getComponent(event);
+            
+            if (component) {
+                this.steps.push({
+                    eventType: event.type === "click" ? "click" : "input",
+                    id: event.srcElement.id,
+                    value: event.srcElement.value,
+                    path: event.srcElement.formAction.replace(event.srcElement.baseURI, "")
+                });
+            }
+        }
+        
+        getComponent(event){
+            if (!event.path)
+                return undefined;
+
+            const index = event.path.findIndex(item => item.localName === "dynamic-form");
+
+            if (index > 1)
+                return event.path[index - 1].localName;
+
+            return undefined;
+        }
+    }
+
+    class Runner {
+        constructor(container) {
+            this.container = container;
+            this.isRunning = false;
+            this.doc = container.document;
+        }
+        
+        async start(steps) {
+            for (let step of steps){
+                await this.execute(step);
+             }
+        }
+        
+        async execute(step) {
+            const promise = new Promise((resolve, reject) => {
+                const elem = this.doc.querySelector(`#${step.id}`);
+                const resetColor = this.setBackgroundActive(elem);
+                
+                if(step.eventType === "input")
+                    this.fireEvent(elem, step.eventType, step.value);
+                
+                setTimeout(() => {
+                    this.setBackground(elem, resetColor);
+                    elem.blur();
+                    
+                    if(step.eventType === "click")
+                        this.fireEvent(elem, step.eventType, step.value);
+                    
+                    resolve();
+                }, 400);
+            });
+
+            return promise;
+        }
+        
+        setBackgroundActive(elem) {
+            const backColor = elem.style.backgroundColor;
+            elem.style.backgroundColor = "hotpink";
+
+            return backColor;
+        }
+        
+        setBackground(elem, color) {
+            elem.style.backgroundColor = color;
+        }
+        
+        fireEvent(elem, type, value) {
+            elem.focus();
+            elem.value = value;
+
+            const event = new Event(type, {
+                'bubbles': true,
+                'cancelable': true
+            });
+
+            elem.dispatchEvent(event);
+        }
+    }
+
+    const iframe = document.querySelector("#novaApp").contentWindow;
+    const recorder = new Recorder(iframe);
+    const runner = new Runner(iframe);
+    
+    function startRecord() {
+        const record = document.querySelector("#record");
+        const test = document.querySelector("#test");
+        const play = document.querySelector("#play");
+        
+        if(record.className === "badge badge-pill badge-success") {
+            test.style.visibility = "hidden";
+            play.style.visibility = "hidden";
+            
+            record.className = "badge badge-pill badge-danger";
+            record.innerHTML = "Stop";
+            
+            this.gotoWorkflow(() => recorder.start());
+        }
+        else {
+            test.style.visibility = "";
+            play.style.visibility = "";
+            
+            record.className = "badge badge-pill badge-success";
+            record.innerHTML = "Record";
+            
+            recorder.stop();
+        }
+    }
+
+    function play() {
+        gotoWorkflow(() => runner.start(recorder.steps));
+    }
+    
+    function gotoWorkflow(callback) {
+        const doc = iframe.document;
+        //doc.location = "/reservation/?" + Math.random();
+        
+        doc.querySelector("[href='/home']").click();
+        doc.querySelector("[href='/reservation']").click();
+        
+        setTimeout(callback, 300);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    var workflowRecord = {
+    };
+    
+    var workflowTest = {
+        activities: [
+            /*******************************************/  
+            {
+                name: "start",
+                type: "FormActivity",
+                controls: [
+                    {
+                        type: "input",
+                        name: "firstname",
+                        value: "Ettiene",
+                        expected: "Ettiene"
+                    },
+                    {
+                        type: "input",
+                        name: "surname",
+                        value: "Mare",
+                    },
+                    {
+                        type: "button",
+                        name: "select-hotel",
+                        next: "select-hotel"
+                    }
+                ]     
+            },
+            /*******************************************/      
+            {
+                name: "select-hotel",
+                type: "FormActivity",
+                controls: [
+                    {
+                        type: "input",
+                        name: "hotel",
+                        value: "Pretoria Hilton",
+                        expected: "Durban Hilton"
+                    },
+                    {
+                        type: "input",
+                        name: "roomNumber",
+                        value: "55"
+                    },
+                    {
+                        type: "button",
+                        name: "make-payment",
+                        next: "payment-confirmation"
+                    }
+                ]     
+            },
+            /*******************************************/  
+            {
+                name: "payment-confirmation",
+                type: "FormActivity",
+                controls: [
+                    {
+                        type: "input",
+                        name: "message",
+                        value: "This is great!!!"
+                    }
+                ]     
+            }
+            /*******************************************/  
+        ]
+    }
+    
+    let activitiesExecuted = [];
+    let results = document.querySelector("#results");
+    let progress = document.querySelector(".progress-bar");
+    
+    let numberOfTests = 7;
+    let counter = 0;
+    // ng.probe($0).componentInstance.translate.get('EnterValue')
+    function showTestHarness() {
+        const testHarness = document.querySelector("#testHarness");
+        const iframe = document.querySelector("#novaApp");
+
+        console.log(iframe.contentWindow.ng);
+        
+        counter = 0;
+        progress.style.width = 0;
+        progress.innerHTML = "0%";
+        activitiesExecuted = [];
+        results.innerHTML = "<h3>Starting Test</h3>"
+        
+        if (testHarness.style.display === "none") {
+            testHarness.style.display = "";
+            iframe.style.height = window.innerHeight - 180 + "px";
+        }
+        else{
+            testHarness.style.display = "none";
+            iframe.style.height = "100%";
+        }
+    }
+
+    let breakIfError = false;
+    let isRunning = false;
+    
+    function runUntilBreak() {
+        breakIfError = true;
+        automatedTest();
+    }
+    
+    function run() {
+        breakIfError = false;
+        // console.log();
+        
+        // var tester = new NovaTester();
+        //tester.test();
+        //manualTests();
+        automatedTest();
+    }
+    
+    function automatedTest() {
+        isRunning = true;
+        counter = 0;
+        progress.style.width = 0;
+        progress.innerHTML = "0%";
+        activitiesExecuted = [];
+        results.innerHTML = "<h3>Starting Test</h3>"
+        
+        const iframe = document.querySelector("#novaApp").contentWindow;
+        const doc = iframe.document;
+        
+        doc.querySelector("[href='/home']").click();
+        doc.querySelector("[href='/reservation']").click();
+
+        setTimeout(() => testWf(doc), 1000);
+    }
+
+    function testWf(doc) {
+        testActivity(doc, "start");
+    }
+    
+    async function testActivity(doc, name) {
+        if ((!isRunning && breakIfError)|| activitiesExecuted.find(act => act === name))
+            return;
+        
+        activitiesExecuted.push(name);
+
+        results.innerHTML += `<hr style="background-color: hotpink; height: 1px; border: 0;"/>`;
+        results.innerHTML += `<h4>Activity : ${name}</h4><br>`;
+        
+        const form = workflowTest.activities.find(act => act.name === name);
+
+        if(!form)           
+            return;
+        
+        for (let control of form.controls) {
+            if (!isRunning && breakIfError)
+                return;
+            
+            counter++;
+            progress.style.width = Math.floor(counter * 100 / numberOfTests) + "%";
+            progress.innerHTML = progress.style.width;
+            
+            if (control.type === "input")
+                await enterValue(doc, control);
+            else if (control.type === "button") {
+                const nextActivity = await await clickButton(doc, control.name);
+                testActivity(doc, control.next);
+            }
+        }
+    }
+
+    function enterValue(doc, control) {
+        const promise1 = new Promise(function(resolve, reject) {
+            const input = doc.querySelector(`#${control.name}`);
+            input.focus();
+            input.value = control.value;
+
+            const backgroundColor = input.style.backgroundColor;
+            input.style.backgroundColor = "hotpink";
+        
+            const event = new Event('input', {
+                'bubbles': true,
+                'cancelable': true
+            });
+
+            input.dispatchEvent(event);
+
+            if (!control.expected)
+                control["expected"] = control.value;
+            
+            const success = control.expected && control.expected === input.value;
+            const style = success ? "success" : "danger";
+            
+            results.innerHTML += `
+                <div class="alert alert-${style}" role="alert">
+                    Outcome: ${success ? "Pass" : "Fail"}<br/>
+                    Enter Field: ${control.name}<br/>
+                    Value: ${control.value}<br/>
+                    Expected Value: ${control.expected}<br/>
+                    Actual Value: ${input.value}<br/>
+                </div>
+            `;
+            
+            if (isRunning && !success) 
+                isRunning = false;
+            
+            
+            setTimeout(() =>{ 
+                if(isRunning || !breakIfError)
+                    input.style.backgroundColor = backgroundColor;
+                
+                resolve();
+            }, 400);
+            
+            //setTimeout(resolve, 600, 'foo');
+        });
+
+        return promise1;
+        
+    }
+
+    function clickButton(doc, name) {
+        const promise1 = new Promise(function(resolve, reject) {
+            const button = doc.querySelector(`#${name}`);
+            
+            const backgroundColor = button.style.backgroundColor;
+            const color = button.style.color;
+
+            button.style.backgroundColor = "hotpink";
+            button.style.color = "black";
+            
+            setTimeout(() => {
+                button.style.backgroundColor = backgroundColor;
+                button.style.color = color;
+                button.click();
+                resolve(doc.location.pathname);
+            }, 600);
+        });
+
+        return promise1;
+    }
+</script>

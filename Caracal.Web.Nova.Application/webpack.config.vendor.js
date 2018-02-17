@@ -14,7 +14,7 @@ const treeShakableModules = [
     '@angular/router',
     'zone.js'
 ];
-const nonTreeShakableModules = [
+const nonTreeShakableModules = [    
     'ng2-toasty',
     'ng2-toasty/bundles/style-bootstrap.css',
     'ng2-translate',
@@ -22,14 +22,14 @@ const nonTreeShakableModules = [
     'nova-core-lib',
     'nova-forms',
     'nova-paper',
-    'nova-workflow',
+    'nova-workflow',    
     'angular2-template-loader',
     'bootstrap',
     'bootstrap/dist/css/bootstrap.css',
     'es6-promise',
     'es6-shim',
     'event-source-polyfill',
-    'jquery',
+    'jquery'    
 ];
 const allModules = treeShakableModules.concat(nonTreeShakableModules);
 

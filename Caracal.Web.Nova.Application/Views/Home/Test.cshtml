@@ -1,0 +1,298 @@
+﻿@{
+    ViewBag.Title = "Nova Test Harness";
+    Layout = "_Layout";
+}
+
+<label class="switch-light badge-pill" onclick="" style="position: absolute;width: 100px; left: 190px; top: 15px;">
+    <input type="checkbox" id="includeData" checked="checked" />
+    <strong style="font-size: 7px;color:whitesmoke">
+        Test Data
+    </strong>
+    
+    <span class="badge badge-pill" style="line-height: 20px;background-color: whitesmoke">
+        <span>Off</span>
+        <span>On</span>
+        <a class="btn btn-primary btn-sm"></a>
+    </span>
+</label>
+
+<div style="top: 41px; left: 21px; z-index: 9999; position: absolute;">
+    <a id="test" onclick="toggleTestConsole()" class="badge badge-pill badge-info" style="color: white; cursor: pointer">Test</a>
+    <a id="record" onclick="stopStartRecord()" class="badge badge-pill badge-success" style="width: 80px; color: white; cursor: pointer">Record</a>
+    <a id="play" onclick="play()" class="badge badge-pill badge-warning" style="color: white; cursor: pointer">Play</a>
+</div>
+
+<iframe
+    seamless="1"
+    style="width: 100%;height:100%"
+    id="novaApp"
+    class="embed-responsive-item"
+    src="/">
+</iframe>
+
+
+<div id="testHarness" style="display: none">
+    <hr />
+    <div style="margin: auto;width: 80%;padding: 10px;font-weight:bolder;">
+        <h1 style="display: inline-block">Nova Testing</h1>
+        <button class="btn btn-outline-success" onclick="run()">Run</button>
+        <button class="btn btn-outline-danger" onclick="runUntilBreak()">Break</button>
+        <hr/>
+        <div class="progress" style="height: 30px">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <hr/>
+    </div>
+    
+    <div class="navbar-dark bg-dark" id="results" style="color: whitesmoke;margin: auto;width: 80%;padding: 10px;font-weight:bolder;"></div>
+</div>
+
+
+<script src="~/js/nova-tester.js" asp-append-version="false"></script>
+<script src="~/dist/vendor.js" asp-append-version="false"></script>
+<script>
+    class UITest {
+        loadTestsCases(testCases) {
+            this.testCases = testCases;
+        }
+    }
+    
+    class Recorder {
+        constructor(container) {
+            this.container = container;
+            this.steps = [];
+            this.testData = [];
+            this.counter = 0;
+        }
+        
+        start() {
+            this.steps = [];
+            this.addEvents();
+            this.counter = 0;
+        }
+        
+        stop() {
+            this.removeEvents();
+        }
+        
+        addEvents() {
+            this.changeEvent = event => this.addEvent(event);
+            this.container.addEventListener('change', this.changeEvent, true);
+
+            this.clickEvent = event => this.addClickEvent(event);
+            this.container.addEventListener('click', this.clickEvent, true);
+        }
+        
+        removeEvents() {
+            this.container.removeEventListener('change', this.changeEvent, true);
+            this.container.removeEventListener('click', this.clickEvent, true);
+        }
+        
+        addClickEvent(event) {
+            if(event.srcElement.type === 'submit') 
+                this.addEvent(event);
+        }
+        
+        addEvent(event) {
+            const component = this.getComponent(event);
+            
+            if (component) {
+                const step = {
+                    eventType: event.type === "click" ? "click" : "input",
+                    id: event.srcElement.id,
+                    value: event.srcElement.value,
+                    path: event.srcElement.formAction.replace(event.srcElement.baseURI, "")
+                };
+                
+                this.steps.push(step);
+                this.fireAddEvent(step);
+            }
+        }
+        
+        fireAddEvent(step) {
+            const customEvent = new CustomEvent('collect', { detail: step });
+            window.dispatchEvent(customEvent);
+        }
+        
+        getComponent(event){
+            if (!event.path)
+                return undefined;
+
+            const index = event.path.findIndex(item => item.localName === "dynamic-form");
+
+            if (index > 1)
+                return event.path[index - 1].localName;
+
+            return undefined;
+        }
+    }
+    
+    class TestValueCollector {
+        constructor() {
+            this.testCases = [];
+        }
+        
+        start() {
+            this.testCases = [];
+            this.collectEvent = event => this.processCollectedEvent(event);
+            window.addEventListener('collect', this.collectEvent, true);
+        }
+        
+        stop() {
+            window.removeEventListener('collect', this.collectEvent, true);
+        }
+        
+        processCollectedEvent(event) {
+            const step = event.detail;
+            
+            this.testCases.push({
+                id: step.id,
+                expectedValue: step.value,
+                path: step.path
+            });
+        }
+    }
+    
+    class Runner {
+        constructor(container, tester) {
+            this.container = container;
+            this.tester = tester;
+            
+            this.isRunning = false;
+            this.doc = container.document;
+        }
+        
+        async start(steps) {
+            for (let step of steps){
+                await this.execute(step);
+            }
+        }
+        
+        async execute(step) {
+            const promise = new Promise((resolve, reject) => {
+                const elem = this.doc.querySelector(`#${step.id}`);
+                const resetColor = this.setBackgroundActive(elem);
+                
+                if(step.eventType === "input")
+                    this.fireEvent(elem, step.eventType, step.value);
+                
+                setTimeout(() => {
+                    this.setBackground(elem, resetColor);
+                    elem.blur();
+                    
+                    if(step.eventType === "click")
+                        this.fireEvent(elem, step.eventType, step.value);
+                    
+                    resolve();
+                }, 400);
+            });
+
+            return promise;
+        }
+        
+        setBackgroundActive(elem) {
+            const backColor = elem.style.backgroundColor;
+            elem.style.backgroundColor = "hotpink";
+
+            return backColor;
+        }
+        
+        setBackground(elem, color) {
+            elem.style.backgroundColor = color;
+        }
+        
+        fireEvent(elem, type, value) {
+            elem.focus();
+            elem.value = value;
+
+            const event = new Event(type, {
+                'bubbles': true,
+                'cancelable': true
+            });
+
+            elem.dispatchEvent(event);
+        }
+    }
+
+    const iframe = document.querySelector("#novaApp").contentWindow;
+    const testHarness = document.querySelector("#testHarness");
+    let results = document.querySelector("#results");
+    let progress = document.querySelector(".progress-bar");
+    
+    const tester = new UITest();
+    const recorder = new Recorder(iframe);
+    const runner = new Runner(iframe, tester);
+    const collector = new TestValueCollector();
+
+    let isRecording = false;
+    function stopStartRecord() {
+        const includeTestData = document.querySelector("#includeData");
+        
+        toggleRecord();
+        
+        if(isRecording) {
+            this.gotoWorkflow(() => {
+                if(includeTestData.checked) 
+                    collector.start();
+                
+                recorder.start();
+            });
+        }
+        else {
+            recorder.stop();
+            collector.stop();
+        }
+    }
+    
+    function toggleRecord()
+    {   
+        isRecording = !isRecording;
+
+        setRecordButtonProperties(
+            isRecording ? "Stop" : "Record",
+            isRecording ? "hidden" : "",
+            isRecording ? "danger" : "success",
+        );
+
+    }
+
+    function setRecordButtonProperties(text, visibility, style) {
+        const record = document.querySelector("#record");
+        const test = document.querySelector("#test");
+        const play = document.querySelector("#play");
+        
+        record.innerHTML = text;
+        test.style.visibility = visibility;
+        play.style.visibility = visibility;
+        record.className = `badge badge-pill badge-${style}`;
+    }
+
+    function play() {
+        gotoWorkflow(() => runner.start(recorder.steps));
+    }
+    
+    function toggleTestConsole() {
+        const novaFrame = document.querySelector("#novaApp")
+        
+        progress.style.width = 0;
+        progress.innerHTML = "0%";
+        
+        if (testHarness.style.display === "none") {
+            testHarness.style.display = "";
+            novaFrame.style.height = window.innerHeight - 180 + "px";
+        }
+        else{
+            testHarness.style.display = "none";
+            novaFrame.style.height = "100%";
+        }
+    }
+    
+    function gotoWorkflow(callback) {
+        const doc = iframe.document;
+        
+        doc.querySelector("[href='/home']").click();
+        doc.querySelector("[href='/reservation']").click();
+        
+        setTimeout(() => callback(), 600);
+    }
+</script>
