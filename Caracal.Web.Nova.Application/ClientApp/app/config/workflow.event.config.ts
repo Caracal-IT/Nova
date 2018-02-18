@@ -1,7 +1,7 @@
 export class WorkflowEventConfig {
     static getEvents(){
         return [
-            /*
+            
             {
                 key: "wf-created",
                 fields: [
@@ -48,7 +48,7 @@ export class WorkflowEventConfig {
                     {name: "wf_name", key: "detail.name"},
                     {name: "wf_act_name", key: "detail.actName"}
                 ]
-            }*/
+            }
         ];
     }
 }

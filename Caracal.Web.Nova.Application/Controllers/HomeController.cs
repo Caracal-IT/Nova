@@ -13,6 +13,7 @@ namespace Caracal.Web.Nova.Application.Controllers {
 
         public IActionResult Index() {
             ViewData["WorkflowUrl"] = _appSettings.WorkflowUrl;
+            ViewData["AnalyticsUrl"] = _appSettings.AnalyticsUrl;
 
             return View();
         }

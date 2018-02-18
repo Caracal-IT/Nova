@@ -7,7 +7,6 @@ import {AppErrorHandler} from "./services/app.error-handler";
 import {AppComponent} from './components/app/app.component';
 import {HomeComponent} from './components/home/home.component';
 import {NavMenuComponent} from './components/navmenu/navmenu.component';
-import {FetchDataComponent} from './components/fetchdata/fetchdata.component';
 import {ToastyNotificationsService} from "./services/notifications.service";
 import {ToastyModule} from "ng2-toasty";
 import {
@@ -38,7 +37,6 @@ import {NgTranslateTranslatorService} from "./services/nova-translator.service";
     declarations: [
         AppComponent,
         NavMenuComponent,
-        FetchDataComponent,
         HomeComponent,
         MagicInputComponent
     ],
@@ -96,7 +94,6 @@ import {NgTranslateTranslatorService} from "./services/nova-translator.service";
         RouterModule.forRoot([
             {path: '', redirectTo: 'home', pathMatch: 'full'},
             {path: 'home', component: HomeComponent},
-            {path: 'fetch-data', component: FetchDataComponent},
             {path: ':wf', component: WorkflowComponent},
             {path: ':wf/:act', component: WorkflowComponent},
             {path: '**', redirectTo: 'home'}

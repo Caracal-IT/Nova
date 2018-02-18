@@ -1,4 +1,7 @@
+using System;
+using System.Net.Http;
 using AutoMapper;
+using Caracal.Web.Nova.Application.Controllers;
 using Caracal.Web.Nova.Application.Core.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,6 +24,8 @@ namespace Caracal.Web.Nova.Application {
             
             services.AddMvc();
             services.AddSingleton<StateMachineRepository, FileStateMachineRepository>();
+            services.AddSingleton(new HttpClient{Timeout = new TimeSpan(0, 0, 30)});
+            services.AddSingleton<ElasticSearchClient>();
             services.AddAutoMapper();
         }
 
@@ -55,6 +60,18 @@ namespace Caracal.Web.Nova.Application {
     }
 
     public class AppSettings {
+        public string Application { get; set; }
         public string WorkflowUrl { get; set; }
+        public string AnalyticsUrl { get; set; }
+        public Elastic Elastic { get; set; }
+    }
+
+    public class Elastic {
+        public string ServerUrl { get; set; }
+        public Index Index { get; set; }
+    }
+
+    public class Index {
+        public string Workflow { get; set; }
     }
 }

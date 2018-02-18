@@ -43,7 +43,7 @@
     "json-loader": "0.5.7",
     "ng2-toasty": "^4.0.3",
     "ng2-translate": "^5.0.0",
-    "nova-analytics": "file:../../Angular/Packages/nova-analytics-0.0.6.tgz",
+    "nova-analytics": "^0.0.7",
     "nova-core-lib": "^0.0.6",
     "nova-forms": "^1.0.6",
     "nova-paper": "^1.1.10",

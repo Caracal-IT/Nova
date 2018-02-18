@@ -12,7 +12,7 @@ import {TranslateService} from "ng2-translate";
       <div class="form-group">
         <label [for]="config.name">{{config.label|translate:model}}</label>
         <input
-          style="background-color: lightpink"           
+          style="background-color: lightgoldenrodyellow"           
           class="form-control" 
           [id]="config.name"
           [(ngModel)]="model[config.name]"

@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
       <div class="form-group">
         <label [for]="config.name">{{config.label|translate:model}}</label>
         <input
-          style="background-color: hotpink"           
+          style="background-color: lightseagreen"           
           class="form-control" 
           [id]="config.name"
           [(ngModel)]="model[config.name]"

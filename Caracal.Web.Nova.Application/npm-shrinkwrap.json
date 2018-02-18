@@ -5847,8 +5847,9 @@
       }
     },
     "nova-analytics": {
-      "version": "file:../../Angular/Packages/nova-analytics-0.0.6.tgz",
-      "integrity": "sha512-t3OA1WfJUajOvMIFzYRHH9zGPsPHktbsu3d6PizziwNONn7SFJ9gkd1QFFHUkH4qkdlwwFauaeSLL3mgU++xyg==",
+      "version": "0.0.7",
+      "resolved": "https://registry.npmjs.org/nova-analytics/-/nova-analytics-0.0.7.tgz",
+      "integrity": "sha512-Lf3Bi3ZOlXwhxwvrwrbKtvR5XRvjNxJigI7rmDZNVT5z0tTmHdyULvpiEDO0YThU5zdZ3NdOhRfjNRoCnah+mQ==",
       "requires": {
         "@angular/animations": "5.2.4",
         "@angular/common": "5.2.4",

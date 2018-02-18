@@ -7,7 +7,7 @@ export class EventConfig {
             {
                 key: "offline"
             },
-            /*
+            
             {
                 key: "load",
                 fields: [
@@ -52,6 +52,15 @@ export class EventConfig {
                 ]
             },
             {
+                key: "click",
+                constraints: [
+                    {key: "srcElement.localName", values: "button", type: "contains"}
+                ],
+                fields: [
+                    {name: "name", key: "srcElement.id"}
+                ]
+            },
+            {
                 key: "error",
                 fields: [
                     {name: "error_message", key: "error.message"},
@@ -64,7 +73,7 @@ export class EventConfig {
                     {name: "error_message", key: "detail.error.message"},
                     {name: "error_stacktrace", key: "detail.error.stack"}
                 ]
-            }*/
+            }
 
         ];
     }
