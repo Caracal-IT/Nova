@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Options;
 
 
@@ -14,7 +15,10 @@ namespace Caracal.Web.Nova.Application.Controllers {
         public IActionResult Index() {
             ViewData["WorkflowUrl"] = _appSettings.WorkflowUrl;
             ViewData["AnalyticsUrl"] = _appSettings.AnalyticsUrl;
-
+            ViewData["Host"] = HttpContext.Connection.LocalIpAddress;
+            ViewData["X-Forwarded-For"] = HttpContext.Request.Headers["X-Forwarded-For"];
+            ViewData["X-Forwarded-Host"] = HttpContext.Request.Headers["X-Forwarded-Host"];
+            
             return View();
         }
         

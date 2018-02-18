@@ -1,7 +1,9 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
+<div style="position: absolute; color: whitesmoke; z-index: 9999; font-size: 10px;">
+    @ViewData["Host"] <span>|</span> @ViewData["X-Forwarded-For"] <span>|</span> @ViewData["X-Forwarded-Host"]
+</div>
 <app 
     parameters='
         {

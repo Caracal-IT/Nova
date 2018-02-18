@@ -5,6 +5,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caracal.Web.Nova.Applicatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caracal.Web.Nova.Identity", "Caracal.Web.Nova.Identity\Caracal.Web.Nova.Identity.csproj", "{55B036EB-3A16-432D-90DC-91E7F41E19F5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{3F9EB740-7C20-43F3-81ED-0853795DE492}"
+ProjectSection(SolutionItems) = preProject
+	docker-compose.yml = docker-compose.yml
+	nova-docker-compose.yml = nova-docker-compose.yml
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nginx", "Nginx", "{BCEF419D-FDD9-416D-89F7-DE8348A11812}"
+ProjectSection(SolutionItems) = preProject
+	Nginx\Dockerfile = Nginx\Dockerfile
+	Nginx\nginx.conf = Nginx\nginx.conf
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +31,8 @@ Global
 		{55B036EB-3A16-432D-90DC-91E7F41E19F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55B036EB-3A16-432D-90DC-91E7F41E19F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55B036EB-3A16-432D-90DC-91E7F41E19F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BCEF419D-FDD9-416D-89F7-DE8348A11812} = {3F9EB740-7C20-43F3-81ED-0853795DE492}
 	EndGlobalSection
 EndGlobal

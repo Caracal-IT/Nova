@@ -1,4 +1,4 @@
-import {ErrorHandler, NgModule, ValueProvider} from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {Http, HttpModule} from '@angular/http';
@@ -11,7 +11,7 @@ import {ToastyNotificationsService} from "./services/notifications.service";
 import {ToastyModule} from "ng2-toasty";
 import {
     TranslateLoader,
-    TranslateModule, TranslateService,
+    TranslateModule,
     TranslateStaticLoader
 } from "ng2-translate";
 import {PaperModule} from "nova-paper";
@@ -25,13 +25,23 @@ import {
 import {NovaModule} from "../nova/nova.module";
 import {MagicInputComponent} from "./components/magic-input/nova-input.component";
 
-import {AnalyticsClient, AnalyticsModule, AnalyticsService, GeoLocation, SpatialClient} from "nova-analytics";
-import {EventConfig} from "./config/event.config";
-import {WorkflowEventConfig} from "./config/workflow.event.config";
+import {
+    AnalyticsClient, 
+    AnalyticsModule, 
+    AnalyticsService, 
+    EventService, 
+    GeoLocation,
+    SpatialClient
+} from "nova-analytics";
 import {NovaCoreLibModule} from "nova-core-lib";
 import {ElasticAnalyticsClient} from "./clients/elastic-analytics.client";
 import {NovaSpatialClient} from "./clients/nova-spatial.client";
 import {NgTranslateTranslatorService} from "./services/nova-translator.service";
+
+export function createTranslateLoader(http: Http){
+    return new TranslateStaticLoader(http,  './assets/i18n', '.json');
+}
+
 
 @NgModule({
     declarations: [
@@ -43,6 +53,7 @@ import {NgTranslateTranslatorService} from "./services/nova-translator.service";
     providers: [
         GeoLocation,
         AnalyticsService,
+        EventService,
         ToastyNotificationsService,
         NotificationsService,
         {provide: ErrorHandler, useClass: AppErrorHandler}
@@ -71,14 +82,12 @@ import {NgTranslateTranslatorService} from "./services/nova-translator.service";
             {
                 provide: SpatialClient,
                 useClass: NovaSpatialClient
-            },
-            WorkflowEventConfig,
-            EventConfig
+            }
         ),
         ToastyModule.forRoot(),
         TranslateModule.forRoot({
             provide: TranslateLoader,
-            useFactory: (http: Http) => new TranslateStaticLoader(http, './assets/i18n', '.json'),
+            useFactory: createTranslateLoader,
             deps: [Http]
         }),
         WorkflowModule.forRoot(

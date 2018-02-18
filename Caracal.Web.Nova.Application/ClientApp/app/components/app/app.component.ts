@@ -16,12 +16,12 @@ export class AppComponent {
     params: any | undefined;
     showMenu = true;
 
-    constructor(public elementRef: ElementRef,
+    constructor(
+                public elementRef: ElementRef,
                 private notificationsService: ToastyNotificationsService,
                 private translate: TranslateService,
                 private activatedRoute: ActivatedRoute
     ) {
-
         let native = this.elementRef.nativeElement;
         let parameters = native.getAttribute("parameters");
 
