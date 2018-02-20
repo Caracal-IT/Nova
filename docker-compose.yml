@@ -16,9 +16,11 @@ services:
       expose:
               - "5601"
       volumes:
-        - /Users/ettienemare/Documents/Development/Data/ElasticSearch:/var/lib/elasticsearch
+        - /Users/ettienemare/Documents/Development/Data/Nova/ElasticSearch:/var/lib/elasticsearch
   postgres:
       image: postgres
+      environment:
+        POSTGRES_PASSWORD: Ettiene001
       volumes:
         - /Users/ettienemare/Documents/Development/Data/Nova/Postgres:/var/lib/postgresql/data
       ports:
