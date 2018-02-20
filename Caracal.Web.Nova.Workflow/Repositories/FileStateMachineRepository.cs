@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Caracal.Web.Nova.Application.Core.Repositories {
+namespace Caracal.Web.Nova.Workflow.Repositories {
     public class FileStateMachineRepository : StateMachineRepository {
         private readonly IHostingEnvironment _host;
         

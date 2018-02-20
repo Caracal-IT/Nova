@@ -1,8 +1,11 @@
 using System;
 using System.Net.Http;
 using AutoMapper;
+using Caracal.Web.Nova.Analytics.Clients;
 using Caracal.Web.Nova.Application.Controllers;
-using Caracal.Web.Nova.Application.Core.Repositories;
+using Caracal.Web.Nova.Application.Core;
+using Caracal.Web.Nova.Application.Core.Settings;
+using Caracal.Web.Nova.Workflow.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -26,8 +29,15 @@ namespace Caracal.Web.Nova.Application {
             services.AddMvc();
             services.AddSingleton<StateMachineRepository, FileStateMachineRepository>();
             services.AddSingleton(new HttpClient{Timeout = new TimeSpan(0, 0, 30)});
-            services.AddSingleton<ElasticSearchClient>();
+            services.AddSingleton(new ElasticSearchClient(
+                appSettings["elastic:serverUrl"], 
+                appSettings["elastic:index:workflow"], 
+                appSettings["application"]
+            ));
             services.AddAutoMapper();
+            
+            
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,21 +73,5 @@ namespace Caracal.Web.Nova.Application {
                     defaults: new {controller = "Home", action = "Index"});
             });
         }
-    }
-
-    public class AppSettings {
-        public string Application { get; set; }
-        public string WorkflowUrl { get; set; }
-        public string AnalyticsUrl { get; set; }
-        public Elastic Elastic { get; set; }
-    }
-
-    public class Elastic {
-        public string ServerUrl { get; set; }
-        public Index Index { get; set; }
-    }
-
-    public class Index {
-        public string Workflow { get; set; }
     }
 }

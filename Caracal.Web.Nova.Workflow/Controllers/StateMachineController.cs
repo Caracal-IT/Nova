@@ -1,18 +1,15 @@
 ﻿using System.IO;
-using AutoMapper;
-using Caracal.Web.Nova.Application.Core.Repositories;
+using Caracal.Web.Nova.Workflow.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Caracal.Web.Nova.Application.Controllers {
+namespace Caracal.Web.Nova.Workflow.Controllers {
     [Route("/api/workflow")]
     public class StateMachineController : Controller {
-        private readonly IMapper _mapper;
         private readonly StateMachineRepository _stateMachineRepository;
         
-        public StateMachineController(IMapper mapper, StateMachineRepository stateMachineRepository) {
-            _mapper = mapper;
+        public StateMachineController(StateMachineRepository stateMachineRepository) {
             _stateMachineRepository = stateMachineRepository;
         }
 

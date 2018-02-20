@@ -19,9 +19,11 @@
     <Content Remove="ClientApp\**" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\Models" />
-    <Folder Include="Core\Persistance" />
     <Folder Include="ClientApp\app\services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Caracal.Web.Nova.Analytics\Caracal.Web.Nova.Analytics.csproj" />
+    <ProjectReference Include="..\Caracal.Web.Nova.Workflow\Caracal.Web.Nova.Workflow.csproj" />
   </ItemGroup>
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->

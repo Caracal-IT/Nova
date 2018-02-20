@@ -5,7 +5,7 @@
       "api": "/api/sampledata/WeatherForecasts",
       "method": "get",
       "mappings": [],
-      "nextActivity": "weather-forcast",
+      "nextActivity": "personal-details",
       "name": "start",
       "type": "ApiActivity"
     },
@@ -14,74 +14,44 @@
         "controls": [
           {
             "type": "paper-header",
-            "label": "Weather Forcast {{City}}",
-            "name": "header",
-            "placeholder": null,
-            "validation": null
+            "label": "PersonalDetails",
+            "name": "header"
           },
           {
             "type": "paper-input",
-            "label": "City",
-            "name": "City",
+            "label": "Firstname",
+            "name": "firstName",
             "placeholder": "EnterValue",
             "validation": ""
           },
           {
             "type": "paper-input",
-            "label": "City 2",
-            "name": "City 2",
+            "label": "Surname",
+            "name": "surname",
             "placeholder": "EnterValue",
-            "validation": ""
-          },
-          {
-            "type": "paper-input",
-            "label": "Make",
-            "name": "make",
-            "placeholder": "EnterValue",
-            "validation": ""
-          },
-          {
-            "type": "paper-input",
-            "label": "Model",
-            "name": "model",
-            "placeholder": "EnterValue",
-            "validation": ""
-          },
-          {
-            "type": "nova-input",
-            "label": "Vehicle.Header",
-            "name": "tempreture",
-            "placeholder": "Please enter the tempreture",
-            "validation": ""
-          },
-          {
-            "type": "nova-input",
-            "label": "{{City}} - {{tempreture}}",
-            "name": "tempreture2",
-            "placeholder": "Please enter the tempreture",
             "validation": ""
           },
           {
             "type": "paper-button",
-            "label": "Next Activity",
+            "label": "MoreDetails",
             "name": "nextActivity",
             "style": "btn btn-outline-danger",
-            "nextActivity": "nextActivity"
+            "nextActivity": "more-details-activity"
           },
           {
             "type": "paper-button",
-            "label": "Workflow",
+            "label": "MoreDetails[Alert]",
             "name": "alertActivity",
             "style": "btn btn-outline-info",
             "nextActivity": "alertActivity"
           }
         ]
       },
-      "name": "weather-forcast",
+      "name": "personal-details",
       "type": "FormActivity"
     },
     {
-      "code": "\n              class Activity {                   \n                constructor(model, params, workflowService, notificationsService){\n                  this.model = model;\n                  this.params = params;\n                  this.wf = workflowService;\n                  this.notificationsService=notificationsService;\n                }\n                \n                execute() {\n                  this.notificationsService.success('Vehicle.Saved.Title', 'Vehicle.Saved.Message');\n                  this.wf.next('nextActivity');\n                }\n            }",
+      "code": "\n              class Activity {                   \n                constructor(model, params, workflowService, notificationsService){\n                  this.model = model;\n                  this.params = params;\n                  this.wf = workflowService;\n                  this.notificationsService=notificationsService;\n                }\n                \n                execute() {\n                  this.notificationsService.success('Workflow', 'WelcomeMessage');\n                  this.wf.next('more-details-activity');\n                }\n            }",
       "name": "alertActivity",
       "type": "CodeActivity"
     },
@@ -90,107 +60,46 @@
         "controls": [
           {
             "type": "paper-header",
-            "label": "Next Activity",
-            "name": "header"
-          },
-          {
-            "type": "paper-button",
-            "label": "Weather Forcast",
-            "name": "weatherForcast",
-            "style": "btn btn-outline-primary",
-            "nextActivity": "weather-forcast"
-          },
-          {
-            "type": "paper-button",
-            "label": "Form Activity",
-            "name": "formActivity",
-            "style": "btn btn-outline-info",
-            "nextActivity": "form-activity"
-          }
-        ]
-      },
-      "name": "nextActivity",
-      "type": "FormActivity"
-    },
-    {
-      "form": {
-        "controls": [
-          {
-            "type": "paper-header",
-            "label": "Form View",
+            "label": "MoreDetails",
             "name": "header"
           },
           {
             "type": "paper-input",
-            "label": "Name Label",
-            "name": "name",
-            "placeholder": "Please enter your name",
+            "label": "PhysicalAddress",
+            "name": "address",
+            "placeholder": "EnterValue",
             "validation": ""
           },
           {
             "type": "magic-input",
-            "label": "Middlename Label",
-            "name": "middleName",
-            "placeholder": "Please enter your middle name",
-            "validation": ""
-          },
-          {
-            "type": "paper-input",
-            "label": "Surname Label",
-            "name": "surname",
-            "placeholder": "Please enter your surname",
-            "validation": ""
-          },
-          {
-            "type": "paper-password",
-            "label": "Password Label",
-            "name": "password",
-            "placeholder": "Please enter your password",
+            "label": "City",
+            "name": "city",
+            "placeholder": "EnterValue",
             "validation": ""
           },
           {
             "type": "paper-button",
-            "label": "Weather Forcast",
-            "name": "weatherForcast",
+            "label": "PersonalDetails",
+            "name": "personalDetailsButton",
             "style": "btn btn-outline-success",
-            "nextActivity": "weather-forcast"
+            "nextActivity": "personal-details"
           },
           {
             "type": "paper-button",
-            "label": "Next",
-            "name": "nextActivity",
-            "style": "btn btn-outline-danger",
-            "nextActivity": "nextActivity"
-          },
-          {
-            "type": "paper-button",
-            "label": "Workflow",
-            "name": "nextActivity",
+            "label": "Banking",
+            "name": "gotoBankingButton",
             "style": "btn btn-outline-info",
-            "nextActivity": "alertActivity2"
+            "nextActivity": "banking-activity"
           }
         ]
       },
-      "name": "form-activity",
+      "name": "more-details-activity",
       "type": "FormActivity"
     },
     {
-      "code": "\n              class Activity {\n                constructor(model, params, workflowService, notificationsService){\n                  this.model = model;\n                  this.params = params;\n                  this.wf = workflowService;\n                  this.notificationsService=notificationsService;\n                }\n                \n                execute() {\n                  /*\n                  var el = document.querySelector('#address');\n                  el.style.backgroundColor = '#'+ Math.random().toString(16).substr(-6);\n                  el.style.color = '#'+ Math.random().toString(16).substr(-6);\n                  \n                  el.value = el.style.backgroundColor;\n                  \n                  alert(this.model.items[2].summary);\n                  \n                  \n                  var el = document.querySelector('#name');\n                  el.style.backgroundColor = '#'+ Math.random().toString(16).substr(-6);\n                  el.style.color = '#'+ Math.random().toString(16).substr(-6);\n                  el.value = el.style.backgroundColor;\n                  \n                  var el2 = document.querySelector('label[for=name]');\n                  el2.style.fontWeight = 900;\n                  el2.style.color = '#'+Math.random().toString(16).substr(-6);\n                  \n                  this.model.surname = 'Mare ' + (Math.floor(Math.random() * 100) + 1);\n                  */\n                  \n                  //window.location = 'http://localhost/demo/'\n                  //window.location = 'http://banking.mgsops.net/nova/'\n                    \n                }\n              }",
-      "name": "alertActivity2",
+      "code": "\n              class Activity {\n                  constructor(model, params, workflowService, notificationsService){\n                    this.model = model;\n                    this.params = params;\n                    this.wf = workflowService;\n                    this.notificationsService = notificationsService;\n                  }\n                  \n                  execute() {\n                    window.open('http://banking.mgsops.net/nova/');\n                  }\n              }",
+      "name": "banking-activity",
       "type": "CodeActivity"
-    },
-    {
-      "form": {
-        "controls": [
-          {
-            "type": "paper-header",
-            "label": "Errors.Title",
-            "name": "header"
-          }
-        ]
-      },
-      "name": "error",
-      "type": "FormActivity"
     }
   ]
 }

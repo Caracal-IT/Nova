@@ -1,10 +1,10 @@
-﻿using Caracal.Web.Nova.Workflow.Repositories;
+﻿using Caracal.Web.Nova.Analytics.Clients;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Caracal.Web.Nova.Workflow {
+namespace Caracal.Web.Nova.Analytics {
     public class Startup {
         public Startup(IConfiguration configuration) {
             Configuration = configuration;
@@ -14,7 +14,13 @@ namespace Caracal.Web.Nova.Workflow {
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
-            services.AddSingleton<StateMachineRepository, FileStateMachineRepository>();
+            var appSettings = Configuration.GetSection("AppSettings");
+            
+            services.AddSingleton(new ElasticSearchClient(
+                appSettings["elastic:serverUrl"], 
+                appSettings["elastic:index:workflow"], 
+                appSettings["application"]
+            ));
             
             services.AddMvc();
         }
