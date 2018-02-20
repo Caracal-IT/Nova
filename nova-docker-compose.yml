@@ -11,6 +11,8 @@ services:
       depends_on:
          - elk.api
          - postgres
+         - workflow.api
+         - analytics.api
   elk.api:
       image: sebp/elk
       ports:

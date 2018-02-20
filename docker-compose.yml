@@ -11,6 +11,16 @@ services:
       depends_on:
          - elk.api
          - postgres
+  workflow.api:
+      build: ./Caracal.Web.Nova.Workflow
+      ports:
+        - "8180:80"
+  analytics.api:
+      build: ./Caracal.Web.Nova.Analytics
+      environment:
+          - AppSettings:Elastic:ServerUrl=http://elk.api:9200
+      ports:
+          - "8280:80"
   elk.api:
       image: sebp/elk
       expose:
