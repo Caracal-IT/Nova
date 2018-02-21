@@ -8,24 +8,24 @@
         "controls": [
           {
             "type": "paper-header",
-            "label": "Reservation - Personal Details",
+            "label": "Reservation.PersonalDetails.Title",
             "name": "header"
           },
           {
             "type": "paper-input",
-            "label": "Firsname",
+            "label": "Reservation.PersonalDetails.Firstname.Label",
             "name": "firstname",
-            "placeholder": "Please enter your firstname"
+            "placeholder": "Reservation.PersonalDetails.Firstname.PlaceHolder"
           },
           {
             "type": "paper-input",
-            "label": "Surname",
+            "label": "Reservation.PersonalDetails.Surname.Label",
             "name": "surname",
-            "placeholder": "Please enter your surname"
+            "placeholder": "Reservation.PersonalDetails.Surname.PlaceHolder"
           },
           {
             "type": "paper-button",
-            "label": "Select Hotel",
+            "label": "Reservation.PersonalDetails.NextActivity",
             "name": "select_hotel",
             "style": "btn btn-outline-info",
             "nextActivity": "select-hotel"
@@ -40,31 +40,31 @@
         "controls": [
           {
             "type": "paper-header",
-            "label": "Reservation - Hotel",
+            "label": "Reservation.Hotel.Title",
             "name": "header"
           },
           {
             "type": "magic-input",
-            "label": "Hotel",
+            "label": "Reservation.Hotel.HotelName.Label",
             "name": "hotel",
-            "placeholder": "Please enter your hotel"
+            "placeholder": "Reservation.Hotel.HotelName.PlaceHolder"
           },
           {
             "type": "nova-input",
-            "label": "Room Number",
+            "label": "Reservation.Hotel.RoomNumber.Label",
             "name": "roomNumber",
-            "placeholder": "Please enter your room number"
+            "placeholder": "Reservation.Hotel.RoomNumber.PlaceHolder"
           },
           {
             "type": "paper-button",
-            "label": "<< Back",
+            "label": "Reservation.Hotel.PreviousActivity",
             "name": "personal_details",
             "style": "btn btn-outline-danger",
             "nextActivity": "start"
           },
           {
             "type": "paper-button",
-            "label": "Pay",
+            "label": "Reservation.Hotel.NextActivity",
             "name": "make_payment",
             "style": "btn btn-outline-success",
             "nextActivity": "payment-confirmation"
@@ -79,23 +79,23 @@
         "controls": [
           {
             "type": "paper-header",
-            "label": "Reservation - Confirmation",
+            "label": "Reservation.Confirmation.Title",
             "name": "header"
           },
           {
             "type": "paper-label",
-            "label": "Welcome {{firstname}} {{surname}}, your reservation at the {{hotel}} is confirmed!!",
+            "label": "Reservation.Confirmation.Message",
             "name": "confirmation"
           },
           {
             "type": "paper-input",
-            "label": "Message",
-            "name": "message",
-            "placeholder": "Please enter your message"
+            "label": "Reservation.Confirmation.Reply.Label",
+            "name": "reply",
+            "placeholder": "Reservation.Confirmation.Reply.PlaceHolder"
           },
           {
             "type": "paper-label",
-            "label": "Your message: {{message}}",
+            "label": "Reservation.Confirmation.ReplyMessage",
             "name": "message-label"
           }
         ]
