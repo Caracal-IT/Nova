@@ -1,30 +1,50 @@
 ﻿{
-  "SiteName": "Poseidon",
-  "WelcomeMessage": "Benvenuti a Poseidone",
-  "Home" : "Casa{{middleName}}",
-  "Edit" : "Modifica",
-  "EnterValue" : "Per favore inserisci un valore",
-  "Wait" : "Aspettare",
-  "Workflow": "Flusso di lavoro",
-  "Loading" : "Caricamento in corso ....",
-  "Vehicle": {
-    "Menu": "Veicolo",
-    "Plural": "Veicoli",
-    "Make": "Produrre",
-    "MakeHelpText": "Inserisci la marca, Ford, BMW, ecc.",
-    "Model": "Modello",
-    "Info": "Inserisci i dettagli del veicolo",
-    "Header": "Veicolo - {{make}} [{{model}}]",
-    "Name": "Veicolo",
-    "SaveMessage": "Il veicolo è stato salvato!",
-    "NextButton": "Il prossimo",
-    "Saved" : {
-      "Title" : "Salvato",
-      "Message" : "Il veicolo è stato salvato!"
+  "SiteName": "Nova Flusso Di Lavoro",
+  "Welcome": "Benvenuti in Nova Workflow",
+  "online": "in linea",
+  "offline": "discon",
+  "Menu": {
+    "Home": "Casa"
+  },
+  "Reservation": {
+    "Name": "Prenotazione",
+    "PersonalDetails": {
+      "Title": "Prenotazione - Dettagli Personali",
+      "Firstname": {
+        "Label": "Nome Di Battesimo",
+        "PlaceHolder": "Per Favore Immettere Il Proprio Nome"
+      },
+      "Surname": {
+        "Label": "Cognome",
+        "PlaceHolder": "Per Favore Inserisci Il Tuo Cognome"
+      },
+      "NextActivity": "Seleziona Hotel"
+    },
+    "Hotel": {
+      "Title": "Prenotazione - Hotel",
+      "HotelName": {
+        "Label": "Hotel",
+        "PlaceHolder": "Si prega di inserire il nome dell'hotel"
+      },
+      "RoomNumber": {
+        "Label": "Numero Di Camera",
+        "PlaceHolder": "Si prega di inserire il numero della camera"
+      },
+      "PreviousActivity": "<< Indietro",
+      "NextActivity": "Pagare"
+    },
+    "Confirmation" : {
+      "Title": "Conferma Della Prenotazione",
+      "Message": "Benvenuto {{firstname}} {{surname}}, la tua prenotazione al {{hotel}} è confermata !!",
+      "Reply": {
+        "Label": "Rispondere",
+        "PlaceHolder": "Si prega di inserire la risposta della camera"
+      },
+      "ReplyMessage": "La tua risposta: {{reply}}"
     }
   },
   "Errors" : {
-    "Title": "Errore",
-    "General": "Si è verificato un errore imprevisto."
+    "Title" : "Errore",
+    "General" : "Un errore inaspettato è accaduto."
   }
 }

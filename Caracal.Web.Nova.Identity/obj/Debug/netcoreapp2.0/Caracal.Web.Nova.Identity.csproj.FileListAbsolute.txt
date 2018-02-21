@@ -3,6 +3,7 @@
 /Users/ettienemare/Documents/Development/Nova/Caracal.Web.Nova.Identity/bin/Debug/netcoreapp2.0/Caracal.Web.Nova.Identity.runtimeconfig.dev.json
 /Users/ettienemare/Documents/Development/Nova/Caracal.Web.Nova.Identity/bin/Debug/netcoreapp2.0/Caracal.Web.Nova.Identity.dll
 /Users/ettienemare/Documents/Development/Nova/Caracal.Web.Nova.Identity/bin/Debug/netcoreapp2.0/Caracal.Web.Nova.Identity.pdb
+/Users/ettienemare/Documents/Development/Nova/Caracal.Web.Nova.Identity/obj/Debug/netcoreapp2.0/Caracal.Web.Nova.Identity.csprojResolveAssemblyReference.cache
 /Users/ettienemare/Documents/Development/Nova/Caracal.Web.Nova.Identity/obj/Debug/netcoreapp2.0/Caracal.Web.Nova.Identity.csproj.CoreCompileInputs.cache
 /Users/ettienemare/Documents/Development/Nova/Caracal.Web.Nova.Identity/obj/Debug/netcoreapp2.0/Caracal.Web.Nova.Identity.AssemblyInfoInputs.cache
 /Users/ettienemare/Documents/Development/Nova/Caracal.Web.Nova.Identity/obj/Debug/netcoreapp2.0/Caracal.Web.Nova.Identity.AssemblyInfo.cs

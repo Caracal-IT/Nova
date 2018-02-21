@@ -1,8 +1,8 @@
 <div class='main-nav bg-dark'>
 
     <nav class="navbar navbar-toggleable navbar-dark bg-dark">
-        <a class="navbar-brand" [routerLink]="['/home']">Nova Workflow</a>
-        <p class="badge badge-pill" [ngClass]="{'badge-danger': status=='offline','badge-success': status=='online'}" style='color:white;'>{{status}}</p>
+        <a class="navbar-brand" [routerLink]="['/home']">{{'SiteName'|translate}}</a>
+        <p class="badge badge-pill" [ngClass]="{'badge-danger': status=='offline','badge-success': status=='online'}" style='color:white;'>{{status|translate}}</p>
         <div class="navbar-header">
             <button class="navbar-toggler-right bg-dark" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -23,10 +23,10 @@
                     <hr style="background-color: hotpink; height: 1px; border: 0;"/>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/home']">Home</a>
+                    <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/home']">{{'Menu.Home'|translate}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/reservation']">{{'Reservation'|translate}}</a>
+                    <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/reservation']">{{'Reservation.Name'|translate}}</a>
                 </li>                
             </ul>
         </div>

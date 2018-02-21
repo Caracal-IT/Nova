@@ -1,30 +1,50 @@
 ﻿{
-  "SiteName": "Poseidon",
-  "WelcomeMessage": "Welkom by Poseidon",
-  "Home": "Tuis{{middleName}}",
-  "Edit" : "Wysig",
-  "EnterValue" : "Voer asseblief 'n waarde in",
-  "Workflow": "Werkvloei",
-  "Wait" : "Wag",
-  "Loading" : "Laai ....",
-  "Vehicle": {
-    "Menu": "Voertuig",
-    "Plural": "Voertuie",
-    "Make": "Maak",
-    "MakeHelpText": "Voer die maak in, Ford, BMW, ens.",
-    "Model": "Model",
-    "Info": "Vul asseblief die voertuig besonderhede in",
-    "Header": "Voertuig - {{make}} [{{model}}]",
-    "Name": "Voertuig",
-    "SaveMessage": "Die voertuig beshonderhere was gestoor",
-    "NextButton": "Volgende",
-    "Saved" : {
-      "Title" : "Suksses",
-      "Message" : "Die voertuig beshonderhere was gestoor"
+  "SiteName": "Werkvloei",
+  "Welcome": "Welkom by Nova Workflow",
+  "online": "aanlyn",
+  "offline": "van lyn af",
+  "Menu": {
+    "Home": "Huis"
+  },
+  "Reservation": {
+    "Name": "Bespreking",
+    "PersonalDetails": {
+      "Title": "Bespreking - Persoonlike Besonderhede",
+      "Firstname": {
+        "Label": "Naam",
+        "PlaceHolder": "Voer asseblief jou voornaam in"
+      },
+      "Surname": {
+        "Label": "Van",
+        "PlaceHolder": "Voer asseblief jou van in"
+      },
+      "NextActivity": "Kies Hotel"
+    },
+    "Hotel": {
+      "Title": "Bespreking - Hotel",
+      "HotelName": {
+        "Label": "Hotel",
+        "PlaceHolder": "Voer asseblief jou hotel naam in"
+      },
+      "RoomNumber": {
+        "Label": "Kamer Nommer",
+        "PlaceHolder": "Voer asseblief jou kamer nommer in"
+      },
+      "PreviousActivity": "<< Terug",
+      "NextActivity": "Betaal"
+    },
+    "Confirmation" : {
+      "Title": "Bespreking - Bevestiging",
+      "Message": "Welkom {{firstname}} {{surname}}, jou bespreking by die {{hotel}} is bevestig!",
+      "Reply": {
+        "Label": "Terugvoer",
+        "PlaceHolder": "Voer asseblief jou terugvoer in"
+      },
+      "ReplyMessage": "Jou terugvoer: {{reply}}"
     }
   },
   "Errors" : {
     "Title" : "Fout",
-    "General" : "'n Onverwagse fout het gebeur."
+    "General" : "'n Onverwagse fout het voorgekom."
   }
 }

@@ -1,30 +1,50 @@
 ﻿{
-  "SiteName": "Poseidon",
-  "WelcomeMessage": "Welcome to Poseidon",
-  "Home" : "Home{{middleName}}",
-  "Edit" : "Edit",
-  "EnterValue" : "Please enter a value",
-  "Workflow": "Workflow",
-  "Wait" : "Wait",
-  "Loading" : "Loading ....",
-  "Vehicle": {
-    "Menu" : "Vehicle",
-    "Plural": "Vehicles",
-    "Make" : "Make",
-    "MakeHelpText": "Enter the make , Ford, BMW, etc..",
-    "Model" : "Model",
-    "Info" : "Please enter the vehicle details",
-    "Header": "Vehicle - {{make}} [{{model}}]",
-    "Name": "Vehicle",
-    "SaveMessage" : "The vehicle was saved!",
-    "NextButton": "Next",
-    "Saved" : {
-      "Title" : "Success",
-      "Message" : "The vehicle was saved!"
+  "SiteName": "Nova Workflow",
+  "Welcome": "Welcome to Nova Workflow",
+  "online": "online",
+  "offline": "offline",
+  "Menu": {
+    "Home": "Home"
+  },
+  "Reservation": {
+    "Name": "Reservation",
+    "PersonalDetails": {
+      "Title": "Reservation - Personal Details",
+      "Firstname": {
+        "Label": "Firstname",
+        "PlaceHolder": "Please enter your firstname"
+      },
+      "Surname": {
+        "Label": "Surname",
+        "PlaceHolder": "Please enter your surname"
+      },
+      "NextActivity": "Select Hotel"
+    },
+    "Hotel": {
+      "Title": "Reservation - Hotel",
+      "HotelName": {
+        "Label": "Hotel",
+        "PlaceHolder": "Please enter your hotel name"
+      },
+      "RoomNumber": {
+        "Label": "Room Number",
+        "PlaceHolder": "Please enter your room number"
+      },
+      "PreviousActivity": "<< Back",
+      "NextActivity": "Pay"
+    },
+    "Confirmation" : {
+      "Title": "Reservation - Confirmation",
+      "Message": "Welcome {{firstname}} {{surname}}, your reservation at the {{hotel}} is confirmed!!",
+      "Reply": {
+        "Label": "Reply",
+        "PlaceHolder": "Please enter your reply"
+      },
+      "ReplyMessage": "Your reply: {{reply}}"
     }
   },
   "Errors" : {
     "Title" : "Error",
-    "General" : "An unexpected error happend."
+    "General" : "An unexpected error occured."
   }
 }
