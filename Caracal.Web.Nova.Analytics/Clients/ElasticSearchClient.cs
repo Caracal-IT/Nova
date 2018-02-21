@@ -9,7 +9,7 @@ namespace Caracal.Web.Nova.Analytics.Clients {
         private readonly string _index;
         private readonly string _type;
         
-        private readonly HttpClient _client;
+        private static readonly HttpClient Client = new HttpClient();
         
         public ElasticSearchClient(string url, string index, string type) {
             _url = url;
@@ -22,7 +22,7 @@ namespace Caracal.Web.Nova.Analytics.Clients {
                 var url = $"{_url}/{_index}/{_type}";
                 var content = new StringContent(message, Encoding.UTF8, "application/json");
                
-                await _client.PostAsync(url, content);
+                await Client.PostAsync(url, content);
             }
             catch (Exception exception) {
                 Console.WriteLine("Error :{0}", exception.Message);
