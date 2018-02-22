@@ -10,13 +10,17 @@ services:
         - "80"
       depends_on:
          - elk.api
-         - postgres
+         - postgres.db
   workflow.api:
       build: ./Caracal.Web.Nova.Workflow
+      environment:
+        - ConnectionStrings:DefaultConnection = "User ID=postgres;Password=Ettiene001;Host=postgres.db;Port=5432;Database=postgres;Pooling=true;"
       expose:
         - "80"
+      links:
+        - postgres.db
       depends_on:
-        - postgres
+        - postgres.db
   analytics.api:
       build: ./Caracal.Web.Nova.Analytics
       environment:
@@ -29,10 +33,10 @@ services:
               - "5601"
       volumes:
         - /Users/ettienemare/Documents/Development/Data/Nova/ElasticSearch:/var/lib/elasticsearch
-  postgres:
+  postgres.db:
       image: postgres
       environment:
-        POSTGRES_PASSWORD: Ettiene001
+        - POSTGRES_PASSWORD = Ettiene001
       volumes:
         - /Users/ettienemare/Documents/Development/Data/Nova/Postgres:/var/lib/postgresql/data
       ports:

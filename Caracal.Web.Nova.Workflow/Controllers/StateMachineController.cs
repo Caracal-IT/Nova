@@ -1,6 +1,11 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
 using Caracal.Web.Nova.Workflow.Repositories;
+using DataAccessPostgreSqlProvider;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -8,9 +13,14 @@ namespace Caracal.Web.Nova.Workflow.Controllers {
     [Route("/api/workflow")]
     public class StateMachineController : Controller {
         private readonly StateMachineRepository _stateMachineRepository;
-        
-        public StateMachineController(StateMachineRepository stateMachineRepository) {
+        private readonly PostgresStateMachineRepository _repository;
+
+        public StateMachineController(
+            PostgresStateMachineRepository repository,
+            StateMachineRepository stateMachineRepository
+        ) {
             _stateMachineRepository = stateMachineRepository;
+            _repository = repository;
         }
 
         [HttpPost("publish")]
@@ -29,6 +39,19 @@ namespace Caracal.Web.Nova.Workflow.Controllers {
             var ret = JObject.Load(new JsonTextReader(reader));
 
             return Ok(ret);
+        }
+        
+        [HttpGet("Upgrade")]
+
+        public IActionResult Upgrade() {
+            try {
+                _repository.Database.Migrate();
+            }
+            catch (Exception exception) {
+                return Ok(exception.Message);
+            }
+
+            return Ok();
         }
     }
 }
