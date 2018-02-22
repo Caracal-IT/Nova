@@ -1,10 +1,7 @@
 ﻿using System;
 using System.IO;
-using System.Threading.Tasks;
 using Caracal.Web.Nova.Workflow.Repositories;
-using DataAccessPostgreSqlProvider;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;

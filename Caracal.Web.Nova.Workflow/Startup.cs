@@ -1,6 +1,4 @@
-﻿using System;
-using Caracal.Web.Nova.Workflow.Repositories;
-using DataAccessPostgreSqlProvider;
+﻿using Caracal.Web.Nova.Workflow.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
