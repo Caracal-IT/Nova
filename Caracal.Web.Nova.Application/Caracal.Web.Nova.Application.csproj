@@ -22,9 +22,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ClientApp\app\services\" />
+    <Folder Include="wwwroot\smartObjects" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Caracal.Web.Nova.Analytics\Caracal.Web.Nova.Analytics.csproj" />
+    <ProjectReference Include="..\Caracal.Web.Nova.SmartObject\Caracal.Web.Nova.SmartObject.csproj" />
     <ProjectReference Include="..\Caracal.Web.Nova.Workflow\Caracal.Web.Nova.Workflow.csproj" />
   </ItemGroup>
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
