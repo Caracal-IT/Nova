@@ -21,6 +21,16 @@ services:
         - postgres.db
       depends_on:
         - postgres.db
+  smart-object.api:
+        build: ./Caracal.Web.Nova.SmartObject
+        environment:
+          - ConnectionStrings:DefaultConnection = "User ID=postgres;Password=Ettiene001;Host=postgres.db;Port=5432;Database=postgres;Pooling=true;"
+        expose:
+          - "80"
+        links:
+          - postgres.db
+        depends_on:
+          - postgres.db
   analytics.api:
       build: ./Caracal.Web.Nova.Analytics
       environment:
