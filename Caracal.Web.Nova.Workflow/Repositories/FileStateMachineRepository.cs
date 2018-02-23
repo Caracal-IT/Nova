@@ -1,7 +1,8 @@
 ﻿using System.IO;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+
+using static Caracal.Web.Nova.Workflow.Model.Workflow;
 
 namespace Caracal.Web.Nova.Workflow.Repositories {
     public class FileStateMachineRepository : StateMachineRepository {
@@ -11,27 +12,23 @@ namespace Caracal.Web.Nova.Workflow.Repositories {
             _host = host;
         }
 
-        public string GetWorkflow(string name) {
+        public async Task<string> GetWorkflowAsync(string name) {
             var path = $"{_host.WebRootPath}/workflows/{name}.json";
 
-            if (!File.Exists(path)) return "";
+            if (!File.Exists(path)) return string.Empty;
 
-            var wf = File.ReadAllText(path);
-            
-            
-            return wf;
+            return await File.ReadAllTextAsync(path);
         }
 
-        public void Deploy(string workflow) {
-            var wf = JObject.Load(new JsonTextReader(new StringReader(workflow)));
-            var name = wf["name"].Value<string>();
-            
-            var path = $"{_host.WebRootPath}/workflows/{name}.json";
+        public async Task DeployAsync(string workflowJSon) {
+            var workflow  = Parse(workflowJSon);
+           
+            var path = $"{_host.WebRootPath}/workflows/{workflow.Name}.json";
 
             if (!File.Exists(path))
                 File.Delete(path);
 
-            File.WriteAllText(path, workflow);
+            await File.WriteAllTextAsync(path, workflowJSon);
         }
     }
 }

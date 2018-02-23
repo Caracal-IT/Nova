@@ -10,7 +10,7 @@ using System;
 
 namespace Caracal.Web.Nova.Workflow.Migrations
 {
-    [DbContext(typeof(PostgresStateMachineRepository))]
+    [DbContext(typeof(DbStateMachineRepository))]
     partial class PostgresStateMachineRepositoryModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

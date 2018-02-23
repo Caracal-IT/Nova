@@ -14,38 +14,25 @@ namespace Caracal.Web.Nova.Workflow {
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
-            services.AddDbContextPool<PostgresStateMachineRepository>(options => 
+            services.AddDbContextPool<DbStateMachineRepository>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
             );
 
-            // services.AddSingleton<StateMachineRepository, FileStateMachineRepository>();
-            services.AddTransient<StateMachineRepository, PostgresStateMachineRepository>();
+            services.AddTransient<StateMachineRepository, DbStateMachineRepository>();
 
             services.AddMvc();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env) {            
-            if (env.IsDevelopment()) {
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
+            if (env.IsDevelopment()) 
                 app.UseDeveloperExceptionPage();
-            }
-            
-            app.UseForwardedHeaders(new ForwardedHeadersOptions
-            {
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
 
             app.UseMvc();
-        }
-        
-        private void InitializeDatabase(IApplicationBuilder app)
-        {
-            using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-            {
-                scope.ServiceProvider.GetRequiredService<PostgresStateMachineRepository>().Database.Migrate();
-            }
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -24,6 +25,18 @@ namespace Caracal.Web.Nova.Workflow.Model {
         {
             get => JsonConvert.DeserializeObject<JObject>(string.IsNullOrEmpty(_definition) ? "{}" : _definition);
             set => _definition = value.ToString();
+        }
+
+        public static Workflow Parse(string definition) {
+            var def = JObject.Load(new JsonTextReader(new StringReader(definition)));
+            var name = def["name"].Value<string>();
+
+            return new Workflow {
+                Name = name,
+                Definition = def,
+                Version = 1,
+                Timestamp = DateTime.Now
+            };
         }
     }
 }

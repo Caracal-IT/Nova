@@ -1,6 +1,8 @@
-﻿namespace Caracal.Web.Nova.Workflow.Repositories {
+﻿using System.Threading.Tasks;
+
+namespace Caracal.Web.Nova.Workflow.Repositories {
     public interface StateMachineRepository {
-        void Deploy(string workflow);
-        string GetWorkflow(string name);
+        Task DeployAsync(string workflow);
+        Task<string> GetWorkflowAsync(string name);
     }
 }
