@@ -6,6 +6,8 @@
   "Menu": {
     "Home": "Casa"
   },
+  "MyReservation": "La Mia Prenotazione",
+  "Registration": "Registrazione",
   "Reservation": {
     "Name": "Prenotazione",
     "PersonalDetails": {

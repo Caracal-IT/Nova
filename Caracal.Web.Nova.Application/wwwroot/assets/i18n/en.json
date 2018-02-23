@@ -6,6 +6,8 @@
   "Menu": {
     "Home": "Home"
   },
+  "MyReservation": "My Reservation",
+  "Registration": "Registration",
   "Reservation": {
     "Name": "Reservation",
     "PersonalDetails": {
