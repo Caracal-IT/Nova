@@ -5936,9 +5936,9 @@
       }
     },
     "nova-workflow": {
-      "version": "2.0.8",
-      "resolved": "https://registry.npmjs.org/nova-workflow/-/nova-workflow-2.0.8.tgz",
-      "integrity": "sha512-gm/Pq8LVOGORZz6dQsJiRL9QS4fBPVT/vZg/O8G1dxmj0hjsMoICPLoNI7b+tAeNXWVdd4jIwSQB1+6XQVttJA==",
+      "version": "2.0.10",
+      "resolved": "https://registry.npmjs.org/nova-workflow/-/nova-workflow-2.0.10.tgz",
+      "integrity": "sha512-4L04thdQZRFtgIYj/ElE+12Bq1ewJoM7cGHoPbdZLQKygMtQNMgIQ6Lmj8C7dF6a2QC+FYPSDA4eZzFYVWuv5w==",
       "requires": {
         "@angular/animations": "5.2.6",
         "@angular/common": "5.2.6",
