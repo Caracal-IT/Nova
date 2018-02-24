@@ -5936,9 +5936,9 @@
       }
     },
     "nova-workflow": {
-      "version": "1.1.3",
-      "resolved": "https://registry.npmjs.org/nova-workflow/-/nova-workflow-1.1.3.tgz",
-      "integrity": "sha512-i2+vraGODvhzZ/Dm2dLMrHcLkLLUiznjHZdmVApKcapnV1GWM92oXu4Dw3qMoJvhdGJIvo5E534ObsCcsWTGTg==",
+      "version": "2.0.1",
+      "resolved": "https://registry.npmjs.org/nova-workflow/-/nova-workflow-2.0.1.tgz",
+      "integrity": "sha512-hIpG7HCZKlLuZMEyxdtUpDf2jTrWT1A0WL2HYkU77apcCMLapAs9XuOg1BxK5iBC3qi6vRMzQPRTqi2jUn70nA==",
       "requires": {
         "@angular/animations": "5.2.6",
         "@angular/common": "5.2.6",
@@ -5951,6 +5951,7 @@
         "@angular/router": "5.2.6",
         "core-js": "2.5.3",
         "rxjs": "5.5.6",
+        "tslib": "1.9.0",
         "zone.js": "0.8.20"
       }
     },

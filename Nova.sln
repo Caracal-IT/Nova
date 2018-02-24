@@ -8,7 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{3F9EB740-7C20-43F3-81ED-0853795DE492}"
 ProjectSection(SolutionItems) = preProject
 	docker-compose.yml = docker-compose.yml
-	nova-docker-compose.yml = nova-docker-compose.yml
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nginx", "Nginx", "{BCEF419D-FDD9-416D-89F7-DE8348A11812}"
