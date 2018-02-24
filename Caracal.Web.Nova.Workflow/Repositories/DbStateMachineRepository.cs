@@ -16,7 +16,7 @@ namespace Caracal.Web.Nova.Workflow.Repositories {
             var wf = await Workflows.FirstOrDefaultAsync(w => w.Name == workflow.Name);
 
             if (wf != null) 
-                wf.Definition = wf.Definition;
+                wf.Definition = workflow.Definition;
             else 
                 Workflows.Add(workflow);
 
