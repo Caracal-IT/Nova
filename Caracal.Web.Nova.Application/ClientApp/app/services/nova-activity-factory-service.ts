@@ -4,7 +4,6 @@ export class NovaActivityFactoryService extends ActivityFactoryService{
     private NovaAlertActivity(metadata: any) {
         return new NovaAlertActivity(metadata);
     }
-    
 }
 
 export class NovaAlertActivity extends Activity {
