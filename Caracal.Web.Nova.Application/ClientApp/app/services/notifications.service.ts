@@ -1,13 +1,16 @@
 import {Injectable} from '@angular/core';
-import {ToastyService} from 'ng2-toasty';
+import {ToastData, ToastyService} from 'ng2-toasty';
 
 import {forkJoin} from "rxjs/observable/forkJoin";
-import {TranslateService} from "ng2-translate";
+import {NovaTranslatorService} from "nova-forms";
 
 @Injectable()
 export class ToastyNotificationsService {
-    constructor(private toastyService: ToastyService,
-                private translateService: TranslateService) {
+    waitId = -1;
+    
+    constructor(
+        private toastyService: ToastyService,
+        private translateService: NovaTranslatorService) {
     }
 
     parameters: any | undefined;
@@ -36,21 +39,24 @@ export class ToastyNotificationsService {
 
     private show(title: string, message: string, toasty: (message: any) => void) {
         const sources = [
-            this.translateService.get(title),
-            this.translateService.get(message)
+            this.translateService.get(title, this.parameters),
+            this.translateService.get(message, this.parameters)
         ];
 
         forkJoin(sources)
             .subscribe(data => {
-                var messageSettings = this.getMessageSetting(data);
+                const messageSettings = this.getMessageSetting(data);
                 toasty(messageSettings);
             }, err => console.log(err));
     }
 
     wait(title: string, message: string) {
+        if (this.waitId > -1)
+            this.cancelWait();
+        
         const sources = [
-            this.translateService.get(title),
-            this.translateService.get(message)
+            this.translateService.get(title, this.parameters),
+            this.translateService.get(message, this.parameters)
         ];
 
         forkJoin(sources)
@@ -59,12 +65,14 @@ export class ToastyNotificationsService {
                 msg: data[1],
                 theme: "bootstrap",
                 showClose: true,
-                timeout: 120000
+                timeout: 120000,
+                onAdd: (toast:ToastData) => this.waitId = toast.id,
+                onRemove: () => this.waitId = -1 
             }), err => console.log(err));
     }
 
     cancelWait(){
-        this.clearAll();
+        this.toastyService.clear(this.waitId);
     }
     
     clearAll() {

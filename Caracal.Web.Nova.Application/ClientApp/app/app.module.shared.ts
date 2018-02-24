@@ -20,7 +20,9 @@ import {
     WorkflowModule,
     WorkflowComponent,
     NotificationsService,
-    NovaFormService
+    NovaFormService, 
+    WorkflowProviderService, 
+    ActivityFactoryService
 } from 'nova-workflow';
 import {NovaModule} from "../nova/nova.module";
 import {MagicInputComponent} from "./components/magic-input/nova-input.component";
@@ -37,6 +39,7 @@ import {NovaCoreLibModule} from "nova-core-lib";
 import {ElasticAnalyticsClient} from "./clients/elastic-analytics.client";
 import {NovaSpatialClient} from "./clients/nova-spatial.client";
 import {NgTranslateTranslatorService} from "./services/nova-translator.service";
+import {NovaActivityFactoryService} from "./services/nova-activity-factory-service";
 
 export function createTranslateLoader(http: Http){
     return new TranslateStaticLoader(http,  './assets/i18n', '.json');
@@ -55,7 +58,6 @@ export function createTranslateLoader(http: Http){
         AnalyticsService,
         EventService,
         ToastyNotificationsService,
-        NotificationsService,
         {provide: ErrorHandler, useClass: AppErrorHandler}
     ],
     entryComponents: [
@@ -65,6 +67,7 @@ export function createTranslateLoader(http: Http){
         CommonModule,
         HttpModule,
         FormsModule,
+        ToastyModule.forRoot(),
         NovaCoreLibModule.forRoot(),
         DynamicFormModule.forRoot(
             {
@@ -84,7 +87,6 @@ export function createTranslateLoader(http: Http){
                 useClass: NovaSpatialClient
             }
         ),
-        ToastyModule.forRoot(),
         TranslateModule.forRoot({
             provide: TranslateLoader,
             useFactory: createTranslateLoader,
@@ -98,6 +100,14 @@ export function createTranslateLoader(http: Http){
             {
                 provide: NovaFormService,
                 useClass: DynamicFormService
+            },
+            {
+                provide: WorkflowProviderService,
+                useClass: WorkflowProviderService
+            },
+    {
+                provide: ActivityFactoryService,
+                useClass: NovaActivityFactoryService
             }
         ),
         RouterModule.forRoot([

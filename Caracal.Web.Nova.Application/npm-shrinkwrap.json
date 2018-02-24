@@ -1,6 +1,6 @@
 {
   "name": "Caracal.Web.Nova.Application",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
@@ -5936,9 +5936,9 @@
       }
     },
     "nova-workflow": {
-      "version": "2.0.1",
-      "resolved": "https://registry.npmjs.org/nova-workflow/-/nova-workflow-2.0.1.tgz",
-      "integrity": "sha512-hIpG7HCZKlLuZMEyxdtUpDf2jTrWT1A0WL2HYkU77apcCMLapAs9XuOg1BxK5iBC3qi6vRMzQPRTqi2jUn70nA==",
+      "version": "2.0.8",
+      "resolved": "https://registry.npmjs.org/nova-workflow/-/nova-workflow-2.0.8.tgz",
+      "integrity": "sha512-gm/Pq8LVOGORZz6dQsJiRL9QS4fBPVT/vZg/O8G1dxmj0hjsMoICPLoNI7b+tAeNXWVdd4jIwSQB1+6XQVttJA==",
       "requires": {
         "@angular/animations": "5.2.6",
         "@angular/common": "5.2.6",
