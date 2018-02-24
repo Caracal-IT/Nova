@@ -9,6 +9,7 @@ export class NovaActivityFactoryService extends ActivityFactoryService{
 
 export class NovaAlertActivity extends Activity {
     nextActivity = "";
+    message = "";
     
     constructor(metadata: any) {
         super();
@@ -16,7 +17,7 @@ export class NovaAlertActivity extends Activity {
     }
 
     execute(parameters: any) {
-        this.notificationService.success("Success", "Reservation.Confirmation.Message");
+        this.notificationService.success("Success", this.message);
         this.workflow.next(this.nextActivity);
     }
 }
