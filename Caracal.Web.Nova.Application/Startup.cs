@@ -5,6 +5,7 @@ using Caracal.Web.Nova.Analytics.Clients;
 using Caracal.Web.Nova.Application.Controllers;
 using Caracal.Web.Nova.Application.Core;
 using Caracal.Web.Nova.Application.Core.Settings;
+using Caracal.Web.Nova.SmartObject.Repositories;
 using Caracal.Web.Nova.Workflow.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +29,7 @@ namespace Caracal.Web.Nova.Application {
             
             services.AddMvc();
             services.AddSingleton<StateMachineRepository, FileStateMachineRepository>();
+            services.AddSingleton<SmartObjectRepository, FileSmartObjectRepository>();
             services.AddSingleton(new HttpClient{Timeout = new TimeSpan(0, 0, 30)});
             services.AddSingleton(new ElasticSearchClient(
                 appSettings["elastic:serverUrl"], 

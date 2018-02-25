@@ -8,9 +8,7 @@ namespace Caracal.Web.Nova.Workflow.Repositories {
     public class FileStateMachineRepository : StateMachineRepository {
         private readonly IHostingEnvironment _host;
         
-        public FileStateMachineRepository(IHostingEnvironment host) {
-            _host = host;
-        }
+        public FileStateMachineRepository(IHostingEnvironment host) => _host = host;
 
         public async Task<string> GetWorkflowAsync(string name) {
             var path = $"{_host.WebRootPath}/workflows/{name}.json";

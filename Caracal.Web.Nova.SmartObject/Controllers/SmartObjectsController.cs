@@ -1,31 +1,21 @@
 ﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
+using Caracal.Web.Nova.SmartObject.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Caracal.Web.Nova.SmartObject.Controllers {
     [Route("/api/smart-object")]
     public class SmartObjectsController : Controller {
-        private readonly IHostingEnvironment _host;
+        private readonly SmartObjectRepository _repository;
 
-        public SmartObjectsController(IHostingEnvironment host) => _host = host;
+        public SmartObjectsController(SmartObjectRepository repository) => _repository = repository;
 
         [HttpGet("{name}/{id}")]
-        public async Task<string> GetSmartObject(string name, [FromRoute] int id) {
-            var path = $"{_host.WebRootPath}/smartObjects/{name}.json";
-
-            if (!System.IO.File.Exists(path)) return string.Empty;
-
-            return await System.IO.File.ReadAllTextAsync(path);
-        }
+        public async Task<string> GetSmartObjectAsync(string name, [FromRoute] int id) => 
+            await _repository.GetSmartObjectAsync(name, id);
 
         [HttpPost("{name}")]
-        public async Task<string> SaveSmartObject([FromRoute] string name, [FromBody] object smartObject) {
-            var path = $"{_host.WebRootPath}/smartObjects/{name}.json";
-
-            if (!System.IO.File.Exists(path))
-                System.IO.File.Delete(path);
-
-            await System.IO.File.WriteAllTextAsync(path, smartObject.ToString());
+        public async Task<string> SaveSmartObjectAsync([FromRoute] string name, [FromBody] object smartObject) {
+            await _repository.SaveAsync(name, smartObject.ToString());
             
             return smartObject.ToString();
         }
