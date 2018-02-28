@@ -104,8 +104,8 @@ export function createTranslateLoader(http: Http){
             {
                 provide: WorkflowProviderService,
                 useClass: WorkflowProviderService
-            },
-    {
+            }, 
+            {
                 provide: ActivityFactoryService,
                 useClass: NovaActivityFactoryService
             }
