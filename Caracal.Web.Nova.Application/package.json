@@ -46,7 +46,7 @@
     "nova-core-lib": "^0.0.6",
     "nova-forms": "^1.0.6",
     "nova-paper": "^1.2.0",
-    "nova-workflow": "^2.2.2",
+    "nova-workflow": "^2.2.4",
     "popper.js": "^1.12.9",
     "preboot": "4.5.2",
     "reflect-metadata": "0.1.12",
