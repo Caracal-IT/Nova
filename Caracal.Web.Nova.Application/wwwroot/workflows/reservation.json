@@ -12,6 +12,30 @@
             "name": "header"
           },
           {
+            "type": "paper-select",
+            "label": "Title",
+            "name": "title",
+            "placeholder": "Select an option",
+            "items": [
+              {
+                "key": "Mr",
+                "value": "1"
+              },
+              {
+                "key": "Miss",
+                "value": "2"
+              },
+              {
+                "key": "Dr",
+                "value": "3"
+              },
+              {
+                "key": "Proff",
+                "value": "4"
+              }
+            ]
+          },
+          {
             "type": "paper-input",
             "label": "Reservation.PersonalDetails.Firstname.Label",
             "name": "firstname",

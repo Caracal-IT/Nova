@@ -4,6 +4,7 @@ import {TranslateModule} from "ng2-translate";
 import {NgModule} from "@angular/core";
 
 import {NovaInputComponent} from "./components/nova-input/nova-input.component";
+import {NovaSelectComponent} from "./components/nova-select/nova-select.component";
 
 @NgModule({
     imports: [
@@ -12,17 +13,20 @@ import {NovaInputComponent} from "./components/nova-input/nova-input.component";
         TranslateModule.forRoot()
     ],
     declarations: [
-        NovaInputComponent
+        NovaInputComponent,
+        NovaSelectComponent
     ],
     entryComponents: [
-        NovaInputComponent
+        NovaInputComponent,
+        NovaSelectComponent
     ]
 })
 export class NovaModule {
     public static getComponents() {
-        var components = [];
+        const components = [];
         components.push({key: "nova-input", component: NovaInputComponent});
-
+        components.push({key: "nova-select", component: NovaSelectComponent});
+        
         return components;
     }
 }
