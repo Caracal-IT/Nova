@@ -46,7 +46,7 @@
     "nova-core-lib": "^0.0.6",
     "nova-forms": "^1.0.6",
     "nova-paper": "^1.2.0",
-    "nova-workflow": "^2.1.5",
+    "nova-workflow": "file:../../Angular/Packages/nova-workflow-2.2.1.tgz",
     "popper.js": "^1.12.9",
     "preboot": "4.5.2",
     "reflect-metadata": "0.1.12",
@@ -54,7 +54,7 @@
     "style-loader": "0.20.2",
     "to-string-loader": "1.1.5",
     "url-loader": "0.6.2",
-    "webpack": "4.0.1",
+    "webpack": "3.11.0",
     "webpack-hot-middleware": "2.21.1",
     "webpack-merge": "4.1.2",
     "zone.js": "0.8.20"
@@ -73,6 +73,7 @@
     "node-sass": "^4.7.2",
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.6",
-    "typescript": "^2.7.2"
+    "typescript": "^2.7.2",
+    "webpack-cli": "^2.0.9"
   }
 }
