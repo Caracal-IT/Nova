@@ -1,6 +1,7 @@
 ﻿using Caracal.Web.Nova.Analytics.Clients;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,7 +22,8 @@ namespace Caracal.Web.Nova.Analytics {
                 appSettings["elastic:index:workflow"], 
                 appSettings["application"]
             ));
-            
+          
+            services.AddResponseCompression(options => options.Providers.Add<GzipCompressionProvider>());
             services.AddMvc();
         }
 
@@ -31,6 +33,7 @@ namespace Caracal.Web.Nova.Analytics {
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseResponseCompression();
             app.UseMvc();
         }
     }

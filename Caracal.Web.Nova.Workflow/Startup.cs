@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +22,7 @@ namespace Caracal.Web.Nova.Workflow {
 
             services.AddTransient<StateMachineRepository, DbStateMachineRepository>();
 
+            services.AddResponseCompression(options => options.Providers.Add<GzipCompressionProvider>());
             services.AddMvc();
         }
 
@@ -32,6 +34,7 @@ namespace Caracal.Web.Nova.Workflow {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
 
+            app.UseResponseCompression();
             app.UseMvc();
         }
     }

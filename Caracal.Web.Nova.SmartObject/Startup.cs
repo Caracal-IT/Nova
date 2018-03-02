@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Caracal.Web.Nova.SmartObject.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +28,7 @@ namespace Caracal.Web.Nova.SmartObject {
 
             services.AddTransient<SmartObjectRepository, DbSmartObjectRepository>();
             
+            services.AddResponseCompression(options => options.Providers.Add<GzipCompressionProvider>());
             services.AddMvc();
         }
 
@@ -36,6 +38,7 @@ namespace Caracal.Web.Nova.SmartObject {
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseResponseCompression();
             app.UseMvc();
         }
     }
