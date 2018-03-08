@@ -2,8 +2,6 @@ using System;
 using System.Net.Http;
 using AutoMapper;
 using Caracal.Web.Nova.Analytics.Clients;
-using Caracal.Web.Nova.Application.Controllers;
-using Caracal.Web.Nova.Application.Core;
 using Caracal.Web.Nova.Application.Core.Settings;
 using Caracal.Web.Nova.SmartObject.Repositories;
 using Caracal.Web.Nova.Workflow.Repositories;
@@ -42,6 +40,7 @@ namespace Caracal.Web.Nova.Application {
         appSettings["elastic:index:workflow"],
         appSettings["application"]
       ));
+      
       services.AddAutoMapper();
     }
 
