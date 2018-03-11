@@ -1,0 +1,146 @@
+﻿@{
+  Layout = null;
+}
+
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<style>
+  rect.draw2d_ResizeHandle
+  {
+    fill:#ff0000;
+  }
+
+ 
+  /**
+ * Possible Type:
+ * 
+ *     1             2               3
+ *     O-----------O-------------O
+ *     |                         |
+ *     |                         |
+ *   8 O           + 9           O 4
+ *     |                         |
+ *     |                         |
+ *     O-----------O-------------O
+ *   7             6               5
+ * 
+ **/
+  rect[type="2"].draw2d_ResizeHandle
+  {
+    fill:#00FF00;
+  }
+
+</style>
+<title>Builder</title>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="viewport" content="width=device-width, minimum-scale=1.0"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<link type="text/css" rel="stylesheet" href="~/css/example.css"/>
+<link type="text/css" rel="stylesheet" href="~/css/contextmenu.css"/>
+
+
+
+<script src="~/draw/lib/shifty.js"></script>
+<script src="~/draw/lib/raphael.js"></script>
+<script src="~/draw/lib/jquery-1.12.0.min.js"></script>
+<script src="~/draw/lib/jquery.autoresize.js"></script>
+<script src="~/draw/lib/jquery-touch_punch.js"></script>
+<script src="~/draw/lib/jquery.contextmenu.js"></script>
+<script src="~/draw/lib/rgbcolor.js"></script>
+<script src="~/draw/lib/canvg.js"></script>
+<script src="~/draw/lib/Class.js"></script>
+<script src="~/draw/lib/json2.js"></script>
+<script src="~/draw/lib/pathfinding-browser.min.js"></script>
+
+
+  <script src="~/draw/draw2d.js"></script>
+  <script src="~/draw/shapes.js"></script>
+
+<script src="~/draw/MyConnection.js"></script>
+
+<script src="~/draw/CollapsibleLocator.js"></script>
+<script src="~/draw/CollapsibleInputLocator.js"></script>
+<script src="~/draw/CollapsibleOutputLocator.js"></script>
+<script src="~/draw/CollapsibleShape.js"></script>
+
+  
+
+  </head>
+<body>
+
+<div onselectstart="javascript:/*IE8 hack*/return false" id="gfx_holder" style="width: 100%; height: 600px;">
+</div>
+
+<script type="text/javascript">
+  let canvas;
+  
+  function GetCanvas() {
+    return canvas;
+  }
+    
+  $(window).load(function() {
+    canvas = new Canvas(new draw2d.Canvas("gfx_holder"));
+  });
+
+</script>
+
+
+</body>
+</html>
+
+@{
+  /*
+<SCRIPT src="./lib/jquery.browser.js"></SCRIPT>
+    <SCRIPT src="./lib/jquery-ui-1.8.23.custom.min.js"></SCRIPT>
+    <SCRIPT src="./lib/jquery.layout.js"></SCRIPT>
+
+        <script src="lib/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="lib/bootstrap.min.js"></script>
+        <script src="lib/bootstrap-select.js"></script>
+        <script src="lib/plugins.js"></script>
+        <script src="lib/main.js"></script>
+        <script src="lib/hogan.min.js"></script>
+        <script src="lib/regex-colorizer.js"></script>
+        <script src="lib/jquery-caretposition.js"></script>
+        <script src="lib/jquery.pulse.js"></script>
+        
+       
+        <!--  conflict with Draw2D autoresizer. In this case we must add this after the Draw2D resizer include to override the Draw2d behaviour -->
+		<SCRIPT src="lib/jquery.handsontable.full.js"></SCRIPT>
+         
+		<SCRIPT src="./src/Application.js"></SCRIPT>
+		<SCRIPT src="./src/Toolbar.js"></SCRIPT>
+		<SCRIPT src="./src/View.js"></SCRIPT>
+		<SCRIPT src="./src/PropertyPane.js"></SCRIPT>
+
+<!--  	<SCRIPT src="./src/backend/Backend.js"></SCRIPT> -->
+		<SCRIPT src="./src/backend/Backend_php.js"></SCRIPT>
+
+		<SCRIPT src="./src/propertypane/PropertyPaneActivity.js"></SCRIPT>
+		<SCRIPT src="./src/propertypane/PropertyPaneState.js"></SCRIPT>
+		<SCRIPT src="./src/propertypane/PropertyPaneStart.js"></SCRIPT>
+		<SCRIPT src="./src/propertypane/PropertyPaneEnd.js"></SCRIPT>
+		<SCRIPT src="./src/propertypane/PropertyPaneRegExConnection.js"></SCRIPT>
+		<SCRIPT src="./src/propertypane/PropertyPaneAutoConnection.js"></SCRIPT>
+
+		<SCRIPT src="./src/dialog/SaveAsDialog.js"></SCRIPT>
+		<SCRIPT src="./src/dialog/NewDialog.js"></SCRIPT>
+		<SCRIPT src="./src/dialog/OpenDialog.js"></SCRIPT>
+		<SCRIPT src="./src/dialog/RegexEditorDialog.js"></SCRIPT>
+		<SCRIPT src="./src/dialog/TemplateEditorDialog.js"></SCRIPT>
+		<SCRIPT src="./src/dialog/ActivityVariableEditorDialog.js"></SCRIPT>
+		<SCRIPT src="./src/dialog/AutoConnectDefaultEditorDialog.js"></SCRIPT>
+		<SCRIPT src="./src/dialog/FreeMarkerEditorDialog.js"></SCRIPT>
+
+		<SCRIPT src="./src/shape/Start.js"></SCRIPT>
+		<SCRIPT src="./src/shape/Activity.js"></SCRIPT>
+		<SCRIPT src="./src/shape/RegExConnection.js"></SCRIPT>
+		<SCRIPT src="./src/shape/AutoConnection.js"></SCRIPT>
+
+		<SCRIPT src="./src/command/CommandSetJSON.js"></SCRIPT>
+		<SCRIPT src="./src/command/CommandSetLabel.js"></SCRIPT>
+		<SCRIPT src="./src/command/CommandSetActivityDef.js"></SCRIPT>
+
+*/
+}

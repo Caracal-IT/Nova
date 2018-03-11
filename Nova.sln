@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caracal.Web.Nova.Analytics"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caracal.Web.Nova.SmartObject", "Caracal.Web.Nova.SmartObject\Caracal.Web.Nova.SmartObject.csproj", "{9FC0FB50-8751-4A67-A55A-176B15CBEFCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caracal.Web.Nova.Builder", "Caracal.Web.Nova.Builder\Caracal.Web.Nova.Builder.csproj", "{913C6DD0-D796-4532-AC64-2777292C762E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{9FC0FB50-8751-4A67-A55A-176B15CBEFCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FC0FB50-8751-4A67-A55A-176B15CBEFCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FC0FB50-8751-4A67-A55A-176B15CBEFCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{913C6DD0-D796-4532-AC64-2777292C762E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{913C6DD0-D796-4532-AC64-2777292C762E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{913C6DD0-D796-4532-AC64-2777292C762E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{913C6DD0-D796-4532-AC64-2777292C762E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BCEF419D-FDD9-416D-89F7-DE8348A11812} = {3F9EB740-7C20-43F3-81ED-0853795DE492}
