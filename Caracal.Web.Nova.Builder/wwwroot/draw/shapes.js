@@ -16,7 +16,7 @@ class Canvas {
         return this.add(new Note(text), x,  y);
     }
     
-    panel(text, x, y, w, h){§
+    panel(text, x, y, w, h){
         return this.add(new Panel(text, w,  h), x,  y); 
     }
 
