@@ -326,20 +326,22 @@ var CollapsibleShape = draw2d.shape.layout.VerticalLayout.extend({
                     case "red":
                         me.header.setBackgroundColor('#f3546a');
                         me.setBackgroundColor('#FFC0CB');
-                        // this.setColor('#00A8F0');
+                        this.setColor('#f3546a');
                         break;
                     case "green":
                         me.header.setBackgroundColor('#2E8B57');
                         me.setBackgroundColor('#98FB98');
+                        this.setColor('#2E8B57');
                         break;
                     case "blue":
                         me.header.setBackgroundColor('#00A8F0');
                         me.setBackgroundColor('#93d7f3');
-                        // this.setColor('#00A8F0');
+                        this.setColor('#00A8F0');
                         break;
                     case "purple":
                         me.header.setBackgroundColor('#800080');
                         me.setBackgroundColor('#D8BFD8');
+                        this.setColor('#800080');
                         break;
                     case "delete":
                         console.log(this);
@@ -347,8 +349,8 @@ var CollapsibleShape = draw2d.shape.layout.VerticalLayout.extend({
                     //     this.getCanvas().remove(this);
 
                     // with undo/redo support
-                    // var cmd = new draw2d.command.CommandDelete(this);
-                    // this.getCanvas().getCommandStack().execute(cmd);
+                     let cmd = new draw2d.command.CommandDelete(this);
+                     this.getCanvas().getCommandStack().execute(cmd);
                     default:
                         break;
                 }
