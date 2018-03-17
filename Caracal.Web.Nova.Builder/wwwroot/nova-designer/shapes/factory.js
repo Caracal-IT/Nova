@@ -36,4 +36,20 @@ class ShapeFactory {
     end() {
         return new Terminator("End", "#F08080", "input");
     }
+
+    panel() {
+        return new Panel("Panel", 730, 150);
+    }
+
+    title() {
+        return new Header("Title");
+    }
+
+    label() {
+        return new Label("Label");
+    }
+
+    note(){
+        return new Note("Note");
+    }
 }

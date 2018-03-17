@@ -155,18 +155,17 @@
       </div>
    
   <div id="navigation" class="">
-    <!--
-    <div data-shape="panel" class="palette_node_element draw2d_droppable">Panel</div>
-    <div data-shape="title" class="palette_node_element draw2d_droppable">Title</div>
-    <div data-shape="label" class="palette_node_element draw2d_droppable">Label</div>
-    <div data-shape="note" class="palette_node_element draw2d_droppable">Note</div>
-
-   
-   
-    -->
+    <img 
+      src="~/nova-designer/img/panel-activity.png" 
+      style="padding-top: 5px;width: 50px; height: 45px;cursor: pointer;" 
+      data-factory="shapeFactory"
+      data-shape="panel" 
+      alt="Panel"
+      class="draw2d_droppable"/>
+    
     <img 
       src="~/nova-designer/img/form-activity.png" 
-      style="padding-top: 5px;width: 72px; height: 72px;" 
+      style="padding-top: 5px;width: 50px; height: 45px;cursor: pointer;" 
       data-factory="shapeFactory"
       data-shape="form" 
       alt="Form"
@@ -174,15 +173,39 @@
     
     <img 
       src="~/nova-designer/img/webservice.png" 
-      style="padding-top: 5px;width: 72px; height: 72px;" 
+      style="padding-top: 5px;width: 50px; height: 50px;cursor: pointer;" 
       data-factory="activityFactory"
       data-shape="webService" 
       alt="Webservice"
       class="draw2d_droppable"/>
     
     <img 
+      src="~/nova-designer/img/title-activity.png" 
+      style="padding-top: 5px;width: 40px; height: 30px;cursor: pointer" 
+      data-factory="shapeFactory"
+      data-shape="title" 
+      alt="Title"
+      class="draw2d_droppable"/>
+    
+    <img 
+      src="~/nova-designer/img/label-activity.png" 
+      style="padding-top: 5px;width: 30px; height: 20px;cursor: pointer;" 
+      data-factory="shapeFactory"
+      data-shape="label" 
+      alt="Label"
+      class="draw2d_droppable"/>
+    
+    <img 
+      src="~/nova-designer/img/note-activity.png" 
+      style="padding-top: 5px;width: 30px; height: 27px;cursor: pointer;" 
+      data-factory="shapeFactory"
+      data-shape="note" 
+      alt="Note"
+      class="draw2d_droppable"/>
+    
+    <img 
       src="~/nova-designer/img/start-activity.png" 
-      style="padding-top: 5px;width: 35px; height: 35px;" 
+      style="padding-top: 5px;width: 30px; height: 30px;cursor: pointer;" 
       data-factory="shapeFactory"
       data-shape="start" 
       alt="Start"
@@ -190,11 +213,14 @@
     
     <img 
       src="~/nova-designer/img/end-activity.png" 
-      style="padding-top: 5px;width: 35px; height: 35px;" 
+      style="padding-top: 5px;width: 30px; height: 30px;cursor: pointer;" 
       data-factory="shapeFactory"
       data-shape="end" 
       alt="End"
       class="draw2d_droppable"/>
+    
+    
+   
     
   </div>
   
@@ -225,7 +251,7 @@
           closable:true,
           resizeWhileDragging:true,
           paneSelector: "#navigation",
-          size: 74
+          size: 55
 
         },
         east: {
