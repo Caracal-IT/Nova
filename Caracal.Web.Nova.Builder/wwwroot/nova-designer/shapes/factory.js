@@ -1,7 +1,7 @@
 class Factory {
     constructor() {
         this.activityFactory = new ActivityFactory(); 
-        this.formFactory = new FormFactory();
+        this.shapeFactory = new ShapeFactory();
     }
     
     create(factory, shape) {
@@ -24,8 +24,16 @@ class ActivityFactory {
     }
 }
 
-class FormFactory {
-    form(){
+class ShapeFactory {
+    form() {
         return new Form("Form Activity");
+    }
+
+    start() {
+        return new Terminator("Start", "#AFEEEE", "output", "#008080");
+    }
+
+    end() {
+        return new Terminator("End", "#F08080", "input");
     }
 }

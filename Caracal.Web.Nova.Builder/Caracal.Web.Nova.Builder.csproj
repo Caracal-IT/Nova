@@ -18,7 +18,6 @@
   <ItemGroup>
     <Folder Include="wwwroot\draw\shapes" />
     <Folder Include="wwwroot\images" />
-    <Folder Include="wwwroot\nova-designer\shapes\form" />
   </ItemGroup>
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\draw\dev\Toolbar.js" />

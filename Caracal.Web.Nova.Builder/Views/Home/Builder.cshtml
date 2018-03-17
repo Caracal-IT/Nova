@@ -111,16 +111,19 @@
     
     <script src="~/nova-designer/menus/color-context-menu.js"></script>
     <script src="~/nova-designer/menus/delete-context-menu.js"></script>
+    <script src="~/nova-designer/menus/form-context-menu.js"></script>
     
     <script src="~/nova-designer/shapes/factory.js"></script>
     <script src="~/nova-designer/shapes/header.js"></script>
     <script src="~/nova-designer/shapes/label.js"></script>
+    <script src="~/nova-designer/shapes/note.js"></script>
+    <script src="~/nova-designer/shapes/panel.js"></script>
+    <script src="~/nova-designer/shapes/terminator.js"></script>
     <script src="~/nova-designer/shapes/activity.js"></script>
     
-    
-    <script src="~/draw/shapes.js"></script>
-    
-    
+    <script src="~/nova-designer/shapes/form/form.js"></script>
+    <script src="~/nova-designer/shapes/form/form-control.js"></script>
+    <script src="~/nova-designer/shapes/form/form-header.js"></script>
     
     
     
@@ -158,18 +161,13 @@
     <div data-shape="label" class="palette_node_element draw2d_droppable">Label</div>
     <div data-shape="note" class="palette_node_element draw2d_droppable">Note</div>
 
-    <div data-shape="start" class="palette_node_element draw2d_droppable">Start</div>
-    <div data-shape="end" class="palette_node_element draw2d_droppable">End</div>
-
-
-    <div data-shape="form" class="palette_node_element draw2d_droppable">Form Act</div>
    
    
     -->
     <img 
       src="~/nova-designer/img/form-activity.png" 
       style="padding-top: 5px;width: 72px; height: 72px;" 
-      data-factory="formFactory"
+      data-factory="shapeFactory"
       data-shape="form" 
       alt="Form"
       class="draw2d_droppable"/>
@@ -179,8 +177,25 @@
       style="padding-top: 5px;width: 72px; height: 72px;" 
       data-factory="activityFactory"
       data-shape="webService" 
-      alt="Workflow"
+      alt="Webservice"
       class="draw2d_droppable"/>
+    
+    <img 
+      src="~/nova-designer/img/start-activity.png" 
+      style="padding-top: 5px;width: 35px; height: 35px;" 
+      data-factory="shapeFactory"
+      data-shape="start" 
+      alt="Start"
+      class="draw2d_droppable"/>
+    
+    <img 
+      src="~/nova-designer/img/end-activity.png" 
+      style="padding-top: 5px;width: 35px; height: 35px;" 
+      data-factory="shapeFactory"
+      data-shape="end" 
+      alt="End"
+      class="draw2d_droppable"/>
+    
   </div>
   
   <div id="properties">
