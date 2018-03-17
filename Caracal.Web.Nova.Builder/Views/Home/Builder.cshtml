@@ -32,30 +32,44 @@
     
         
         #properties {
-          background-color: #c0c0c0;
+          background-color: #f8f8f8;
           width: 100%;
           height: 100%;
         }
         
         #properties h2 {
-          background-color: #c0c0c0;
+          position: relative;
+          background-color: #f8f8f8;
           width: 100%;
-          border-bottom: 1px solid
+          border-bottom: 1px solid;
+          top: -10px;
         }
         
         #properties table {
+          position: relative;
            border-collapse: collapse; 
           border-spacing: 0;
+          top: -30px;
+        }
+        
+        #properties tr:nth-child(even) {
+          background-color: #e2e2e2;
+        }
+        
+        #properties td:nth-child(1) {
+          border-right: 1px dashed;
+          border-right-color: #e7e7e7;
         }
         
         #properties td {
           padding: 0;
+          padding-top: 10px;
           margin-bottom: 3px;
           border-bottom: 1px solid;
         }
         
         #properties input {
-          background-color: #c0c0c0;
+          background-color: transparent;
           border: 0;
           outline: none;
         }
@@ -255,10 +269,10 @@
 
         },
         east: {
-          resizable:true,
+          resizable:false,
           closable:true,
           paneSelector: "#properties",
-          size: 300
+          size: 320
         },
         center: {
           resizable:true,
