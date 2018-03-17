@@ -1,141 +1,88 @@
-class Canvas {
-    constructor(container){
-        this.container = container;
-        this.createPolicies();
-    }
 
-    title(text, x, y) {
-        return this.add(new Header(text), x,  y);
-    }
 
-    label(text, x, y) {
-        return this.add(new Label(text), x,  y);
-    }
 
-    note(text, x, y) {
-        return this.add(new Note(text), x,  y);
-    }
     
-    panel(text, x, y, w, h){
-        return this.add(new Panel(text, w,  h), x,  y); 
-    }
 
-    start(x, y) {
-        return this.add(new Terminator("Start", "#AFEEEE", "output", "#008080"), x, y);
-    }
-    
-    end(x, y) {
-        return this.add(new Terminator("End", "#F08080", "input"), x, y);
-    }
-    
-    form(text, x, y) {
-        //const figure = new CollapsibleShape({ x: x, y: y, header: text });
-        //this.container.add(figure);
 
-        let f = new Form(text);
-        this.container.add(f,  x, y);
-        
-        return f;
-    }
 
-    email(text, x, y){
-        return this.add(new Activity(text, "E-Mail", "#FFD700", draw2d.shape.icon.Mail), x, y);
-    }
 
-    webService(text, x, y){
-        return this.add(new Activity(text, "Webservice", "#BA55D3", draw2d.shape.icon.GlobeAlt), x, y);
-    }
 
-    resume(text, x, y){
-        return this.add(new Activity(text, "Resume", "#FF1493", draw2d.shape.icon.Cube), x, y);
-    }
 
-    add(shape, x, y){
-        this.container.add(shape, x, y);
 
-        return shape;
-    }
-    
-    createPolicies(){
-        this.container.installEditPolicy(new draw2d.policy.canvas.FadeoutDecorationPolicy());
 
-        this.container.installEditPolicy(new draw2d.policy.connection.DragConnectionCreatePolicy({
-            createConnection: Canvas.createConnection
-        }));
-    }
 
-    static createConnection() {
-        const ctx = new MyConnection();
-        ctx.setTargetDecorator(new draw2d.decoration.connection.ArrowDecorator());
-        return ctx;
-    }
-}
-
-class Header extends draw2d.shape.basic.Label{
-    constructor(text) {
-        super({
-            text:text, 
-            padding:{right:23}, 
-            fontSize:60, 
-            fontColor:"#00CED1", 
-            resizeable:true, 
-            stroke:0
-        });
-
-        super.installEditor(new draw2d.ui.LabelEditor());
-    }
-}
-
-class Label extends draw2d.shape.basic.Label {
-    constructor(text){
-        super({
-            text:text, 
-            padding:{right:23}, 
-            fontSize:15, 
-            fontColor: "#191970", 
-            resizeable:true, 
-            stroke:0}
-        );
-    }
-}
 
 class Note extends draw2d.shape.note.PostIt  {
-    constructor(text) {
-        super({ text: text });
+    constructor(text, viewCanvas) {
+        super({ 
+            text: text, 
+            userData: {
+                type: "paper-note"
+            } 
+        });
 
         let editor = new draw2d.ui.LabelEditor({
             onCommit: () => {
             }
         });
-        
+
+        this.viewCanvas = viewCanvas;
         super.installEditor(editor);
+
+        const contextMenu = new DeleteContextMenu(this);
+        super.onContextMenu = () => contextMenu.show();
+    }
+
+    remove() {
+        const cmd = new draw2d.command.CommandDelete(this);
+        this.getCanvas().getCommandStack().execute(cmd);
     }
 }
 
 class Panel extends draw2d.shape.composite.Raft {
-    constructor(text, w, h){
+    constructor(text, w, h, viewCanvas){
         super({
-            radius: 5
+            radius: 5,
+            userData: {
+                type: "paper-panel"
+            }
         });
+
+        this.viewCanvas = viewCanvas;
         
         const label = new draw2d.shape.basic.Label({
             text:text,
             radius: 5,
             padding: {top:4, right:2, bottom:4,left:3}
         });
+
+        const contextMenu = new DeleteContextMenu(this);
+        label.onContextMenu = () => contextMenu.show();
         
         super.setDimension(w, h);
         super.add(label, new draw2d.layout.locator.PortLocator());
         label.installEditor(new draw2d.ui.LabelInplaceEditor());
+
+        super.toBack();
+    }
+
+    remove() {
+        const cmd = new draw2d.command.CommandDelete(this);
+        this.viewCanvas.getCommandStack().execute(cmd);
     }
 }
 
 class Terminator extends draw2d.shape.basic.Circle {
-    constructor(text, color, port, fontColor = "#FFFFFF"){
+    constructor(text, color, port, viewCanvas, fontColor = "#FFFFFF"){
         super({
             bgColor: color,
-            resizeable: false
+            resizeable: false,
+            userData: {
+                type: text
+            }
         });
+
+        this.viewCanvas = viewCanvas;
         
         const label = new draw2d.shape.basic.Label({
             text:text,
@@ -145,40 +92,42 @@ class Terminator extends draw2d.shape.basic.Circle {
 
         super.add(label, new draw2d.layout.locator.CenterLocator);
         this.createPort(port);
+
+        const contextMenu = new DeleteContextMenu(this);
+        super.onContextMenu = () => contextMenu.show();
+        label.onContextMenu = () => contextMenu.show();
+    }
+
+    remove() {
+        const cmd = new draw2d.command.CommandDelete(this);
+        this.viewCanvas.getCommandStack().execute(cmd);
     }
 }
 
-class Activity extends draw2d.shape.node.Between  {
-    constructor(text, label, color, image) {
-        super({
-            bgColor: color, 
-            width: 70, 
-            height: 70,
-            resizeable: false,
-            radius: 5
-        });
-        
-        let img = new image({ width: 40, height: 40 });
-        super.add(img, new draw2d.layout.locator.XYRelPortLocator(22,37));
-        
-        let title = new draw2d.shape.basic.Label({radius: 5, text:text});
-        super.add(title, new draw2d.layout.locator.SmartDraggableLocator());
-        title.installEditor(new draw2d.ui.LabelInplaceEditor());
-        
-        super.add(new draw2d.shape.basic.Label({text:label, radius: 5, padding: {top:4, right:2, bottom:4,left:3}}), new draw2d.layout.locator.PortLocator());
 
-    }
-}
+
+
+
+
+
+
+
 
 class Form extends draw2d.shape.layout.VerticalLayout {
-    constructor(text) {
+    constructor(text, viewCanvas) {
         super({
             bgColor:"#93d7f3", 
             color:"#39b2e5", 
             stroke:1, 
             radius:2, 
-            gap:2
+            gap:2,
+            userData: {
+                type: "form",
+                controls: []
+            }
         });
+
+        //this.viewCanvas = viewCanvas;
         
         this.controls = [];
         this.createHeader(text);
@@ -189,6 +138,10 @@ class Form extends draw2d.shape.layout.VerticalLayout {
     createHeader(text){
         const contextMenu = new FormContextMenu(this);
         this.header = new FormHeader(text, this, contextMenu);
+
+       // const cmd = new draw2d.command.CommandAdd(this, this.header, 0, 0);
+       // this.viewCanvas.getCommandStack().execute(cmd);
+        
         super.add(this.header);
     }
 
@@ -199,14 +152,14 @@ class Form extends draw2d.shape.layout.VerticalLayout {
     }
 
     createInputControl(){
-        const item = new FormControl("⌨️ Name", this, this.controls.length);
+        const item = new FormControl("Name", this, this.controls.length);
         this.controls.push(item);
         
         super.add(item);
     }
 
     createOutputControl(){
-        const item = new FormControl("🆗 Continue", this, this.controls.length, this.outputLocator);
+        const item = new FormControl("Continue", this, this.controls.length, this.outputLocator);
         this.controls.push(item);
         
         super.add(item);
@@ -229,8 +182,8 @@ class Form extends draw2d.shape.layout.VerticalLayout {
             return;    
         } 
         
-        const cmd = new draw2d.command.CommandDelete(this);
-        this.getCanvas().getCommandStack().execute(cmd);
+        //const cmd = new draw2d.command.CommandDelete(this);
+        //this.viewCanvas.getCommandStack().execute(cmd);
     }
     
     moveUp(index) {
@@ -272,8 +225,17 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         this.addUp();
         this.addDown();
         
-        if (outputLocator)
+        this.userData = {
+          type: "input"  
+        };
+        
+        if (outputLocator) {
+            this.userData = {
+                type: "output"
+            };
+            
             super.createPort("output", outputLocator);
+        }
     }
     
     addLabel(text){
@@ -394,6 +356,9 @@ class FormHeader extends draw2d.shape.layout.HorizontalLayout {
     }
 }
 
+
+
+
 class FormContextMenu {
     constructor(container){ 
         this.container = container;
@@ -428,85 +393,4 @@ class FormContextMenu {
         return items;
     }
     
-}
-
-class MenuItem {
-    constructor(text){
-        this.name = text;
-    }
-    
-    execute() {
-        console.log(this.name);
-    }
-}
-
-class InputControlMenuItem extends MenuItem {
-    constructor(text, container){
-        super(text);
-
-        this.container = container;
-    }
-
-    execute() {
-        this.container.createInputControl(this.name);
-    }
-}
-
-class OutputControlMenuItem extends MenuItem {
-    constructor(text, container){
-        super(text);
-
-        this.container = container;
-    }
-
-    execute() {
-        this.container.createOutputControl(this.name);
-    }
-}
-
-class ColorMenuItem extends MenuItem {
-    constructor(text, container){
-        super(text);
-        
-        this.container = container;
-    }
-    
-    execute() {
-       this.container.changeColor(FormColor.GetColour(this.name));
-    }
-}
-
-class DeleteMenuItem {
-    constructor(text, container){
-        this.name = text;
-        this.container = container;
-    }
-
-    execute() {
-        this.container.remove();
-    }
-}
-
-class FormColor {
-    constructor(name, primary = "transparent", secondary = "transparent", font = "#FFFFFF"){
-        this.name = name;
-        this.primary = primary;
-        this.secondary = secondary;
-        this.font = font;
-    }
-    
-    static GetColours() {
-        return [
-            new FormColor("Red", "#F3546A", "#FFC0CB"),
-            new FormColor("Green", "2E8B57", "98FB98"),
-            new FormColor("Blue", "#00A8F0", "#93d7f3"),
-            new FormColor("Purple", "#800080", "#D8BFD8")
-        ];
-    }
-
-    static GetColour(name){
-        const c = FormColor.GetColours().find(c => c.name === name);
-        
-        return c ? c : new FormColor("Blank");
-    }
 }

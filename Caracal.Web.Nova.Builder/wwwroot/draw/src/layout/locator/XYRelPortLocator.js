@@ -39,7 +39,7 @@ draw2d.layout.locator.XYRelPortLocator = draw2d.layout.locator.PortLocator.exten
     init: function(xPercentage ,yPercentage )
     {
       this._super();
-      
+   
       this.x = xPercentage;
       this.y = yPercentage;
     },    

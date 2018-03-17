@@ -37,13 +37,20 @@ namespace Caracal.Web.Nova.Builder {
 
       app.UseMvc(routes => {
         routes.MapRoute(
-          name: "default",
-          template: "{controller=Home}/{action=Index}/{id?}");
+          name: "designer",
+          template: "Designer/Publish/{name?}",
+          defaults:new {controller = "Designer", action = "Publish"});
 
+        
         routes.MapRoute(
           name: "builder",
           template: "Home/Builder",
           defaults:new {controller = "Home", action = "Builder"});
+        
+      
+        routes.MapRoute(
+          name: "default",
+          template: "{controller=Home}/{action=Index}/{id?}");
         
         routes.MapSpaFallbackRoute(
           name: "spa-fallback",

@@ -12,7 +12,7 @@ namespace Caracal.Web.Nova.Builder.Controllers {
     }
 
     public IActionResult Error() {
-      ViewData["RequestId"] = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+      ViewData["RequestId"] = 5;//Activity.Current?.Id ?? HttpContext.TraceIdentifier;
       return View();
     }
 

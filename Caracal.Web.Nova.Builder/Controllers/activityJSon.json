@@ -1,0 +1,135 @@
+﻿[
+  {
+    "type": "draw2d.shape.layout.VerticalLayout",
+    "id": "b7e0ec2f-7f05-e428-0186-675774f7901e",
+    "x": 154.00852966308594,
+    "y": 57.01704788208008,
+    "width": 148.90625,
+    "height": 67.703125,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "type": "form"
+    },
+    "cssClass": "draw2d_shape_layout_VerticalLayout",
+    "ports": [
+      {
+        "type": "draw2d.InputPort",
+        "id": "8cf8ce6c-1d2b-fe35-4a56-1d48b193eb1d",
+        "width": 10,
+        "height": 10,
+        "alpha": 1,
+        "angle": 0,
+        "userData": {},
+        "cssClass": "draw2d_InputPort",
+        "bgColor": "#4F6870",
+        "color": "#1B1B1B",
+        "stroke": 1,
+        "dasharray": null,
+        "maxFanOut": 9007199254740991,
+        "name": "input0",
+        "port": "draw2d.InputPort",
+        "locator": "draw2d.layout.locator.InputPortLocator"
+      }
+    ],
+    "bgColor": "#93D7F3",
+    "color": "#39B2E5",
+    "stroke": 1,
+    "radius": 2,
+    "dasharray": null,
+    "gap": 2
+  },
+  {
+    "type": "draw2d.shape.basic.Circle",
+    "id": "d6241eaf-1d10-8678-0445-1bd47009473b",
+    "x": 260.00852966308594,
+    "y": 251.01704788208008,
+    "width": 50,
+    "height": 50,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "type": "Start"
+    },
+    "cssClass": "draw2d_shape_basic_Circle",
+    "ports": [
+      {
+        "type": "draw2d.OutputPort",
+        "id": "80e69075-e498-f261-7455-116733a9226a",
+        "width": 10,
+        "height": 10,
+        "alpha": 1,
+        "angle": 0,
+        "userData": {},
+        "cssClass": "draw2d_OutputPort",
+        "bgColor": "#4F6870",
+        "color": "#1B1B1B",
+        "stroke": 2,
+        "dasharray": null,
+        "maxFanOut": 9007199254740991,
+        "name": "output0",
+        "port": "draw2d.OutputPort",
+        "locator": "draw2d.layout.locator.OutputPortLocator"
+      }
+    ],
+    "bgColor": "#AFEEEE",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "dasharray": null
+  },
+  {
+    "type": "draw2d.Connection",
+    "id": "a429d0fa-9991-da16-0883-bba3d697441e",
+    "alpha": 1,
+    "angle": 0,
+    "userData": {},
+    "cssClass": "draw2d_Connection",
+    "stroke": 5,
+    "color": "#00A8F0",
+    "outlineStroke": 1,
+    "outlineColor": "#303030",
+    "policy": "draw2d.policy.line.OrthogonalSelectionFeedbackPolicy",
+    "vertex": [
+      {
+        "x": 310.00852966308594,
+        "y": 276.0170478820801
+      },
+      {
+        "x": 330.00852966308594,
+        "y": 276.0170478820801
+      },
+      {
+        "x": 330.00852966308594,
+        "y": 172.08345413208008
+      },
+      {
+        "x": 134.00852966308594,
+        "y": 172.08345413208008
+      },
+      {
+        "x": 134.00852966308594,
+        "y": 68.14986038208008
+      },
+      {
+        "x": 154.00852966308594,
+        "y": 68.14986038208008
+      }
+    ],
+    "router": "draw2d.layout.connection.InteractiveManhattanConnectionRouter",
+    "radius": 20,
+    "routingMetaData": {
+      "routedByUserInteraction": false,
+      "fromDir": 1,
+      "toDir": 3
+    },
+    "source": {
+      "node": "d6241eaf-1d10-8678-0445-1bd47009473b",
+      "port": "output0"
+    },
+    "target": {
+      "node": "b7e0ec2f-7f05-e428-0186-675774f7901e",
+      "port": "input0",
+      "decoration": "draw2d.decoration.connection.ArrowDecorator"
+    }
+  }
+]

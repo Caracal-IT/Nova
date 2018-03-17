@@ -7,15 +7,14 @@ import {Component, ViewChild} from '@angular/core';
 })
 export class CounterComponent {
     @ViewChild('myProfile') myProfile: any
-
-    canvas: Canvas;
+    canvas: any;
     
     iframeLoadedCallBack(){
         this.canvas = this.myProfile.nativeElement.contentWindow.GetCanvas();
 
-        this.createHeader();
-        this.createRequiredPasswordPanel();
-        this.createConfirmPasswordPanel();
+        //this.createHeader();
+        //this.createRequiredPasswordPanel();
+        //this.createConfirmPasswordPanel();
     }
     
     createHeader(){

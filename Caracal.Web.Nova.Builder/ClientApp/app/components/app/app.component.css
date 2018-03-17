@@ -1,0 +1,11 @@
+.container-full {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.site-content {
+    height: 100vh;
+    padding-top: 50px;
+    bottom: 1px;
+    overflow-y: hidden;
+}
