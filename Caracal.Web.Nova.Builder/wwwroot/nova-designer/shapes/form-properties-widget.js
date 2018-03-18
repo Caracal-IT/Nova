@@ -8,6 +8,12 @@ class FormPropertiesWidget {
                 properties: [
                     { name: "Placeholder", value: "please select an item" }
                 ]
+            },
+            {
+                type: "paper-label",
+                properties: [
+                    { name: "Text", value: "Welcome !!" }
+                ]
             }
         ];
             
