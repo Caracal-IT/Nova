@@ -29,7 +29,7 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
                 .control = {
                     type: "paper-input",
                     properties: [
-                        { name: "Placeholder", value: "PPPPPPlease select an item" }
+                        { name: "Placeholder", value: "Please select an item" }
                     ]
                 };
         }

@@ -117,13 +117,12 @@ class FormPropertiesWidget {
         let input = this.table.find("#" + name);
         input.on("keypress", (event) => {
             if (this.control && this.control.properties) {
+                property = this.control.properties.find(p => p.name === name);
                 
                 if (property)
                     property.value = event.target.value;
-                else {
+                else 
                     this.control.properties.push({name: name, value: event.target.value});
-                    property = this.control.properties.find(p => p.name === name);
-                }
             }
             
         });
