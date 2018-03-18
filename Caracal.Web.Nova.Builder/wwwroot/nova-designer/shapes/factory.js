@@ -18,10 +18,38 @@ class ActivityFactory {
             { name: "Method", value: "get" }
         ];
         
-        const act = new Activity("Webservice Activity", "Webservice", "#BA55D3", draw2d.shape.icon.GlobeAlt);
+        const act = new Activity("Webservice Activity", "Webservice", draw2d.shape.icon.GlobeAlt);
         act.userData.type = "WebserviceActivity";
         act.userData.properties = properties;
+        act.changeColor(FormColor.GetColour("Purple"));
         
+        return act;
+    }
+
+    codeActivity() {
+        let properties = [
+            { name: "Code", value: "" }
+        ];
+
+        const act = new Activity("Code Activity", "Code", draw2d.shape.icon.Gear2);
+        act.userData.type = "CodeActivity";
+        act.userData.properties = properties;
+        act.changeColor(FormColor.GetColour("Gold"));
+
+        return act;
+    }
+
+    alertActivity() {
+        let properties = [
+            { name: "Message", value: "Welcome !!" },
+            { name: "Type", value: "success" }
+        ];
+
+        const act = new Activity("Alert Activity", "Alert", draw2d.shape.icon.CodeTalk);
+        act.userData.type = "AlertActivity";
+        act.userData.properties = properties;
+        act.changeColor(FormColor.GetColour("Pink"));
+
         return act;
     }
 }

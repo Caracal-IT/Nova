@@ -5,13 +5,12 @@ class WFConnection extends draw2d.Connection{
         this.setTargetDecorator(new draw2d.decoration.connection.ArrowDecorator());
         this.setRouter(new draw2d.layout.connection.InteractiveManhattanConnectionRouter());
         this.setOutlineStroke(1);
-        this.setOutlineColor("#303030");
         this.setStroke(5);
-        this.setColor('#00A8F0');
         this.setRadius(20);
         
         this.contextMenu = new ColorContextMenu(this);
         this.onContextMenu = () => this.contextMenu.show();
+        this.changeColor(FormColor.GetColour("Blue"));
         
         this.remove = () => view.removeItem(this);
     }
@@ -21,6 +20,7 @@ class WFConnection extends draw2d.Connection{
     }
 
     changeColor(formColor) {
-        super.setColor(formColor.primary);
+        this.setColor(formColor.secondary);
+        this.setOutlineColor(formColor.primary);
     }
 }

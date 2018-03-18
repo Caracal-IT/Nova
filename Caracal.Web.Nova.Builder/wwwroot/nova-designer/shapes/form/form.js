@@ -1,8 +1,6 @@
 class Form extends draw2d.shape.layout.VerticalLayout {
     constructor(text, onSelect) {
         super({
-            bgColor:"#93d7f3",
-            color:"#39b2e5",
             stroke:1,
             radius:2,
             gap:2,
@@ -13,7 +11,6 @@ class Form extends draw2d.shape.layout.VerticalLayout {
         });
 
         this.onSelect = onSelect;
-        this.formColor = FormColor.GetColour("Blue");
         
         this.userData.properties = [];
         this.controls = [];
@@ -23,6 +20,8 @@ class Form extends draw2d.shape.layout.VerticalLayout {
         this.setLabel(text);
 
         this.outputLocator = new CollapsibleOutputLocator();
+
+        this.changeColor(FormColor.GetColour("Blue"));
         
         if (this.onSelect)
             this.header.titleLabel.onClick = () => this.onSelect(this);

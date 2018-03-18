@@ -1,6 +1,7 @@
 class FormContextMenu {
-    constructor(container){
+    constructor(container, colors = FormColor.FormColors()){
         this.container = container;
+        this.colors = colors;
     }
 
     show(){
@@ -24,7 +25,7 @@ class FormContextMenu {
             "sep0":   "---------"
         };
 
-        FormColor.GetColours().forEach(c => items[c.name] = new ColorMenuItem(c.name, this.container));
+        this.colors.forEach(c => items[c.name] = new ColorMenuItem(c.name, this.container));
 
         items["sep1"] = "---------";
         items["delete"] = new DeleteMenuItem("Delete", this.container);

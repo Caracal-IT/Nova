@@ -1,7 +1,6 @@
 class Activity extends draw2d.shape.node.Between  {
-    constructor(label, type, color, image) {
+    constructor(label, type, image) {
         super({
-            bgColor: color,
             width: 70,
             height: 70,
             resizeable: false,
@@ -33,6 +32,8 @@ class Activity extends draw2d.shape.node.Between  {
     setLabel(text){
         this.userData.label = text;
         this.label.setText(text);
+
+        this.label.setVisible(text.length > 0);
     }
 
     getProperties() {
@@ -56,13 +57,18 @@ class Activity extends draw2d.shape.node.Between  {
 
     changeColor(formColor) {
         super.setBackgroundColor(formColor.secondary);
+        this.typeLabel.setBackgroundColor(formColor.primary);
+        this.typeLabel.setFontColor("#FFFFFF");
     }
     
     addLabel(label){
         this.label = new draw2d.shape.basic.Label({radius: 5, text:label});
         super.add(this.label, new draw2d.layout.locator.SmartDraggableLocator());
         this.label.installEditor(new draw2d.ui.LabelInplaceEditor({
-            onCommit: (text) => { this.userData.label = text }
+            onCommit: (text) => { 
+                this.userData.label = text;
+                this.label.setVisible(text.length > 0);
+            }
         }));
     }
 
@@ -72,8 +78,8 @@ class Activity extends draw2d.shape.node.Between  {
     }
 
     addTypeLabel(type){
-        let t = new draw2d.shape.basic.Label({text:type, radius: 5, padding: {top:4, right:2, bottom:4,left:3}});
-        this.add(t, new draw2d.layout.locator.PortLocator());
+        this.typeLabel = new draw2d.shape.basic.Label({text:type, radius: 5, padding: {top:4, right:2, bottom:4,left:3}});
+        this.add(this.typeLabel, new draw2d.layout.locator.PortLocator());
     }
     
     add(shape, locator){

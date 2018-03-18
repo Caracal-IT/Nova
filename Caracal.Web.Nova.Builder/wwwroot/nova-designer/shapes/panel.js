@@ -16,6 +16,8 @@ class Panel extends draw2d.shape.composite.Raft {
         this.setLabel(text);
         
         super.setDimension(w, h);
+
+        this.changeColor(FormColor.GetColour("WhiteSmoke"));
     }
 
     getName(){
@@ -33,6 +35,8 @@ class Panel extends draw2d.shape.composite.Raft {
     setLabel(text){
         this.userData.label = text;
         this.label.setText(text);
+
+        this.label.setVisible(text.length > 0);
     }
 
     getProperties() {
@@ -50,7 +54,7 @@ class Panel extends draw2d.shape.composite.Raft {
     }
 
     addContextMenu() {
-        this.contextMenu = new DeleteContextMenu(this);
+        this.contextMenu = new ColorContextMenu(this, FormColor.PanelColors());
         this.onContextMenu = () => this.contextMenu.show();
     }
 
@@ -63,7 +67,16 @@ class Panel extends draw2d.shape.composite.Raft {
         super.add(this.label, new draw2d.layout.locator.PortLocator());
         this.label.onContextMenu = () => this.contextMenu.show();
         this.label.installEditor(new draw2d.ui.LabelInplaceEditor({
-            onCommit: (text) => { this.userData.label = text }
+            onCommit: (text) => { 
+                this.userData.label = text;
+                this.label.setVisible(text.length > 0);
+            }
         }));
+    }
+
+    changeColor(formColor) {
+        this.setBackgroundColor(formColor.secondary);
+        this.label.setBackgroundColor(formColor.primary);
+        this.label.setFontColor(formColor.font);
     }
 }
