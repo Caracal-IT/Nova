@@ -24,8 +24,15 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
 
             super.createPort("output", outputLocator);
         }
-        else
-            this.userData.control = {type: "paper-input"};
+        else {
+            this.userData
+                .control = {
+                    type: "paper-input",
+                    properties: [
+                        { name: "Placeholder", value: "PPPPPPlease select an item" }
+                    ]
+                };
+        }
 
         this.setName(text);
         this.setLabel(text);
