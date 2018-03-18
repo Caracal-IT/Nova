@@ -58,7 +58,7 @@ class Activity extends draw2d.shape.node.Between  {
     changeColor(formColor) {
         super.setBackgroundColor(formColor.secondary);
         this.typeLabel.setBackgroundColor(formColor.primary);
-        this.typeLabel.setFontColor("#FFFFFF");
+        this.typeLabel.setFontColor(formColor.font);
     }
     
     addLabel(label){
@@ -70,6 +70,8 @@ class Activity extends draw2d.shape.node.Between  {
                 this.label.setVisible(text.length > 0);
             }
         }));
+        
+        this.label.setPosition(0, -28);
     }
 
     addImage(image){

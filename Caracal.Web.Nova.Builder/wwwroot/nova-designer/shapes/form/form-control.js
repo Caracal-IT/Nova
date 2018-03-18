@@ -5,6 +5,8 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         this.onSelect = onSelect;
         this.container = container;
         this.index = index;
+        
+        this.propertWidget = new FormPropertiesWidget(this);
 
         this.addLabel(text);
         this.addUp();
@@ -17,10 +19,13 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         };
 
         if (outputLocator) {
+            this.userData.control = {type: "paper-button"};
             this.userData.type = "output";
 
             super.createPort("output", outputLocator);
         }
+        else
+            this.userData.control = {type: "paper-input"};
 
         this.setName(text);
         this.setLabel(text);
@@ -28,7 +33,6 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         if (this.onSelect) 
             this.label.onClick = () => this.onSelect(this);
     }
-    
     
     getName(){
         return this.userData.name;

@@ -41,6 +41,7 @@ class ActivityFactory {
 
     alertActivity() {
         let properties = [
+            { name: "Title", value: "Success" },
             { name: "Message", value: "Welcome !!" },
             { name: "Type", value: "success" }
         ];

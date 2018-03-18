@@ -40,6 +40,14 @@ class PropertiesWindow {
             for (let item of figure.getProperties())
                 this.addItem(item.name, item.value, (text) => figure.setProperty(item.name, text));
         }
+        
+        if (figure.propertWidget) {
+            let table = this.items.find("table");
+            let customProp = $(table).after("<div id='customProp'></div>");
+            
+            figure.propertWidget.show(customProp, figure);
+        }
+            
     }
     
     addLabel(figure, nameTextbox){
