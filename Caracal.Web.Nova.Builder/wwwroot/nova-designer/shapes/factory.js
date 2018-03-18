@@ -36,7 +36,15 @@ class ShapeFactory {
     }
 
     start() {
-        return new Terminator("Start", "#AFEEEE", "output", "#008080");
+        let properties = [
+            { name: "ProcessName", value: "custom-reservation" },
+            { name: "Id", value: "1" }
+        ];
+        
+        const startAct = new Terminator("Start", "#AFEEEE", "output", "#008080");
+        startAct.userData.properties = properties;
+        
+        return startAct;
     }
 
     end() {

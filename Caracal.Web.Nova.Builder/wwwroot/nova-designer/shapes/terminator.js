@@ -4,11 +4,12 @@ class Terminator extends draw2d.shape.basic.Circle {
             bgColor: color,
             resizeable: false,
             userData: {
-                type: text
+                type: text,
+                name: text,
+                properties: []
             }
         });
         
-
         const label = new draw2d.shape.basic.Label({
             text:text,
             color:color,
@@ -23,8 +24,17 @@ class Terminator extends draw2d.shape.basic.Circle {
         label.onContextMenu = () => contextMenu.show();
     }
 
-    //remove() {
-       // const cmd = new draw2d.command.CommandDelete(this);
-       // this.viewCanvas.getCommandStack().execute(cmd);
-    //}
+    getProperties() {
+        return this.userData.properties;
+    }
+
+    setProperty(name, value){
+        if (!this.userData || !this.userData.properties)
+            return;
+
+        const prop = this.userData.properties.find(p => p.name === name);
+
+        if(prop && prop.value)
+            prop.value = value;
+    }
 }

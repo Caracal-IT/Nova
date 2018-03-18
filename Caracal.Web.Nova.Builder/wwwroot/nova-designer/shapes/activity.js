@@ -50,10 +50,14 @@ class Activity extends draw2d.shape.node.Between  {
     }
     
     addContextMenu() {
-        this.contextMenu = new DeleteContextMenu(this);
+        this.contextMenu = new ColorContextMenu(this);
         this.onContextMenu = () => this.contextMenu.show();
     }
 
+    changeColor(formColor) {
+        super.setBackgroundColor(formColor.secondary);
+    }
+    
     addLabel(label){
         this.label = new draw2d.shape.basic.Label({radius: 5, text:label});
         super.add(this.label, new draw2d.layout.locator.SmartDraggableLocator());
