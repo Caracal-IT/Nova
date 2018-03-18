@@ -26,16 +26,21 @@ class PropertiesWindow {
             figure.selectItem();
         
         this.figure = figure;
-        
         this.items.html("");
         
         this.addTable();
-
+        let name = null;
+        
         if (figure.setName)
-            this.addItem("Name", figure.getName(), (text) => figure.setName(text));
+            name = this.addItem("Name", figure.getName(), (text) => figure.setName(text));
 
         if (figure.setLabel)
-            this.addItem("Label", figure.getLabel(), (text) => figure.setLabel(text));
+            this.addItem("Label", figure.getLabel(), (text) =>{
+                if (figure.syncName && figure.syncName() && name) 
+                    name.val(text);
+                
+                figure.setLabel(text);
+            });
 
         if (figure.getProperties) {
             for (let item of figure.getProperties())
@@ -59,5 +64,7 @@ class PropertiesWindow {
 
         let input = this.items.find("#" + name);
         input.on("keyup", (event) => onchange(event.target.value));
+        
+        return input;
     }
 }

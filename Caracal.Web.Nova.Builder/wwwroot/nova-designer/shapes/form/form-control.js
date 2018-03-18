@@ -12,6 +12,7 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
 
         this.userData = {
             type: "input",
+            name: text,
             properties: []
         };
 
@@ -21,7 +22,7 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
             super.createPort("output", outputLocator);
         }
 
-        this.setName(this.id.replace(/-/g, "").substring(0, 20));
+        this.setName(text);
         this.setLabel(text);
         
         if (this.onSelect) 
@@ -35,6 +36,8 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
 
     setName(text){
         this.userData.name = text;
+        
+        this.syncLabelAndText(text);
     }
 
     getLabel(){
@@ -42,13 +45,28 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
     }
 
     setLabel(text) {
+        this.syncLabelAndText(text);
+        
         this.userData.label = text;
         this.label.setText(text);
 
         this.label.padding.right = (107 - 6 * text.length);
         this.container.refresh();
     }
-
+    
+    syncName() {
+        return this.userData.name === this.userData.label;
+    }
+    
+    syncLabelAndText(text){
+        if (this.userData.name === this.userData.label) {
+            this.userData.name = text;
+            
+            this.userData.label = text;
+            this.label.setText(text);
+        }
+    }
+    
     getProperties() {
         return this.userData.properties;
     }
@@ -75,6 +93,8 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
                 this.label.padding.right = (107 - 6 * this.label.text.length)
                 this.container.refresh();
 
+                this.syncLabelAndText(this.label.text);
+                
                 if (this.onSelect)
                     this.onSelect(this);
             }

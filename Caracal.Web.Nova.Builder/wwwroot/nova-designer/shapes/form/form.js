@@ -72,6 +72,14 @@ class Form extends draw2d.shape.layout.VerticalLayout {
         super.setColor(formColor.primary);
         super.setBackgroundColor(formColor.secondary);
         this.header.changeColor(formColor);
+        
+        for (let control of this.controls){
+            if(control.getBackgroundColor().blue || control.getBackgroundColor().red){
+                const bgColor = new draw2d.util.Color(formColor.secondary);
+                control.setBackgroundColor(bgColor.darker(0.10));
+            }
+        }
+            
     }
 
     createInputControl(){
