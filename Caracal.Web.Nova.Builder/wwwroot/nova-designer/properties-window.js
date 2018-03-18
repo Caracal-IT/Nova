@@ -3,23 +3,43 @@ class PropertiesWindow {
         this.id = "#" + id;
         this.items = $(this.id).find("#items");
         
+        this.figure = null;
+        
         view.on("select", $.proxy(this.onSelectionChanged,this));
     }
 
-    onSelectionChanged(emitter, event){
+    onSelectionChanged(emitter, event) {
         this.items.html("");
         
-        if (event && event.figure && event.figure.getProperties) {
-            this.addTable();
+        if (this.figure && this.figure.unSelectItem)
+            this.figure.unSelectItem();
+        
+        if (event && event.figure) 
+            this.showProp(event.figure);
+    }
+    
+    showProp(figure){
+        if (this.figure && this.figure.unSelectItem)
+            this.figure.unSelectItem();
+        
+        if (figure.selectItem)
+            figure.selectItem();
+        
+        this.figure = figure;
+        
+        this.items.html("");
+        
+        this.addTable();
 
-            if (event.figure.setName)
-                this.addItem("Name", event.figure.getName(), (text) => event.figure.setName(text));
-            
-            if (event.figure.setLabel) 
-                this.addItem("Label", event.figure.getLabel(), (text) => event.figure.setLabel(text));
-     
-            for (let item of event.figure.getProperties())
-                this.addItem(item.name, item.value, (text) => event.figure.setProperty(item.name, text));
+        if (figure.setName)
+            this.addItem("Name", figure.getName(), (text) => figure.setName(text));
+
+        if (figure.setLabel)
+            this.addItem("Label", figure.getLabel(), (text) => figure.setLabel(text));
+
+        if (figure.getProperties) {
+            for (let item of figure.getProperties())
+                this.addItem(item.name, item.value, (text) => figure.setProperty(item.name, text));
         }
     }
     

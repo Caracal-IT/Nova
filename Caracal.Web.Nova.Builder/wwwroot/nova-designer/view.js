@@ -1,8 +1,8 @@
 class View extends draw2d.Canvas {
-    constructor(id, callback){
+    constructor(id, factory){
         super(id);
         
-        this.callback = callback;
+        this.factory = factory;
         this.setScrollArea("#" + id);
         this.installPolicies();
     }
@@ -20,10 +20,8 @@ class View extends draw2d.Canvas {
     }
 
     onDrop(droppedDomNode, x, y, shiftKey, ctrlKey){
-        let factory = new Factory();
-
         const ds = droppedDomNode[0].dataset;
-        let shape = factory.create(ds.factory, ds.shape);
+        let shape = this.factory.create(ds.factory, ds.shape);
         
         shape.remove = () => this.removeItem(shape);
         const cmd = new draw2d.command.CommandAdd(this, shape, x,  y);

@@ -1,7 +1,9 @@
 class Factory {
-    constructor() {
+    constructor(onSelect) {
+        this.onSelect = onSelect;
+        
         this.activityFactory = new ActivityFactory(); 
-        this.shapeFactory = new ShapeFactory();
+        this.shapeFactory = new ShapeFactory(onSelect);
     }
     
     create(factory, shape) {
@@ -25,8 +27,12 @@ class ActivityFactory {
 }
 
 class ShapeFactory {
+    constructor(onSelect){
+        this.onSelect = onSelect;
+    }
+    
     form() {
-        return new Form("Form Activity");
+        return new Form("Form Activity", this.onSelect);
     }
 
     start() {

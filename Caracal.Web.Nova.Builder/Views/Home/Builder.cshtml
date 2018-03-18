@@ -254,8 +254,11 @@
     function GetCanvas() {
       return canvas;
     }
-        
-    let canvas = new View("canvas");
+
+    let onSelect = (figure) => properties.showProp(figure);
+    
+    let factory = new Factory(onSelect);
+    let canvas = new View("canvas", factory);
     let toolbar = new Toolbar("toolbar",  canvas);
     let properties = new PropertiesWindow("properties", canvas);
     

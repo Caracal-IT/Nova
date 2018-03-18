@@ -1,5 +1,5 @@
 class Note extends draw2d.shape.note.PostIt  {
-    constructor(text, viewCanvas) {
+    constructor(text) {
         super({
             text: text,
             userData: {
@@ -7,20 +7,49 @@ class Note extends draw2d.shape.note.PostIt  {
             }
         });
 
-        let editor = new draw2d.ui.LabelEditor({
-            onCommit: () => {
-            }
-        });
+        this.userData.properties = [];
+        this.addContextMenu();
 
-        this.viewCanvas = viewCanvas;
-        super.installEditor(editor);
+        this.installEditor(new draw2d.ui.LabelInplaceEditor({
+            onCommit: (text) => { this.userData.label = text }
+        }));
 
-        const contextMenu = new DeleteContextMenu(this);
-        super.onContextMenu = () => contextMenu.show();
+        this.setName(this.id.replace(/-/g, "").substring(0, 20));
     }
 
-    remove() {
-        const cmd = new draw2d.command.CommandDelete(this);
-        this.getCanvas().getCommandStack().execute(cmd);
+    getName(){
+        return this.userData.name;
+    }
+
+    setName(text){
+        this.userData.name = text;
+    }
+
+    getLabel(){
+        return this.text;
+    }
+
+    setLabel(text){
+        this.userData.label = text;
+        this.setText(text);
+    }
+
+    getProperties() {
+        return this.userData.properties;
+    }
+
+    setProperty(name, value){
+        if (!this.userData || !this.userData.properties)
+            return;
+
+        const prop = this.userData.properties.find(p => p.name === name);
+
+        if(prop && prop.value)
+            prop.value = value;
+    }
+
+    addContextMenu() {
+        this.contextMenu = new DeleteContextMenu(this);
+        this.onContextMenu = () => this.contextMenu.show();
     }
 }

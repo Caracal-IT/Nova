@@ -1,11 +1,12 @@
 class FormHeader extends draw2d.shape.layout.HorizontalLayout {
-    constructor(text, container, contextMenu){
+    constructor(onSelect, text, container, contextMenu){
         super({
             stroke: 0,
             radius: 0,
             bgColor: "#1daeef"
         });
 
+        this.onSelect = onSelect;
         this.container = container;
         this.contextMenu = contextMenu;
         this.images = [];
@@ -25,10 +26,18 @@ class FormHeader extends draw2d.shape.layout.HorizontalLayout {
             fontFamily:"Verdana",
             padding:{left:5, right:50 - text.length}
         });
-
-        this.titleLabel.installEditor(new draw2d.ui.LabelInplaceEditor());
+        
         this.titleLabel.onContextMenu = () => this.contextMenu.show();
 
+        let editor = new draw2d.ui.LabelInplaceEditor({
+            onCommit: () => {
+                if (this.onSelect)
+                    this.onSelect(this.container);
+            }
+        });
+
+        this.titleLabel.installEditor(editor);
+        
         super.add(this.titleLabel);
     }
 

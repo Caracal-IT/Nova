@@ -1,5 +1,5 @@
 class Form extends draw2d.shape.layout.VerticalLayout {
-    constructor(text, viewCanvas) {
+    constructor(text, onSelect) {
         super({
             bgColor:"#93d7f3",
             color:"#39b2e5",
@@ -12,39 +12,77 @@ class Form extends draw2d.shape.layout.VerticalLayout {
             }
         });
 
-        //this.viewCanvas = viewCanvas;
-
+        this.onSelect = onSelect;
+        this.formColor = FormColor.GetColour("Blue");
+        
+        this.userData.properties = [];
         this.controls = [];
-        this.createHeader(text);
+        this.createHeader();
+
+        this.setName(this.id.replace(/-/g, "").substring(0, 20));
+        this.setLabel(text);
 
         this.outputLocator = new CollapsibleOutputLocator();
+        
+        if (this.onSelect)
+            this.header.titleLabel.onClick = () => this.onSelect(this);
     }
 
-    createHeader(text){
+    getName(){
+        return this.userData.name;
+    }
+
+    setName(text){
+        this.userData.name = text;
+    }
+
+    getLabel(){
+        return this.header.titleLabel.text;
+    }
+
+    setLabel(text){
+        this.userData.label = text;
+        this.header.titleLabel.setText(text);
+    }
+
+    getProperties() {
+        return this.userData.properties;
+    }
+
+    setProperty(name, value){
+        if (!this.userData || !this.userData.properties)
+            return;
+
+        const prop = this.userData.properties.find(p => p.name === name);
+
+        if(prop && prop.value)
+            prop.value = value;
+    }
+    
+    createHeader(){
         const contextMenu = new FormContextMenu(this);
-        this.header = new FormHeader(text, this, contextMenu);
-
-        // const cmd = new draw2d.command.CommandAdd(this, this.header, 0, 0);
-        // this.viewCanvas.getCommandStack().execute(cmd);
-
+        this.header = new FormHeader(this.onSelect, "Header", this, contextMenu);
+        
         super.add(this.header);
     }
 
     changeColor(formColor) {
+        this.formColor = formColor;
+        
         super.setColor(formColor.primary);
         super.setBackgroundColor(formColor.secondary);
         this.header.changeColor(formColor);
     }
 
     createInputControl(){
-        const item = new FormControl("Name", this, this.controls.length);
+        const item = new FormControl(this.onSelect, "Name", this, this.controls.length);
         this.controls.push(item);
 
         super.add(item);
     }
 
     createOutputControl(){
-        const item = new FormControl("Continue", this, this.controls.length, this.outputLocator);
+        const item = new FormControl(this.onSelect, "Continue", this, this.controls.length, this.outputLocator);
         this.controls.push(item);
 
         super.add(item);
@@ -54,21 +92,13 @@ class Form extends draw2d.shape.layout.VerticalLayout {
         this.controls.forEach(ctrl => ctrl.setVisible(!ctrl.isVisible()));
     }
 
-    remove(index = -1) {
-        if (index >= 0) {
-            super.remove(this.controls[index]);
-            this.controls.splice(index, 1);
+    removeControl(item) {
+        this.controls.splice(item.index, 1);
 
-            for (let i = index; i < this.controls.length; i++)
-                this.controls[i].index = i;
+        for (let i = item.index; i < this.controls.length; i++)
+            this.controls[i].index = i;
 
-            this.refresh();
-
-            return;
-        }
-
-        //const cmd = new draw2d.command.CommandDelete(this);
-        //this.viewCanvas.getCommandStack().execute(cmd);
+        super.remove(item);
     }
 
     moveUp(index) {
