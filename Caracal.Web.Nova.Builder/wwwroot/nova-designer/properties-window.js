@@ -29,22 +29,27 @@ class PropertiesWindow {
         this.items.html("");
         
         this.addTable();
-        let name = null;
+        let nameTextbox = null;
         
         if (figure.setName)
-            name = this.addItem("Name", figure.getName(), (text) => figure.setName(text));
+            nameTextbox = this.addItem("Name", figure.getName(), (text) => figure.setName(text));
 
-        if (figure.setLabel)
-            this.addItem("Label", figure.getLabel(), (text) =>{
-                if (figure.syncName && figure.syncName() && name) 
-                    name.val(text);
-                
-                figure.setLabel(text);
-            });
-
+        this.addLabel(figure, nameTextbox);
+        
         if (figure.getProperties) {
             for (let item of figure.getProperties())
                 this.addItem(item.name, item.value, (text) => figure.setProperty(item.name, text));
+        }
+    }
+    
+    addLabel(figure, nameTextbox){
+        if (figure.setLabel) {
+            this.addItem("Label", figure.getLabel(), (text) => {
+                if (figure.syncName && figure.syncName() && nameTextbox)
+                    nameTextbox.val(text);
+
+                figure.setLabel(text);
+            });
         }
     }
     
