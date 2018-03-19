@@ -2,6 +2,11 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
     constructor(onSelect, text, container, index, outputLocator = null) {
         super({stroke: 0});
 
+        this.properties = [
+            { name: "name" },
+            { name: "label" }
+        ];
+        
         this.onSelect = onSelect;
         this.container = container;
         this.index = index;
@@ -13,9 +18,7 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         this.addDown();
 
         this.userData = {
-            type: "input",
-            name: text,
-            properties: []
+            type: "input"
         };
 
         if (outputLocator) {
@@ -34,84 +37,70 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
                 };
         }
 
-        this.setName(text);
-        this.setLabel(text);
+        this._name = text;
+        this._label = text;
+        this.label = text;
         
         if (this.onSelect) 
-            this.label.onClick = () => this.onSelect(this);
+            this.controlLabel.onClick = () => this.onSelect(this);
     }
     
-    getName(){
-        return this.userData.name;
+    get label(){
+        return this.controlLabel.getText();
     }
 
-    setName(text){
-        this.userData.name = text;
-        
-        this.syncLabelAndText(text);
-    }
-
-    getLabel(){
-         return this.label.text;
-    }
-
-    setLabel(text) {
+    set label(text){
         this.syncLabelAndText(text);
         
-        this.userData.label = text;
-        this.label.setText(text);
+        this.controlLabel.setText(text);
 
-        this.label.padding.right = (107 - 6 * text.length);
+        this.controlLabel.padding.right = (107 - 6 * text.length);
         this.container.refresh();
     }
     
-    syncName() {
-        return this.userData.name === this.userData.label;
+    get name(){
+        return this._name;
+    }
+
+    set name(text){
+        this._name = text;
+    }
+
+    getPropertyBags() {
+        const bags = [];
+        bags.push(new DefaultPropertyBag(this));
+
+        return bags;
     }
     
     syncLabelAndText(text){
-        if (this.userData.name === this.userData.label) {
-            this.userData.name = text;
-            
-            this.userData.label = text;
-            this.label.setText(text);
+        if (this._name === this._label) {
+            this._name = text;
+            this._label = text;
+            this.controlLabel.setText(text);
         }
-    }
-    
-    getProperties() {
-        return this.userData.properties;
-    }
-
-    setProperty(name, value){
-        if (!this.userData || !this.userData.properties)
-            return;
-
-        const prop = this.userData.properties.find(p => p.name === name);
-
-        if(prop && prop.value)
-            prop.value = value;
     }
 
     addLabel(){
-        this.label = this.createLabel("Label", {left: 5, right: (107 - 30)}, true);
-        super.add(this.label);
+        this.controlLabel = this.createLabel("Label", {left: 5, right: (107 - 30)}, true);
+        super.add(this.controlLabel);
 
         const contextMenu = new FormContextMenu(this);
-        this.label.onContextMenu = () => contextMenu.show();
+        this.controlLabel.onContextMenu = () => contextMenu.show();
 
         let editor = new draw2d.ui.LabelInplaceEditor({
             onCommit: () => {
-                this.label.padding.right = (107 - 6 * this.label.text.length)
+                this.controlLabel.padding.right = (107 - 6 * this.controlLabel.text.length)
                 this.container.refresh();
 
-                this.syncLabelAndText(this.label.text);
+                this.syncLabelAndText(this.controlLabel.text);
                 
                 if (this.onSelect)
                     this.onSelect(this);
             }
         });
         
-        this.label.installEditor(editor);
+        this.controlLabel.installEditor(editor);
     }
 
     addUp(){

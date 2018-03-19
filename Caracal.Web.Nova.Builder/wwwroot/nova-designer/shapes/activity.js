@@ -1,53 +1,41 @@
 class Activity extends draw2d.shape.node.Between  {
-    constructor(label, type, image) {
+    constructor(text, type, image) {
         super({
             width: 70,
             height: 70,
             resizeable: false,
-            radius: 5,
-            userData: { label: label }
+            radius: 5
         });
-        
-        this.setName(this.id.replace(/-/g, "").substring(0, 20));
-        
+
+        this.properties = [
+            { name: "name" },
+            { name: "label" }
+        ];
+       
         this.addContextMenu();
         
-        this.addLabel(label);
+        this.addLabel(text);
         this.addImage(image);
         this.addTypeLabel(type);
+
+        this.label = text;
+        this.name = this.id.replace(/-/g, "").substring(0, 20);
     }
 
-    getName(){
-        return this.userData.name;
+    get label(){
+        return this.contolLabel.getText();
     }
 
-    setName(text){
-        this.userData.name = text;
-    }
-    
-    getLabel(){
-        return this.label.text;
+    set label(text){
+        this.contolLabel.setText(text);
+        this.contolLabel.setVisible(text.length > 0);
     }
 
-    setLabel(text){
-        this.userData.label = text;
-        this.label.setText(text);
+    getPropertyBags() {
+        const bags = [];
+        bags.push(new DefaultPropertyBag(this));
 
-        this.label.setVisible(text.length > 0);
-    }
-
-    getProperties() {
-        return this.userData.properties;
-    }
-
-    setProperty(name, value){
-        if (!this.userData || !this.userData.properties) 
-            return;
-        
-        const prop = this.userData.properties.find(p => p.name === name);
-        
-        if(prop && prop.value) 
-            prop.value = value;
+        return bags;
     }
     
     addContextMenu() {
@@ -62,16 +50,13 @@ class Activity extends draw2d.shape.node.Between  {
     }
     
     addLabel(label){
-        this.label = new draw2d.shape.basic.Label({radius: 5, text:label});
-        super.add(this.label, new draw2d.layout.locator.SmartDraggableLocator());
-        this.label.installEditor(new draw2d.ui.LabelInplaceEditor({
-            onCommit: (text) => { 
-                this.userData.label = text;
-                this.label.setVisible(text.length > 0);
-            }
+        this.contolLabel = new draw2d.shape.basic.Label({radius: 5, text:label});
+        super.add(this.contolLabel, new draw2d.layout.locator.SmartDraggableLocator());
+        this.contolLabel.installEditor(new draw2d.ui.LabelInplaceEditor({
+            onCommit: (text) => this.contolLabel.setVisible(text.length > 0)
         }));
         
-        this.label.setPosition(0, -28);
+        this.contolLabel.setPosition(0, -28);
     }
 
     addImage(image){

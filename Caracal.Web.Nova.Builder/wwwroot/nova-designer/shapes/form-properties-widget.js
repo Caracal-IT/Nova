@@ -11,7 +11,7 @@ class FormPropertiesWidget {
                 ]
             },
             {
-                control: "paper-label",
+                control: "paper-controlLabel",
                 type: "input",
                 properties: [
                     { name: "Text", value: "Welcome !!" }

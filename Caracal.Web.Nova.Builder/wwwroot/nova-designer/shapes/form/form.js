@@ -3,59 +3,41 @@ class Form extends draw2d.shape.layout.VerticalLayout {
         super({
             stroke:1,
             radius:2,
-            gap:2,
-            userData: {
-                type: "form",
-                controls: []
-            }
+            gap:2
         });
 
-        this.onSelect = onSelect;
+        this.properties = [
+            { name: "name" },
+            { name: "label" }
+        ];
         
-        this.userData.properties = [];
+        this.onSelect = onSelect;
         this.controls = [];
         this.createHeader();
-
-        this.setName(this.id.replace(/-/g, "").substring(0, 20));
-        this.setLabel(text);
-
-        this.outputLocator = new CollapsibleOutputLocator();
-
+        
+        this.label = text;
+        this.name = this.id.replace(/-/g, "").substring(0, 20);
+        
         this.changeColor(FormColor.GetColour("Blue"));
+        this.outputLocator = new CollapsibleOutputLocator();
         
         if (this.onSelect)
             this.header.titleLabel.onClick = () => this.onSelect(this);
     }
 
-    getName(){
-        return this.userData.name;
+    get label(){
+        return this.header.titleLabel.getText();
     }
 
-    setName(text){
-        this.userData.name = text;
-    }
-
-    getLabel(){
-        return this.header.titleLabel.text;
-    }
-
-    setLabel(text){
-        this.userData.label = text;
+    set label(text){
         this.header.titleLabel.setText(text);
     }
-
-    getProperties() {
-        return this.userData.properties;
-    }
-
-    setProperty(name, value){
-        if (!this.userData || !this.userData.properties)
-            return;
-
-        const prop = this.userData.properties.find(p => p.name === name);
-
-        if(prop && prop.value)
-            prop.value = value;
+    
+    getPropertyBags() {
+        const bags = [];
+        bags.push(new DefaultPropertyBag(this));
+        
+        return bags;
     }
     
     createHeader(){
