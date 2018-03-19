@@ -29,6 +29,8 @@ class PropertyPane {
     constructor(propertyBag, container) {
         this.bag = propertyBag;
         this.container = container;
+        this.content = document.createElement("div");
+        this.container.appendChild(this.content);
     }
     
     static renderPane(propertyBag, container) {
@@ -37,6 +39,8 @@ class PropertyPane {
     }
     
     render(){
+        this.content.innerHTML = "";
+        
         this.createHeader();
         this.createProperties();
     }
@@ -44,12 +48,12 @@ class PropertyPane {
     createHeader(){
         const header = document.createElement("h2");
         header.innerText = this.bag.header;
-        this.container.appendChild(header);
+        this.content.appendChild(header);
     }
     
     createProperties(){
         const table = document.createElement("table");
-        this.container.appendChild(table);
+        this.content.appendChild(table);
         
         this.bag.properties.forEach(p => this.createProperty(table, p));
     }
@@ -82,7 +86,12 @@ class PropertyPane {
                 e.appendChild(option);
             });
 
-            e.onchange = () => this.bag.setProperty(p.name, e.value);
+            e.onchange = () => {
+                if (this.bag.onChange)
+                    this.bag.onChange(e.value, this);
+                else 
+                    this.bag.setProperty(p.name, e.value);
+            }
         }
         else {
             
@@ -98,7 +107,6 @@ class PropertyPane {
 
 class DefaultPropertyBag {
     constructor(shape){
-        this.name = "Default";
         this.header = "Properties";
         this.shape = shape;
     }
@@ -122,5 +130,81 @@ class DefaultPropertyBag {
 
         if (name === "label" && this.shape["name"] === this.shape["label"])
             document.querySelector("#name").value = value;
+    }
+}
+
+class ControlPropertyBag {
+    constructor(shape){
+        this.header = "Controls";
+        this.shape = shape;
+        this.properties = [];
+        
+        this.controls = [
+            {
+                name: "paper-input",
+                type: "input",
+                properties: [
+                    { name: "Placeholder", value: "Please select an item" }
+                ]
+            },
+            {
+                name: "paper-label",
+                type: "input",
+                properties: [
+                    { name: "Text", value: "Welcome !!" }
+                ]
+            },
+            {
+                name: "paper-button",
+                type: "output",
+                properties: [
+                    { name: "style", value: "default" }
+                ]
+            }
+        ];
+        
+        const type = this.shape.control.find(c => c.name === "type");
+        this.onChange(type?type.value:null);
+    }
+
+    onChange(value, pane){
+        this.properties = [
+            {
+                name: "type",
+                value: "paper-input",
+                type: "select",
+                items: [
+                    { name: "Select an option", value: "" },
+                    { name: "paper-input", value: "paper-input" },
+                    { name: "paper-label", value: "paper-label" }
+                ]
+            }];
+        
+        if (value === undefined || value === null)
+            value = "paper-input";
+
+        const control = this.controls.find(c => c.name === value);
+        const type = this.shape.control.find(c => c.name === "type");
+        
+        if (!type || type.value !== value) {
+            this.shape.control = [
+                { name: "type", value: value }
+            ];
+
+            this.shape.control.push(...control.properties);
+        } 
+        
+        this.properties.push(...control.properties);
+        
+        if (pane)
+            pane.render();
+    }
+    
+    getProperty(name) {
+        return this.shape.control.find(c => c.name === name).value;
+    }
+
+    setProperty(name, value){
+        this.shape.control.find(c => c.name === name).value = value;
     }
 }

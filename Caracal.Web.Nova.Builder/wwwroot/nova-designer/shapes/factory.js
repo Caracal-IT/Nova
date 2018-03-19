@@ -14,9 +14,9 @@ class Factory {
 class ActivityFactory {
     webService() {
         let properties = [
-            { name: "Url", value: "/smo/test/1" },
+            { name: "url", value: "/smo/test/1" },
             {
-                name: "Method", 
+                name: "method", 
                 value: "get", 
                 type: "select", 
                 items: [
@@ -37,7 +37,7 @@ class ActivityFactory {
 
     codeActivity() {
         let properties = [
-            { name: "Code", value: "", type: "textarea" }
+            { name: "code", value: "", type: "textarea" }
         ];
 
         const act = new Activity("Code Activity", "Code", draw2d.shape.icon.Gear2);
@@ -50,10 +50,10 @@ class ActivityFactory {
 
     alertActivity() {
         let properties = [
-            { name: "Title", value: "Success" },
-            { name: "Message", value: "Welcome !!" },
+            { name: "title", value: "Success" },
+            { name: "message", value: "Welcome !!" },
             { 
-                name: "Type", 
+                name: "type", 
                 value: "success",
                 type: "select",
                 items: [
@@ -88,7 +88,7 @@ class ShapeFactory {
 
     start() {
         let properties = [
-            { name: "ProcessName", value: "custom-reservation" },
+            { name: "processName", value: "custom-reservation" },
             { name: "Id", value: "1" }
         ];
         

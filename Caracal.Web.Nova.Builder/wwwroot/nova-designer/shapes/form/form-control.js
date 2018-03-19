@@ -10,6 +10,7 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         this.onSelect = onSelect;
         this.container = container;
         this.index = index;
+        this.control = [];
         
         this.propertWidget = new FormPropertiesWidget(this);
 
@@ -22,20 +23,11 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         };
 
         if (outputLocator) {
-            this.userData.control = {type: "paper-button"};
             this.userData.type = "output";
 
             super.createPort("output", outputLocator);
         }
-        else {
-            this.userData
-                .control = {
-                    type: "paper-input",
-                    properties: [
-                        { name: "Placeholder", value: "Please select an item" }
-                    ]
-                };
-        }
+        
 
         this._name = text;
         this._label = text;
@@ -69,6 +61,7 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
     getPropertyBags() {
         const bags = [];
         bags.push(new DefaultPropertyBag(this));
+        bags.push(new ControlPropertyBag(this));
 
         return bags;
     }
