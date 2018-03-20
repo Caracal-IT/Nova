@@ -53,32 +53,42 @@ class PropertyPane {
         let e = document.createElement(p.type||"input");
         
         if (p.type === "select" && p.items) {
-            p.items.forEach(i => {
-                const option = document.createElement("option");
-                option.value = i.value;
-                option.innerText = i.name;
-                
-                if (p.value === i.value) 
-                    option.checked = true;
-                    
-                e.appendChild(option);
-            });
-
-            e.onchange = () => {
-                if (this.bag.onChange)
-                    this.bag.onChange(e.value, this);
-                else 
-                    this.bag.setProperty(p.name, e.value);
-            }
+            this.createSelectOptions(p, e);
+            this.createChangeEvent(p,  e);
         }
-        else {
-            
-            e.onkeyup = () => this.bag.setProperty(p.name, e.value);
-        }
+        else 
+            this.createDefaultEvent(p,  e);
+        
 
         e.id = p.name;
         e.value = this.bag.getProperty(p.name);
         
         return e;
+    }
+    
+    createDefaultEvent(property, event) {
+        event.onkeyup = () => this.bag.setProperty(property.name, event.value);
+    }
+    
+    createChangeEvent(property, event){
+        event.onchange = () => {
+            if (this.bag.onChange)
+                this.bag.onChange(event.value, this);
+            else
+                this.bag.setProperty(property.name, event.value);
+        }
+    }
+    
+    createSelectOptions(property, event) {
+        property.items.forEach(i => {
+            const option = document.createElement("option");
+            option.value = i.value;
+            option.innerText = i.name;
+
+            if (property.value === i.value)
+                option.checked = true;
+
+            event.appendChild(option);
+        });
     }
 }
