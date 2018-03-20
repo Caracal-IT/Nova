@@ -115,4 +115,15 @@ class Form extends draw2d.shape.layout.VerticalLayout {
         this.controls.sort((a, b) => a.index >  b.index);
         this.controls.forEach(ctrl => super.add(ctrl));
     }
+
+    get definition() {
+        const controls = [];
+        this.controls.forEach(c => controls.push(c.definition));
+        
+        return {
+            name: this.name,
+            label: this.label,
+            controls: controls
+        };
+    }
 }

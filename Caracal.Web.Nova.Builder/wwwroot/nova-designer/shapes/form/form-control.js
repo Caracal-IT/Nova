@@ -147,4 +147,12 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
     remove() {
         this.container.removeControl(this);
     }
+
+    get definition() {
+        return {
+            name: this.name,
+            label: this.label,
+            control: this.control
+        };
+    }
 }
