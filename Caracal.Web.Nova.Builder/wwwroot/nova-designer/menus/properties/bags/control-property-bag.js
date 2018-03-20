@@ -55,7 +55,6 @@ class ControlPropertyBag {
             if (c.type === this.shape.type)
                 this.properties[0].items.push({name: c.name, value: c.name})
         });
-
     }
     
     
