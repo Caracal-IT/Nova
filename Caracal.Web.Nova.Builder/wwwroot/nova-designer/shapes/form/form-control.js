@@ -26,6 +26,8 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         this._name = text;
         this._label = text;
         this.label = text;
+
+        this.onSelect(this);
         
         if (this.onSelect) 
             this.controlLabel.onClick = () => this.onSelect(this);
@@ -149,6 +151,7 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
     }
 
     get definition() {
+        console.log(this);
         return {
             name: this.name,
             label: this.label,
