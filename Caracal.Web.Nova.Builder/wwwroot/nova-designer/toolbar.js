@@ -1,7 +1,6 @@
 class Toolbar {
-    constructor(elementId, view){
+    constructor(elementId, view, workflowServer){
         this.html = $("#" + elementId);
-        let workflowServer = new WorkflowServer(view);
 
         view.getCommandStack().addEventListener(this);
         view.on("select", $.proxy(this.onSelectionChanged,this));

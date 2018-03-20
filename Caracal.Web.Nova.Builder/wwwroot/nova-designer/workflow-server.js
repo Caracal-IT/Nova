@@ -9,6 +9,32 @@ class WorkflowServer {
         
         console.log(process);
     }
+    
+    controls(){
+        return [
+            {
+                name: "paper-input",
+                type: "input",
+                properties: [
+                    { name: "Placeholder", value: "Please select an item" }
+                ]
+            },
+            {
+                name: "paper-label",
+                type: "input",
+                properties: [
+                    { name: "Text", value: "Welcome !!" }
+                ]
+            },
+            {
+                name: "paper-button",
+                type: "output",
+                properties: [
+                    { name: "style", value: "default" }
+                ]
+            }
+        ];
+    }
 }
 
 class ProcessBuilder {

@@ -12,23 +12,17 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         this.index = index;
         this.control = [];
         
-        this.propertWidget = new FormPropertiesWidget(this);
-
         this.addLabel(text);
         this.addUp();
         this.addDown();
 
-        this.userData = {
-            type: "input"
-        };
+        this.type = "input";
 
         if (outputLocator) {
-            this.userData.type = "output";
-
+            this.type = "output";
             super.createPort("output", outputLocator);
         }
         
-
         this._name = text;
         this._label = text;
         this.label = text;
