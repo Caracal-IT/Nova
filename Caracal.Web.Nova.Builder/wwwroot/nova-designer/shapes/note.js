@@ -34,4 +34,11 @@ class Note extends draw2d.shape.note.PostIt  {
         this.contextMenu = new DeleteContextMenu(this);
         this.onContextMenu = () => this.contextMenu.show();
     }
+
+    get definition() {
+        return {
+            name: this.name,
+            label: this.label
+        };
+    }
 }

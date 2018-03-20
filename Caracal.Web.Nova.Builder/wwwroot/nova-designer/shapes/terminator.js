@@ -7,18 +7,18 @@ class Terminator extends draw2d.shape.basic.Circle {
 
         this.properties = [];
             
-        const label = new draw2d.shape.basic.Label({
+        this.label = new draw2d.shape.basic.Label({
             text:text,
             color:color,
             fontColor:fontColor
         });
 
-        super.add(label, new draw2d.layout.locator.CenterLocator);
+        super.add(this.label, new draw2d.layout.locator.CenterLocator);
         this.createPort(port);
 
         const contextMenu = new DeleteContextMenu(this);
         super.onContextMenu = () => contextMenu.show();
-        label.onContextMenu = () => contextMenu.show();
+        this.label.onContextMenu = () => contextMenu.show();
     }
 
     getPropertyBags() {
@@ -26,5 +26,12 @@ class Terminator extends draw2d.shape.basic.Circle {
         bags.push(new DefaultPropertyBag(this));
 
         return bags;
+    }
+    
+    get definition() {
+        return {
+          name: this.label.text,
+          properties: this.properties  
+        };
     }
 }

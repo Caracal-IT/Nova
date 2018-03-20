@@ -73,4 +73,12 @@ class Activity extends draw2d.shape.node.Between  {
         super.add(shape, locator);
         shape.onContextMenu = () => this.contextMenu.show();
     }
+
+    get definition() {
+        return {
+            name: this.name,
+            label: this.label,
+            properties: this.properties.slice(2)
+        };
+    }
 }

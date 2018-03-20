@@ -39,4 +39,11 @@ class Header extends draw2d.shape.basic.Label{
         this.contextMenu = new DeleteContextMenu(this);
         this.onContextMenu = () => this.contextMenu.show();
     }
+
+    get definition() {
+        return {
+            name: this.name,
+            label: this.label
+        };
+    }
 }

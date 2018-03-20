@@ -37,7 +37,47 @@ class WorkflowServer {
     }
 }
 
+
 class ProcessBuilder {
+    constructor(view){
+        this.view = view;
+    }
+
+    build(){
+        this.createProcess();
+        this.buildShapes();
+        this.buildLines();
+
+        return this.process;
+    }
+
+    createProcess(){
+        this.process = {
+            shapes: [],
+            lines: []
+        };
+    }
+
+    buildShapes() {
+        this.view
+            .figures
+            .data
+            .forEach(s => this.process.shapes.push(s.definition));
+    }
+    
+    buildLines() {
+        for (let line of this.view.lines.data) {
+            this.process.lines.push({
+                source: line.sourcePort.id,
+                target: line.targetPort.id,
+                lineSegments: line.lineSegments.data
+            });
+        }
+    }
+}
+
+
+class ProcessBuilder2 {
     constructor(view){
         this.view = view;
     }
