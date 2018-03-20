@@ -151,7 +151,6 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
     }
 
     get definition() {
-        console.log(this);
         return {
             name: this.name,
             label: this.label,
