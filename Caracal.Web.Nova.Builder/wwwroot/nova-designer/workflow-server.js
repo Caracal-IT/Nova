@@ -10,7 +10,7 @@ class WorkflowServer {
         console.log(process);
         
         const xhr = new XMLHttpRequest();
-        xhr.open('post', 'http://localhost:5000/Designer/Publish/registration', true);
+        xhr.open('post', '/Designer/Publish/registration', true);
         xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 
         // send the collected data as JSON

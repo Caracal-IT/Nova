@@ -16,6 +16,7 @@ namespace Caracal.Web.Nova.Builder.Controllers {
     public async Task PublishWorkflow(Workflow wf) {
       try {
         var url = "http://localhost/api/workflow/publish";
+       // var url = "http://workflow.api/api/workflow/publish";
         //var content = new StringContent(JsonConvert.SerializeObject(wf), Encoding.UTF8, "application/json");
         var myContent = JsonConvert.SerializeObject(wf, new JsonSerializerSettings 
         { 
