@@ -72,8 +72,9 @@ class PropertyPane {
     
     createChangeEvent(property, event){
         event.onchange = () => {
-            if (this.bag.onChange)
-                this.bag.onChange(event.value, this);
+            if (this.bag.onChange) {
+                this.bag.onChange(event, this);
+            }
             else
                 this.bag.setProperty(property.name, event.value);
         }

@@ -24,11 +24,23 @@ class ControlPropertyBag {
         this.shape.control.find(c => c.name === name).value = value;
     }
 
-    onChange(value, pane){
-        if (value === undefined || value === null)
-            value = this.shape.type === "input" ?  "paper-input" : "paper-button";
-
-        const control = this.controls.find(c => c.name === value);
+    onChange(event, pane){
+        let value = this.shape.type === "input" ?  "paper-input" : "paper-button";
+        
+        if (event && event.value)
+            value = event.value;
+        
+        let control = this.controls.find(c => c.name === value);
+        
+        if (control == null) {
+            console.log(value);
+            control = this.shape.control.find(c => c.name === event.id);
+            
+            if (control != null) 
+                control.value = event.value;
+            
+            return;
+        }
         
         this.createProperties(control);
         this.addControlsToShape(control);

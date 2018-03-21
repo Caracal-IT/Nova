@@ -16,17 +16,17 @@ class WorkflowServer {
         // send the collected data as JSON
         xhr.send(JSON.stringify(process));
 
-        xhr.onloadend = function (data) {
-            // done
-            console.log("Done");
-        };
+        xhr.onload = function(e) {
+            alert(xhr.statusText); // not responseText
+            /* ... */
+        }
     }
     
     controls(){
         return [
             {
                 name: "paper-header",
-                type: "input",
+                type: "input1",
                 properties: [
                     { name: "text", value: "Header" }
                 ]
@@ -36,13 +36,12 @@ class WorkflowServer {
                 name: "paper-input",
                 type: "input",
                 properties: [
-                    { name: "text", value: "Header" },
                     { name: "placeholder", value: "Please select an item" }
                 ]
             },
             {
                 name: "paper-label",
-                type: "input",
+                type: "input1",
                 properties: [
                     { name: "text", value: "Welcome !!" }
                 ]
@@ -51,7 +50,7 @@ class WorkflowServer {
                 name: "paper-button",
                 type: "output",
                 properties: [
-                    {   name: "text", value: "Welcome" },
+                   // {   name: "text", value: "Welcome" },
                     {   name: "style", 
                         value: "success", 
                         type:"select",

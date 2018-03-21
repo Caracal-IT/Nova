@@ -40,11 +40,11 @@ namespace Caracal.Web.Nova.Builder.Controllers {
 
       var act = GetStartActivity(process);
       
-
+      
       while (act.Activity != null) {
         wf.Activities.Add(act.Activity);
 
-        if (act.NextShape == null)
+        if (act.NextShape == null || wf.Activities.Any(a => a.Name == act.NextShape.Name))
           break;
 
         act = Next(process, act.NextShape);
@@ -58,11 +58,10 @@ namespace Caracal.Web.Nova.Builder.Controllers {
         }
       }
       
-      
 
       wf.Activities.Add(new CodeActivity {
         Name = "empty",
-        Code = "function execute(params, wf, notify) { notify.info('Error', 'Empty'); }"
+        Code = "function execute(params, wf, notify) { }"
       });
       
       
@@ -115,7 +114,7 @@ namespace Caracal.Web.Nova.Builder.Controllers {
           var next = process.Lines.FirstOrDefault(l => l.Source == lineId);
 
           if (next != null)
-            return process.Shapes.FirstOrDefault(s => s.InputPorts.FirstOrDefault() == next.Target);
+            return process.Shapes.FirstOrDefault(s => s.InputPorts?.FirstOrDefault() == next.Target);
         }
       }
 
@@ -130,7 +129,7 @@ namespace Caracal.Web.Nova.Builder.Controllers {
           var next = process.Lines.FirstOrDefault(l => l.Source == lineId);
 
           if (next != null)
-            return process.Shapes.FirstOrDefault(s => s.InputPorts.FirstOrDefault() == next.Target);
+            return process.Shapes.FirstOrDefault(s => s.InputPorts?.FirstOrDefault() == next.Target);
         }
       }
 
@@ -177,8 +176,17 @@ namespace Caracal.Web.Nova.Builder.Controllers {
         if (shape.Type.ToLower() == "end") {
           act = new CodeActivity {
             Name = shape.Name,
-            Code = "function execute(params, wf, notify) { notify.info('Error', 'Workflow done'); }"
+            Code = "function execute(params, wf, notify) {  }"
           };
+        }
+
+        if (shape.Type.ToLower() == "start") {
+          act = new CodeActivity {
+            Name = "start",
+            Type = "CodeActivity",
+            Code = "function execute(params, wf, notify) { wf.next('" + (next?.Name??"empty") + "'); }"
+          };
+
         }
 
         if (shape.Type == "Form") {
@@ -195,14 +203,25 @@ namespace Caracal.Web.Nova.Builder.Controllers {
         Name = shape.Name
       };
 
+      var hProps = new Dictionary<string, object>();
+      hProps.Add("type", "paper-header");
+      hProps.Add("label", shape.Label);
+      hProps.Add("name", shape.Name);
+      act.Form.Controls.Add(hProps);
+      
       foreach (var control in shape.Controls) {
         if (control.Control != null) {
           var props = new Dictionary<string, object>();
           act.Form.Controls.Add(props);
           props.Add("name", control.Name);
+          props.Add("label", control.Label);
           
           foreach (var item in control.Control) {
             var name = item.Name == "text" ? "label" : item.Name;
+
+            if (item.Name == "text")
+              props.Remove("label");
+            
             props.Add(name, item.Value);
           }
 
@@ -211,7 +230,9 @@ namespace Caracal.Web.Nova.Builder.Controllers {
             props["style"] = "btn btn-outline-" + props["style"];
             
             nextShape = NextShape(process, control);
-            props.Add("nextActivity", nextShape.Name);
+            
+            if(nextShape != null)
+              props.Add("nextActivity", nextShape.Name);
           }
           
           /* act.Form.Controls.Add(new WfComponent {

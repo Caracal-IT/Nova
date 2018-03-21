@@ -14,7 +14,7 @@ class Factory {
 class ActivityFactory {
     webService() {
         let properties = [
-            { name: "url", value: "/smo/test/1" },
+            { name: "url", value: "http://localhost/api/smart-object/reservation/1" },
             {
                 name: "method", 
                 value: "get", 
@@ -51,7 +51,7 @@ class ActivityFactory {
     alertActivity() {
         let properties = [
             { name: "title", value: "Success" },
-            { name: "message", value: "Welcome !!" },
+            { name: "message", value: "Data saved" },
             { 
                 name: "type", 
                 value: "success",
