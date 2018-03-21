@@ -52,7 +52,7 @@ class WorkflowServer {
                 properties: [
                    // {   name: "text", value: "Welcome" },
                     {   name: "style", 
-                        value: "success", 
+                        value: "primary", 
                         type:"select",
                         items:[
                             { name: "primary", value: "primary" },
