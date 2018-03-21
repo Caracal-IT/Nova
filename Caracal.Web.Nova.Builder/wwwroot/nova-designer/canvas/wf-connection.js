@@ -20,7 +20,18 @@ class WFConnection extends draw2d.Connection{
     }
 
     changeColor(formColor) {
+        this.formColor = formColor;
+        
         this.setColor(formColor.secondary);
         this.setOutlineColor(formColor.primary);
+    }
+
+    get definition() {
+        return {
+            source: this.sourcePort.id,
+            target: this.targetPort.id,
+            color: this.formColor.name,
+            lineSegments: this.lineSegments.data
+        };
     }
 }

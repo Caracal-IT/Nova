@@ -38,6 +38,9 @@ class ControlPropertyBag {
     }
     
     createProperties(control){
+        if (!control)
+            return;
+        
         this.properties = [
             {
                 name: "type",

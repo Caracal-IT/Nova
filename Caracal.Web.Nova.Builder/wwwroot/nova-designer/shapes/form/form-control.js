@@ -154,7 +154,15 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         return {
             name: this.name,
             label: this.label,
+            outputPorts: this.getPortIds(this.outputPorts),
             control: this.control
         };
+    }
+
+    getPortIds(ports){
+        const portsIds = [];
+        ports.data.forEach(p => portsIds.push(p.id));
+
+        return portsIds;
     }
 }

@@ -1,135 +1,1077 @@
-﻿[
-  {
-    "type": "draw2d.shape.layout.VerticalLayout",
-    "id": "b7e0ec2f-7f05-e428-0186-675774f7901e",
-    "x": 154.00852966308594,
-    "y": 57.01704788208008,
-    "width": 148.90625,
-    "height": 67.703125,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "type": "form"
+﻿{
+  "shapes": [
+    {
+      "name": "process-transaction-panel",
+      "label": "Process Transaction",
+      "type": "Panel",
+      "color": "Khaki",
+      "x": 33.00852584838867,
+      "y": 274.0170478820801,
+      "width": 730,
+      "height": 184
     },
-    "cssClass": "draw2d_shape_layout_VerticalLayout",
-    "ports": [
-      {
-        "type": "draw2d.InputPort",
-        "id": "8cf8ce6c-1d2b-fe35-4a56-1d48b193eb1d",
-        "width": 10,
-        "height": 10,
-        "alpha": 1,
-        "angle": 0,
-        "userData": {},
-        "cssClass": "draw2d_InputPort",
-        "bgColor": "#4F6870",
-        "color": "#1B1B1B",
-        "stroke": 1,
-        "dasharray": null,
-        "maxFanOut": 9007199254740991,
-        "name": "input0",
-        "port": "draw2d.InputPort",
-        "locator": "draw2d.layout.locator.InputPortLocator"
-      }
-    ],
-    "bgColor": "#93D7F3",
-    "color": "#39B2E5",
-    "stroke": 1,
-    "radius": 2,
-    "dasharray": null,
-    "gap": 2
-  },
-  {
-    "type": "draw2d.shape.basic.Circle",
-    "id": "d6241eaf-1d10-8678-0445-1bd47009473b",
-    "x": 260.00852966308594,
-    "y": 251.01704788208008,
-    "width": 50,
-    "height": 50,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "type": "Start"
+    {
+      "name": "reservation-panel",
+      "label": "Reservation",
+      "type": "Panel",
+      "color": "Azure",
+      "x": 33.00852584838867,
+      "y": 13.017047882080078,
+      "width": 730,
+      "height": 230
     },
-    "cssClass": "draw2d_shape_basic_Circle",
-    "ports": [
-      {
-        "type": "draw2d.OutputPort",
-        "id": "80e69075-e498-f261-7455-116733a9226a",
-        "width": 10,
-        "height": 10,
-        "alpha": 1,
-        "angle": 0,
-        "userData": {},
-        "cssClass": "draw2d_OutputPort",
-        "bgColor": "#4F6870",
-        "color": "#1B1B1B",
-        "stroke": 2,
-        "dasharray": null,
-        "maxFanOut": 9007199254740991,
-        "name": "output0",
-        "port": "draw2d.OutputPort",
-        "locator": "draw2d.layout.locator.OutputPortLocator"
-      }
-    ],
-    "bgColor": "#AFEEEE",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "dasharray": null
-  },
-  {
-    "type": "draw2d.Connection",
-    "id": "a429d0fa-9991-da16-0883-bba3d697441e",
-    "alpha": 1,
-    "angle": 0,
-    "userData": {},
-    "cssClass": "draw2d_Connection",
-    "stroke": 5,
-    "color": "#00A8F0",
-    "outlineStroke": 1,
-    "outlineColor": "#303030",
-    "policy": "draw2d.policy.line.OrthogonalSelectionFeedbackPolicy",
-    "vertex": [
-      {
-        "x": 310.00852966308594,
-        "y": 276.0170478820801
-      },
-      {
-        "x": 330.00852966308594,
-        "y": 276.0170478820801
-      },
-      {
-        "x": 330.00852966308594,
-        "y": 172.08345413208008
-      },
-      {
-        "x": 134.00852966308594,
-        "y": 172.08345413208008
-      },
-      {
-        "x": 134.00852966308594,
-        "y": 68.14986038208008
-      },
-      {
-        "x": 154.00852966308594,
-        "y": 68.14986038208008
-      }
-    ],
-    "router": "draw2d.layout.connection.InteractiveManhattanConnectionRouter",
-    "radius": 20,
-    "routingMetaData": {
-      "routedByUserInteraction": false,
-      "fromDir": 1,
-      "toDir": 3
+    {
+      "name": "Start",
+      "type": "Start",
+      "x": 57.00852584838867,
+      "y": 167.01704788208008,
+      "properties": [
+        {
+          "name": "processName",
+          "value": "custom-reservation"
+        },
+        {
+          "name": "Id",
+          "value": "1"
+        }
+      ]
     },
-    "source": {
-      "node": "d6241eaf-1d10-8678-0445-1bd47009473b",
-      "port": "output0"
+    {
+      "name": "get-reservation",
+      "label": "Get Reservation",
+      "type": "Webservice",
+      "color": "Teal",
+      "x": 203.00852584838867,
+      "y": 82.01704788208008,
+      "labelPos": {
+        "x": -13,
+        "y": -29
+      },
+      "properties": [
+        {
+          "name": "url",
+          "value": "/api/smart-object/reservation/1"
+        },
+        {
+          "name": "method",
+          "value": "get",
+          "type": "select",
+          "items": [
+            {
+              "name": "Select an option",
+              "value": ""
+            },
+            {
+              "name": "get",
+              "value": "get"
+            },
+            {
+              "name": "post",
+              "value": "post"
+            }
+          ]
+        }
+      ]
     },
-    "target": {
-      "node": "b7e0ec2f-7f05-e428-0186-675774f7901e",
-      "port": "input0",
-      "decoration": "draw2d.decoration.connection.ArrowDecorator"
+    {
+      "name": "personal-details",
+      "label": "Personal Details",
+      "type": "Form",
+      "color": "Teal",
+      "x": 343.0085258483887,
+      "y": 59.01704788208008,
+      "controls": [
+        {
+          "name": "header",
+          "label": "Header",
+          "control": [
+            {
+              "name": "type",
+              "value": "paper-header"
+            },
+            {
+              "name": "text",
+              "value": "Personal Details"
+            }
+          ]
+        },
+        {
+          "name": "firstname",
+          "label": "Firstname",
+          "control": [
+            {
+              "name": "type",
+              "value": "paper-input"
+            },
+            {
+              "name": "text",
+              "value": "Firstname"
+            },
+            {
+              "name": "placeholder",
+              "value": "Please enter your firstname"
+            }
+          ]
+        },
+        {
+          "name": "surname",
+          "label": "Surname",
+          "control": [
+            {
+              "name": "type",
+              "value": "paper-input"
+            },
+            {
+              "name": "text",
+              "value": "Surname"
+            },
+            {
+              "name": "placeholder",
+              "value": "Please enter your surname"
+            }
+          ]
+        },
+        {
+          "name": "selectHotel",
+          "label": "Select Hotel",
+          "control": [
+            {
+              "name": "type",
+              "value": "paper-button"
+            },
+            {
+              "name": "text",
+              "value": "Select Hotel"
+            },
+            {
+              "name": "style",
+              "value": "success",
+              "type": "select",
+              "items": [
+                {
+                  "name": "primary",
+                  "value": "primary"
+                },
+                {
+                  "name": "secondary",
+                  "value": "secondary"
+                },
+                {
+                  "name": "success",
+                  "value": "success"
+                },
+                {
+                  "name": "danger",
+                  "value": "danger"
+                },
+                {
+                  "name": "warning",
+                  "value": "warning"
+                },
+                {
+                  "name": "info",
+                  "value": "info"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "select-hotel",
+      "label": "Select Hotel",
+      "type": "Form",
+      "color": "Teal",
+      "x": 578.0085258483887,
+      "y": 60.01704788208008,
+      "controls": [
+        {
+          "name": "header",
+          "label": "Header",
+          "control": [
+            {
+              "name": "type",
+              "value": "paper-header"
+            },
+            {
+              "name": "text",
+              "value": "Select Hotel"
+            }
+          ]
+        },
+        {
+          "name": "hotel",
+          "label": "Hotel",
+          "control": [
+            {
+              "name": "type",
+              "value": "paper-input"
+            },
+            {
+              "name": "text",
+              "value": "Hotel"
+            },
+            {
+              "name": "placeholder",
+              "value": "Please sect a hotel"
+            }
+          ]
+        },
+        {
+          "name": "roomNumber",
+          "label": "Room Number",
+          "control": [
+            {
+              "name": "type",
+              "value": "paper-input"
+            },
+            {
+              "name": "text",
+              "value": "Room Number"
+            },
+            {
+              "name": "placeholder",
+              "value": "Please select a room"
+            }
+          ]
+        },
+        {
+          "name": "personal-details",
+          "label": "Personal Details",
+          "control": [
+            {
+              "name": "type",
+              "value": "paper-button"
+            },
+            {
+              "name": "text",
+              "value": "Personal Details"
+            },
+            {
+              "name": "style",
+              "value": "success",
+              "type": "select",
+              "items": [
+                {
+                  "name": "primary",
+                  "value": "primary"
+                },
+                {
+                  "name": "secondary",
+                  "value": "secondary"
+                },
+                {
+                  "name": "success",
+                  "value": "success"
+                },
+                {
+                  "name": "danger",
+                  "value": "danger"
+                },
+                {
+                  "name": "warning",
+                  "value": "warning"
+                },
+                {
+                  "name": "info",
+                  "value": "info"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "make-payment",
+          "label": "Pay",
+          "control": [
+            {
+              "name": "type",
+              "value": "paper-button"
+            },
+            {
+              "name": "text",
+              "value": "Pay"
+            },
+            {
+              "name": "style",
+              "value": "success",
+              "type": "select",
+              "items": [
+                {
+                  "name": "primary",
+                  "value": "primary"
+                },
+                {
+                  "name": "secondary",
+                  "value": "secondary"
+                },
+                {
+                  "name": "success",
+                  "value": "success"
+                },
+                {
+                  "name": "danger",
+                  "value": "danger"
+                },
+                {
+                  "name": "warning",
+                  "value": "warning"
+                },
+                {
+                  "name": "info",
+                  "value": "info"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "save-reservation",
+      "label": "Save Reservation",
+      "type": "Webservice",
+      "color": "Gold",
+      "x": 93.00852584838867,
+      "y": 353.4715919494629,
+      "labelPos": {
+        "x": -20,
+        "y": -28
+      },
+      "properties": [
+        {
+          "name": "url",
+          "value": "/api/smart-object/reservation"
+        },
+        {
+          "name": "method",
+          "value": "post",
+          "type": "select",
+          "items": [
+            {
+              "name": "Select an option",
+              "value": ""
+            },
+            {
+              "name": "get",
+              "value": "get"
+            },
+            {
+              "name": "post",
+              "value": "post"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "payment-confirmation-alert",
+      "label": "Confirm Reservation",
+      "type": "Alert",
+      "color": "Gold",
+      "x": 233.00852584838867,
+      "y": 313.0170478820801,
+      "labelPos": {
+        "x": -18,
+        "y": -29
+      },
+      "properties": [
+        {
+          "name": "title",
+          "value": "Reservation - Confirmation"
+        },
+        {
+          "name": "message",
+          "value": "Welcome {{firstname}} {{surname}}, your reservation at the {{hotel}} is confirmed!!"
+        },
+        {
+          "name": "type",
+          "value": "success",
+          "type": "select",
+          "items": [
+            {
+              "name": "Select an option",
+              "value": ""
+            },
+            {
+              "name": "primary",
+              "value": "primary"
+            },
+            {
+              "name": "secondary",
+              "value": "secondary"
+            },
+            {
+              "name": "success",
+              "value": "success"
+            },
+            {
+              "name": "danger",
+              "value": "danger"
+            },
+            {
+              "name": "warning",
+              "value": "warning"
+            },
+            {
+              "name": "info",
+              "value": "info"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "set-reply-message-activity",
+      "label": "Set Reply Message",
+      "type": "Code",
+      "color": "Gold",
+      "x": 367.0085258483887,
+      "y": 358.0170478820801,
+      "labelPos": {
+        "x": -16.03125,
+        "y": -31
+      },
+      "properties": [
+        {
+          "name": "code",
+          "value": "function execute(params, wf, notify) {\n                  wf.model.reply = `Set in code activity: ${wf.model.firstname}`;\n                  wf.next('payment-confirmation');\n                }",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "name": "payment-confirmation",
+      "label": "Payment Confirmation",
+      "type": "Form",
+      "color": "Gold",
+      "x": 520.0085258483887,
+      "y": 306.0170478820801,
+      "controls": [
+        {
+          "name": "header",
+          "label": "Header",
+          "control": [
+            {
+              "name": "type",
+              "value": "paper-header"
+            },
+            {
+              "name": "text",
+              "value": "Payment Confirmation"
+            }
+          ]
+        },
+        {
+          "name": "welcome-message",
+          "label": "Welcome Message",
+          "control": [
+            {
+              "name": "type",
+              "value": "paper-label"
+            },
+            {
+              "name": "text",
+              "value": "Welcome {{firstname}} {{surname}}, your reservation at the {{hotel}} is confirmed!!"
+            }
+          ]
+        },
+        {
+          "name": "reply",
+          "label": "Reply",
+          "control": [
+            {
+              "name": "type",
+              "value": "paper-input"
+            },
+            {
+              "name": "text",
+              "value": "Reply"
+            },
+            {
+              "name": "placeholder",
+              "value": "Please enter your reply"
+            }
+          ]
+        },
+        {
+          "name": "reply-message",
+          "label": "Reply Message",
+          "control": [
+            {
+              "name": "type",
+              "value": "paper-label"
+            },
+            {
+              "name": "text",
+              "value": "Your reply: {{reply}}"
+            }
+          ]
+        }
+      ]
     }
-  }
-]
+  ],
+  "lines": [
+    {
+      "source": "e1b5064e-bd01-a7f5-0748-c4f78150294a",
+      "target": "6d2c26aa-52cc-271a-495f-468fe6180b1d",
+      "color": "Blue",
+      "lineSegments": [
+        {
+          "start": {
+            "x": 437.0085258483887,
+            "y": 393.0170478820801,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 478.5085258483887,
+            "y": 393.0170478820801,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 478.5085258483887,
+            "y": 393.0170478820801,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 478.5085258483887,
+            "y": 317.1498603820801,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 478.5085258483887,
+            "y": 317.1498603820801,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 520.0085258483887,
+            "y": 317.1498603820801,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        }
+      ]
+    },
+    {
+      "source": "c54cf167-394a-35ec-451f-0aab09ad425f",
+      "target": "464a8afb-91c0-32ce-8ae8-6e0e55eebe48",
+      "color": "Gold",
+      "lineSegments": [
+        {
+          "start": {
+            "x": 728.0241508483887,
+            "y": 183.83736038208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 748.0241508483887,
+            "y": 183.83736038208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 748.0241508483887,
+            "y": 183.83736038208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 748.0241508483887,
+            "y": 259.1544761657715,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 748.0241508483887,
+            "y": 259.1544761657715,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 17.008525848388672,
+            "y": 259.1544761657715,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 17.008525848388672,
+            "y": 259.1544761657715,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 17.008525848388672,
+            "y": 388.4715919494629,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 17.008525848388672,
+            "y": 388.4715919494629,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 93.00852584838867,
+            "y": 388.4715919494629,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        }
+      ]
+    },
+    {
+      "source": "562e1a68-4a0b-c27b-5169-226a2e2e5954",
+      "target": "b600726d-74a4-4f54-0ab5-75cacdac056a",
+      "color": "Teal",
+      "lineSegments": [
+        {
+          "start": {
+            "x": 728.0241508483887,
+            "y": 161.79829788208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 756.0241508483887,
+            "y": 161.79829788208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 756.0241508483887,
+            "y": 161.79829788208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 756.0241508483887,
+            "y": 28.974079132080078,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 756.0241508483887,
+            "y": 28.974079132080078,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 320.0085258483887,
+            "y": 28.974079132080078,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 320.0085258483887,
+            "y": 28.974079132080078,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 320.0085258483887,
+            "y": 70.14986038208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 320.0085258483887,
+            "y": 70.14986038208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 343.0085258483887,
+            "y": 70.14986038208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        }
+      ]
+    },
+    {
+      "source": "b5d56ea2-35a2-1724-d843-74a8953a7e0a",
+      "target": "4dc5f92d-ec1f-8b33-afbc-0b5a49ee2676",
+      "color": "Teal",
+      "lineSegments": [
+        {
+          "start": {
+            "x": 493.0085258483887,
+            "y": 160.11861038208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 535.5085258483887,
+            "y": 160.11861038208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 535.5085258483887,
+            "y": 160.11861038208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 535.5085258483887,
+            "y": 71.14986038208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 535.5085258483887,
+            "y": 71.14986038208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 578.0085258483887,
+            "y": 71.14986038208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        }
+      ]
+    },
+    {
+      "source": "69577efa-6a4e-90b2-6047-69c52f919c74",
+      "target": "b600726d-74a4-4f54-0ab5-75cacdac056a",
+      "color": "Teal",
+      "lineSegments": [
+        {
+          "start": {
+            "x": 273.0085258483887,
+            "y": 117.01704788208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 308.0085258483887,
+            "y": 117.01704788208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 308.0085258483887,
+            "y": 117.01704788208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 308.0085258483887,
+            "y": 70.14986038208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 308.0085258483887,
+            "y": 70.14986038208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 343.0085258483887,
+            "y": 70.14986038208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        }
+      ]
+    },
+    {
+      "source": "9c19df66-f59f-eb44-c60a-ace24bbce8b7",
+      "target": "a57acda0-0021-a06b-c017-2b6d8e11fa00",
+      "color": "Blue",
+      "lineSegments": [
+        {
+          "start": {
+            "x": 163.00852584838867,
+            "y": 388.4715919494629,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 198.00852584838867,
+            "y": 388.4715919494629,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 198.00852584838867,
+            "y": 388.4715919494629,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 198.00852584838867,
+            "y": 348.0170478820801,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 198.00852584838867,
+            "y": 348.0170478820801,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 233.00852584838867,
+            "y": 348.0170478820801,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        }
+      ]
+    },
+    {
+      "source": "ff1aaeb5-9080-885f-4df4-590c839fdeaa",
+      "target": "ab805927-b861-35a9-c444-61a025dbfb23",
+      "color": "Teal",
+      "lineSegments": [
+        {
+          "start": {
+            "x": 107.00852584838867,
+            "y": 192.01704788208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 155.00852584838867,
+            "y": 192.01704788208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 155.00852584838867,
+            "y": 192.01704788208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 155.00852584838867,
+            "y": 117.01704788208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 155.00852584838867,
+            "y": 117.01704788208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 203.00852584838867,
+            "y": 117.01704788208008,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        }
+      ]
+    },
+    {
+      "source": "9da63cb1-4bb6-41d2-17ed-645d4b2e3b93",
+      "target": "4fee7c2b-764e-ba23-78a0-433976baaa75",
+      "color": "Blue",
+      "lineSegments": [
+        {
+          "start": {
+            "x": 303.0085258483887,
+            "y": 348.0170478820801,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 335.0085258483887,
+            "y": 348.0170478820801,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 335.0085258483887,
+            "y": 348.0170478820801,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 335.0085258483887,
+            "y": 393.0170478820801,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        },
+        {
+          "start": {
+            "x": 335.0085258483887,
+            "y": 393.0170478820801,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          },
+          "end": {
+            "x": 367.0085258483887,
+            "y": 393.0170478820801,
+            "bx": null,
+            "by": null,
+            "bw": null,
+            "bh": null
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -31,7 +31,19 @@ class Terminator extends draw2d.shape.basic.Circle {
     get definition() {
         return {
           name: this.label.text,
-          properties: this.properties  
+          type: this.label.text,
+          x: this.x,
+          y: this.y, 
+          outputPorts: this.getPortIds(this.outputPorts), 
+          inputPorts: this.getPortIds(this.inputPorts),
+          properties: this.properties
         };
+    }
+    
+    getPortIds(ports){
+        const portsIds = [];
+        ports.data.forEach(p => portsIds.push(p.id));
+        
+        return portsIds;
     }
 }

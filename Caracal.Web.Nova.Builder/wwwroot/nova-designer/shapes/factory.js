@@ -28,7 +28,7 @@ class ActivityFactory {
         ];
         
         const act = new Activity("Webservice Activity", "Webservice", draw2d.shape.icon.GlobeAlt);
-        act.type = "WebserviceActivity";
+        act.type = "Webservice";
         act.properties.push(...properties);
         act.changeColor(FormColor.GetColour("Purple"));
         
@@ -41,7 +41,7 @@ class ActivityFactory {
         ];
 
         const act = new Activity("Code Activity", "Code", draw2d.shape.icon.Gear2);
-        act.type = "CodeActivity";
+        act.type = "Code";
         act.properties.push(...properties);
         act.changeColor(FormColor.GetColour("Gold"));
 
@@ -69,7 +69,7 @@ class ActivityFactory {
         ];
 
         const act = new Activity("Alert Activity", "Alert", draw2d.shape.icon.CodeTalk);
-        act.type = "AlertActivity";
+        act.type = "Alert";
         act.properties.push(...properties);
         act.changeColor(FormColor.GetColour("Pink"));
 

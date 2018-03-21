@@ -50,6 +50,8 @@ class Panel extends draw2d.shape.composite.Raft {
     }
 
     changeColor(formColor) {
+        this.formColor = formColor;
+        
         this.setBackgroundColor(formColor.secondary);
         this.controlLabel.setBackgroundColor(formColor.primary);
         this.controlLabel.setFontColor(formColor.font);
@@ -59,6 +61,10 @@ class Panel extends draw2d.shape.composite.Raft {
         return {
             name: this.name,
             label: this.label,
+            type: "Panel",
+            color: this.formColor.name,
+            x: this.x,
+            y: this.y,
             width: this.getWidth(),
             height: this.getHeight()
         };

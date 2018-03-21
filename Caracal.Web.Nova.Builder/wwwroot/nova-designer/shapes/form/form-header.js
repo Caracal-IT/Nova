@@ -12,8 +12,8 @@ class FormHeader extends draw2d.shape.layout.HorizontalLayout {
         this.images = [];
 
         this.addTitle(text);
-        this.images.push(this.addImage(draw2d.shape.icon.Contract));
-        this.images.push(this.addImage(draw2d.shape.icon.Expand, false));
+        // this.images.push(this.addImage(draw2d.shape.icon.Contract));
+        // this.images.push(this.addImage(draw2d.shape.icon.Expand, false));
     }
 
     addTitle(text){
@@ -24,7 +24,7 @@ class FormHeader extends draw2d.shape.layout.HorizontalLayout {
             stroke:0,
             fontSize:10,
             fontFamily:"Verdana",
-            padding:{left:5, right:50 - text.length}
+            padding:{left:5, right:60 - text.length}
         });
         
         this.titleLabel.onContextMenu = () => this.contextMenu.show();

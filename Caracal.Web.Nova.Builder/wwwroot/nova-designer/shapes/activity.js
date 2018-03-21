@@ -18,6 +18,7 @@ class Activity extends draw2d.shape.node.Between  {
         this.addImage(image);
         this.addTypeLabel(type);
 
+        this.type = type;
         this.label = text;
         this.name = this.id.replace(/-/g, "").substring(0, 20);
     }
@@ -44,6 +45,8 @@ class Activity extends draw2d.shape.node.Between  {
     }
 
     changeColor(formColor) {
+        this.formColor = formColor;
+        
         super.setBackgroundColor(formColor.secondary);
         this.typeLabel.setBackgroundColor(formColor.primary);
         this.typeLabel.setFontColor(formColor.font);
@@ -78,7 +81,24 @@ class Activity extends draw2d.shape.node.Between  {
         return {
             name: this.name,
             label: this.label,
+            type: this.type,
+            color: this.formColor.name,
+            x: this.x,
+            y: this.y,
+            labelPos: { 
+                x:  this.contolLabel.x, 
+                y: this.contolLabel.y
+            },
+            outputPorts: this.getPortIds(this.outputPorts),
+            inputPorts: this.getPortIds(this.inputPorts),
             properties: this.properties.slice(2)
         };
+    }
+
+    getPortIds(ports){
+        const portsIds = [];
+        ports.data.forEach(p => portsIds.push(p.id));
+
+        return portsIds;
     }
 }

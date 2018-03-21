@@ -43,7 +43,10 @@ class Header extends draw2d.shape.basic.Label{
     get definition() {
         return {
             name: this.name,
-            label: this.label
+            label: this.label,
+            type: "Header",
+            x: this.x,
+            y: this.y,
         };
     }
 }

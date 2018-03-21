@@ -123,7 +123,19 @@ class Form extends draw2d.shape.layout.VerticalLayout {
         return {
             name: this.name,
             label: this.label,
-            controls: controls
+            type: "Form",
+            color: this.formColor.name,
+            x: this.x,
+            y: this.y,
+            controls: controls,
+            inputPorts: this.getPortIds(this.header.inputPorts),
         };
+    }
+
+    getPortIds(ports){
+        const portsIds = [];
+        ports.data.forEach(p => portsIds.push(p.id));
+
+        return portsIds;
     }
 }

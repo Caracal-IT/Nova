@@ -38,7 +38,10 @@ class Note extends draw2d.shape.note.PostIt  {
     get definition() {
         return {
             name: this.name,
-            label: this.label
+            label: this.label,
+            type: "Note",
+            x: this.x,
+            y: this.y,
         };
     }
 }
