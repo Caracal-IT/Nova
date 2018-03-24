@@ -14,7 +14,7 @@ class Factory {
 class ActivityFactory {
     webService() {
         let properties = [
-            { name: "url", value: "http://localhost/api/smart-object/reservation/1" },
+            { name: "api", value: "/api/smart-object/reservation/1" },
             {
                 name: "method", 
                 value: "get", 
@@ -28,7 +28,7 @@ class ActivityFactory {
         ];
         
         const act = new Activity("Webservice Activity", "Webservice", draw2d.shape.icon.GlobeAlt);
-        act.type = "Webservice";
+        act.type = "ApiActivity";
         act.properties.push(...properties);
         act.changeColor(FormColor.GetColour("Purple"));
         
@@ -37,11 +37,11 @@ class ActivityFactory {
 
     codeActivity() {
         let properties = [
-            { name: "code", value: "", type: "textarea" }
+            { name: "code", value: "function execute(params, wf, notify) { }", type: "textarea" }
         ];
 
         const act = new Activity("Code Activity", "Code", draw2d.shape.icon.Gear2);
-        act.type = "Code";
+        act.type = "CodeActivity";
         act.properties.push(...properties);
         act.changeColor(FormColor.GetColour("Gold"));
 
@@ -53,7 +53,7 @@ class ActivityFactory {
             { name: "title", value: "Success" },
             { name: "message", value: "Data saved" },
             { 
-                name: "type", 
+                name: "style", 
                 value: "success",
                 type: "select",
                 items: [
@@ -69,7 +69,7 @@ class ActivityFactory {
         ];
 
         const act = new Activity("Alert Activity", "Alert", draw2d.shape.icon.CodeTalk);
-        act.type = "Alert";
+        act.type = "NovaAlertActivity";
         act.properties.push(...properties);
         act.changeColor(FormColor.GetColour("Pink"));
 
@@ -88,8 +88,7 @@ class ShapeFactory {
 
     start() {
         let properties = [
-            { name: "processName", value: "custom-reservation" },
-            { name: "Id", value: "1" }
+            { name: "workflow", value: "registration" }
         ];
         
         const startAct = new Terminator("Start", "#AFEEEE", "output", "#008080");

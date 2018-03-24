@@ -78,6 +78,13 @@ class Activity extends draw2d.shape.node.Between  {
     }
 
     get definition() {
+        const props = [];
+
+        this.properties.forEach(p => {
+            if (p.name !== "name" && p.name !== "label")
+                props.push({name: p.name, value: p.value})
+        });
+        
         return {
             name: this.name,
             label: this.label,
@@ -91,7 +98,7 @@ class Activity extends draw2d.shape.node.Between  {
             },
             outputPorts: this.getPortIds(this.outputPorts),
             inputPorts: this.getPortIds(this.inputPorts),
-            properties: this.properties.slice(2)
+            properties: props
         };
     }
 

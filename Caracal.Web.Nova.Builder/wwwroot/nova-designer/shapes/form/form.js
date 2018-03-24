@@ -117,17 +117,20 @@ class Form extends draw2d.shape.layout.VerticalLayout {
     }
 
     get definition() {
-        const controls = [];
-        this.controls.forEach(c => controls.push(c.definition));
+        const myControls = [];
+        myControls.push(this.header.definition);
+        
+        this.controls.forEach(c => myControls.push(c.definition));
         
         return {
             name: this.name,
-            label: this.label,
-            type: "Form",
+            type: "FormActivity",
             color: this.formColor.name,
             x: this.x,
             y: this.y,
-            controls: controls,
+            properties: [
+                { name: "form", value: { controls: myControls }}
+            ],
             inputPorts: this.getPortIds(this.header.inputPorts),
         };
     }

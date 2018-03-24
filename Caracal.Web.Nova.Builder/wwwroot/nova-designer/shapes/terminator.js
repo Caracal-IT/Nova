@@ -28,15 +28,25 @@ class Terminator extends draw2d.shape.basic.Circle {
         return bags;
     }
     
+    get name(){
+        return this.label.text;
+    }
+    
+    set name(value) {
+        this.label.text = value;
+    }
+    
     get definition() {
         return {
-          name: this.label.text,
-          type: this.label.text,
+          name: this.name.toLowerCase(),
+          type: "CodeActivity",
           x: this.x,
           y: this.y, 
           outputPorts: this.getPortIds(this.outputPorts), 
           inputPorts: this.getPortIds(this.inputPorts),
-          properties: this.properties
+          properties: [
+                { name: "code", value: "function execute(params, wf, notify) { }" }
+          ]
         };
     }
     

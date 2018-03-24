@@ -57,4 +57,21 @@ class FormHeader extends draw2d.shape.layout.HorizontalLayout {
     changeColor(formColor) {
         super.setBackgroundColor(formColor.primary);
     }
+
+    get definition() {
+        return {
+            name: "header",
+            type: "paper-header",
+            properties: [
+                {name: "label", value: this.titleLabel.getText()}
+            ]
+        };
+    }
+
+    getPortIds(ports){
+        const portsIds = [];
+        ports.data.forEach(p => portsIds.push(p.id));
+
+        return portsIds;
+    }
 }

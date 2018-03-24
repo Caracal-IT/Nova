@@ -151,12 +151,16 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
     }
 
     get definition() {
-        return {
+        let def = {
             name: this.name,
             label: this.label,
             outputPorts: this.getPortIds(this.outputPorts),
-            control: this.control
+            properties: []
         };
+
+        this.control.forEach(c => def.properties.push({name: c.name, value: c.value }));
+        
+        return def;
     }
 
     getPortIds(ports){

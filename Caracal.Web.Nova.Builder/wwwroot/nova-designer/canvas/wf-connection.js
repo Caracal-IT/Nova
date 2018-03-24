@@ -27,11 +27,17 @@ class WFConnection extends draw2d.Connection{
     }
 
     get definition() {
+        const segments =[];
+        this.lineSegments.data.forEach(s => segments.push({
+            start: {x: s.start.x, y: s.start.y}, 
+            end: {x: s.end.x, y: s.end.y}
+        }));
+        console.log(this.lineSegments.data);
         return {
             source: this.sourcePort.id,
             target: this.targetPort.id,
             color: this.formColor.name,
-            lineSegments: this.lineSegments.data
+            lineSegments: segments
         };
     }
 }
