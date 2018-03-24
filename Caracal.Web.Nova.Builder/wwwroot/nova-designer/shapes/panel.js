@@ -62,6 +62,7 @@ class Panel extends draw2d.shape.composite.Raft {
             name: this.name,
             label: this.label,
             type: "Panel",
+            factory: "shapeFactory",
             color: this.formColor.name,
             x: this.x,
             y: this.y,

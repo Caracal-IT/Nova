@@ -240,7 +240,7 @@
       src="~/nova-designer/img/title-activity.png" 
       style="padding-top: 5px;width: 40px; height: 30px;cursor: pointer" 
       data-factory="shapeFactory"
-      data-shape="title" 
+      data-shape="header" 
       alt="Title"
       class="draw2d_droppable"/>
     
@@ -306,7 +306,7 @@
     
     let factory = new Factory(onSelect);
     let canvas = new View("canvas", factory);
-    let workflowServer = new WorkflowServer(canvas);
+    let workflowServer = new WorkflowServer(canvas, factory);
     
     let toolbar = new Toolbar("toolbar",  canvas, workflowServer);
     
@@ -316,6 +316,8 @@
     
     
     $(window).load(function () {
+      workflowServer.load();
+      
       $('#container').layout({
         west: {
           resizable:false,

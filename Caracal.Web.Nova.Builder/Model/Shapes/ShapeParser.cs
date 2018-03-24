@@ -17,6 +17,7 @@ namespace Caracal.Web.Nova.Builder.Model.Shapes {
     
     private List<object> GetMetadata(JToken token) {
       return token
+        .Where(s => s["inputPorts"] != null || s["outputPorts"] != null)
         .Select(s => GetMetadata(s.Value<JObject>()))
         .ToList();
     }
@@ -60,7 +61,7 @@ namespace Caracal.Web.Nova.Builder.Model.Shapes {
       var sourceId = outputPort[0].Value<string>();
       var targetId = _canvas.SelectToken("$.lines[?(@.source == '" + sourceId + "')].target");
       var target = _canvas["shapes"]
-        .FirstOrDefault(s => s["inputPorts"].Any(p => (string)p == (string) targetId));
+        .FirstOrDefault(s => s["inputPorts"] != null && s["inputPorts"].Any(p => (string)p == (string) targetId));
       
       return target?["name"].Value<string>();
     }

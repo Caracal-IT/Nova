@@ -105,7 +105,7 @@ class ShapeFactory {
         return new Panel("Panel", 730, 150);
     }
 
-    title() {
+    header() {
         return new Header("Title");
     }
 

@@ -40,6 +40,7 @@ class Note extends draw2d.shape.note.PostIt  {
             name: this.name,
             label: this.label,
             type: "Note",
+            factory: "shapeFactory",
             x: this.x,
             y: this.y,
         };
