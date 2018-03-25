@@ -75,31 +75,31 @@ class ProcessParser {
         return s.type === "FormActivity" && prop === "properties";
     }
     
-    addFormProperties(s, shape) {
-        const form = s.properties.find(p => p.name === "form");
+    addFormProperties(shape, figure) {
+        const form = shape.properties.find(p => p.name === "form");
+        const controls = form.value.controls;
 
-        if (form && form.value && form.value.controls) {
-            const controls = form.value.controls;
+        controls.forEach(control => {
+            if (control.name === "_#header")
+                figure.label = control.properties.find(p => p.name === "label").value;
+            else 
+               this.addControl(control, figure);
+        });
+    }
+    
+    addControl(control, figure){
+        let figureCtrl = null;
 
-            controls.forEach(c => {
-                if (c.name === "_#header") 
-                    shape.label = c.properties.find(p => p.name === "label").value;
-                else {
-                    let control = null;
+        if (control.outputPorts && control.outputPorts.length > 0)
+            figureCtrl = figure.createOutputControl(control.name);
+        else
+            figureCtrl = figure.createInputControl(control.name);
 
-                    if (c.outputPorts && c.outputPorts.length > 0)
-                        control = shape.createOutputControl(c.name);
-                    else
-                        control = shape.createInputControl(c.name);
+        figureCtrl.label = control.label;
+        figureCtrl.name = control.name;
+        figureCtrl.id = control.id;
 
-                    control.label = c.label;
-                    control.name = c.name;
-                    control.id = c.id;
-
-                    control.control = c.properties;
-                }
-            });
-        }
+        figureCtrl.control = control.properties;
     }
     
     isPort(property){
