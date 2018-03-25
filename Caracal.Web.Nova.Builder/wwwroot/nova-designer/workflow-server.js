@@ -1,3 +1,127 @@
+const wjJson = `
+[
+  {
+    "type": "draw2d.shape.basic.Circle",
+    "id": "6b13af51-2e03-a7b5-2ce7-fdcc70363b82",
+    "x": 87,
+    "y": 294,
+    "width": 50,
+    "height": 50,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {},
+    "cssClass": "draw2d_shape_basic_Circle",
+    "ports": [
+      {
+        "type": "draw2d.OutputPort",
+        "id": "6bf03d47-440b-674d-2ab8-2fa75829812e",
+        "width": 10,
+        "height": 10,
+        "alpha": 1,
+        "angle": 0,
+        "userData": {},
+        "cssClass": "draw2d_OutputPort",
+        "bgColor": "#4F6870",
+        "color": "#1B1B1B",
+        "stroke": 1,
+        "dasharray": null,
+        "maxFanOut": 9007199254740991,
+        "name": "output0",
+        "port": "draw2d.OutputPort",
+        "locator": "draw2d.layout.locator.OutputPortLocator"
+      }
+    ],
+    "bgColor": "#AFEEEE",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "dasharray": null
+  },
+  {
+    "type": "draw2d.shape.basic.Circle",
+    "id": "79598754-2bad-7025-ec5d-e738da3736fe",
+    "x": 220,
+    "y": 243,
+    "width": 50,
+    "height": 50,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {},
+    "cssClass": "draw2d_shape_basic_Circle",
+    "ports": [
+      {
+        "type": "draw2d.InputPort",
+        "id": "95c962fb-2dbf-c8cd-1eca-1df6b0dd2cc7",
+        "width": 10,
+        "height": 10,
+        "alpha": 1,
+        "angle": 0,
+        "userData": {},
+        "cssClass": "draw2d_InputPort",
+        "bgColor": "#4F6870",
+        "color": "#1B1B1B",
+        "stroke": 1,
+        "dasharray": null,
+        "maxFanOut": 9007199254740991,
+        "name": "input0",
+        "port": "draw2d.InputPort",
+        "locator": "draw2d.layout.locator.InputPortLocator"
+      }
+    ],
+    "bgColor": "#F08080",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "dasharray": null
+  },
+  {
+    "type": "draw2d.Connection",
+    "id": "cfe0946f-36f0-8e27-fa9e-2b6413f49a6d",
+    "alpha": 1,
+    "angle": 0,
+    "userData": {},
+    "cssClass": "draw2d_Connection",
+    "stroke": 5,
+    "color": "#93D7F3",
+    "outlineStroke": 1,
+    "outlineColor": "#00A8F0",
+    "policy": "draw2d.policy.line.OrthogonalSelectionFeedbackPolicy",
+    "vertex": [
+      {
+        "x": 137,
+        "y": 319
+      },
+      {
+        "x": 160.5,
+        "y": 319
+      },
+      {
+        "x": 160.5,
+        "y": 268
+      },
+      {
+        "x": 220,
+        "y": 268
+      }
+    ],
+    "router": "draw2d.layout.connection.InteractiveManhattanConnectionRouter",
+    "radius": 20,
+    "routingMetaData": {
+      "routedByUserInteraction": true,
+      "fromDir": 1,
+      "toDir": 3
+    },
+    "source": {
+      "node": "6b13af51-2e03-a7b5-2ce7-fdcc70363b82",
+      "port": "output0"
+    },
+    "target": {
+      "node": "79598754-2bad-7025-ec5d-e738da3736fe",
+      "port": "input0",
+      "decoration": "draw2d.decoration.connection.ArrowDecorator"
+    }
+  }
+]
+`;
+
 class WorkflowServer {
     constructor(view, factory){
         this.view = view;
@@ -26,6 +150,33 @@ class WorkflowServer {
     load(){
         let process = {
             name: "registration",
+            lines: [
+                {
+                    color: "Gold",
+                    source: {
+                        id: "73e2f9fe-fa81-ff78-b9b6-b03032558168",
+                        name: "output0",
+                        parent: {
+                            id: "5e4a576d-05e2-8ded-76e0-f87cdf7c1722",
+                            name: "start"
+                        },
+                    },
+                    target: {
+                        id: "f0fe26ef-b3ab-4020-de5a-3bf797960bab",
+                        name: "input0",
+                        parent: {
+                            id: "4981bada-4958-8f4e-a3ac-853ad0febeda",
+                            name: "end"
+                        },
+                    },
+                    vertices: [
+                        { "x": 137, "y": 319 },
+                        { "x": 158, "y": 319 },
+                        { "x": 158, "y": 268 },
+                        { "x": 220, "y": 268 }
+                    ],
+                }
+            ],
             shapes: [
                 {
                     label: "Reservations",
@@ -63,18 +214,68 @@ class WorkflowServer {
                     y: 130
                 },
                 {
+                    id: "5e4a576d-05e2-8ded-76e0-f87cdf7c1722",
                     name: "start",
                     factory: "shapeFactory",
                     type: "CodeActivity",
+                    inputPorts: [],
+                    outputPorts: ["560c4c4d-5580-2ce2-e6b8-288a7b1804e0"],
                     x: 87,
                     y: 294
                 },
                 {
+                    id: "4981bada-4958-8f4e-a3ac-853ad0febeda",
                     name: "end",
                     factory: "shapeFactory",
                     type: "CodeActivity",
-                    x: 487,
+                    inputPorts: ["94b33b19-9579-8ba3-914d-a18b9c3fcd8e"],
+                    outputPorts: [],
+                    x: 220,
+                    y: 243
+                },
+                {
+                    type: "ApiActivity",
+                    factory: "activityFactory",
+                    name: "622c365fdaff50fb8e91",
+                    label: "Save Smart Object",
+                    color: "Green",
+                    properties: [
+                        { name: "api", value: "/api/smart-object/reservation/" },
+                        { name: "method", value: "post" }
+                    ],
+                    inputPorts: ["466f8906-e47e-4eb7-582f-dfd2b574032b"],
+                    outputPorts: ["90502a4a-dfd8-7ce2-c5c0-ff29eb07ebaa"],
+                    labelPos: { x: -20, y: -29 },
+                    x: 300,
                     y: 234
+                },
+                {
+                    type: "CodeActivity",
+                    factory: "activityFactory",
+                    label: "Set Reply Message",
+                    name: "099dba76ae3dea9ecdbc",
+                    color: "Purple",
+                    properties: [
+                        { name: "code", value: "function execute(params, wf, notify) { }" }
+                    ],
+                    labelPos: { x: -20, y: -29 },
+                    x: 420,
+                    y: 234
+                },
+                {
+                    type: "NovaAlertActivity",
+                    factory: "activityFactory",
+                    label: "Diaplay Message",
+                    name: "099dba76ae3dea9ecdbc",
+                    color: "Gold",
+                    properties: [
+                        { name: "title", value: "Success1" },
+                        { name: "message", value: "SMO Saved" },
+                        { name: "style", value: "warning" }
+                    ],
+                    labelPos: { x: -20, y: -29 },
+                    x: 530,
+                    y: 264
                 }
             ]
         };
@@ -82,18 +283,36 @@ class WorkflowServer {
         process.shapes.forEach(s => {
             if (s.name === "start") {
                 let shape = this.factory.create(s.factory, s.name);
+                shape.id = s.id;
                 this.view.add(shape, s.x, s.y);
                 shape.properties.filter(p => p.name === "workflow")["value"] = process.name;
             }
             else if (s.name === "end") {
                 let shape = this.factory.create(s.factory, s.name);
+                shape.id = s.id;
                 this.view.add(shape, s.x, s.y);
             }
             else {
-                let shape = this.factory.create(s.factory, s.type.toLowerCase());
+                let shape = this.factory.create(s.factory, s.type);
                 for (let prop in s) {
                     if (prop === "color")
                         shape.changeColor(FormColor.GetColour(s.color));
+                    else if (prop === "labelPos") {
+                        shape.contolLabel.x = s[prop].x;
+                        shape.contolLabel.y = s[prop].y;
+                    }
+                    else if (s.factory === "activityFactory" && prop === "properties") {
+                        shape[prop].splice(2);
+                        shape[prop].push(...s[prop]);
+                    }
+                    else if (prop === "inputPorts") {
+                        for (let index in s[prop])
+                            shape.inputPorts.data[index].id = s[prop][index];
+                    }
+                    else if (prop === "outputPorts") {
+                        for (let index in s[prop]) 
+                            shape.outputPorts.data[index].id = s[prop][index];
+                    }
                     else
                         shape[prop] = s[prop];
                 }
@@ -101,6 +320,28 @@ class WorkflowServer {
                 this.view.add(shape, s.x, s.y);
             }
         });
+
+        let jsonLines = [];
+        process.lines.forEach(line => {
+            let conn = {
+                type: "WFConnection",
+                color: FormColor.GetColour(line.color).secondary,
+                outlineColor: FormColor.GetColour(line.color).primary,
+                vertex: [],
+                source: { node: line.source.parent.id, port: line.source.name },
+                target: {node: line.target.parent.id, port: line.target.name  }
+            };
+
+            conn.vertex.push(...line.vertices);
+            
+            jsonLines.push(conn);
+        });
+
+        const reader = new draw2d.io.json.Reader();
+        reader.unmarshal(this.view, jsonLines);
+        //console.log(jsonLines);
+        //console.log(this.view.figures.data);
+        
     }
     
     controls(){

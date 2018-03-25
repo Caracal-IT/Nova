@@ -12,7 +12,7 @@ class Factory {
 }
 
 class ActivityFactory {
-    webService() {
+    ApiActivity() {
         let properties = [
             { name: "api", value: "/api/smart-object/reservation/1" },
             {
@@ -35,7 +35,7 @@ class ActivityFactory {
         return act;
     }
 
-    codeActivity() {
+    CodeActivity() {
         let properties = [
             { name: "code", value: "function execute(params, wf, notify) { }", type: "textarea" }
         ];
@@ -48,7 +48,7 @@ class ActivityFactory {
         return act;
     }
 
-    alertActivity() {
+    NovaAlertActivity() {
         let properties = [
             { name: "title", value: "Success" },
             { name: "message", value: "Data saved" },
@@ -82,7 +82,7 @@ class ShapeFactory {
         this.onSelect = onSelect;
     }
     
-    form() {
+    Form() {
         return new Form("Form Activity", this.onSelect);
     }
 
@@ -101,19 +101,19 @@ class ShapeFactory {
         return new Terminator("End", "#F08080", "input");
     }
 
-    panel() {
+    Panel() {
         return new Panel("Panel", 730, 150);
     }
 
-    header() {
+    Header() {
         return new Header("Title");
     }
 
-    label() {
+    Label() {
         return new Label("Label");
     }
 
-    note(){
+    Note(){
         return new Note("Note");
     }
 }

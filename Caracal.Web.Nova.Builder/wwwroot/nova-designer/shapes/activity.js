@@ -86,9 +86,11 @@ class Activity extends draw2d.shape.node.Between  {
         });
         
         return {
+            id: this.id, 
             name: this.name,
             label: this.label,
             type: this.type,
+            factory: "activityFactory",
             color: this.formColor.name,
             x: this.x,
             y: this.y,

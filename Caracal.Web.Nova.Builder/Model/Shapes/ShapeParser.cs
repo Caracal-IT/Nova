@@ -59,11 +59,9 @@ namespace Caracal.Web.Nova.Builder.Model.Shapes {
       if (outputPort == null || !outputPort.Any()) return string.Empty;
       
       var sourceId = outputPort[0].Value<string>();
-      var targetId = _canvas.SelectToken("$.lines[?(@.source == '" + sourceId + "')].target");
-      var target = _canvas["shapes"]
-        .FirstOrDefault(s => s["inputPorts"] != null && s["inputPorts"].Any(p => (string)p == (string) targetId));
+      var target = _canvas.SelectToken("$.lines[?(@.source.id == '" + sourceId + "')].target");
       
-      return target?["name"].Value<string>();
+      return target?["parent"]["name"].Value<string>();
     }
     
     private static void AddField(string key, IDictionary<string, object> metadata, JObject token) {

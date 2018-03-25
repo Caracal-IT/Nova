@@ -123,6 +123,7 @@ class Form extends draw2d.shape.layout.VerticalLayout {
         this.controls.forEach(c => myControls.push(c.definition));
         
         return {
+            id: this.id,
             name: this.name,
             type: "FormActivity",
             color: this.formColor.name,

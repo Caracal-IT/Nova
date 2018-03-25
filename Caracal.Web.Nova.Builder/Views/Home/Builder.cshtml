@@ -179,186 +179,181 @@
     
     
   </head>
-  <body id="container">
-      <div id="content">
-        <div id="toolbar">
-          <button id="undoButton">↩</button>
-          <button id="redoButton">↪</button>
-          <button id="deleteButton">&nbsp;🗑️</button>
-          <span class="toolbar_delimiter">&nbsp;</span>
-          <button id="zoomInButton">🔍</button>
-          <button id="zoomResetButton">1:1</button>
-          <button id="zoomOutButton">🔎</button>
-          <span class="toolbar_delimiter">&nbsp;</span>
-          <button id="publishButton">Publish</button>
-        </div>
-        <div id="canvas" class="" style="width:3000px; height:3000px;"></div>
-      </div>
-   
-  <div id="navigation" class="">
-    <img 
-      src="~/nova-designer/img/panel-activity.png" 
-      style="width: 50px; height: 45px;cursor: pointer;" 
-      data-factory="shapeFactory"
-      data-shape="panel" 
-      alt="Panel"
-      class="draw2d_droppable"/>
-    
-    <img 
-      src="~/nova-designer/img/form-activity.png" 
-      style="padding-top: 5px;width: 50px; height: 45px;cursor: pointer;" 
-      data-factory="shapeFactory"
-      data-shape="form" 
-      alt="Form"
-      class="draw2d_droppable"/>
-    
-    <img 
-      src="~/nova-designer/img/webservice.png" 
-      style="padding-top: 5px;width: 50px; height: 50px;cursor: pointer;" 
-      data-factory="activityFactory"
-      data-shape="webService" 
-      alt="Webservice"
-      class="draw2d_droppable"/>
-    
-    <img 
-      src="~/nova-designer/img/code.png" 
-      style="padding-top: 5px;width: 50px; height: 50px;cursor: pointer;" 
-      data-factory="activityFactory"
-      data-shape="codeActivity" 
-      alt="Code"
-      class="draw2d_droppable"/>
-    
-    <img 
-      src="~/nova-designer/img/alert-activity.png" 
-      style="padding-top: 5px;width: 50px; height: 50px;cursor: pointer;" 
-      data-factory="activityFactory"
-      data-shape="alertActivity" 
-      alt="Code"
-      class="draw2d_droppable"/>
-    
-    <img 
-      src="~/nova-designer/img/title-activity.png" 
-      style="padding-top: 5px;width: 40px; height: 30px;cursor: pointer" 
-      data-factory="shapeFactory"
-      data-shape="header" 
-      alt="Title"
-      class="draw2d_droppable"/>
-    
-    <img 
-      src="~/nova-designer/img/label-activity.png" 
-      style="padding-top: 5px;width: 30px; height: 20px;cursor: pointer;" 
-      data-factory="shapeFactory"
-      data-shape="label" 
-      alt="Label"
-      class="draw2d_droppable"/>
-    
-    <img 
-      src="~/nova-designer/img/note-activity.png" 
-      style="padding-top: 5px;width: 30px; height: 27px;cursor: pointer;" 
-      data-factory="shapeFactory"
-      data-shape="note" 
-      alt="Note"
-      class="draw2d_droppable"/>
-    
-    <img 
-      src="~/nova-designer/img/start-activity.png" 
-      style="padding-top: 5px;width: 30px; height: 30px;cursor: pointer;" 
-      data-factory="shapeFactory"
-      data-shape="start" 
-      alt="Start"
-      class="draw2d_droppable"/>
-    
-    <img 
-      src="~/nova-designer/img/end-activity.png" 
-      style="padding-top: 5px;width: 30px; height: 30px;cursor: pointer;" 
-      data-factory="shapeFactory"
-      data-shape="end" 
-      alt="End"
-      class="draw2d_droppable"/>
-    
-    
-   
-    
+<body id="container">
+<div id="content">
+  <div id="toolbar">
+    <button id="undoButton">↩</button>
+    <button id="redoButton">↪</button>
+    <button id="deleteButton">&nbsp;🗑️</button>
+    <span class="toolbar_delimiter">&nbsp;</span>
+    <button id="zoomInButton">🔍</button>
+    <button id="zoomResetButton">1:1</button>
+    <button id="zoomOutButton">🔎</button>
+    <span class="toolbar_delimiter">&nbsp;</span>
+    <button id="publishButton">Publish</button>
   </div>
+  <div id="canvas" class="" style="width: 3000px; height: 3000px;"></div>
+</div>
+
+<div id="navigation" class="">
+  <img
+    src="~/nova-designer/img/panel-activity.png"
+    style="width: 50px; height: 45px; cursor: pointer;"
+    data-factory="shapeFactory"
+    data-shape="Panel"
+    alt="Panel"
+    class="draw2d_droppable"/>
+
+  <img
+    src="~/nova-designer/img/form-activity.png"
+    style="padding-top: 5px; width: 50px; height: 45px; cursor: pointer;"
+    data-factory="shapeFactory"
+    data-shape="Form"
+    alt="Form"
+    class="draw2d_droppable"/>
+
+  <img
+    src="~/nova-designer/img/webservice.png"
+    style="padding-top: 5px; width: 50px; height: 50px; cursor: pointer;"
+    data-factory="activityFactory"
+    data-shape="ApiActivity"
+    alt="Webservice"
+    class="draw2d_droppable"/>
+
+  <img
+    src="~/nova-designer/img/code.png"
+    style="padding-top: 5px; width: 50px; height: 50px; cursor: pointer;"
+    data-factory="activityFactory"
+    data-shape="CodeActivity"
+    alt="Code"
+    class="draw2d_droppable"/>
+
+  <img
+    src="~/nova-designer/img/alert-activity.png"
+    style="padding-top: 5px; width: 50px; height: 50px; cursor: pointer;"
+    data-factory="activityFactory"
+    data-shape="AlertActivity"
+    alt="Code"
+    class="draw2d_droppable"/>
+
+  <img
+    src="~/nova-designer/img/title-activity.png"
+    style="padding-top: 5px; width: 40px; height: 30px; cursor: pointer"
+    data-factory="shapeFactory"
+    data-shape="Header"
+    alt="Title"
+    class="draw2d_droppable"/>
+
+  <img
+    src="~/nova-designer/img/label-activity.png"
+    style="padding-top: 5px; width: 30px; height: 20px; cursor: pointer;"
+    data-factory="shapeFactory"
+    data-shape="Label"
+    alt="Label"
+    class="draw2d_droppable"/>
+
+  <img
+    src="~/nova-designer/img/note-activity.png"
+    style="padding-top: 5px; width: 30px; height: 27px; cursor: pointer;"
+    data-factory="shapeFactory"
+    data-shape="Note"
+    alt="Note"
+    class="draw2d_droppable"/>
+
+  <img
+    src="~/nova-designer/img/start-activity.png"
+    style="padding-top: 5px; width: 30px; height: 30px; cursor: pointer;"
+    data-factory="shapeFactory"
+    data-shape="start"
+    alt="Start"
+    class="draw2d_droppable"/>
+
+  <img
+    src="~/nova-designer/img/end-activity.png"
+    style="padding-top: 5px; width: 30px; height: 30px; cursor: pointer;"
+    data-factory="shapeFactory"
+    data-shape="end"
+    alt="End"
+    class="draw2d_droppable"/>
+
+
+
+
+</div>
+
+<div id="properties">
+  <div id="propertyPane"></div>
+
+  <div id="items"></div>
+</div>
+
+<div id="gfx_holder" style="display: none; width: 1500px; height: 1500px;"></div>
+
+<script type="text/javascript">  
+  function GetCanvas() {
+    return canvas;
+  }
+
+
+  let onSelect = (figure) => {
+    propWindow.show(figure, workflowServer);
+  }
+
+  let factory = new Factory(onSelect);
+  let canvas = new View("canvas", factory);
+  let workflowServer = new WorkflowServer(canvas, factory);
+
+  let toolbar = new Toolbar("toolbar", canvas, workflowServer);
+
+  let propWindow = new PropertyWindow("#properties", workflowServer);
+
+  canvas.on("select", (emitter, event) => propWindow.show(event.figure));
+
   
-  <div id="properties">
-    <div id="propertyPane"></div>
-    
-    <div id="items"></div>
-  </div>
-  
-  <pre id="json" style="display: none;overflow:auto;position:absolute; top:10px; right:10px; width:350px; height:500px;background:white;border:1px solid gray">
-</pre>
-  <div id="gfx_holder" style="display: none;width: 1500px; height: 1500px;"></div>
-    
-  <script type="text/javascript">
-    
-    
-    function GetCanvas() {
-      return canvas;
-    }
+  $(window).load(() => {
+    workflowServer.load();
 
-    
-    
-    let onSelect = (figure) => {
-       propWindow.show(figure, workflowServer);
-    }
-    
-    let factory = new Factory(onSelect);
-    let canvas = new View("canvas", factory);
-    let workflowServer = new WorkflowServer(canvas, factory);
-    
-    let toolbar = new Toolbar("toolbar",  canvas, workflowServer);
-    
-    let propWindow = new PropertyWindow("#properties", workflowServer);
+    $('#container').layout({
+      west: {
+        resizable: false,
+        closable: true,
+        resizeWhileDragging: true,
+        paneSelector: "#navigation",
+        size: 55
 
-    canvas.on("select", (emitter, event) => propWindow.show(event.figure));
-    
-    
-    $(window).load(function () {
-      workflowServer.load();
-      
-      $('#container').layout({
-        west: {
-          resizable:false,
-          closable:true,
-          resizeWhileDragging:true,
-          paneSelector: "#navigation",
-          size: 55
-
-        },
-        east: {
-          resizable:false,
-          closable:true,
-          paneSelector: "#properties",
-          size: 320
-        },
-        center: {
-          resizable:true,
-          closable:true,
-          resizeWhileDragging:true,
-          paneSelector: "#content"
-        }
-      });
-
-      $('#content').layout({
-        north: {
-          resizable:false,
-          closable:false,
-          spacing_open:0,
-          spacing_closed:0,
-          size:50,
-          paneSelector: "#toolbar"
-        },
-        center: {
-          resizable:false,
-          closable:false,
-          spacing_open:0,
-          spacing_closed:0,
-          paneSelector: "#canvas"
-        }
-      });
+      },
+      east: {
+        resizable: false,
+        closable: true,
+        paneSelector: "#properties",
+        size: 320
+      },
+      center: {
+        resizable: true,
+        closable: true,
+        resizeWhileDragging: true,
+        paneSelector: "#content"
+      }
     });
-  </script>
-  </body>
+
+    $('#content').layout({
+      north: {
+        resizable: false,
+        closable: false,
+        spacing_open: 0,
+        spacing_closed: 0,
+        size: 50,
+        paneSelector: "#toolbar"
+      },
+      center: {
+        resizable: false,
+        closable: false,
+        spacing_open: 0,
+        spacing_closed: 0,
+        paneSelector: "#canvas"
+      }
+    });
+  });
+</script>
+</body>
 </html>
