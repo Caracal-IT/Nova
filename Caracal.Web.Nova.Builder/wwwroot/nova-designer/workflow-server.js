@@ -229,6 +229,16 @@ class WorkflowServer {
                                     ]
                                 },
                                 {
+                                    name:"Surname",
+                                    id: "241c6a8b-bee6-4323-301a-651564c4b423",
+                                    type: "paper-label",
+                                    label: "Last Name",
+                                    properties: [
+                                        {name: "type", value: "paper-label"},
+                                        {name: "text", value: "my surname"}
+                                    ]
+                                },
+                                {
                                     name:"SaveForm",
                                     id: "28f7443a-3e1c-0a06-e222-a9a3b47b1a9c",
                                     type: "paper-button",
@@ -346,7 +356,7 @@ class WorkflowServer {
         return [
             {
                 name: "paper-header",
-                type: "input1",
+                type: "input",
                 properties: [
                     { name: "text", value: "Header" }
                 ]
