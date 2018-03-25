@@ -39,64 +39,68 @@ class ProcessParser {
             figure.properties.filter(p => p.name === "workflow")["value"] = process.name;
     }
     
-    createShape(s) {
-        let shape = this.factory.create(s.factory, s.type);
-        for (let prop in s) {
-            if (prop === "color")
-                shape.changeColor(FormColor.GetColour(s.color));
-            else if (prop === "labelPos") {
-                shape.contolLabel.x = s[prop].x;
-                shape.contolLabel.y = s[prop].y;
-            }
-            else if (s.factory === "activityFactory" && prop === "properties") {
-                shape[prop].forEach(p => {
-                    const setting = s[prop].find(s => s.name === p.name);
+    createShape(shape) {
+        let figure = this.factory.create(shape.factory, shape.type);
+        
+        for (let property in shape) 
+            this.addProperty(shape, figure, property);
+        
+        this.view.add(figure, shape.x, shape.y);
+    }
+    
+    addProperty(s, shape, prop) {
+        if (prop === "color")
+            shape.changeColor(FormColor.GetColour(s.color));
+        else if (prop === "labelPos") {
+            shape.contolLabel.x = s[prop].x;
+            shape.contolLabel.y = s[prop].y;
+        }
+        else if (s.factory === "activityFactory" && prop === "properties") {
+            shape[prop].forEach(p => {
+                const setting = s[prop].find(s => s.name === p.name);
 
-                    if (setting)
-                        p.value = setting.value;
+                if (setting)
+                    p.value = setting.value;
+            });
+        }
+        else if (s.type === "FormActivity" && prop === "properties") {
+            const form = s.properties.find(p => p.name === "form");
+
+            if (form && form.value && form.value.controls) {
+                const controls = form.value.controls;
+
+                controls.forEach(c => {
+                    if (c.name === "_#header") {
+                        const label = c.properties.find(p => p.name === "label").value;
+                        shape.label = label;
+                    }
+                    else {
+                        let control = null;
+
+                        if (c.outputPorts && c.outputPorts.length > 0)
+                            control = shape.createOutputControl(c.name);
+                        else
+                            control = shape.createInputControl(c.name);
+
+                        control.label = c.label;
+                        control.name = c.name;
+                        control.id = c.id;
+
+                        control.control = c.properties;
+                    }
                 });
             }
-            else if (s.type === "FormActivity" && prop === "properties") {
-                const form = s.properties.find(p => p.name === "form");
-
-                if (form && form.value && form.value.controls) {
-                    const controls = form.value.controls;
-
-                    controls.forEach(c => {
-                        if (c.name === "_#header") {
-                            const label = c.properties.find(p => p.name === "label").value;
-                            shape.label = label;
-                        }
-                        else {
-                            let control = null;
-
-                            if (c.outputPorts && c.outputPorts.length > 0)
-                                control = shape.createOutputControl(c.name);
-                            else
-                                control = shape.createInputControl(c.name);
-
-                            control.label = c.label;
-                            control.name = c.name;
-                            control.id = c.id;
-
-                            control.control = c.properties;
-                        }
-                    });
-                }
-            }
-            else if (prop === "inputPorts") {
-                for (let index in s[prop])
-                    shape.inputPorts.data[index].id = s[prop][index];
-            }
-            else if (prop === "outputPorts") {
-                for (let index in s[prop])
-                    shape.outputPorts.data[index].id = s[prop][index];
-            }
-            else
-                shape[prop] = s[prop];
         }
-
-        this.view.add(shape, s.x, s.y);
+        else if (prop === "inputPorts") {
+            for (let index in s[prop])
+                shape.inputPorts.data[index].id = s[prop][index];
+        }
+        else if (prop === "outputPorts") {
+            for (let index in s[prop])
+                shape.outputPorts.data[index].id = s[prop][index];
+        }
+        else
+            shape[prop] = s[prop];
     }
     
     addLines(){
