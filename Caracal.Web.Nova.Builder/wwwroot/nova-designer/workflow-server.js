@@ -152,7 +152,7 @@ class WorkflowServer {
             name: "registration",
             lines: [
                 {
-                    color: "Gold",
+                    color: "Teal",
                     source: {
                         id: "73e2f9fe-fa81-ff78-b9b6-b03032558168",
                         name: "output0",
