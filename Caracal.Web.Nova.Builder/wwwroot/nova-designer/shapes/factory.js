@@ -81,8 +81,8 @@ class ShapeFactory {
     constructor(onSelect){
         this.onSelect = onSelect;
     }
-    
-    Form() {
+
+    FormActivity() {
         return new Form("Form Activity", this.onSelect);
     }
 

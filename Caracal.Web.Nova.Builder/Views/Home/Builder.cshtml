@@ -208,7 +208,7 @@
     src="~/nova-designer/img/form-activity.png"
     style="padding-top: 5px; width: 50px; height: 45px; cursor: pointer;"
     data-factory="shapeFactory"
-    data-shape="Form"
+    data-shape="FormActivity"
     alt="Form"
     class="draw2d_droppable"/>
 
@@ -294,9 +294,11 @@
     return canvas;
   }
 
-
+  let isloadeing = true;
+  
   let onSelect = (figure) => {
-    propWindow.show(figure, workflowServer);
+    if (!isloadeing)
+      propWindow.show(figure, workflowServer);
   }
 
   let factory = new Factory(onSelect);
@@ -307,11 +309,14 @@
 
   let propWindow = new PropertyWindow("#properties", workflowServer);
 
-  canvas.on("select", (emitter, event) => propWindow.show(event.figure));
+  
+  
+  canvas.on("select", (emitter, event) => { if (!isloadeing) propWindow.show(event.figure); });
 
   
   $(window).load(() => {
     workflowServer.load();
+    isloadeing = false;
 
     $('#container').layout({
       west: {

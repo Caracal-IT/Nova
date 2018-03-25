@@ -68,6 +68,8 @@ class Form extends draw2d.shape.layout.VerticalLayout {
         this.controls.push(item);
 
         super.add(item);
+
+        return item;
     }
 
     createOutputControl(){
@@ -75,6 +77,8 @@ class Form extends draw2d.shape.layout.VerticalLayout {
         this.controls.push(item);
 
         super.add(item);
+        
+        return item;
     }
 
     toggle(){
@@ -126,6 +130,7 @@ class Form extends draw2d.shape.layout.VerticalLayout {
             id: this.id,
             name: this.name,
             type: "FormActivity",
+            factory: "shapeFactory",
             color: this.formColor.name,
             x: this.x,
             y: this.y,

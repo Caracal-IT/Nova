@@ -1,127 +1,3 @@
-const wjJson = `
-[
-  {
-    "type": "draw2d.shape.basic.Circle",
-    "id": "6b13af51-2e03-a7b5-2ce7-fdcc70363b82",
-    "x": 87,
-    "y": 294,
-    "width": 50,
-    "height": 50,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {},
-    "cssClass": "draw2d_shape_basic_Circle",
-    "ports": [
-      {
-        "type": "draw2d.OutputPort",
-        "id": "6bf03d47-440b-674d-2ab8-2fa75829812e",
-        "width": 10,
-        "height": 10,
-        "alpha": 1,
-        "angle": 0,
-        "userData": {},
-        "cssClass": "draw2d_OutputPort",
-        "bgColor": "#4F6870",
-        "color": "#1B1B1B",
-        "stroke": 1,
-        "dasharray": null,
-        "maxFanOut": 9007199254740991,
-        "name": "output0",
-        "port": "draw2d.OutputPort",
-        "locator": "draw2d.layout.locator.OutputPortLocator"
-      }
-    ],
-    "bgColor": "#AFEEEE",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "dasharray": null
-  },
-  {
-    "type": "draw2d.shape.basic.Circle",
-    "id": "79598754-2bad-7025-ec5d-e738da3736fe",
-    "x": 220,
-    "y": 243,
-    "width": 50,
-    "height": 50,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {},
-    "cssClass": "draw2d_shape_basic_Circle",
-    "ports": [
-      {
-        "type": "draw2d.InputPort",
-        "id": "95c962fb-2dbf-c8cd-1eca-1df6b0dd2cc7",
-        "width": 10,
-        "height": 10,
-        "alpha": 1,
-        "angle": 0,
-        "userData": {},
-        "cssClass": "draw2d_InputPort",
-        "bgColor": "#4F6870",
-        "color": "#1B1B1B",
-        "stroke": 1,
-        "dasharray": null,
-        "maxFanOut": 9007199254740991,
-        "name": "input0",
-        "port": "draw2d.InputPort",
-        "locator": "draw2d.layout.locator.InputPortLocator"
-      }
-    ],
-    "bgColor": "#F08080",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "dasharray": null
-  },
-  {
-    "type": "draw2d.Connection",
-    "id": "cfe0946f-36f0-8e27-fa9e-2b6413f49a6d",
-    "alpha": 1,
-    "angle": 0,
-    "userData": {},
-    "cssClass": "draw2d_Connection",
-    "stroke": 5,
-    "color": "#93D7F3",
-    "outlineStroke": 1,
-    "outlineColor": "#00A8F0",
-    "policy": "draw2d.policy.line.OrthogonalSelectionFeedbackPolicy",
-    "vertex": [
-      {
-        "x": 137,
-        "y": 319
-      },
-      {
-        "x": 160.5,
-        "y": 319
-      },
-      {
-        "x": 160.5,
-        "y": 268
-      },
-      {
-        "x": 220,
-        "y": 268
-      }
-    ],
-    "router": "draw2d.layout.connection.InteractiveManhattanConnectionRouter",
-    "radius": 20,
-    "routingMetaData": {
-      "routedByUserInteraction": true,
-      "fromDir": 1,
-      "toDir": 3
-    },
-    "source": {
-      "node": "6b13af51-2e03-a7b5-2ce7-fdcc70363b82",
-      "port": "output0"
-    },
-    "target": {
-      "node": "79598754-2bad-7025-ec5d-e738da3736fe",
-      "port": "input0",
-      "decoration": "draw2d.decoration.connection.ArrowDecorator"
-    }
-  }
-]
-`;
-
 class WorkflowServer {
     constructor(view, factory){
         this.view = view;
@@ -175,7 +51,65 @@ class WorkflowServer {
                         { "x": 158, "y": 268 },
                         { "x": 220, "y": 268 }
                     ],
+                },
+
+
+                {
+                    color: "Red",
+                    source: {
+                        id: "59c3f326-7823-3430-b57b-fb8709dc7c93",
+                        name: "output0",
+                        parent: {
+                            id: "0bbe9e99-f399-ab57-9c6b-e958989a1c91", /* The parent is wrong*/
+                            name: "099dba76ae3dea9ecdbc"
+                        },
+                    },
+                    target: {
+                        id: "110f22db-1850-59ce-17ec-4c4f9161a05c",
+                        name: "input0",
+                        parent: {
+                            id: "13a3a1bf-efda-a14c-4b14-dd1c75eb762a", /* The parent is wrong*/
+                            name: "SaveForm" /* undefined == error here */
+                        },
+                    },
+                    vertices: [
+                        { "x": 490, "y": 269 },
+                        { "x": 534, "y": 269 },
+                        { "x": 534, "y": 151.5 },
+                        { "x": 670, "y": 151.5 }
+                    ],
+                },
+                
+
+
+                    {
+                    color: "Green",
+                    source: {
+                        id: "52e6fa52-4369-c8e3-3b1a-f17c31537a2f",
+                        name: "output0",
+                        parent: {
+                            id: "13a3a1bf-efda-a14c-4b14-dd1c75eb762a", /* The parent is wrong*/
+                            name: "SaveForm"
+                        },
+                    },
+                    target: {
+                        id: "6b5791c6-25be-4c41-13ea-7b655d0914b7",
+                        name: "input0",
+                        parent: {
+                            id: "0bbe9e99-f399-ab57-9c6b-e958989a1c91", /* The parent is wrong*/
+                            name: "099dba76ae3dea9ecdbc"
+                        },
+                    },
+                    vertices: [
+                        { x: 823, y: 196.75 },
+                        { x: 843, y: 196.75 }, 
+                        { x: 843, y: 350.875 }, 
+                        { x: 510, y: 350.875 }, 
+                        { x: 510, y: 299 }, 
+                        { x: 530, y: 299 }
+                    ]
                 }
+                
             ],
             shapes: [
                 {
@@ -251,6 +185,7 @@ class WorkflowServer {
                 },
                 {
                     type: "CodeActivity",
+                    id: "0bbe9e99-f399-ab57-9c6b-e958989a1c91",
                     factory: "activityFactory",
                     label: "Set Reply Message",
                     name: "099dba76ae3dea9ecdbc",
@@ -266,7 +201,7 @@ class WorkflowServer {
                     type: "NovaAlertActivity",
                     factory: "activityFactory",
                     label: "Diaplay Message",
-                    name: "099dba76ae3dea9ecdbc",
+                    name: "300dba76ae3dea9ecdbc",
                     color: "Gold",
                     properties: [
                         { name: "title", value: "Success1" },
@@ -276,6 +211,43 @@ class WorkflowServer {
                     labelPos: { x: -20, y: -29 },
                     x: 530,
                     y: 264
+                },
+               {
+                    type: "FormActivity",
+                    id: "13a3a1bf-efda-a14c-4b14-dd1c75eb762a",
+                    factory: "shapeFactory",
+                    color: "Teal",
+                    properties: [{
+                        name: "form",
+                        value: {
+                            controls: [
+                                {name:"_#header", type: "paper-header", properties: [{name: "label", value: "Personal Details"}]},
+                                {
+                                    name:"FirstName123",
+                                    id: "241c6a8b-bee6-4323-201a-651564c4b427",
+                                    type: "paper-input", 
+                                    label: "First Name", 
+                                    properties: [
+                                        {name: "type", value: "paper-input"},
+                                        {name: "placeholder", value: "Please enter first name"}
+                                    ]
+                                },
+                                {
+                                    name:"SaveForm",
+                                    id: "28f7443a-3e1c-0a06-e222-a9a3b47b1a9c",
+                                    type: "paper-button",
+                                    label: "Save Form",
+                                    outputPorts: ['e1b04321-6118-1570-903f-cc8dabf11ed6'],
+                                    properties: [
+                                        {name: "type", value: "paper-button"},
+                                        {name: "style", value: "btn btn-outline-primary"}
+                                    ]
+                                }
+                            ]
+                        }
+                    }],
+                    x:	670,
+                    y:	140
                 }
             ]
         };
@@ -304,6 +276,34 @@ class WorkflowServer {
                     else if (s.factory === "activityFactory" && prop === "properties") {
                         shape[prop].splice(2);
                         shape[prop].push(...s[prop]);
+                    }
+                    else if (s.type === "FormActivity" && prop === "properties") {
+                        const form = s.properties.find(p => p.name === "form");
+                        
+                        if(form && form.value && form.value.controls) {
+                            const controls = form.value.controls;
+                            
+                            controls.forEach(c => {
+                                if (c.name === "_#header"){
+                                    const label = c.properties.find(p => p.name === "label").value;
+                                    shape.label = label;
+                                }
+                                else {
+                                    let control = null;
+                                    
+                                    if (c.outputPorts && c.outputPorts.length > 0)
+                                        control = shape.createOutputControl(c.name);
+                                    else
+                                        control = shape.createInputControl(c.name);
+                                    
+                                    control.label = c.label;
+                                    control.name = c.name;
+                                    control.id = c.id;
+                                    
+                                    control.control = c.properties;
+                                }
+                            });
+                        }
                     }
                     else if (prop === "inputPorts") {
                         for (let index in s[prop])
