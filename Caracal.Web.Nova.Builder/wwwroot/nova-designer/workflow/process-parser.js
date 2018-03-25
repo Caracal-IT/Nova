@@ -91,16 +91,19 @@ class ProcessParser {
                 });
             }
         }
-        else if (prop === "inputPorts") {
-            for (let index in s[prop])
-                shape.inputPorts.data[index].id = s[prop][index];
-        }
-        else if (prop === "outputPorts") {
-            for (let index in s[prop])
-                shape.outputPorts.data[index].id = s[prop][index];
-        }
+        else if(this.isPort(prop)) 
+            this.addPort(s, shape, prop);
         else
             shape[prop] = s[prop];
+    }
+    
+    isPort(property){
+        return property === "inputPorts" || property === "outputPorts";
+    }
+    
+    addPort(shape, figure, property){
+        for (let index in shape[property])
+            figure[property].data[index].id = shape[property][index];
     }
     
     addLines(){
