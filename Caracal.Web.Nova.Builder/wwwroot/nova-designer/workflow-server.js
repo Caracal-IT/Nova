@@ -325,6 +325,7 @@ class WorkflowServer {
         process.lines.forEach(line => {
             let conn = {
                 type: "WFConnection",
+                userData: {color: line.color},
                 color: FormColor.GetColour(line.color).secondary,
                 outlineColor: FormColor.GetColour(line.color).primary,
                 vertex: [],

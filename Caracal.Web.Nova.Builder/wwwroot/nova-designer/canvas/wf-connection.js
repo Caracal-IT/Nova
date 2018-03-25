@@ -19,6 +19,20 @@ class WFConnection extends draw2d.Connection{
         this.changeColor(FormColor.GetColour("Blue"));
     }
 
+    init(attr, setter, getter) {
+        super.init(attr, setter, getter);
+        
+        if (this.userData && this.userData.color)
+            this.changeColor(FormColor.GetColour(this.userData.color));
+    }
+    
+    setColor(value) {
+        if (this.userData && this.userData.color)
+            this.formColor = FormColor.GetColour(this.userData.color);
+        
+        super.setColor(value);
+    }
+
     delegateTarget(draggedFigure) {
         return this;
     }
