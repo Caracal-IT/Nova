@@ -17,12 +17,10 @@ class ProcessParser {
     }
     
     addShape(shape) {
-        {
-            if (this.isTerminator(shape))
-                this.createTerminator(shape);
-            else
-                this.createShape(shape);
-        }
+        if (this.isTerminator(shape))
+            this.createTerminator(shape);
+        else
+            this.createShape(shape);
     }
     
     isTerminator(shape) {
