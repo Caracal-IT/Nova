@@ -52,15 +52,13 @@ class WorkflowServer {
                         { "x": 220, "y": 268 }
                     ],
                 },
-
-
                 {
                     color: "Red",
                     source: {
                         id: "59c3f326-7823-3430-b57b-fb8709dc7c93",
                         name: "output0",
                         parent: {
-                            id: "0bbe9e99-f399-ab57-9c6b-e958989a1c91", /* The parent is wrong*/
+                            id: "0bbe9e99-f399-ab57-9c6b-e958989a1c91",
                             name: "099dba76ae3dea9ecdbc"
                         },
                     },
@@ -68,8 +66,8 @@ class WorkflowServer {
                         id: "110f22db-1850-59ce-17ec-4c4f9161a05c",
                         name: "input0",
                         parent: {
-                            id: "13a3a1bf-efda-a14c-4b14-dd1c75eb762a", /* The parent is wrong*/
-                            name: "SaveForm" /* undefined == error here */
+                            id: "13a3a1bf-efda-a14c-4b14-dd1c75eb762a", 
+                            name: "SaveForm"
                         },
                     },
                     vertices: [
@@ -80,9 +78,7 @@ class WorkflowServer {
                     ],
                 },
                 
-
-
-                    {
+                {
                     color: "Green",
                     source: {
                         id: "52e6fa52-4369-c8e3-3b1a-f17c31537a2f",
