@@ -82,7 +82,7 @@ class Activity extends draw2d.shape.node.Between  {
 
         this.properties.forEach(p => {
             if (p.name !== "name" && p.name !== "label")
-                props.push({name: p.name, value: p.value})
+                props.push({name: p.name, value: p.value })
         });
         
         return {

@@ -187,7 +187,7 @@ class WorkflowServer {
                     name: "099dba76ae3dea9ecdbc",
                     color: "Purple",
                     properties: [
-                        { name: "code", value: "function execute(params, wf, notify) { }" }
+                        { name: "code", value: "function execute(params, wf, notify) { }", type: "textarea" }
                     ],
                     labelPos: { x: -20, y: -29 },
                     x: 420,
@@ -270,8 +270,12 @@ class WorkflowServer {
                         shape.contolLabel.y = s[prop].y;
                     }
                     else if (s.factory === "activityFactory" && prop === "properties") {
-                        shape[prop].splice(2);
-                        shape[prop].push(...s[prop]);
+                        shape[prop].forEach(p => {
+                            const setting = s[prop].find(s => s.name === p.name);
+                            
+                            if (setting)
+                                p.value = setting.value;
+                        });
                     }
                     else if (s.type === "FormActivity" && prop === "properties") {
                         const form = s.properties.find(p => p.name === "form");
