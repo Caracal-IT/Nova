@@ -29,11 +29,12 @@ class ControlPropertyBag {
         
         if (event && event.value)
             value = event.value;
+        else
+            value = event;
         
         let control = this.controls.find(c => c.name === value);
         
         if (control == null) {
-            console.log(value);
             control = this.shape.control.find(c => c.name === event.id);
             
             if (control != null) 
@@ -53,8 +54,7 @@ class ControlPropertyBag {
         if (!control)
             return;
         
-        this.properties = [
-            {
+        this.properties = [{
                 name: "type",
                 value: control.name,
                 type: "select",

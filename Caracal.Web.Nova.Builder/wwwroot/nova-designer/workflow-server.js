@@ -340,9 +340,6 @@ class WorkflowServer {
 
         const reader = new draw2d.io.json.Reader();
         reader.unmarshal(this.view, jsonLines);
-        //console.log(jsonLines);
-        //console.log(this.view.figures.data);
-        
     }
     
     controls(){
@@ -364,7 +361,7 @@ class WorkflowServer {
             },
             {
                 name: "paper-label",
-                type: "input1",
+                type: "input",
                 properties: [
                     { name: "text", value: "Welcome !!" }
                 ]
