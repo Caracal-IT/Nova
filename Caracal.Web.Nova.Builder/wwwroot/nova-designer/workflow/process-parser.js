@@ -63,38 +63,43 @@ class ProcessParser {
                     p.value = setting.value;
             });
         }
-        else if (s.type === "FormActivity" && prop === "properties") {
-            const form = s.properties.find(p => p.name === "form");
-
-            if (form && form.value && form.value.controls) {
-                const controls = form.value.controls;
-
-                controls.forEach(c => {
-                    if (c.name === "_#header") {
-                        const label = c.properties.find(p => p.name === "label").value;
-                        shape.label = label;
-                    }
-                    else {
-                        let control = null;
-
-                        if (c.outputPorts && c.outputPorts.length > 0)
-                            control = shape.createOutputControl(c.name);
-                        else
-                            control = shape.createInputControl(c.name);
-
-                        control.label = c.label;
-                        control.name = c.name;
-                        control.id = c.id;
-
-                        control.control = c.properties;
-                    }
-                });
-            }
-        }
+        else if (this.isFormProperties(s, prop)) 
+            this.addFormProperties(s, shape);
         else if(this.isPort(prop)) 
             this.addPort(s, shape, prop);
         else
             shape[prop] = s[prop];
+    }
+    
+    isFormProperties(s, prop){
+        return s.type === "FormActivity" && prop === "properties";
+    }
+    
+    addFormProperties(s, shape) {
+        const form = s.properties.find(p => p.name === "form");
+
+        if (form && form.value && form.value.controls) {
+            const controls = form.value.controls;
+
+            controls.forEach(c => {
+                if (c.name === "_#header") 
+                    shape.label = c.properties.find(p => p.name === "label").value;
+                else {
+                    let control = null;
+
+                    if (c.outputPorts && c.outputPorts.length > 0)
+                        control = shape.createOutputControl(c.name);
+                    else
+                        control = shape.createInputControl(c.name);
+
+                    control.label = c.label;
+                    control.name = c.name;
+                    control.id = c.id;
+
+                    control.control = c.properties;
+                }
+            });
+        }
     }
     
     isPort(property){
@@ -107,10 +112,10 @@ class ProcessParser {
     }
     
     addLines(){
-        process.lines.forEach(line => this.createLine(line));
+        process.lines.forEach(line => this.addLine(line));
     }
     
-    createLine(line){
+    addLine(line){
         let connection = {
             type: "WFConnection",
             userData: {color: line.color},
