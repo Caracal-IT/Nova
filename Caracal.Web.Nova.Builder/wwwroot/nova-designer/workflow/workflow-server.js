@@ -28,7 +28,10 @@ class WorkflowServer {
     }
     
     load(){
-        ProcessParser.Parse(this.getProcess(), this.view, this.factory);
+        const process = this.getProcess();
+        
+        if (process) 
+            ProcessParser.Parse(this.getProcess(), this.view, this.factory);
     }
     
     controls(){

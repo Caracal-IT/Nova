@@ -18,6 +18,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\draw\shapes" />
+    <Folder Include="wwwroot\shapes" />
   </ItemGroup>
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\draw\dev\Toolbar.js" />

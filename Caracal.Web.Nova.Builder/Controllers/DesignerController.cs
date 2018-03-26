@@ -2,13 +2,21 @@
 using Microsoft.AspNetCore.Mvc;
 using Caracal.Web.Nova.Builder.Model.Shapes;
 using Caracal.Web.Nova.Builder.Model.Workflow;
+using Caracal.Web.Nova.Builder.Repositories;
 
 namespace Caracal.Web.Nova.Builder.Controllers {
   public class DesignerController : Controller {
+    private readonly ShapesRepository _repository;
+    
+    public DesignerController(ShapesRepository repository) {
+      _repository = repository;
+    }
+    
     [HttpPost]
-    public async Task<IActionResult> Publish([FromBody] object canvas) {
-      var process = Process.Parse(canvas.ToString());
-
+    public async Task<IActionResult> Publish([FromBody] object processJSon) {
+      var process = Process.Parse(processJSon.ToString());
+      
+      await _repository.SaveProcessAsync(processJSon.ToString());
       await WorkflowClient.Publish(process);
     
       return Ok(process);

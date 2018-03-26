@@ -1,0 +1,366 @@
+{
+  "name": "registration",
+  "shapes": [
+    {
+      "name": "f8673f31c44a4329bd96",
+      "label": "Panel4444",
+      "type": "Panel",
+      "factory": "shapeFactory",
+      "color": "Azure",
+      "x": 50,
+      "y": 130,
+      "width": 844,
+      "height": 238
+    },
+    {
+      "name": "9d9aa0df42f875a811e7",
+      "label": "Reservations",
+      "type": "Header",
+      "factory": "shapeFactory",
+      "x": 23,
+      "y": 13
+    },
+    {
+      "name": "16ec0199e71700db242a",
+      "label": "Make a reservation at your favourite\ndestination ",
+      "type": "Label",
+      "factory": "shapeFactory",
+      "x": 29,
+      "y": 82
+    },
+    {
+      "name": "d5bd8cfb2ed23f891066",
+      "label": "You need the time off!",
+      "type": "Note",
+      "factory": "shapeFactory",
+      "x": 284,
+      "y": 81
+    },
+    {
+      "id": "5e4a576d-05e2-8ded-76e0-f87cdf7c1722",
+      "name": "start",
+      "type": "CodeActivity",
+      "x": 87,
+      "y": 294,
+      "outputPorts": [
+        "497f63db-8c59-01d2-3477-a643772d28ab"
+      ],
+      "inputPorts": [],
+      "properties": [
+        {
+          "name": "code",
+          "value": "function execute(params, wf, notify) { }"
+        }
+      ]
+    },
+    {
+      "id": "4981bada-4958-8f4e-a3ac-853ad0febeda",
+      "name": "end",
+      "type": "CodeActivity",
+      "x": 220,
+      "y": 243,
+      "outputPorts": [],
+      "inputPorts": [
+        "c6332869-defb-b105-ec1e-98464ceee12b"
+      ],
+      "properties": [
+        {
+          "name": "code",
+          "value": "function execute(params, wf, notify) { }"
+        }
+      ]
+    },
+    {
+      "id": "232e2946-b649-bde0-c5ed-e54570accaa7",
+      "name": "622c365fdaff50fb8e91",
+      "label": "Save Smart Object",
+      "type": "ApiActivity",
+      "factory": "activityFactory",
+      "color": "Green",
+      "x": 300,
+      "y": 234,
+      "labelPos": {
+        "x": -20,
+        "y": -29
+      },
+      "outputPorts": [
+        "90502a4a-dfd8-7ce2-c5c0-ff29eb07ebaa"
+      ],
+      "inputPorts": [
+        "466f8906-e47e-4eb7-582f-dfd2b574032b"
+      ],
+      "properties": [
+        {
+          "name": "api",
+          "value": "/api/smart-object/reservation/"
+        },
+        {
+          "name": "method",
+          "value": "post"
+        }
+      ]
+    },
+    {
+      "id": "0bbe9e99-f399-ab57-9c6b-e958989a1c91",
+      "name": "099dba76ae3dea9ecdbc",
+      "label": "Set Reply Message",
+      "type": "CodeActivity",
+      "factory": "activityFactory",
+      "color": "Purple",
+      "x": 420,
+      "y": 234,
+      "labelPos": {
+        "x": -20,
+        "y": -29
+      },
+      "outputPorts": [
+        "25f3df78-581b-84c5-1bac-465137c35997"
+      ],
+      "inputPorts": [
+        "81e40f1c-39d2-e770-06cd-5023fed73307"
+      ],
+      "properties": [
+        {
+          "name": "code",
+          "value": "function execute(params, wf, notify) { }"
+        }
+      ]
+    },
+    {
+      "id": "1745a0a4-fa29-9f40-b016-fa5fbc71bb45",
+      "name": "300dba76ae3dea9ecdbc",
+      "label": "Diaplay Message",
+      "type": "NovaAlertActivity",
+      "factory": "activityFactory",
+      "color": "Gold",
+      "x": 530,
+      "y": 264,
+      "labelPos": {
+        "x": -20,
+        "y": -29
+      },
+      "outputPorts": [
+        "9296d7b5-f19f-f495-234e-59ad8583a006"
+      ],
+      "inputPorts": [
+        "446f7797-2828-fd7f-f9c6-4cd03d2c0d40"
+      ],
+      "properties": [
+        {
+          "name": "title",
+          "value": "Success1"
+        },
+        {
+          "name": "message",
+          "value": "SMO Saved"
+        },
+        {
+          "name": "style",
+          "value": "warning"
+        }
+      ]
+    },
+    {
+      "id": "13a3a1bf-efda-a14c-4b14-dd1c75eb762a",
+      "name": "b3b61985c686d2e80f51",
+      "type": "FormActivity",
+      "factory": "shapeFactory",
+      "color": "Teal",
+      "x": 670,
+      "y": 140,
+      "properties": [
+        {
+          "name": "form",
+          "value": {
+            "controls": [
+              {
+                "name": "_#header",
+                "type": "paper-header",
+                "properties": [
+                  {
+                    "name": "label",
+                    "value": "Personal Details"
+                  }
+                ]
+              },
+              {
+                "id": "241c6a8b-bee6-4323-201a-651564c4b427",
+                "name": "FirstName123",
+                "label": "First Name",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-input"
+                  },
+                  {
+                    "name": "placeholder",
+                    "value": "Please enter first name"
+                  }
+                ]
+              },
+              {
+                "id": "241c6a8b-bee6-4323-301a-651564c4b423",
+                "name": "Surname",
+                "label": "Last Name",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-label"
+                  },
+                  {
+                    "name": "text",
+                    "value": "my surname"
+                  }
+                ]
+              },
+              {
+                "id": "28f7443a-3e1c-0a06-e222-a9a3b47b1a9c",
+                "name": "SaveForm",
+                "label": "Save Form",
+                "outputPorts": [
+                  "3160ddaa-8cf5-98ad-1a72-8377d6582dee"
+                ],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-button"
+                  },
+                  {
+                    "name": "style",
+                    "value": "btn btn-outline-primary"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "inputPorts": [
+        "1e4e1b04-f156-ce6e-3bdd-7204808142b4"
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "source": {
+        "id": "3160ddaa-8cf5-98ad-1a72-8377d6582dee",
+        "name": "output0",
+        "parent": {
+          "id": "13a3a1bf-efda-a14c-4b14-dd1c75eb762a",
+          "name": "b3b61985c686d2e80f51"
+        }
+      },
+      "target": {
+        "id": "81e40f1c-39d2-e770-06cd-5023fed73307",
+        "name": "input0",
+        "parent": {
+          "id": "0bbe9e99-f399-ab57-9c6b-e958989a1c91",
+          "name": "099dba76ae3dea9ecdbc"
+        }
+      },
+      "color": "Green",
+      "vertices": [
+        {
+          "x": 820,
+          "y": 218.25
+        },
+        {
+          "x": 843,
+          "y": 218.25
+        },
+        {
+          "x": 843,
+          "y": 350.875
+        },
+        {
+          "x": 400,
+          "y": 350.875
+        },
+        {
+          "x": 400,
+          "y": 269
+        },
+        {
+          "x": 420,
+          "y": 269
+        }
+      ]
+    },
+    {
+      "source": {
+        "id": "25f3df78-581b-84c5-1bac-465137c35997",
+        "name": "output0",
+        "parent": {
+          "id": "0bbe9e99-f399-ab57-9c6b-e958989a1c91",
+          "name": "099dba76ae3dea9ecdbc"
+        }
+      },
+      "target": {
+        "id": "1e4e1b04-f156-ce6e-3bdd-7204808142b4",
+        "name": "input0",
+        "parent": {
+          "id": "13a3a1bf-efda-a14c-4b14-dd1c75eb762a",
+          "name": "b3b61985c686d2e80f51"
+        }
+      },
+      "color": "Red",
+      "vertices": [
+        {
+          "x": 490,
+          "y": 269
+        },
+        {
+          "x": 534,
+          "y": 269
+        },
+        {
+          "x": 534,
+          "y": 151
+        },
+        {
+          "x": 670,
+          "y": 151
+        }
+      ]
+    },
+    {
+      "source": {
+        "id": "497f63db-8c59-01d2-3477-a643772d28ab",
+        "name": "output0",
+        "parent": {
+          "id": "5e4a576d-05e2-8ded-76e0-f87cdf7c1722",
+          "name": "Start"
+        }
+      },
+      "target": {
+        "id": "c6332869-defb-b105-ec1e-98464ceee12b",
+        "name": "input0",
+        "parent": {
+          "id": "4981bada-4958-8f4e-a3ac-853ad0febeda",
+          "name": "End"
+        }
+      },
+      "color": "Teal",
+      "vertices": [
+        {
+          "x": 137,
+          "y": 319
+        },
+        {
+          "x": 158,
+          "y": 319
+        },
+        {
+          "x": 158,
+          "y": 268
+        },
+        {
+          "x": 220,
+          "y": 268
+        }
+      ]
+    }
+  ]
+}

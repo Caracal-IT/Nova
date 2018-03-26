@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Caracal.Web.Nova.Builder.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -18,6 +19,8 @@ namespace Caracal.Web.Nova.Builder {
 
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services) {
+      services.AddTransient<ShapesRepository, FileShapesRepository>();
+      
       services.AddMvc();
     }
 
