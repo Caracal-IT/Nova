@@ -46,31 +46,53 @@ class ProcessParser {
         this.view.add(figure, shape.x, shape.y);
     }
     
-    addProperty(s, shape, prop) {
-        if (prop === "color")
-            shape.changeColor(FormColor.GetColour(s.color));
-        else if (prop === "labelPos") {
-            shape.contolLabel.x = s[prop].x;
-            shape.contolLabel.y = s[prop].y;
-        }
-        else if (s.factory === "activityFactory" && prop === "properties") {
-            shape[prop].forEach(p => {
-                const setting = s[prop].find(s => s.name === p.name);
-
-                if (setting)
-                    p.value = setting.value;
-            });
-        }
-        else if (this.isFormProperties(s, prop)) 
-            this.addFormProperties(s, shape);
-        else if(this.isPort(prop)) 
-            this.addPort(s, shape, prop);
+    addProperty(shape, figure, property) {
+        if (this.isColor(property))
+            this.addColor(shape,  figure);
+        else if (this.isLabelPosition(property)) 
+            this.addLabelPosition(shape, figure, property);
+        else if (this.isActivityProperties(shape,  property))
+            this.addActivityProperties(shape, figure, property);
+        else if (this.isFormProperties(shape, property)) 
+            this.addFormProperties(shape, figure);
+        else if(this.isPort(property)) 
+            this.addPort(shape, figure, property);
         else
-            shape[prop] = s[prop];
+            figure[property] = shape[property];
     }
     
-    isFormProperties(s, prop){
-        return s.type === "FormActivity" && prop === "properties";
+    isColor(property) {
+        return property === "color";
+    }
+
+    addColor(shape, figure){
+        figure.changeColor(FormColor.GetColour(shape.color));
+    }
+    
+    isLabelPosition(property){
+       return property === "labelPos";
+    }
+    
+    addLabelPosition(shape, figure, property) {
+        figure.contolLabel.x = shape[property].x;
+        figure.contolLabel.y = shape[property].y;
+    }
+    
+    isActivityProperties(shape, property){
+        return shape.factory === "activityFactory" && property === "properties"
+    }
+
+    addActivityProperties(shape, figure, property) {
+        figure[property].forEach(p => {
+            const setting = shape[property].find(s => s.name === p.name);
+
+            if (setting)
+                p.value = setting.value;
+        });
+    }
+    
+    isFormProperties(shape, property){
+        return shape.type === "FormActivity" && property === "properties";
     }
     
     addFormProperties(shape, figure) {
