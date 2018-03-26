@@ -23,7 +23,7 @@ class ProcessBuilder {
         const filter = this.view
             .figures
             .data
-            .filter(f => f.name === "Start");
+            .filter(f => f.name === "start");
 
         if (filter.length > 0) {
             const name = filter[0].properties.find(p => p.name === "workflow");

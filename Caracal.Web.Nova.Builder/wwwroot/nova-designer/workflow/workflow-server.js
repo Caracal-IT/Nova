@@ -18,7 +18,7 @@ class WorkflowServer {
         xhr.send(JSON.stringify(process));
 
         xhr.onload = function(e) {
-           // alert(xhr.statusText); // not responseText
+            alert(xhr.statusText); // not responseText
             /* ... */
         };
     }
@@ -33,7 +33,11 @@ class WorkflowServer {
         
         return new Promise(resolve => {
             xhr.onload = function(e) {
-                const process = JSON.parse(xhr.responseText);
+                let process = "";
+                
+                if (xhr.responseText.length) 
+                    process = JSON.parse(xhr.responseText);
+                
                 resolve(process);
             };
         });

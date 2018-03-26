@@ -61,7 +61,7 @@ class WFConnection extends draw2d.Connection{
         
         while (parent.parent != null)
             parent = parent.parent;
-        
+        console.log(parent);
         return {
             id: port.id,
             name: port.name,

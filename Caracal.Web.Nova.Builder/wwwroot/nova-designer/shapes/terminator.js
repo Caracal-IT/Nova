@@ -6,6 +6,7 @@ class Terminator extends draw2d.shape.basic.Circle {
         });
 
         this.properties = [];
+        this.name = text.toLowerCase();
             
         this.label = new draw2d.shape.basic.Label({
             text:text,
@@ -29,17 +30,18 @@ class Terminator extends draw2d.shape.basic.Circle {
     }
     
     get name(){
-        return this.label.text;
+        return this._name;
     }
     
     set name(value) {
-        this.label.text = value;
+        console.log(value);
+        this._name = value;
     }
     
     get definition() {
         return {
           id: this.id,
-          name: this.name.toLowerCase(), 
+          name: this.name, 
           factory: "shapeFactory",
           type: "CodeActivity",
           x: this.x,
