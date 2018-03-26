@@ -7,7 +7,7 @@
       "label": "Panel4444",
       "type": "Panel",
       "factory": "shapeFactory",
-      "color": "Azure",
+      "color": "Khaki",
       "x": 50,
       "y": 130,
       "width": 844,
@@ -34,7 +34,7 @@
     {
       "id": "ed73e0c8-e03f-b064-3999-fea362b61fbb",
       "name": "d5bd8cfb2ed23f891066",
-      "label": "You need the time off!",
+      "label": "You need the time off! now",
       "type": "Note",
       "factory": "shapeFactory",
       "x": 284,
@@ -48,7 +48,7 @@
       "x": 87,
       "y": 294,
       "outputPorts": [
-        "786af189-1364-a85f-8ffa-a571b2343fab"
+        "1ed3e2dd-a9fc-4d8a-530a-d8335938af08"
       ],
       "inputPorts": [],
       "properties": [
@@ -67,7 +67,7 @@
       "y": 243,
       "outputPorts": [],
       "inputPorts": [
-        "768e2f75-1a0c-b6d5-345c-e86ba9e11357"
+        "a87d4477-6e8e-59ed-423a-f5659da0e8a8"
       ],
       "properties": [
         {
@@ -139,8 +139,8 @@
       "type": "NovaAlertActivity",
       "factory": "activityFactory",
       "color": "Gold",
-      "x": 530,
-      "y": 264,
+      "x": 566,
+      "y": 263,
       "labelPos": {
         "x": -20,
         "y": -29
@@ -180,7 +180,7 @@
           "value": {
             "controls": [
               {
-                "id": "01a6b1fd-07f8-a038-ae72-1222e6fa40d2",
+                "id": "f63d3066-695e-eec7-fd08-485b0ead7bb1",
                 "name": "_#header",
                 "type": "paper-header",
                 "properties": [
@@ -227,7 +227,7 @@
                 "name": "SaveForm",
                 "label": "Save Form",
                 "outputPorts": [
-                  "9c4042e8-a4d8-ac06-0a08-723aa82a193f"
+                  "13e277d9-e2bb-d054-c764-b35bbee80d8a"
                 ],
                 "properties": [
                   {
@@ -245,14 +245,14 @@
         }
       ],
       "inputPorts": [
-        "42cd265a-41c2-fe64-93ae-fb259a3380ba"
+        "bf74635a-cf95-c9d5-40c2-d185250a2075"
       ]
     }
   ],
   "lines": [
     {
       "source": {
-        "id": "9c4042e8-a4d8-ac06-0a08-723aa82a193f",
+        "id": "13e277d9-e2bb-d054-c764-b35bbee80d8a",
         "name": "output0",
         "parent": {
           "id": "13a3a1bf-efda-a14c-4b14-dd1c75eb762a",
@@ -305,7 +305,7 @@
         }
       },
       "target": {
-        "id": "42cd265a-41c2-fe64-93ae-fb259a3380ba",
+        "id": "bf74635a-cf95-c9d5-40c2-d185250a2075",
         "name": "input0",
         "parent": {
           "id": "13a3a1bf-efda-a14c-4b14-dd1c75eb762a",
@@ -319,11 +319,11 @@
           "y": 269
         },
         {
-          "x": 534,
+          "x": 529,
           "y": 269
         },
         {
-          "x": 534,
+          "x": 529,
           "y": 151
         },
         {
@@ -334,7 +334,7 @@
     },
     {
       "source": {
-        "id": "786af189-1364-a85f-8ffa-a571b2343fab",
+        "id": "1ed3e2dd-a9fc-4d8a-530a-d8335938af08",
         "name": "output0",
         "parent": {
           "id": "5e4a576d-05e2-8ded-76e0-f87cdf7c1722",
@@ -342,7 +342,7 @@
         }
       },
       "target": {
-        "id": "768e2f75-1a0c-b6d5-345c-e86ba9e11357",
+        "id": "a87d4477-6e8e-59ed-423a-f5659da0e8a8",
         "name": "input0",
         "parent": {
           "id": "4981bada-4958-8f4e-a3ac-853ad0febeda",

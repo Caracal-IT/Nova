@@ -29,7 +29,7 @@ class ControlPropertyBag {
         
         if (event && event.value)
             value = event.value;
-        else
+        else if (event) 
             value = event;
         
         let control = this.controls.find(c => c.name === value);
