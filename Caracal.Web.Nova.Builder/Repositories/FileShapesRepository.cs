@@ -20,5 +20,13 @@ namespace Caracal.Web.Nova.Builder.Repositories {
 
       await File.WriteAllTextAsync(path, process);
     }
+
+    public async Task<string> GetProcessAsync(string name) {
+      var path = $"{_host.WebRootPath}/workflows/{name}.json";
+
+      if (!File.Exists(path)) return string.Empty;
+
+      return await File.ReadAllTextAsync(path);
+    }
   }
 }
