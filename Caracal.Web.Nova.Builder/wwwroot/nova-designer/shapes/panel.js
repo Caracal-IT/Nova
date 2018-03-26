@@ -59,6 +59,7 @@ class Panel extends draw2d.shape.composite.Raft {
 
     get definition() {
         return {
+            id: this.id,
             name: this.name,
             label: this.label,
             type: "Panel",

@@ -60,6 +60,7 @@ class FormHeader extends draw2d.shape.layout.HorizontalLayout {
 
     get definition() {
         return {
+            id: this.id,
             name: "_#header",
             type: "paper-header",
             properties: [

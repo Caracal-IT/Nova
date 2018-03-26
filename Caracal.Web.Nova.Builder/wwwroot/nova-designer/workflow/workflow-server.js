@@ -20,18 +20,30 @@ class WorkflowServer {
         xhr.onload = function(e) {
            // alert(xhr.statusText); // not responseText
             /* ... */
-        }
+        };
     }
     
     getProcess(){
-        return process;
+        const xhr = new XMLHttpRequest();
+        xhr.open('get', '/Designer/Shapes/registration', true);
+        xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+
+        // send the collected data as JSON
+        xhr.send();
+        
+        return new Promise(resolve => {
+            xhr.onload = function(e) {
+                const process = JSON.parse(xhr.responseText);
+                resolve(process);
+            };
+        });
     }
     
-    load(){
-        const process = this.getProcess();
+    async load(){
+        const process = await this.getProcess();
         
         if (process) 
-            ProcessParser.Parse(this.getProcess(), this.view, this.factory);
+           ProcessParser.Parse(process, this.view, this.factory);
     }
     
     controls(){

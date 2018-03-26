@@ -21,6 +21,13 @@ namespace Caracal.Web.Nova.Builder.Controllers {
     
       return Ok(process);
     }
+
+    [HttpGet("/Designer/Shapes/{name}")]
+    public async Task<IActionResult> Shapes(string name) {
+      var process =  await _repository.GetProcessAsync(name);
+
+      return Ok(process);
+    }
   }
 }
 

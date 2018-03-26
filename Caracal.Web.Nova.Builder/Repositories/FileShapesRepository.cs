@@ -22,7 +22,7 @@ namespace Caracal.Web.Nova.Builder.Repositories {
     }
 
     public async Task<string> GetProcessAsync(string name) {
-      var path = $"{_host.WebRootPath}/workflows/{name}.json";
+      var path = $"{_host.WebRootPath}/shapes/{name}.json";
 
       if (!File.Exists(path)) return string.Empty;
 

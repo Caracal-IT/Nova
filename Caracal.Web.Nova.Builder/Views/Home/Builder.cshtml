@@ -318,9 +318,10 @@
 
   
   $(window).load(() => {
-    workflowServer.load();
-    isloadeing = false;
-
+    workflowServer.load().then(() => {
+      isloadeing = false;
+    });
+    
     $('#container').layout({
       west: {
         resizable: false,

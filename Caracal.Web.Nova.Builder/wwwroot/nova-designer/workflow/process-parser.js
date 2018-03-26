@@ -1,6 +1,6 @@
 class ProcessParser {
-    constructor(json, view, factory) { 
-        this.process = json;
+    constructor(process, view, factory) { 
+        this.process = process;
         this.view = view;
         this.factory = factory;
 
@@ -13,7 +13,7 @@ class ProcessParser {
     }
     
     addShapes(){
-        process.shapes.forEach(shape => this.addShape(shape));
+        this.process.shapes.forEach(shape => this.addShape(shape));
     }
     
     addShape(shape) {
@@ -34,7 +34,7 @@ class ProcessParser {
         this.view.add(figure, shape.x, shape.y);
 
         if (shape.name === "start")
-            figure.properties.filter(p => p.name === "workflow")["value"] = process.name;
+            figure.properties.filter(p => p.name === "workflow")["value"] = this.process.name;
     }
     
     createShape(shape) {
@@ -127,12 +127,14 @@ class ProcessParser {
     }
     
     addPort(shape, figure, property){
-        for (let index in shape[property])
-            figure[property].data[index].id = shape[property][index];
+        for (let index in shape[property]) {
+            if (figure[property].data[index])
+                figure[property].data[index].id = shape[property][index];
+        }
     }
     
     addLines(){
-        process.lines.forEach(line => this.addLine(line));
+        this.process.lines.forEach(line => this.addLine(line));
     }
     
     addLine(line){
@@ -151,8 +153,8 @@ class ProcessParser {
         this.reader.unmarshal(this.view, [connection]);
     }
     
-    static Parse(json, view, factory){
-        const parser = new ProcessParser(json, view, factory);
+    static Parse(process, view, factory){
+        const parser = new ProcessParser(process, view, factory);
         
         parser.parse();
     }

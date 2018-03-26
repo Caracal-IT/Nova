@@ -42,6 +42,7 @@ class Label extends draw2d.shape.basic.Label {
 
     get definition() {
         return {
+            id: this.id,
             name: this.name,
             label: this.label,
             type: "Label",

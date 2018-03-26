@@ -40,21 +40,25 @@ namespace Caracal.Web.Nova.Builder {
 
       app.UseMvc(routes => {
         routes.MapRoute(
-          name: "designer",
-          template: "Designer/Publish/{name?}",
-          defaults:new {controller = "Designer", action = "Publish"});
-
+          name: "designer_get_shape",
+          template: "Designer/Shapes/{name?}",
+          defaults: new {controller = "Designer", action = "Shapes"});
         
+        routes.MapRoute(
+          name: "designer_publish",
+          template: "Designer/Publish/",
+          defaults: new {controller = "Designer", action = "Publish"});
+
         routes.MapRoute(
           name: "builder",
           template: "Home/Builder",
-          defaults:new {controller = "Home", action = "Builder"});
-        
-      
+          defaults: new {controller = "Home", action = "Builder"});
+
+
         routes.MapRoute(
           name: "default",
           template: "{controller=Home}/{action=Index}/{id?}");
-        
+
         routes.MapSpaFallbackRoute(
           name: "spa-fallback",
           defaults: new {controller = "Home", action = "Index"});

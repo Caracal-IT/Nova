@@ -39,10 +39,11 @@ class Terminator extends draw2d.shape.basic.Circle {
     get definition() {
         return {
           id: this.id,
-          name: this.name.toLowerCase(),
+          name: this.name.toLowerCase(), 
+          factory: "shapeFactory",
           type: "CodeActivity",
           x: this.x,
-          y: this.y, 
+          y: this.y,
           outputPorts: this.getPortIds(this.outputPorts), 
           inputPorts: this.getPortIds(this.inputPorts),
           properties: [

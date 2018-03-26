@@ -43,7 +43,7 @@ controls = [
 
 
 
-process = {
+mockProcess = {
     name: "registration",
     lines: [
         {
