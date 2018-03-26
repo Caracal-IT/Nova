@@ -61,11 +61,11 @@ class FormHeader extends draw2d.shape.layout.HorizontalLayout {
     get definition() {
         return {
             id: this.id,
-            name: "_#header",
+            name: "_header_",            
             type: "paper-header",
-            properties: [
-                {name: "label", value: this.titleLabel.getText()}
-            ]
+            label: this.titleLabel.getText(),
+            outputPorts: [],
+            properties: []
         };
     }
 

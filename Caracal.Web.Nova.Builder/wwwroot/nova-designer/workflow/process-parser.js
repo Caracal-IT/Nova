@@ -100,8 +100,8 @@ class ProcessParser {
         const controls = form.value.controls;
 
         controls.forEach(control => {
-            if (control.name === "_#header")
-                figure.label = control.properties.find(p => p.name === "label").value;
+           if (control.name === "_header_")
+                figure.label = control.label;
             else 
                this.addControl(control, figure);
         });

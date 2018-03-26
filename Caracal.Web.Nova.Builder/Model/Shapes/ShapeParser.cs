@@ -27,11 +27,11 @@ namespace Caracal.Web.Nova.Builder.Model.Shapes {
 
       AddField("name", metadata, token);
       AddField("type", metadata, token);
-      AddField("label", metadata, token);
-
+      SetLabel(metadata, token);
+      
       if (token["properties"] != null) 
         AddProperties(metadata, token["properties"]);
-
+      
       SetOutputPort(token, metadata);
 
       if ((string) metadata["type"] == "ApiActivity") {
@@ -41,6 +41,15 @@ namespace Caracal.Web.Nova.Builder.Model.Shapes {
       return metadata;
     }
 
+    private static void SetLabel(IDictionary<string, object> metadata, JObject token) {
+      var text = token["properties"]?.FirstOrDefault(p => (string) p["name"] == "text");
+
+      if (text != null)
+        metadata["label"] = text["value"].Value<string>();
+      else 
+        AddField("label", metadata, token);
+    }
+    
     private void SetOutputPort(JObject token, IDictionary<string, object> metadata) {
       var target = GetTargetShape(token);
 

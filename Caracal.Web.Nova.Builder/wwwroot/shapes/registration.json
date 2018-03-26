@@ -2,14 +2,14 @@
   "name": "registration",
   "shapes": [
     {
-      "id": "96417562-598e-7d1d-fb21-57b9ce820c52",
+      "id": "53dec14d-fd2b-0c39-83db-a33992029507",
       "name": "start",
       "factory": "shapeFactory",
       "type": "CodeActivity",
-      "x": 77,
-      "y": 83,
+      "x": 132,
+      "y": 161,
       "outputPorts": [
-        "eb6ce387-60fa-2b87-b33d-87e976ba0902"
+        "a3b56fe4-71e0-870d-b6e6-b08c5f2b5c78"
       ],
       "inputPorts": [],
       "properties": [
@@ -20,130 +20,86 @@
       ]
     },
     {
-      "id": "cc372488-2d6c-b24c-4aae-7c23d0247732",
-      "name": "cc3724882d6cb24c4aae",
-      "label": "Alert Activity",
-      "type": "NovaAlertActivity",
-      "factory": "activityFactory",
-      "color": "Pink",
-      "x": 269,
-      "y": 95,
-      "labelPos": {
-        "x": 0,
-        "y": -28
-      },
-      "outputPorts": [
-        "11094c6d-caf9-4e95-e2d8-19befe212ed9"
-      ],
-      "inputPorts": [
-        "315d8106-808b-3be0-e13f-56a715593677"
-      ],
-      "properties": [
-        {
-          "name": "title",
-          "value": "Success"
-        },
-        {
-          "name": "message",
-          "value": "Data saved"
-        },
-        {
-          "name": "style",
-          "value": "success"
-        }
-      ]
-    },
-    {
-      "id": "4922e924-018f-69e4-5ea0-a1fee67a1d8f",
-      "name": "end",
+      "id": "61ad81d7-19c8-945b-505d-645ff58957c7",
+      "name": "61ad81d719c8945b505d",
+      "type": "FormActivity",
       "factory": "shapeFactory",
-      "type": "CodeActivity",
-      "x": 405,
-      "y": 92,
-      "outputPorts": [],
-      "inputPorts": [
-        "13e90207-2919-474a-9bd7-2c38cb49a0ba"
-      ],
+      "color": "Blue",
+      "x": 330,
+      "y": 43,
       "properties": [
         {
-          "name": "code",
-          "value": "function execute(params, wf, notify) { }"
+          "name": "form",
+          "value": {
+            "controls": [
+              {
+                "id": "c90bf7e8-01b6-59b2-3089-dbad899890eb",
+                "name": "_header_",
+                "type": "paper-header",
+                "label": "Form Activity 4",
+                "outputPorts": [],
+                "properties": []
+              },
+              {
+                "id": "0c384fa0-e8e2-abec-ac2b-6a69f3958509",
+                "name": "Namefdghdfh",
+                "label": "Namefdghdfh",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-label"
+                  },
+                  {
+                    "name": "text",
+                    "value": "Welcome !!"
+                  }
+                ]
+              }
+            ]
+          }
         }
+      ],
+      "inputPorts": [
+        "20e1c284-18d8-2d18-a056-e525a3c38348"
       ]
     }
   ],
   "lines": [
     {
       "source": {
-        "id": "eb6ce387-60fa-2b87-b33d-87e976ba0902",
+        "id": "a3b56fe4-71e0-870d-b6e6-b08c5f2b5c78",
         "name": "output0",
         "parent": {
-          "id": "96417562-598e-7d1d-fb21-57b9ce820c52",
+          "id": "53dec14d-fd2b-0c39-83db-a33992029507",
           "name": "start"
         }
       },
       "target": {
-        "id": "315d8106-808b-3be0-e13f-56a715593677",
+        "id": "20e1c284-18d8-2d18-a056-e525a3c38348",
         "name": "input0",
         "parent": {
-          "id": "cc372488-2d6c-b24c-4aae-7c23d0247732",
-          "name": "cc3724882d6cb24c4aae"
+          "id": "61ad81d7-19c8-945b-505d-645ff58957c7",
+          "name": "61ad81d719c8945b505d"
         }
       },
       "color": "Blue",
       "vertices": [
         {
-          "x": 127,
-          "y": 108
+          "x": 182,
+          "y": 186
         },
         {
-          "x": 198,
-          "y": 108
+          "x": 256,
+          "y": 186
         },
         {
-          "x": 198,
-          "y": 130
+          "x": 256,
+          "y": 54
         },
         {
-          "x": 269,
-          "y": 130
-        }
-      ]
-    },
-    {
-      "source": {
-        "id": "11094c6d-caf9-4e95-e2d8-19befe212ed9",
-        "name": "output0",
-        "parent": {
-          "id": "cc372488-2d6c-b24c-4aae-7c23d0247732",
-          "name": "cc3724882d6cb24c4aae"
-        }
-      },
-      "target": {
-        "id": "13e90207-2919-474a-9bd7-2c38cb49a0ba",
-        "name": "input0",
-        "parent": {
-          "id": "4922e924-018f-69e4-5ea0-a1fee67a1d8f",
-          "name": "end"
-        }
-      },
-      "color": "Blue",
-      "vertices": [
-        {
-          "x": 339,
-          "y": 130
-        },
-        {
-          "x": 372,
-          "y": 130
-        },
-        {
-          "x": 372,
-          "y": 117
-        },
-        {
-          "x": 405,
-          "y": 117
+          "x": 330,
+          "y": 54
         }
       ]
     }
