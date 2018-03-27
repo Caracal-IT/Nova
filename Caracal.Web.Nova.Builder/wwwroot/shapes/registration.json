@@ -9,10 +9,10 @@
       "x": 147,
       "y": 98,
       "outputPorts": [
-        "87a34b71-660b-fb38-9d1e-fa6bc1edacab",
-        "9384d334-4d99-a41b-72f1-a26107772fa3",
-        "e26d2d64-8b59-9f15-3c21-741882b08cfa",
-        "be9a0d83-5a82-ffdf-612f-b9fad57a4e3b"
+        "3f952c83-a167-da57-4ebd-bc5aa0d68b9e",
+        "155cb872-4e7c-f61f-58a1-cc09118cbb61",
+        "73b5006c-1271-1542-def9-3452afac114d",
+        "751a3c5e-afd0-9584-cca7-747971264be2"
       ],
       "inputPorts": [],
       "properties": [
@@ -36,22 +36,22 @@
         "y": -28
       },
       "outputPorts": [
-        "23c99f6a-5970-b96a-1d4f-7e53687aee37",
-        "76b484bd-82aa-b8d2-38c3-c28667139e3d",
-        "474c1f51-5fb6-b055-f807-8eab1782b542",
-        "dbdb6fd0-1b30-037d-b318-7f996b37a5f0",
-        "d8c8da75-d356-eba7-77af-3640a17529ed",
-        "d474b1a3-91fa-a2a6-45f9-ac17531f809e",
-        "e8637950-e7f4-b890-36c0-cd55d416148d",
-        "e92dd38c-5c5a-d0c2-497a-ad2c962e5c94",
-        "f287f0d9-f3ec-ccc0-ad6b-1f42a50a1ec9",
-        "909d13bc-55ac-ba3e-ce33-e91d9ac44378",
-        "4c9a9c1b-8ac5-f5a1-f027-297e0c855836",
-        "3433b3f4-1ed4-f9a5-49f9-814b75e22fa6",
-        "e3e59f12-3508-17aa-997a-a7f9bbcddede",
-        "043155d6-609c-974a-ba68-01d42b0dc6cb",
-        "33cc4918-9ba2-5bd2-6a56-ce047f6ce683",
-        "5463e0a9-2416-181d-dfec-68afc3a2d6a7"
+        "dca75ce1-3509-703a-e89a-bfddfa6eac4e",
+        "1170511b-9f0a-cef1-b266-defd8e0f8524",
+        "ce55eff1-deb0-a635-4fa2-e506da81d367",
+        "55e90dea-d330-a5fe-2324-2351355f6beb",
+        "44f1319e-fe1a-0e68-8b8c-570aa8157f2a",
+        "3a82c958-26ab-227a-9a8b-d1f13c443d03",
+        "d6a52439-0aa5-519b-fb73-568b8d20069e",
+        "4f62278f-ab68-f9b7-b0a9-efedbb7fc4eb",
+        "f9766dad-7c0c-281e-b1f1-b3100af44018",
+        "d546729f-eeef-911b-efdb-bc2b35bc3340",
+        "c858eabd-129a-e808-ec18-1791c22ac87f",
+        "36a44e6f-7841-46f7-d173-ace7c4f5e9c2",
+        "9603547c-b0e6-a73e-6821-90684e9541cf",
+        "6dc47974-ca3a-4235-d8a4-f2c8155d5c90",
+        "8a44dc73-b3db-f8d8-0f28-3533b1e1a38d",
+        "10a40177-b064-c7b9-9039-e142ee4625f6"
       ],
       "inputPorts": [],
       "properties": [
@@ -70,33 +70,75 @@
       ]
     },
     {
-      "id": "1bdf6db6-9599-de50-84ae-073ae2b04861",
-      "name": "end",
+      "id": "21221d68-0f8d-002b-69d4-664b5756d4ae",
+      "name": "21221d680f8d002b69d4",
+      "type": "FormActivity",
       "factory": "shapeFactory",
-      "type": "CodeActivity",
-      "x": 510,
-      "y": 98,
-      "outputPorts": [],
-      "inputPorts": [
-        "7b987f8d-6394-4f95-35f5-66cf814a50b4",
-        "f8af112e-18f5-6709-d9dc-3d1aeca54460",
-        "5732e438-431f-c40c-02c2-53fac6f3efa7",
-        "ad6fc2e8-8586-6cf6-7d82-7147f88d76ab"
-      ],
+      "color": "Blue",
+      "x": 284,
+      "y": 250,
       "properties": [
         {
-          "name": "code",
-          "value": "function execute(params, wf, notify) { }"
+          "name": "form",
+          "value": {
+            "controls": [
+              {
+                "id": "50300917-c41a-3b64-8aa5-6072078d9d01",
+                "name": "_header_",
+                "type": "paper-header",
+                "label": "Form Activity",
+                "outputPorts": [],
+                "properties": []
+              },
+              {
+                "id": "867c058d-18ca-cb34-5265-f1e8c19ee534",
+                "name": "FirstName",
+                "label": "FirstName",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-input"
+                  },
+                  {
+                    "name": "placeholder",
+                    "value": "Please select an item"
+                  }
+                ]
+              },
+              {
+                "id": "c0439e2b-a787-f1c7-bdac-21e51d806b53",
+                "name": "Surname",
+                "label": "Surname",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-input"
+                  },
+                  {
+                    "name": "placeholder",
+                    "value": "Please select an item"
+                  }
+                ]
+              }
+            ]
+          }
         }
+      ],
+      "inputPorts": [
+        "627d2ea5-4b6f-5c3c-7419-85fd34a1cc4c",
+        "e329796a-eab5-ce3c-341f-76b93c078ba6",
+        "1934ed75-43e7-f5fb-b725-24070390e4d9"
       ]
     }
   ],
   "lines": [
     {
-      "id": "7b4c1317-7316-32d1-a745-02322ace052f",
+      "id": "170e203d-c0b3-0508-3f37-bdce33e3f893",
       "source": {
-        "id": "d474b1a3-91fa-a2a6-45f9-ac17531f809e",
-        "name": "hybrid5",
+        "id": "6dc47974-ca3a-4235-d8a4-f2c8155d5c90",
+        "name": "hybrid13",
         "pId": "19fc84f6-ec78-4b84-d461-8e72b03753e5",
         "parent": {
           "id": "19fc84f6-ec78-4b84-d461-8e72b03753e5",
@@ -104,30 +146,30 @@
         }
       },
       "target": {
-        "id": "ad6fc2e8-8586-6cf6-7d82-7147f88d76ab",
-        "name": "input3",
-        "pId": "1bdf6db6-9599-de50-84ae-073ae2b04861",
+        "id": "1934ed75-43e7-f5fb-b725-24070390e4d9",
+        "name": "input2",
+        "pId": "50300917-c41a-3b64-8aa5-6072078d9d01",
         "parent": {
-          "id": "1bdf6db6-9599-de50-84ae-073ae2b04861",
-          "name": "end"
+          "id": "21221d68-0f8d-002b-69d4-664b5756d4ae",
+          "name": "21221d680f8d002b69d4"
         }
       },
       "color": "Blue",
       "vertices": [
         {
-          "x": 394,
-          "y": 123
+          "x": 359,
+          "y": 158
         },
         {
-          "x": 510,
-          "y": 123
+          "x": 359,
+          "y": 251
         }
       ]
     },
     {
       "id": "3da45884-161b-166f-c8d4-dfc3ebafe69b",
       "source": {
-        "id": "9384d334-4d99-a41b-72f1-a26107772fa3",
+        "id": "155cb872-4e7c-f61f-58a1-cc09118cbb61",
         "name": "output1",
         "pId": "53dec14d-fd2b-0c39-83db-a33992029507",
         "parent": {
@@ -136,7 +178,7 @@
         }
       },
       "target": {
-        "id": "23c99f6a-5970-b96a-1d4f-7e53687aee37",
+        "id": "dca75ce1-3509-703a-e89a-bfddfa6eac4e",
         "name": "hybrid0",
         "pId": "19fc84f6-ec78-4b84-d461-8e72b03753e5",
         "parent": {
