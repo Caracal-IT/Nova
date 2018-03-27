@@ -73,7 +73,7 @@ class Form extends draw2d.shape.layout.VerticalLayout {
     }
 
     createOutputControl(){
-        const item = new FormControl(this.onSelect, "Continue", this, this.controls.length, this.outputLocator);
+        const item = new FormControl(this.onSelect, "Continue", this, this.controls.length, true);
         this.controls.push(item);
 
         super.add(item);

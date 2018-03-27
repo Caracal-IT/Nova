@@ -160,11 +160,15 @@ class ProcessParser {
         if (line[port].pId !== line[port].parent.id){
             const parent = this.view.figures.data.find(f => f.name === line[port].parent.name);
             const control = parent.children.data.find(c => c.figure.id === line[port].pId);
-
-            if (port === "source") 
-                connection.setSource(control.figure.outputPorts.data[0]);
-            else
-                connection.setTarget(control.figure.inputPorts.data[0]);
+            
+            if (port === "source") {
+                const source = control.figure.outputPorts.data.find(p => p.name === line[port].name);
+                connection.setSource(source);
+            }
+            else {
+                const port = control.figure.inputPorts.data.find(p => p.name === line[port].name);
+                connection.setTarget(port);
+            }
         }
     }
     
