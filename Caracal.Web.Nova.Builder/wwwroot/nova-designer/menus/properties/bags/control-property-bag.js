@@ -13,7 +13,10 @@ class ControlPropertyBag {
         }
 
         const type = this.shape.control.find(c => c.name === "type");
-        this.onChange(type?type.value:null);
+        
+        console.log(this.shape);
+        
+        this.onChange(type?type.value:null);        
     }
 
     getProperty(name) {
@@ -81,7 +84,7 @@ class ControlPropertyBag {
                 { name: "type", value: control.name }
             ];
 
-            this.shape.control.push(...control.properties);
+            control.properties.forEach(c => this.shape.control.push({name: c.name,  value: c.value}));            
         }
     }
 }
