@@ -75,13 +75,13 @@ class ControlPropertyBag {
     
     addControlsToShape(control){
         const type = this.shape.control.find(c => c.name === "type");
-
+        
         if (!type || type.value !== control.name) {
             this.shape.control = [
                 { name: "type", value: control.name }
             ];
-
-            this.shape.control.push(...control.properties);
+ 
+            this.shape.control.push(...control.properties);            
         }
     }
 }
