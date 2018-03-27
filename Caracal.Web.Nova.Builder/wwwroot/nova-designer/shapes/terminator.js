@@ -34,7 +34,6 @@ class Terminator extends draw2d.shape.basic.Circle {
     }
     
     set name(value) {
-        console.log(value);
         this._name = value;
     }
     

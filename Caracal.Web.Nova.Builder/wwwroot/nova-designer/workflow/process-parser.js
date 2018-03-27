@@ -100,7 +100,7 @@ class ProcessParser {
         const controls = form.value.controls;
 
         controls.forEach(control => {
-           if (control.name === "_header_")
+            if (control.name === "_header_")
                 figure.label = control.label;
             else 
                this.addControl(control, figure);
@@ -139,10 +139,8 @@ class ProcessParser {
     
     addLine(line){
         let connection = {
+            id: line.id,
             type: "WFConnection",
-            userData: {color: line.color},
-            color: FormColor.GetColour(line.color).secondary,
-            outlineColor: FormColor.GetColour(line.color).primary,
             vertex: [],
             source: { node: line.source.parent.id, port: line.source.name },
             target: {node: line.target.parent.id, port: line.target.name  }
@@ -151,6 +149,23 @@ class ProcessParser {
         connection.vertex.push(...line.vertices);
         
         this.reader.unmarshal(this.view, [connection]);
+       
+        const conn = this.view.lines.data.find(l => l.id === line.id);
+        conn.changeColor(FormColor.GetColour(line.color));
+        
+        this.connectLineToParent("source", line,  conn);
+    }
+    
+    connectLineToParent(port, line, connection) {
+        if (line[port].pId !== line[port].parent.id){
+            const parent = this.view.figures.data.find(f => f.name === line[port].parent.name);
+            const control = parent.children.data.find(c => c.figure.id === line[port].pId);
+
+            if (port === "source") 
+                connection.setSource(control.figure.outputPorts.data[0]);
+            else
+                connection.setTarget(control.figure.inputPorts.data[0]);
+        }
     }
     
     static Parse(process, view, factory){

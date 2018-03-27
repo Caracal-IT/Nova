@@ -5,6 +5,11 @@ class WorkflowServer {
     }
     
     publish() {
+        //var writer = new draw2d.io.json.Writer();
+        //writer.marshal(this.view, function(json){
+          //  console.log(JSON.stringify(json,null,2));
+        //});
+        
         let builder = new ProcessBuilder(this.view);
         let process = builder.build();
         

@@ -9,7 +9,7 @@
       "x": 132,
       "y": 161,
       "outputPorts": [
-        "a3b56fe4-71e0-870d-b6e6-b08c5f2b5c78"
+        "84cd442d-dbad-39de-41da-eab685918978"
       ],
       "inputPorts": [],
       "properties": [
@@ -20,39 +20,75 @@
       ]
     },
     {
-      "id": "61ad81d7-19c8-945b-505d-645ff58957c7",
-      "name": "61ad81d719c8945b505d",
+      "id": "9facf54a-c8ad-4f88-15a8-1409d1101f85",
+      "name": "9facf54ac8ad4f8815a8",
       "type": "FormActivity",
       "factory": "shapeFactory",
       "color": "Blue",
-      "x": 330,
-      "y": 43,
+      "x": 304,
+      "y": 73,
       "properties": [
         {
           "name": "form",
           "value": {
             "controls": [
               {
-                "id": "c90bf7e8-01b6-59b2-3089-dbad899890eb",
+                "id": "2d461fb2-90fb-5d01-cf3a-bac632bec0f5",
                 "name": "_header_",
                 "type": "paper-header",
-                "label": "Form Activity 4",
+                "label": "Form Activity",
                 "outputPorts": [],
                 "properties": []
               },
               {
-                "id": "0c384fa0-e8e2-abec-ac2b-6a69f3958509",
-                "name": "Namefdghdfh",
-                "label": "Namefdghdfh",
+                "id": "9cbccd1d-8cf8-dab8-1601-3fd30ccbe519",
+                "name": "Name",
+                "label": "Name",
                 "outputPorts": [],
                 "properties": [
                   {
                     "name": "type",
-                    "value": "paper-label"
+                    "value": "paper-input"
                   },
                   {
-                    "name": "text",
-                    "value": "Welcome !!"
+                    "name": "placeholder",
+                    "value": "Please select an item"
+                  }
+                ]
+              },
+              {
+                "id": "0a721aa6-230d-c2a1-f110-abd503e3a78d",
+                "name": "Continue1",
+                "label": "Continue1",
+                "outputPorts": [
+                  "62063e05-c239-ac49-697a-6777659fdd10"
+                ],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-button"
+                  },
+                  {
+                    "name": "style",
+                    "value": "btn btn-outline-primary"
+                  }
+                ]
+              },
+              {
+                "id": "0c545641-2592-23e6-996e-34547d6eb2aa",
+                "name": "Continue2",
+                "label": "Continue2",
+                "outputPorts": [
+                  "2ff140dc-84fc-ba1b-c8ba-bb4381aedf96"
+                ],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-button"
+                  },
+                  {
+                    "name": "style",
+                    "value": "btn btn-outline-secondary"
                   }
                 ]
               }
@@ -61,26 +97,99 @@
         }
       ],
       "inputPorts": [
-        "20e1c284-18d8-2d18-a056-e525a3c38348"
+        "4fc4a08d-13b3-7feb-e76c-97ef22962f0f"
+      ]
+    },
+    {
+      "id": "731bc211-b814-8642-19f8-97e5c0037e3a",
+      "name": "end",
+      "factory": "shapeFactory",
+      "type": "CodeActivity",
+      "x": 852,
+      "y": 61,
+      "outputPorts": [],
+      "inputPorts": [
+        "7f977fd8-a47d-8b0c-c689-d2017094fd44"
+      ],
+      "properties": [
+        {
+          "name": "code",
+          "value": "function execute(params, wf, notify) { }"
+        }
+      ]
+    },
+    {
+      "id": "6ea636e9-038f-d7bf-30f8-28b04f1cfc00",
+      "name": "6ea636e9038fd7bf30f8",
+      "label": "Alert Activity",
+      "type": "NovaAlertActivity",
+      "factory": "activityFactory",
+      "color": "Pink",
+      "x": 305,
+      "y": 239,
+      "labelPos": {
+        "x": 0,
+        "y": -28
+      },
+      "outputPorts": [
+        "383e3aef-63af-0d70-ff27-d189bb0b0527"
+      ],
+      "inputPorts": [
+        "db905679-3e31-d149-92a1-5f6add408d4a"
+      ],
+      "properties": [
+        {
+          "name": "title",
+          "value": "Success"
+        },
+        {
+          "name": "message",
+          "value": "Data saved"
+        },
+        {
+          "name": "style",
+          "value": "success"
+        }
+      ]
+    },
+    {
+      "id": "8db1b946-b109-e5b1-a96a-931b5a965128",
+      "name": "end",
+      "factory": "shapeFactory",
+      "type": "CodeActivity",
+      "x": 520,
+      "y": 35,
+      "outputPorts": [],
+      "inputPorts": [
+        "186a6041-69b7-59a2-386e-c55e7e16d88d"
+      ],
+      "properties": [
+        {
+          "name": "code",
+          "value": "function execute(params, wf, notify) { }"
+        }
       ]
     }
   ],
   "lines": [
     {
+      "id": "37fab606-8ddd-574e-9abc-f5cf1dbd6bea",
       "source": {
-        "id": "a3b56fe4-71e0-870d-b6e6-b08c5f2b5c78",
+        "id": "84cd442d-dbad-39de-41da-eab685918978",
         "name": "output0",
+        "pId": "53dec14d-fd2b-0c39-83db-a33992029507",
         "parent": {
           "id": "53dec14d-fd2b-0c39-83db-a33992029507",
           "name": "start"
         }
       },
       "target": {
-        "id": "20e1c284-18d8-2d18-a056-e525a3c38348",
+        "id": "4fc4a08d-13b3-7feb-e76c-97ef22962f0f",
         "name": "input0",
+        "pId": "2d461fb2-90fb-5d01-cf3a-bac632bec0f5",
         "parent": {
-          "id": "61ad81d7-19c8-945b-505d-645ff58957c7",
-          "name": "61ad81d719c8945b505d"
+          "id": "9facf54a-c8ad-4f88-15a8-1409d1101f85",
+          "name": "9facf54ac8ad4f8815a8"
         }
       },
       "color": "Blue",
@@ -90,16 +199,152 @@
           "y": 186
         },
         {
-          "x": 256,
+          "x": 243,
           "y": 186
         },
         {
-          "x": 256,
-          "y": 54
+          "x": 243,
+          "y": 84
         },
         {
-          "x": 330,
-          "y": 54
+          "x": 304,
+          "y": 84
+        }
+      ]
+    },
+    {
+      "id": "3d7d20be-1e42-1b1b-a339-4a0812fb7e91",
+      "source": {
+        "id": "383e3aef-63af-0d70-ff27-d189bb0b0527",
+        "name": "output0",
+        "pId": "6ea636e9-038f-d7bf-30f8-28b04f1cfc00",
+        "parent": {
+          "id": "6ea636e9-038f-d7bf-30f8-28b04f1cfc00",
+          "name": "6ea636e9038fd7bf30f8"
+        }
+      },
+      "target": {
+        "id": "7f977fd8-a47d-8b0c-c689-d2017094fd44",
+        "name": "input0",
+        "pId": "731bc211-b814-8642-19f8-97e5c0037e3a",
+        "parent": {
+          "id": "731bc211-b814-8642-19f8-97e5c0037e3a",
+          "name": "end"
+        }
+      },
+      "color": "Blue",
+      "vertices": [
+        {
+          "x": 375,
+          "y": 274
+        },
+        {
+          "x": 825,
+          "y": 274
+        },
+        {
+          "x": 825,
+          "y": 177
+        },
+        {
+          "x": 759,
+          "y": 177
+        },
+        {
+          "x": 759,
+          "y": 86
+        },
+        {
+          "x": 852,
+          "y": 86
+        }
+      ]
+    },
+    {
+      "id": "8bd7cd11-3299-ea05-37da-89c577ff347e",
+      "source": {
+        "id": "62063e05-c239-ac49-697a-6777659fdd10",
+        "name": "output0",
+        "pId": "0a721aa6-230d-c2a1-f110-abd503e3a78d",
+        "parent": {
+          "id": "9facf54a-c8ad-4f88-15a8-1409d1101f85",
+          "name": "9facf54ac8ad4f8815a8"
+        }
+      },
+      "target": {
+        "id": "186a6041-69b7-59a2-386e-c55e7e16d88d",
+        "name": "input0",
+        "pId": "8db1b946-b109-e5b1-a96a-931b5a965128",
+        "parent": {
+          "id": "8db1b946-b109-e5b1-a96a-931b5a965128",
+          "name": "end"
+        }
+      },
+      "color": "Gold",
+      "vertices": [
+        {
+          "x": 454,
+          "y": 128.75
+        },
+        {
+          "x": 487,
+          "y": 128.75
+        },
+        {
+          "x": 487,
+          "y": 60
+        },
+        {
+          "x": 520,
+          "y": 60
+        }
+      ]
+    },
+    {
+      "id": "869e4d41-e33a-f104-cf5e-8baedea5d61d",
+      "source": {
+        "id": "2ff140dc-84fc-ba1b-c8ba-bb4381aedf96",
+        "name": "output0",
+        "pId": "0c545641-2592-23e6-996e-34547d6eb2aa",
+        "parent": {
+          "id": "9facf54a-c8ad-4f88-15a8-1409d1101f85",
+          "name": "9facf54ac8ad4f8815a8"
+        }
+      },
+      "target": {
+        "id": "db905679-3e31-d149-92a1-5f6add408d4a",
+        "name": "input0",
+        "pId": "6ea636e9-038f-d7bf-30f8-28b04f1cfc00",
+        "parent": {
+          "id": "6ea636e9-038f-d7bf-30f8-28b04f1cfc00",
+          "name": "6ea636e9038fd7bf30f8"
+        }
+      },
+      "color": "Blue",
+      "vertices": [
+        {
+          "x": 454,
+          "y": 151.25
+        },
+        {
+          "x": 474,
+          "y": 151.25
+        },
+        {
+          "x": 474,
+          "y": 212.625
+        },
+        {
+          "x": 285,
+          "y": 212.625
+        },
+        {
+          "x": 285,
+          "y": 274
+        },
+        {
+          "x": 305,
+          "y": 274
         }
       ]
     }

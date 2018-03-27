@@ -19,20 +19,6 @@ class WFConnection extends draw2d.Connection{
         this.changeColor(FormColor.GetColour("Blue"));
     }
 
-    init(attr, setter, getter) {
-        super.init(attr, setter, getter);
-        
-        if (this.userData && this.userData.color)
-            this.changeColor(FormColor.GetColour(this.userData.color));
-    }
-    
-    setColor(value) {
-        if (this.userData && this.userData.color)
-            this.formColor = FormColor.GetColour(this.userData.color);
-        
-        super.setColor(value);
-    }
-
     delegateTarget(draggedFigure) {
         return this;
     }
@@ -49,6 +35,7 @@ class WFConnection extends draw2d.Connection{
         this.vertices.data.forEach(v => vertices.push({x: v.x, y: v.y}));
         
         return {
+            id: this.id,
             source: this.getPort(this.sourcePort),
             target: this.getPort(this.targetPort),
             color: this.formColor.name,
@@ -59,12 +46,13 @@ class WFConnection extends draw2d.Connection{
     getPort(port){
         let parent = port.parent;
         
-        while (parent.parent != null)
+        while (parent.parent !== null) 
             parent = parent.parent;
-        console.log(parent);
+        
         return {
             id: port.id,
             name: port.name,
+            pId: port.parent.id,
             parent: {
                 id: parent.id,
                 name: parent.name
