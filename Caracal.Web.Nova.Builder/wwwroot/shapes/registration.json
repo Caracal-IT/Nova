@@ -6,10 +6,13 @@
       "name": "start",
       "factory": "shapeFactory",
       "type": "CodeActivity",
-      "x": 132,
-      "y": 161,
+      "x": 65,
+      "y": 47,
       "outputPorts": [
-        "84cd442d-dbad-39de-41da-eab685918978"
+        "159a0130-ccd3-ce90-5612-4615eb72ff39",
+        "16cd2228-5f39-023a-1853-f83fe7fdee79",
+        "16dec210-6e6d-60c0-720e-78264e95cebc",
+        "cd9d147f-5ffd-1275-21e5-b729eb66f6a9"
       ],
       "inputPorts": [],
       "properties": [
@@ -20,122 +23,23 @@
       ]
     },
     {
-      "id": "9facf54a-c8ad-4f88-15a8-1409d1101f85",
-      "name": "9facf54ac8ad4f8815a8",
-      "type": "FormActivity",
-      "factory": "shapeFactory",
-      "color": "Blue",
-      "x": 304,
-      "y": 73,
-      "properties": [
-        {
-          "name": "form",
-          "value": {
-            "controls": [
-              {
-                "id": "2d461fb2-90fb-5d01-cf3a-bac632bec0f5",
-                "name": "_header_",
-                "type": "paper-header",
-                "label": "Form Activity",
-                "outputPorts": [],
-                "properties": []
-              },
-              {
-                "id": "9cbccd1d-8cf8-dab8-1601-3fd30ccbe519",
-                "name": "Name",
-                "label": "Name",
-                "outputPorts": [],
-                "properties": [
-                  {
-                    "name": "type",
-                    "value": "paper-input"
-                  },
-                  {
-                    "name": "placeholder",
-                    "value": "Please select an item"
-                  }
-                ]
-              },
-              {
-                "id": "0a721aa6-230d-c2a1-f110-abd503e3a78d",
-                "name": "Continue1",
-                "label": "Continue1",
-                "outputPorts": [
-                  "62063e05-c239-ac49-697a-6777659fdd10"
-                ],
-                "properties": [
-                  {
-                    "name": "type",
-                    "value": "paper-button"
-                  },
-                  {
-                    "name": "style",
-                    "value": "btn btn-outline-primary"
-                  }
-                ]
-              },
-              {
-                "id": "0c545641-2592-23e6-996e-34547d6eb2aa",
-                "name": "Continue2",
-                "label": "Continue2",
-                "outputPorts": [
-                  "2ff140dc-84fc-ba1b-c8ba-bb4381aedf96"
-                ],
-                "properties": [
-                  {
-                    "name": "type",
-                    "value": "paper-button"
-                  },
-                  {
-                    "name": "style",
-                    "value": "btn btn-outline-secondary"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ],
-      "inputPorts": [
-        "4fc4a08d-13b3-7feb-e76c-97ef22962f0f"
-      ]
-    },
-    {
-      "id": "731bc211-b814-8642-19f8-97e5c0037e3a",
-      "name": "end",
-      "factory": "shapeFactory",
-      "type": "CodeActivity",
-      "x": 852,
-      "y": 61,
-      "outputPorts": [],
-      "inputPorts": [
-        "7f977fd8-a47d-8b0c-c689-d2017094fd44"
-      ],
-      "properties": [
-        {
-          "name": "code",
-          "value": "function execute(params, wf, notify) { }"
-        }
-      ]
-    },
-    {
-      "id": "6ea636e9-038f-d7bf-30f8-28b04f1cfc00",
-      "name": "6ea636e9038fd7bf30f8",
+      "id": "19fc84f6-ec78-4b84-d461-8e72b03753e5",
+      "name": "19fc84f6ec784b84d461",
       "label": "Alert Activity",
       "type": "NovaAlertActivity",
       "factory": "activityFactory",
       "color": "Pink",
-      "x": 305,
-      "y": 239,
+      "x": 235,
+      "y": 60,
       "labelPos": {
         "x": 0,
         "y": -28
       },
       "outputPorts": [
-        "383e3aef-63af-0d70-ff27-d189bb0b0527"
+        "9e4d03fc-ca7f-23c7-0f3a-d39faf5e2368"
       ],
       "inputPorts": [
-        "db905679-3e31-d149-92a1-5f6add408d4a"
+        "7438dc98-bb06-d07a-52ee-355dc161e897"
       ],
       "properties": [
         {
@@ -153,15 +57,18 @@
       ]
     },
     {
-      "id": "8db1b946-b109-e5b1-a96a-931b5a965128",
+      "id": "1bdf6db6-9599-de50-84ae-073ae2b04861",
       "name": "end",
       "factory": "shapeFactory",
       "type": "CodeActivity",
-      "x": 520,
-      "y": 35,
+      "x": 332,
+      "y": 195,
       "outputPorts": [],
       "inputPorts": [
-        "186a6041-69b7-59a2-386e-c55e7e16d88d"
+        "38c166af-5ad8-81fa-27ee-4ababe6a6e02",
+        "6764c5ba-5b12-6ac2-02fa-d8b6f199239b",
+        "7c7dfe11-0cd5-d84c-be97-2e095393d29c",
+        "468abb7c-9eb6-ef85-9fd0-80efbd4913a1"
       ],
       "properties": [
         {
@@ -173,10 +80,46 @@
   ],
   "lines": [
     {
-      "id": "37fab606-8ddd-574e-9abc-f5cf1dbd6bea",
+      "id": "aaa5de60-1371-bc05-3ba8-8f8cd3ca866a",
       "source": {
-        "id": "84cd442d-dbad-39de-41da-eab685918978",
+        "id": "9e4d03fc-ca7f-23c7-0f3a-d39faf5e2368",
         "name": "output0",
+        "pId": "19fc84f6-ec78-4b84-d461-8e72b03753e5",
+        "parent": {
+          "id": "19fc84f6-ec78-4b84-d461-8e72b03753e5",
+          "name": "19fc84f6ec784b84d461"
+        }
+      },
+      "target": {
+        "id": "38c166af-5ad8-81fa-27ee-4ababe6a6e02",
+        "name": "input0",
+        "pId": "1bdf6db6-9599-de50-84ae-073ae2b04861",
+        "parent": {
+          "id": "1bdf6db6-9599-de50-84ae-073ae2b04861",
+          "name": "end"
+        }
+      },
+      "color": "Blue",
+      "vertices": [
+        {
+          "x": 305,
+          "y": 95
+        },
+        {
+          "x": 357,
+          "y": 95
+        },
+        {
+          "x": 357,
+          "y": 195
+        }
+      ]
+    },
+    {
+      "id": "ece190c0-0b32-bf23-4adb-4bc65edb5901",
+      "source": {
+        "id": "16cd2228-5f39-023a-1853-f83fe7fdee79",
+        "name": "output1",
         "pId": "53dec14d-fd2b-0c39-83db-a33992029507",
         "parent": {
           "id": "53dec14d-fd2b-0c39-83db-a33992029507",
@@ -184,167 +127,31 @@
         }
       },
       "target": {
-        "id": "4fc4a08d-13b3-7feb-e76c-97ef22962f0f",
+        "id": "7438dc98-bb06-d07a-52ee-355dc161e897",
         "name": "input0",
-        "pId": "2d461fb2-90fb-5d01-cf3a-bac632bec0f5",
+        "pId": "19fc84f6-ec78-4b84-d461-8e72b03753e5",
         "parent": {
-          "id": "9facf54a-c8ad-4f88-15a8-1409d1101f85",
-          "name": "9facf54ac8ad4f8815a8"
+          "id": "19fc84f6-ec78-4b84-d461-8e72b03753e5",
+          "name": "19fc84f6ec784b84d461"
         }
       },
       "color": "Blue",
       "vertices": [
         {
-          "x": 182,
-          "y": 186
+          "x": 115,
+          "y": 72
         },
         {
-          "x": 243,
-          "y": 186
+          "x": 175,
+          "y": 72
         },
         {
-          "x": 243,
-          "y": 84
+          "x": 175,
+          "y": 95
         },
         {
-          "x": 304,
-          "y": 84
-        }
-      ]
-    },
-    {
-      "id": "3d7d20be-1e42-1b1b-a339-4a0812fb7e91",
-      "source": {
-        "id": "383e3aef-63af-0d70-ff27-d189bb0b0527",
-        "name": "output0",
-        "pId": "6ea636e9-038f-d7bf-30f8-28b04f1cfc00",
-        "parent": {
-          "id": "6ea636e9-038f-d7bf-30f8-28b04f1cfc00",
-          "name": "6ea636e9038fd7bf30f8"
-        }
-      },
-      "target": {
-        "id": "7f977fd8-a47d-8b0c-c689-d2017094fd44",
-        "name": "input0",
-        "pId": "731bc211-b814-8642-19f8-97e5c0037e3a",
-        "parent": {
-          "id": "731bc211-b814-8642-19f8-97e5c0037e3a",
-          "name": "end"
-        }
-      },
-      "color": "Blue",
-      "vertices": [
-        {
-          "x": 375,
-          "y": 274
-        },
-        {
-          "x": 825,
-          "y": 274
-        },
-        {
-          "x": 825,
-          "y": 177
-        },
-        {
-          "x": 759,
-          "y": 177
-        },
-        {
-          "x": 759,
-          "y": 86
-        },
-        {
-          "x": 852,
-          "y": 86
-        }
-      ]
-    },
-    {
-      "id": "8bd7cd11-3299-ea05-37da-89c577ff347e",
-      "source": {
-        "id": "62063e05-c239-ac49-697a-6777659fdd10",
-        "name": "output0",
-        "pId": "0a721aa6-230d-c2a1-f110-abd503e3a78d",
-        "parent": {
-          "id": "9facf54a-c8ad-4f88-15a8-1409d1101f85",
-          "name": "9facf54ac8ad4f8815a8"
-        }
-      },
-      "target": {
-        "id": "186a6041-69b7-59a2-386e-c55e7e16d88d",
-        "name": "input0",
-        "pId": "8db1b946-b109-e5b1-a96a-931b5a965128",
-        "parent": {
-          "id": "8db1b946-b109-e5b1-a96a-931b5a965128",
-          "name": "end"
-        }
-      },
-      "color": "Gold",
-      "vertices": [
-        {
-          "x": 454,
-          "y": 128.75
-        },
-        {
-          "x": 487,
-          "y": 128.75
-        },
-        {
-          "x": 487,
-          "y": 60
-        },
-        {
-          "x": 520,
-          "y": 60
-        }
-      ]
-    },
-    {
-      "id": "869e4d41-e33a-f104-cf5e-8baedea5d61d",
-      "source": {
-        "id": "2ff140dc-84fc-ba1b-c8ba-bb4381aedf96",
-        "name": "output0",
-        "pId": "0c545641-2592-23e6-996e-34547d6eb2aa",
-        "parent": {
-          "id": "9facf54a-c8ad-4f88-15a8-1409d1101f85",
-          "name": "9facf54ac8ad4f8815a8"
-        }
-      },
-      "target": {
-        "id": "db905679-3e31-d149-92a1-5f6add408d4a",
-        "name": "input0",
-        "pId": "6ea636e9-038f-d7bf-30f8-28b04f1cfc00",
-        "parent": {
-          "id": "6ea636e9-038f-d7bf-30f8-28b04f1cfc00",
-          "name": "6ea636e9038fd7bf30f8"
-        }
-      },
-      "color": "Blue",
-      "vertices": [
-        {
-          "x": 454,
-          "y": 151.25
-        },
-        {
-          "x": 474,
-          "y": 151.25
-        },
-        {
-          "x": 474,
-          "y": 212.625
-        },
-        {
-          "x": 285,
-          "y": 212.625
-        },
-        {
-          "x": 285,
-          "y": 274
-        },
-        {
-          "x": 305,
-          "y": 274
+          "x": 235,
+          "y": 95
         }
       ]
     }

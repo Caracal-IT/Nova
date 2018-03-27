@@ -66,11 +66,16 @@ namespace Caracal.Web.Nova.Builder.Model.Shapes {
     private string GetTargetShape(JObject token) {
       var outputPort = token["outputPorts"]?.Value<JArray>();
       if (outputPort == null || !outputPort.Any()) return string.Empty;
+
+      foreach (var port in outputPort) {
+        var sourceId = port.Value<string>();
+        var target = _canvas.SelectToken("$.lines[?(@.source.id == '" + sourceId + "')].target");
       
-      var sourceId = outputPort[0].Value<string>();
-      var target = _canvas.SelectToken("$.lines[?(@.source.id == '" + sourceId + "')].target");
-      
-      return target?["parent"]["name"].Value<string>();
+        if(target != null)
+          return target["parent"]["name"].Value<string>();  
+      }
+
+      return null;
     }
     
     private static void AddField(string key, IDictionary<string, object> metadata, JObject token) {

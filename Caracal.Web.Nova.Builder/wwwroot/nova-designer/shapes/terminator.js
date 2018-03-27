@@ -15,8 +15,12 @@ class Terminator extends draw2d.shape.basic.Circle {
         });
 
         super.add(this.label, new draw2d.layout.locator.CenterLocator);
-        this.createPort(port);
-
+                
+        this.createPort(port, new draw2d.layout.locator.TopLocator);
+        this.createPort(port, new draw2d.layout.locator.RightLocator);
+        this.createPort(port, new draw2d.layout.locator.BottomLocator);
+        this.createPort(port, new draw2d.layout.locator.LeftLocator);
+                
         const contextMenu = new DeleteContextMenu(this);
         super.onContextMenu = () => contextMenu.show();
         this.label.onContextMenu = () => contextMenu.show();

@@ -13,6 +13,8 @@ class View extends draw2d.Canvas {
         super.installEditPolicy(new draw2d.policy.connection.DragConnectionCreatePolicy({
             createConnection: () => new WFConnection(this)
         }));
+
+        this.installEditPolicy(new draw2d.policy.canvas.CoronaDecorationPolicy());
     }
     
     onDrag(droppedDomNode, x, y){
