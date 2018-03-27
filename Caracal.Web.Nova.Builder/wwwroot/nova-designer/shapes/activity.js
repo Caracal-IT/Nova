@@ -1,4 +1,4 @@
-class Activity extends draw2d.shape.node.Between  {
+class Activity extends draw2d.shape.basic.Rectangle  {
     constructor(text, type, image) {
         super({
             width: 70,
@@ -12,6 +12,7 @@ class Activity extends draw2d.shape.node.Between  {
             { name: "label" }
         ];
        
+        this.addPorts();
         this.addContextMenu();
         
         this.addLabel(text);
@@ -37,6 +38,31 @@ class Activity extends draw2d.shape.node.Between  {
         bags.push(new DefaultPropertyBag(this));
 
         return bags;
+    }
+    
+    addPorts(){
+        this.createPort("hybrid", new draw2d.layout.locator.LeftLocator());
+        this.createPort("hybrid", new draw2d.layout.locator.XYAbsPortLocator(0, 0));
+        this.createPort("hybrid", new draw2d.layout.locator.XYAbsPortLocator(0, 17));        
+        this.createPort("hybrid", new draw2d.layout.locator.XYAbsPortLocator(0, 53));
+        this.createPort("hybrid", new draw2d.layout.locator.XYAbsPortLocator(0, 70));
+
+
+        this.createPort("hybrid", new draw2d.layout.locator.RightLocator());
+        this.createPort("hybrid", new draw2d.layout.locator.XYAbsPortLocator(70, 0));
+        this.createPort("hybrid", new draw2d.layout.locator.XYAbsPortLocator(70, 17));        
+        this.createPort("hybrid", new draw2d.layout.locator.XYAbsPortLocator(70, 53));
+        this.createPort("hybrid", new draw2d.layout.locator.XYAbsPortLocator(70, 70));
+
+
+        this.createPort("hybrid", new draw2d.layout.locator.TopLocator());
+        this.createPort("hybrid", new draw2d.layout.locator.XYAbsPortLocator(17, 0));        
+        this.createPort("hybrid", new draw2d.layout.locator.XYAbsPortLocator(53, 0));
+
+
+        this.createPort("hybrid", new draw2d.layout.locator.BottomLocator());
+        this.createPort("hybrid", new draw2d.layout.locator.XYAbsPortLocator(17, 70));        
+        this.createPort("hybrid", new draw2d.layout.locator.XYAbsPortLocator(53, 70));
     }
     
     addContextMenu() {
@@ -98,7 +124,7 @@ class Activity extends draw2d.shape.node.Between  {
                 x:  this.contolLabel.x, 
                 y: this.contolLabel.y
             },
-            outputPorts: this.getPortIds(this.outputPorts),
+            outputPorts: this.getPortIds(this.hybridPorts),
             inputPorts: this.getPortIds(this.inputPorts),
             properties: props
         };

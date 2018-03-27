@@ -6,13 +6,13 @@
       "name": "start",
       "factory": "shapeFactory",
       "type": "CodeActivity",
-      "x": 65,
-      "y": 47,
+      "x": 147,
+      "y": 98,
       "outputPorts": [
-        "159a0130-ccd3-ce90-5612-4615eb72ff39",
-        "16cd2228-5f39-023a-1853-f83fe7fdee79",
-        "16dec210-6e6d-60c0-720e-78264e95cebc",
-        "cd9d147f-5ffd-1275-21e5-b729eb66f6a9"
+        "87a34b71-660b-fb38-9d1e-fa6bc1edacab",
+        "9384d334-4d99-a41b-72f1-a26107772fa3",
+        "e26d2d64-8b59-9f15-3c21-741882b08cfa",
+        "be9a0d83-5a82-ffdf-612f-b9fad57a4e3b"
       ],
       "inputPorts": [],
       "properties": [
@@ -24,23 +24,36 @@
     },
     {
       "id": "19fc84f6-ec78-4b84-d461-8e72b03753e5",
-      "name": "19fc84f6ec784b84d461",
+      "name": "AlertActivity",
       "label": "Alert Activity",
       "type": "NovaAlertActivity",
       "factory": "activityFactory",
       "color": "Pink",
-      "x": 235,
-      "y": 60,
+      "x": 324,
+      "y": 88,
       "labelPos": {
         "x": 0,
         "y": -28
       },
       "outputPorts": [
-        "9e4d03fc-ca7f-23c7-0f3a-d39faf5e2368"
+        "23c99f6a-5970-b96a-1d4f-7e53687aee37",
+        "76b484bd-82aa-b8d2-38c3-c28667139e3d",
+        "474c1f51-5fb6-b055-f807-8eab1782b542",
+        "dbdb6fd0-1b30-037d-b318-7f996b37a5f0",
+        "d8c8da75-d356-eba7-77af-3640a17529ed",
+        "d474b1a3-91fa-a2a6-45f9-ac17531f809e",
+        "e8637950-e7f4-b890-36c0-cd55d416148d",
+        "e92dd38c-5c5a-d0c2-497a-ad2c962e5c94",
+        "f287f0d9-f3ec-ccc0-ad6b-1f42a50a1ec9",
+        "909d13bc-55ac-ba3e-ce33-e91d9ac44378",
+        "4c9a9c1b-8ac5-f5a1-f027-297e0c855836",
+        "3433b3f4-1ed4-f9a5-49f9-814b75e22fa6",
+        "e3e59f12-3508-17aa-997a-a7f9bbcddede",
+        "043155d6-609c-974a-ba68-01d42b0dc6cb",
+        "33cc4918-9ba2-5bd2-6a56-ce047f6ce683",
+        "5463e0a9-2416-181d-dfec-68afc3a2d6a7"
       ],
-      "inputPorts": [
-        "7438dc98-bb06-d07a-52ee-355dc161e897"
-      ],
+      "inputPorts": [],
       "properties": [
         {
           "name": "title",
@@ -48,7 +61,7 @@
         },
         {
           "name": "message",
-          "value": "Data saved"
+          "value": "Hello hybrid ports 3"
         },
         {
           "name": "style",
@@ -61,14 +74,14 @@
       "name": "end",
       "factory": "shapeFactory",
       "type": "CodeActivity",
-      "x": 332,
-      "y": 195,
+      "x": 510,
+      "y": 98,
       "outputPorts": [],
       "inputPorts": [
-        "38c166af-5ad8-81fa-27ee-4ababe6a6e02",
-        "6764c5ba-5b12-6ac2-02fa-d8b6f199239b",
-        "7c7dfe11-0cd5-d84c-be97-2e095393d29c",
-        "468abb7c-9eb6-ef85-9fd0-80efbd4913a1"
+        "7b987f8d-6394-4f95-35f5-66cf814a50b4",
+        "f8af112e-18f5-6709-d9dc-3d1aeca54460",
+        "5732e438-431f-c40c-02c2-53fac6f3efa7",
+        "ad6fc2e8-8586-6cf6-7d82-7147f88d76ab"
       ],
       "properties": [
         {
@@ -80,19 +93,19 @@
   ],
   "lines": [
     {
-      "id": "aaa5de60-1371-bc05-3ba8-8f8cd3ca866a",
+      "id": "7b4c1317-7316-32d1-a745-02322ace052f",
       "source": {
-        "id": "9e4d03fc-ca7f-23c7-0f3a-d39faf5e2368",
-        "name": "output0",
+        "id": "d474b1a3-91fa-a2a6-45f9-ac17531f809e",
+        "name": "hybrid5",
         "pId": "19fc84f6-ec78-4b84-d461-8e72b03753e5",
         "parent": {
           "id": "19fc84f6-ec78-4b84-d461-8e72b03753e5",
-          "name": "19fc84f6ec784b84d461"
+          "name": "AlertActivity"
         }
       },
       "target": {
-        "id": "38c166af-5ad8-81fa-27ee-4ababe6a6e02",
-        "name": "input0",
+        "id": "ad6fc2e8-8586-6cf6-7d82-7147f88d76ab",
+        "name": "input3",
         "pId": "1bdf6db6-9599-de50-84ae-073ae2b04861",
         "parent": {
           "id": "1bdf6db6-9599-de50-84ae-073ae2b04861",
@@ -102,23 +115,19 @@
       "color": "Blue",
       "vertices": [
         {
-          "x": 305,
-          "y": 95
+          "x": 394,
+          "y": 123
         },
         {
-          "x": 357,
-          "y": 95
-        },
-        {
-          "x": 357,
-          "y": 195
+          "x": 510,
+          "y": 123
         }
       ]
     },
     {
-      "id": "ece190c0-0b32-bf23-4adb-4bc65edb5901",
+      "id": "3da45884-161b-166f-c8d4-dfc3ebafe69b",
       "source": {
-        "id": "16cd2228-5f39-023a-1853-f83fe7fdee79",
+        "id": "9384d334-4d99-a41b-72f1-a26107772fa3",
         "name": "output1",
         "pId": "53dec14d-fd2b-0c39-83db-a33992029507",
         "parent": {
@@ -127,31 +136,23 @@
         }
       },
       "target": {
-        "id": "7438dc98-bb06-d07a-52ee-355dc161e897",
-        "name": "input0",
+        "id": "23c99f6a-5970-b96a-1d4f-7e53687aee37",
+        "name": "hybrid0",
         "pId": "19fc84f6-ec78-4b84-d461-8e72b03753e5",
         "parent": {
           "id": "19fc84f6-ec78-4b84-d461-8e72b03753e5",
-          "name": "19fc84f6ec784b84d461"
+          "name": "AlertActivity"
         }
       },
       "color": "Blue",
       "vertices": [
         {
-          "x": 115,
-          "y": 72
+          "x": 197,
+          "y": 123
         },
         {
-          "x": 175,
-          "y": 72
-        },
-        {
-          "x": 175,
-          "y": 95
-        },
-        {
-          "x": 235,
-          "y": 95
+          "x": 324,
+          "y": 123
         }
       ]
     }
