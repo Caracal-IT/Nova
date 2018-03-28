@@ -31,7 +31,7 @@ class ActivityFactory {
         act.type = "ApiActivity";
         act.properties.push(...properties);
         act.changeColor(FormColor.GetColour("Purple"));
-        
+        // ControlPropertyBag
         return act;
     }
 

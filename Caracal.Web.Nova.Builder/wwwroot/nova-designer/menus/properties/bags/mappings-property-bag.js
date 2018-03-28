@@ -1,11 +1,12 @@
-class DefaultPropertyBag {
+class MappingsPropertyBag {
     constructor(shape){
         this.header = "Properties";
         this.shape = shape;
     }
 
+    /*
     get properties() {
-        return this.shape.properties;
+        return []; //this.shape.properties;
     }
 
     get columns() {
@@ -31,4 +32,5 @@ class DefaultPropertyBag {
         if (name === "label" && this.shape["name"] === this.shape["label"])
             document.querySelector("#name").value = value;
     }
+    */
 }

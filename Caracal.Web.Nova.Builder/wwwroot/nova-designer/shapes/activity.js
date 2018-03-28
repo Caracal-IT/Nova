@@ -12,6 +12,8 @@ class Activity extends draw2d.shape.basic.Rectangle  {
             { name: "label" }
         ];
        
+        this.propertyBags = [new DefaultPropertyBag(this)];
+        
         this.addPorts();
         this.addContextMenu();
         
@@ -33,6 +35,10 @@ class Activity extends draw2d.shape.basic.Rectangle  {
         this.contolLabel.setVisible(text.length > 0);
     }
 
+    addPropertyBag(bag) {
+        this.propertyBags.push(bag);
+    }
+    
     getPropertyBags() {
         const bags = [];
         bags.push(new DefaultPropertyBag(this));

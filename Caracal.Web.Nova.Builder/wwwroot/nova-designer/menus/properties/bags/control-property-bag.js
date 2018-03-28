@@ -6,6 +6,13 @@ class ControlPropertyBag {
         this.controls = [];
     }
 
+    get columns() {
+        return [
+            {name: "name", type: "label"},
+            {name: "value", type: "control"}
+        ];
+    }
+
     setWorkflowServer(value) {
         if (!this.workflowServer) {
             this.workflowServer = value;
@@ -13,8 +20,6 @@ class ControlPropertyBag {
         }
 
         const type = this.shape.control.find(c => c.name === "type");
-        
-        console.log(this.shape);
         
         this.onChange(type?type.value:null);        
     }

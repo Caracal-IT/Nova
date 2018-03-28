@@ -40,13 +40,18 @@ class PropertyPane {
         const row = document.createElement("tr");
         table.appendChild(row);
         
-        const cell1 = document.createElement("td");
-        cell1.innerText = p.name;
-        row.appendChild(cell1);
-
-        const cell2 = document.createElement("td");
-        cell2.appendChild(this.createControl(p));
-        row.appendChild(cell2);
+        this.bag.columns.forEach(c => {
+            let cell = document.createElement("td");
+            
+            if (c.type === "label") 
+                cell.innerText = p[c.name];
+            if (c.type === "input")
+                cell.innerText = p[c.name];
+            else if (c.type === "control")
+                cell.appendChild(this.createControl(p));
+            
+            row.appendChild(cell);
+        });
     }
     
     createControl(p) {
