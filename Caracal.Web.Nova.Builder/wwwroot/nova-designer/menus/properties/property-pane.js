@@ -24,34 +24,101 @@ class PropertyPane {
     }
 
     createHeader(){
+        if (this.bag.headerButton){
+            const headerButton = document.createElement("span");
+            headerButton.innerText = this.bag.headerButton;
+
+            if (this.bag.onHeaderAction)
+                headerButton.onclick = () => this.bag.onHeaderAction(this);
+            
+            this.content.appendChild(headerButton);
+        }
+        
         const header = document.createElement("h2");
         header.innerText = this.bag.header;
         this.content.appendChild(header);
     }
     
-    createProperties(){
-        const table = document.createElement("table");
-        this.content.appendChild(table);
-        
-        this.bag.properties.forEach(p => this.createProperty(table, p));
+    showHideHeader(){
+        if (this.bag.includeColumnHeaders) {
+            if (this.table.children.length > 1)
+                this.table.removeAttribute("style");
+            else
+                this.table.setAttribute("style", "display:none");
+        }
     }
     
-    createProperty(table, p){
+    createProperties(){
+        this.table = document.createElement("table");
+        this.table.className = "header";
+        this.content.appendChild(this.table);
+        
+        if (this.bag.includeColumnHeaders) {
+            this.createColumnHeaders();
+            this.showHideHeader();
+        }
+        
+        this.bag.properties.forEach(p => this.createProperty(p));
+    }
+
+    createColumnHeaders() {
         const row = document.createElement("tr");
-        table.appendChild(row);
+        this.table.appendChild(row);
+
+        this.bag.columns.forEach(c => {
+            let cell = document.createElement("th");
+
+            cell.innerText = c.name;
+            cell.setAttribute("style", "background:#C0C0C0;color:white");
+
+            row.appendChild(cell);
+        });
+    }
+    
+    createProperty(p){
+        const row = document.createElement("tr");
+        this.table.appendChild(row);
         
         this.bag.columns.forEach(c => {
             let cell = document.createElement("td");
             
             if (c.type === "label") 
                 cell.innerText = p[c.name];
-            if (c.type === "input")
-                cell.innerText = p[c.name];
+            else if (c.type === "input")
+                this.createInputPropertyItem(c, p, cell);
+            else if (c.type === "select") 
+                this.createSelectPropertyItem(c, p, cell, row);
             else if (c.type === "control")
                 cell.appendChild(this.createControl(p));
             
             row.appendChild(cell);
         });
+        
+        this.showHideHeader();
+    }
+    
+    createInputPropertyItem(column, property, cell){
+        const input = document.createElement("input");
+        input.value = property[column.name];
+        cell.appendChild(input);
+    }
+    
+    createSelectPropertyItem(column, property, cell, row) {
+        const select = document.createElement("select");
+
+        column.items.forEach(o => {
+            const option = document.createElement("option");
+            option.innerText = o.name;
+            option.value = o.value;
+
+            select.appendChild(option);
+        });
+
+        select.value = property[column.name];
+        cell.appendChild(select);
+
+        if (this.bag.onChange)
+            select.onchange = () => this.bag.onChange(column, select, row, this);
     }
     
     createControl(p) {
@@ -64,7 +131,6 @@ class PropertyPane {
         else 
             this.createDefaultEvent(p,  e);
         
-
         e.id = p.name;
         e.value = this.bag.getProperty(p.name);
         

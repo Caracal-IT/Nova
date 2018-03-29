@@ -20,7 +20,6 @@ class ActivityFactory {
                 value: "get", 
                 type: "select", 
                 items: [
-                    { name: "Select an option", value: "" },
                     { name: "get", value: "get" },
                     { name: "post", value: "post" }
                 ]
@@ -31,7 +30,8 @@ class ActivityFactory {
         act.type = "ApiActivity";
         act.properties.push(...properties);
         act.changeColor(FormColor.GetColour("Purple"));
-        // ControlPropertyBag
+        act.addPropertyBag(new MappingsPropertyBag(act));
+
         return act;
     }
 
@@ -54,10 +54,9 @@ class ActivityFactory {
             { name: "message", value: "Data saved" },
             { 
                 name: "style", 
-                value: "success",
+                value: "primary",
                 type: "select",
                 items: [
-                    { name: "Select an option", value: "" },
                     { name: "primary", value: "primary" },
                     { name: "secondary", value: "secondary" },
                     { name: "success", value: "success" },

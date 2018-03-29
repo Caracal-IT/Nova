@@ -43,7 +43,7 @@ class Activity extends draw2d.shape.basic.Rectangle  {
         const bags = [];
         bags.push(new DefaultPropertyBag(this));
 
-        return bags;
+        return this.propertyBags;
     }
     
     addPorts(){

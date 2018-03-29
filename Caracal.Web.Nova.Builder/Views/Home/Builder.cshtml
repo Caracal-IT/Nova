@@ -95,6 +95,29 @@
           height: 100%;
         }
         
+        #properties table.header tr:nth-child(odd) {
+          background-color: #e2e2e2;
+        }
+        
+        #properties table.header tr:nth-child(even) {
+          background-color: #ffffff;
+        }
+        
+        #properties span {
+          position:absolute;cursor:pointer;z-index:99999;margin-top:-8px;right:5px;font-size:20px;
+        }
+        
+        #properties table th {
+          padding: 0;
+          padding-top: 10px;
+          padding-left: 8px;
+          margin-bottom: 3px;
+          border-bottom: 1px solid;
+          text-transform: capitalize;
+          background: #C0C0C0;color: white;
+          text-align: left;
+          font-weight: normal;
+        }
       </style>
       <title>Builder</title>
       <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -314,8 +337,6 @@
 
   let propWindow = new PropertyWindow("#properties", workflowServer);
 
-  
-  
   canvas.on("select", (emitter, event) => { if (!isloadeing) propWindow.show(event.figure); });
 
   
@@ -334,10 +355,12 @@
 
       },
       east: {
-        resizable: false,
+        resizable: true,
         closable: true,
         paneSelector: "#properties",
-        size: 320
+        minSize: 300,
+        mazSize: 450,
+        size: 400
       },
       center: {
         resizable: true,
