@@ -1,5 +1,5 @@
 class Activity extends draw2d.shape.basic.Rectangle  {
-    constructor(text, type, image) {
+    constructor(caption, type, image) {
         super({
             width: 70,
             height: 70,
@@ -9,7 +9,7 @@ class Activity extends draw2d.shape.basic.Rectangle  {
 
         this.properties = [
             { name: "name" },
-            { name: "label" }
+            { name: "caption" }
         ];
        
         this.propertyBags = [new DefaultPropertyBag(this)];
@@ -17,22 +17,22 @@ class Activity extends draw2d.shape.basic.Rectangle  {
         this.addPorts();
         this.addContextMenu();
         
-        this.addLabel(text);
+        this.addCaptionLabel(caption);
         this.addImage(image);
         this.addTypeLabel(type);
 
         this.type = type;
-        this.label = text;
+        this.caption = caption;
         this.name = this.id.replace(/-/g, "").substring(0, 20);
     }
 
-    get label(){
-        return this.contolLabel.getText();
+    get caption(){
+        return this.captionLabel.getText();
     }
 
-    set label(text){
-        this.contolLabel.setText(text);
-        this.contolLabel.setVisible(text.length > 0);
+    set caption(value){
+        this.captionLabel.setText(value);
+        this.captionLabel.setVisible(value.length > 0);
     }
 
     addPropertyBag(bag) {
@@ -83,15 +83,15 @@ class Activity extends draw2d.shape.basic.Rectangle  {
         this.typeLabel.setBackgroundColor(formColor.primary);
         this.typeLabel.setFontColor(formColor.font);
     }
-    
-    addLabel(label){
-        this.contolLabel = new draw2d.shape.basic.Label({radius: 5, text:label});
-        super.add(this.contolLabel, new draw2d.layout.locator.SmartDraggableLocator());
-        this.contolLabel.installEditor(new draw2d.ui.LabelInplaceEditor({
-            onCommit: (text) => this.contolLabel.setVisible(text.length > 0)
+
+    addCaptionLabel(caption){
+        this.captionLabel = new draw2d.shape.basic.Label({radius: 5, text:caption});
+        super.add(this.captionLabel, new draw2d.layout.locator.SmartDraggableLocator());
+        this.captionLabel.installEditor(new draw2d.ui.LabelInplaceEditor({
+            onCommit: (caption) => this.captionLabel.setVisible(caption.length > 0)
         }));
         
-        this.contolLabel.setPosition(0, -28);
+        this.captionLabel.setPosition(0, -28);
     }
 
     addImage(image){
@@ -113,22 +113,22 @@ class Activity extends draw2d.shape.basic.Rectangle  {
         const props = [];
 
         this.properties.forEach(p => {
-            if (p.name !== "name" && p.name !== "label")
+            if (p.name !== "name" && p.name !== "caption")
                 props.push({name: p.name, value: p.value })
         });
         
         return {
             id: this.id, 
             name: this.name,
-            label: this.label,
+            caption: this.caption,
             type: this.type,
             factory: "activityFactory",
             color: this.formColor.name,
             x: this.x,
             y: this.y,
             labelPos: { 
-                x:  this.contolLabel.x, 
-                y: this.contolLabel.y
+                x:  this.captionLabel.x, 
+                y: this.captionLabel.y
             },
             outputPorts: this.getPortIds(this.hybridPorts),
             inputPorts: this.getPortIds(this.inputPorts),

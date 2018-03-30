@@ -74,8 +74,8 @@ class ProcessParser {
     }
     
     addLabelPosition(shape, figure, property) {
-        figure.contolLabel.x = shape[property].x;
-        figure.contolLabel.y = shape[property].y;
+        figure.captionLabel.x = shape[property].x;
+        figure.captionLabel.y = shape[property].y;
     }
     
     isActivityProperties(shape, property){

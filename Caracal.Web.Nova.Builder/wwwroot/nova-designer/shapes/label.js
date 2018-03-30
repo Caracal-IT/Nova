@@ -24,8 +24,8 @@ class Label extends draw2d.shape.basic.Label {
         return this.getText();
     }
 
-    set caption(text){
-        this.setText(text);
+    set caption(value){
+        this.setText(value);
     }
 
     getPropertyBags() {

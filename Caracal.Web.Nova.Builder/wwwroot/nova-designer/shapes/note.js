@@ -19,8 +19,8 @@ class Note extends draw2d.shape.note.PostIt  {
         return this.getText();
     }
 
-    set caption(text){
-        this.setText(text);
+    set caption(value){
+        this.setText(value);
     }
 
     getPropertyBags() {
