@@ -9,10 +9,10 @@
       "x": 152,
       "y": 86,
       "outputPorts": [
-        "188b08b2-f332-df66-dede-1bbeec7ad0a3",
-        "400d2b50-4e1b-51a6-cc2e-103904f2dd2b",
-        "9c21e653-8fb7-67ad-6b32-e20fb7ac3f9b",
-        "eaeb6176-dcce-8645-e1b5-ab7e8dd6f877"
+        "c5a32073-163f-1eeb-5476-3ba3341bc1d8",
+        "feb69e2e-f931-d6b5-dd38-330a97d6610c",
+        "98fbdc96-278e-4858-e764-73f256d0f69b",
+        "6a385060-f89e-b2a9-2029-2341785922a0"
       ],
       "inputPorts": [],
       "properties": [
@@ -20,55 +20,6 @@
           "name": "code",
           "value": "function execute(params, wf, notify) { }"
         }
-      ]
-    },
-    {
-      "id": "22a88676-011b-d68b-4387-51d04d264200",
-      "name": "22a88676011bd68b4387",
-      "type": "FormActivity",
-      "factory": "shapeFactory",
-      "color": "Blue",
-      "x": 407,
-      "y": 80,
-      "properties": [
-        {
-          "name": "form",
-          "value": {
-            "controls": [
-              {
-                "id": "6d909ee6-8dcd-e5dc-d93a-4d68db822fe4",
-                "name": "_header_",
-                "type": "paper-header",
-                "label": "Form Activity",
-                "caption": "Form Activity",
-                "outputPorts": [],
-                "properties": []
-              },
-              {
-                "id": "744f3aaf-71c7-6b1e-707c-217a7b2518b4",
-                "name": "Name1",
-                "label": "Name123",
-                "caption": "Name12",
-                "outputPorts": [],
-                "properties": [
-                  {
-                    "name": "type",
-                    "value": "paper-input"
-                  },
-                  {
-                    "name": "placeholder",
-                    "value": "Please select an item"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ],
-      "inputPorts": [
-        "e17d0a1e-1eed-d2db-01e0-47ec59388e56",
-        "1e3f5258-6d2e-b68b-6779-8dad9ef57522",
-        "8bdeeb9b-ffe1-2f35-31ff-212798fcb433"
       ]
     }
   ],

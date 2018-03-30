@@ -77,22 +77,33 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
     }
     
     syncLabelAndName(value){
-        if (this._caption === this._label) 
-            this._label = value;
+        if (this.trimAll(this._caption) === this.trimAll(this._label)) 
+            this._label = this.getCamelCase(value);
         
-        if (this._caption === this._name) 
-            this._name = value;
+        if (this.trimAll(this._caption) === this.trimAll(this._name)) 
+            this._name = this.trimAll(value);
         
         this._caption = value;
     }
 
     syncName(value){
-        if (this._label === this._name) 
-            this._name = value;
+        if (this.trimAll(this._label) === this.trimAll(this._name)) 
+            this._name = this.trimAll(value);
 
         this._label = value;
     }
 
+    getCamelCase(value) {
+        return value.replace(/([a-z](?=[A-Z]))/g, '$1 ');
+    }
+
+    trimAll(value){
+        if (value) 
+            return value.replace(/\s/g, '');
+        
+        return value;
+    }
+    
     addCaptionLabel(){
         this.captionLabel = FormControl.createCaptionLabel("Label", {left: 5, right: (107 - 30)}, true);
         super.add(this.captionLabel);

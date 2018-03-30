@@ -8,6 +8,7 @@ class Toolbar {
         this.undoButton = this.registerDisabledButton("#undoButton", () => view.undo());
         this.redoButton = this.registerDisabledButton("#redoButton", () => view.redo());
         this.deleteButton = this.registerDisabledButton("#deleteButton", () => view.delete());
+        this.colorDropdown = this.registerSelect("#colorDropdown", () => {});
 
         this.registerButton("#zoomInButton", () => view.zoomIn());
         this.registerButton("#zoomResetButton", () => view.zoomReset());
@@ -16,6 +17,14 @@ class Toolbar {
         this.registerButton("#publishButton", () => workflowServer.publish());
     }
 
+    registerSelect(selector, clickHandler){
+        let select = $(selector);
+        select[0].disabled = true;
+        select.click(() => clickHandler());
+
+        return select;
+    }
+    
     registerButton(selector, clickHandler){
         let button = $(selector);
         button
@@ -31,6 +40,11 @@ class Toolbar {
     }
 
     onSelectionChanged(emitter, event){
+        this.colorDropdown[0].disabled = (event.figure === null);
+        
+        if (this.colorDropdown[0].disabled) 
+            this.colorDropdown[0].value = "";
+        
         this.deleteButton.button( "option", "disabled", event.figure === null );
     }
 

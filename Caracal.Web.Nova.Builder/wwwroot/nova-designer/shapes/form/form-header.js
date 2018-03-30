@@ -14,7 +14,7 @@ class FormHeader extends draw2d.shape.layout.HorizontalLayout {
         this.createPorts();
         this.addCaption(caption);
         this._caption = caption;
-        this._label = caption;
+        this._label = this.getCamelCase(caption);
         // this.images.push(this.addImage(draw2d.shape.icon.Contract));
         // this.images.push(this.addImage(draw2d.shape.icon.Expand, false));
     }
@@ -37,10 +37,18 @@ class FormHeader extends draw2d.shape.layout.HorizontalLayout {
     }
     
     syncLabel(value) {
-        if (this._caption === this._label)
-            this._label = value;
+        if (this.trimAll(this._caption) === this.trimAll(this._label))
+            this._label = this.getCamelCase(value);
             
         this._caption = value;
+    }
+    
+    getCamelCase(value) {
+        return value.replace(/([a-z](?=[A-Z]))/g, '$1 ');
+    }
+    
+    trimAll(value){
+        return value.replace(/\s/g, '');
     }
     
     addCaption(text) {
