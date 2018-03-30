@@ -9,10 +9,10 @@
       "x": 152,
       "y": 86,
       "outputPorts": [
-        "c5a32073-163f-1eeb-5476-3ba3341bc1d8",
-        "feb69e2e-f931-d6b5-dd38-330a97d6610c",
-        "98fbdc96-278e-4858-e764-73f256d0f69b",
-        "6a385060-f89e-b2a9-2029-2341785922a0"
+        "0fce03ab-9a34-b68b-4392-73b9389a15a0",
+        "c5c8c65f-6e09-6582-5102-4e02fb45f9de",
+        "097cbcd6-3ce8-7d51-91b5-03d2ff4c0754",
+        "e6a4f1c1-d31a-2066-192a-ea4e37a1436c"
       ],
       "inputPorts": [],
       "properties": [
@@ -21,7 +21,131 @@
           "value": "function execute(params, wf, notify) { }"
         }
       ]
+    },
+    {
+      "id": "23771210-011d-6016-739f-a2736c51f992",
+      "name": "23771210011d6016739f",
+      "type": "FormActivity",
+      "factory": "shapeFactory",
+      "color": "Teal",
+      "x": 456,
+      "y": 57,
+      "properties": [
+        {
+          "name": "form",
+          "value": {
+            "controls": [
+              {
+                "id": "a84d6be9-083f-eb7b-4e5c-322549e22159",
+                "name": "_header_",
+                "type": "paper-header",
+                "label": "Form Activity",
+                "caption": "Form Activity",
+                "outputPorts": [],
+                "properties": []
+              },
+              {
+                "id": "4f63c6fd-52b8-e6f7-6608-188e25421a93",
+                "name": "Name",
+                "label": "Name",
+                "caption": "Name",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-input"
+                  },
+                  {
+                    "name": "placeholder",
+                    "value": "Please select an item"
+                  }
+                ]
+              },
+              {
+                "id": "380e5dfa-4c5d-6417-b6a5-b4fe8d8993ac",
+                "name": "Name",
+                "label": "Name",
+                "caption": "Name",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-input"
+                  },
+                  {
+                    "name": "placeholder",
+                    "value": "ccc select an item"
+                  }
+                ]
+              },
+              {
+                "id": "0cf6f03a-05d7-f258-a297-4aea78223a0d",
+                "name": "Name",
+                "label": "Name",
+                "caption": "Name",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-input"
+                  },
+                  {
+                    "name": "placeholder",
+                    "value": "Please select an item"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "inputPorts": [
+        "32930911-c4db-c6f6-4bec-465d6ab4bc97",
+        "ec7c009e-7a9a-4d3a-4e8a-6981aeb2552c",
+        "ea376979-4385-ec58-db61-194d0f25253c"
+      ]
     }
   ],
-  "lines": []
+  "lines": [
+    {
+      "id": "89bfcb46-b36d-3cee-3f44-ece271bf3395",
+      "source": {
+        "id": "c5c8c65f-6e09-6582-5102-4e02fb45f9de",
+        "name": "output1",
+        "pId": "e9acf1cd-f41f-3c77-0fef-cf5800b31c08",
+        "parent": {
+          "id": "e9acf1cd-f41f-3c77-0fef-cf5800b31c08",
+          "name": "start"
+        }
+      },
+      "target": {
+        "id": "32930911-c4db-c6f6-4bec-465d6ab4bc97",
+        "name": "input0",
+        "pId": "a84d6be9-083f-eb7b-4e5c-322549e22159",
+        "parent": {
+          "id": "23771210-011d-6016-739f-a2736c51f992",
+          "name": "23771210011d6016739f"
+        }
+      },
+      "color": "Blue",
+      "vertices": [
+        {
+          "x": 202,
+          "y": 111
+        },
+        {
+          "x": 329,
+          "y": 111
+        },
+        {
+          "x": 329,
+          "y": 68
+        },
+        {
+          "x": 456,
+          "y": 68
+        }
+      ]
+    }
+  ]
 }
