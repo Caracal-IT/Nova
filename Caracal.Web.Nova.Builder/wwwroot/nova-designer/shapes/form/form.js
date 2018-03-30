@@ -1,5 +1,5 @@
 class Form extends draw2d.shape.layout.VerticalLayout {
-    constructor(text, onSelect) {
+    constructor(caption, onSelect) {
         super({
             stroke:1,
             radius:2,
@@ -8,6 +8,7 @@ class Form extends draw2d.shape.layout.VerticalLayout {
 
         this.properties = [
             { name: "name" },
+            { name: "caption", sync: ["label"] },
             { name: "label" }
         ];
         
@@ -15,22 +16,30 @@ class Form extends draw2d.shape.layout.VerticalLayout {
         this.controls = [];
         this.createHeader();
         
-        this.label = text;
+        this.caption = caption;
         this.name = this.id.replace(/-/g, "").substring(0, 20);
         
         this.changeColor(FormColor.GetColour("Blue"));
         this.outputLocator = new CollapsibleOutputLocator();
         
         if (this.onSelect)
-            this.header.titleLabel.onClick = () => this.onSelect(this);
+            this.header.captionLabel.onClick = () => this.onSelect(this);
     }
 
     get label(){
-        return this.header.titleLabel.getText();
+        return this.header.label;
     }
 
-    set label(text){
-        this.header.titleLabel.setText(text);
+    set label(value){
+        this.header.label = value;
+    }
+
+    get caption(){
+        return this.header.caption;
+    }
+
+    set caption(value){
+        this.header.caption = value;
     }
     
     getPropertyBags() {

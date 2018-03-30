@@ -1,10 +1,11 @@
 class FormControl extends draw2d.shape.layout.HorizontalLayout {
-    constructor(onSelect, text, container, index, isOutputControl = false) {
+    constructor(onSelect, caption, container, index, isOutputControl = false) {
         super({stroke: 0});
 
         this.properties = [
             { name: "name" },
-            { name: "label" }
+            { name: "caption", sync: ["name", "label"] },
+            { name: "label", sync: ["name"] }
         ];
         
         this.onSelect = onSelect;
@@ -12,7 +13,7 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         this.index = index;
         this.control = [];
         
-        this.addLabel(text);
+        this.addCaptionLabel(caption);
         this.addUp();
         this.addDown();
 
@@ -23,14 +24,14 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
             this.createPorts();           
         }
         
-        this._name = text;
-        this._label = text;
-        this.label = text;
+        this._name = caption;
+        this._label = caption;
+        this.caption = caption;
 
         this.onSelect(this);
         
         if (this.onSelect) 
-            this.controlLabel.onClick = () => this.onSelect(this);
+            this.captionLabel.onClick = () => this.onSelect(this);
     }
 
     createPorts(){
@@ -38,16 +39,15 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         this.createPort("output", new draw2d.layout.locator.RightLocator());        
     }
     
-    get label(){
-        return this.controlLabel.getText();
+    get caption(){
+        return this._caption;
     }
 
-    set label(text){
-        this.syncLabelAndText(text);
-        
-        this.controlLabel.setText(text);
+    set caption(value){
+        this.syncLabelAndName(value);
+        this.captionLabel.setText(value);
 
-        this.controlLabel.padding.right = (107 - 6 * text.length);
+        this.captionLabel.padding.right = (107 - 6 * value.length);
         this.container.refresh();
     }
     
@@ -59,6 +59,15 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         this._name = text;
     }
 
+    get label(){
+        return this._label;
+    }
+
+    set label(value){
+        this.syncName(value);
+        this._label = value;
+    }
+
     getPropertyBags() {
         const bags = [];
         bags.push(new DefaultPropertyBag(this));
@@ -67,44 +76,53 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         return bags;
     }
     
-    syncLabelAndText(text){
-        if (this._name === this._label) {
-            this._name = text;
-            this._label = text;
-            this.controlLabel.setText(text);
-        }
+    syncLabelAndName(value){
+        if (this._caption === this._label) 
+            this._label = value;
+        
+        if (this._caption === this._name) 
+            this._name = value;
+        
+        this._caption = value;
     }
 
-    addLabel(){
-        this.controlLabel = this.createLabel("Label", {left: 5, right: (107 - 30)}, true);
-        super.add(this.controlLabel);
+    syncName(value){
+        if (this._label === this._name) 
+            this._name = value;
+
+        this._label = value;
+    }
+
+    addCaptionLabel(){
+        this.captionLabel = this.createCaptionLabel("Label", {left: 5, right: (107 - 30)}, true);
+        super.add(this.captionLabel);
 
         const contextMenu = new FormContextMenu(this);
-        this.controlLabel.onContextMenu = () => contextMenu.show();
+        this.captionLabel.onContextMenu = () => contextMenu.show();
 
         let editor = new draw2d.ui.LabelInplaceEditor({
             onCommit: () => {
-                this.controlLabel.padding.right = (107 - 6 * this.controlLabel.text.length)
+                this.captionLabel.padding.right = (107 - 6 * this.captionLabel.text.length)
                 this.container.refresh();
 
-                this.syncLabelAndText(this.controlLabel.text);
+                this.syncLabelAndName(this.captionLabel.text);
                 
                 if (this.onSelect)
                     this.onSelect(this);
             }
         });
         
-        this.controlLabel.installEditor(editor);
+        this.captionLabel.installEditor(editor);
     }
 
     addUp(){
-        let up = this.createLabel("⬆");
+        let up = this.createCaptionLabel("⬆");
         super.add(up, new draw2d.layout.locator.RightLocator());
         up.on('click', () => this.moveUp());
     }
 
     addDown(){
-        let down = this.createLabel("⬇");
+        let down = this.createCaptionLabel("⬇");
         super.add(down, new draw2d.layout.locator.RightLocator());
         down.on('click', () => this.moveDown());
     }
@@ -117,7 +135,7 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         this.container.moveDown(this.index);
     }
 
-    createLabel(text, padding = {}, resizeable = false) {
+    createCaptionLabel(text, padding = {}, resizeable = false) {
         return new draw2d.shape.basic.Label({
             text: text,
             padding: padding,
@@ -160,6 +178,7 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
             id: this.id, 
             name: this.name,
             label: this.label,
+            caption: this.caption,
             outputPorts: this.getPortIds(this.outputPorts),
             properties: []
         };

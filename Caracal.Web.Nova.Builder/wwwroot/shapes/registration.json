@@ -9,10 +9,10 @@
       "x": 152,
       "y": 86,
       "outputPorts": [
-        "9f30c4e8-07b2-d807-0c13-08224642c54a",
-        "81f5fba2-0414-3cea-2ca0-5d14f51a3758",
-        "e560b99e-c97e-9496-8643-4904eaca3e16",
-        "4b569407-b444-4d9c-9a68-76ca3e1a0d1f"
+        "188b08b2-f332-df66-dede-1bbeec7ad0a3",
+        "400d2b50-4e1b-51a6-cc2e-103904f2dd2b",
+        "9c21e653-8fb7-67ad-6b32-e20fb7ac3f9b",
+        "eaeb6176-dcce-8645-e1b5-ab7e8dd6f877"
       ],
       "inputPorts": [],
       "properties": [
@@ -23,265 +23,54 @@
       ]
     },
     {
-      "id": "3d1c02ed-1216-d7ed-0273-2af4e3539175",
-      "name": "3d1c02ed1216d7ed0273",
-      "caption": "Alert Activity3333",
-      "type": "NovaAlertActivity",
-      "factory": "activityFactory",
-      "color": "Pink",
-      "x": 322,
-      "y": 93,
-      "labelPos": {
-        "x": -14,
-        "y": -32
-      },
-      "outputPorts": [
-        "0fdd6dac-ed5d-1119-21e5-bdede9b8411e",
-        "96a874e3-29c3-3887-15a5-6fe11cd5cf88",
-        "2f1ff232-37f2-617c-68e8-86ae8a8d0239",
-        "5b81157b-1a37-9ff1-d0f5-e3b0c55061c9",
-        "2b9d8e36-0d25-686d-5086-952416410318",
-        "37be88df-92ec-8c83-3519-97d6fd41dfbd",
-        "e1822bde-bf77-d1cd-288d-4b5f173739e4",
-        "e5043fc9-0167-8cba-5198-aa8afa6e1d74",
-        "e704453d-579e-80e5-d7ad-43c7090fd0d1",
-        "1878b6a7-3212-f2aa-d889-9dbee897d4e7",
-        "94e0e38a-95a9-dc59-1b14-4d1814c2b818",
-        "cdef128e-8995-1174-2018-b45dc5aebcdd",
-        "c5a63ab7-ea02-72f0-b471-60520cc14928",
-        "65912cb0-87ea-f12d-d66d-822a0ea37250",
-        "e6041fb8-ec72-150a-1689-be1d57047e57",
-        "ef39c0ce-5f61-ec0b-61fb-c079d61e8d01"
-      ],
-      "inputPorts": [],
+      "id": "22a88676-011b-d68b-4387-51d04d264200",
+      "name": "22a88676011bd68b4387",
+      "type": "FormActivity",
+      "factory": "shapeFactory",
+      "color": "Blue",
+      "x": 407,
+      "y": 80,
       "properties": [
         {
-          "name": "title",
-          "value": "Success"
-        },
-        {
-          "name": "message",
-          "value": "Data saved"
-        },
-        {
-          "name": "style",
-          "value": "primary"
+          "name": "form",
+          "value": {
+            "controls": [
+              {
+                "id": "6d909ee6-8dcd-e5dc-d93a-4d68db822fe4",
+                "name": "_header_",
+                "type": "paper-header",
+                "label": "Form Activity",
+                "caption": "Form Activity",
+                "outputPorts": [],
+                "properties": []
+              },
+              {
+                "id": "744f3aaf-71c7-6b1e-707c-217a7b2518b4",
+                "name": "Name1",
+                "label": "Name123",
+                "caption": "Name12",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-input"
+                  },
+                  {
+                    "name": "placeholder",
+                    "value": "Please select an item"
+                  }
+                ]
+              }
+            ]
+          }
         }
-      ]
-    },
-    {
-      "id": "5a4bf250-81b3-dbad-b6dc-dd68c65734ed",
-      "name": "5a4bf25081b3dbadb6dc",
-      "caption": "Code Activity33",
-      "type": "CodeActivity",
-      "factory": "activityFactory",
-      "color": "Gold",
-      "x": 455,
-      "y": 115,
-      "labelPos": {
-        "x": 0,
-        "y": -28
-      },
-      "outputPorts": [
-        "b6bb4de7-f3a1-9d0d-3a0e-2166bff1f830",
-        "7288ebf2-0774-1ef4-1e63-7abf3c68180d",
-        "68390be0-b93e-e919-1f77-723a7f16adff",
-        "2d49029c-a561-0c6b-c87d-5991fc2c5922",
-        "2fb4dce0-2393-17ba-9346-381ef7ca9c9e",
-        "6f13e946-e164-cbd4-15c9-335aed4ab903",
-        "38107894-ebf2-7d62-3e30-c826b09b15eb",
-        "3a483d9e-7d1d-b165-1e4c-ee743728bc15",
-        "2230102a-b744-701e-ac39-7438686feff4",
-        "950dc13f-85b1-3602-4659-d2ce162214c0",
-        "3a8341f2-1441-8a73-059a-2dbcdc5606a1",
-        "57ce242b-9f83-1a7c-b707-53aa08d99ff9",
-        "1767b3e5-28d1-ff7d-d0c7-da290acb86cf",
-        "062eb635-3ad9-26b7-bb2e-14b229d89fd6",
-        "dfef40e3-35a2-3768-a70b-566d6940763e",
-        "755ccedd-3b88-40e3-6f7c-f57baf15e48b"
       ],
-      "inputPorts": [],
-      "properties": [
-        {
-          "name": "code",
-          "value": "function execute(params, wf, notify) { }"
-        }
-      ]
-    },
-    {
-      "id": "c75a34b8-eee6-b3cb-2baa-0c0542b1dce7",
-      "name": "c75a34b8eee6b3cb2baa",
-      "caption": "Webservice Activity44",
-      "type": "ApiActivity",
-      "factory": "activityFactory",
-      "color": "Purple",
-      "x": 627,
-      "y": 119,
-      "labelPos": {
-        "x": 0,
-        "y": -28
-      },
-      "outputPorts": [
-        "27aff135-5f9e-ba15-ff29-145273d64fce",
-        "3299b907-a972-e21f-e731-ceec70ef1461",
-        "47dc1e8e-86f1-20d8-0361-4746e757e2dc",
-        "8e1cd0ad-7d7d-38c7-3757-b1f7577224c3",
-        "2b5197f9-851e-7f59-75cc-c3c9f10461df",
-        "c898118d-4e63-f0e5-2e41-f2667e529522",
-        "fc1d13bc-8caf-bac4-f058-d2c46d2c3e71",
-        "b60495eb-b239-28d5-cb61-2203c664a1f5",
-        "0791dc61-936c-2708-d5b1-04f5898433cf",
-        "19e56eff-29d8-01b4-d686-9e31afc0ecb3",
-        "0d0c4b59-f471-e6ba-f6c1-729b3741ba09",
-        "15ae8196-963e-f388-524a-75cdf574388b",
-        "7874c0e6-3a7f-e35c-849b-851c4502ed6a",
-        "781af34f-cc52-c11c-25af-2e34da840337",
-        "40cba592-c9c1-6d71-605c-78e03a1b8e84",
-        "7d7382cd-da08-24df-0513-a6297cf928b2"
-      ],
-      "inputPorts": [],
-      "properties": [
-        {
-          "name": "mappings",
-          "value": [
-            {
-              "source": "source",
-              "destination": "destination",
-              "action": "inout"
-            }
-          ]
-        },
-        {
-          "name": "api",
-          "value": "/api/smart-object/reservation/1"
-        },
-        {
-          "name": "method",
-          "value": "get"
-        }
+      "inputPorts": [
+        "e17d0a1e-1eed-d2db-01e0-47ec59388e56",
+        "1e3f5258-6d2e-b68b-6779-8dad9ef57522",
+        "8bdeeb9b-ffe1-2f35-31ff-212798fcb433"
       ]
     }
   ],
-  "lines": [
-    {
-      "id": "d784e81a-38ac-ffc7-8add-904aec55ca49",
-      "source": {
-        "id": "6f13e946-e164-cbd4-15c9-335aed4ab903",
-        "name": "hybrid5",
-        "pId": "5a4bf250-81b3-dbad-b6dc-dd68c65734ed",
-        "parent": {
-          "id": "5a4bf250-81b3-dbad-b6dc-dd68c65734ed",
-          "name": "5a4bf25081b3dbadb6dc"
-        }
-      },
-      "target": {
-        "id": "27aff135-5f9e-ba15-ff29-145273d64fce",
-        "name": "hybrid0",
-        "pId": "c75a34b8-eee6-b3cb-2baa-0c0542b1dce7",
-        "parent": {
-          "id": "c75a34b8-eee6-b3cb-2baa-0c0542b1dce7",
-          "name": "c75a34b8eee6b3cb2baa"
-        }
-      },
-      "color": "Blue",
-      "vertices": [
-        {
-          "x": 525,
-          "y": 150
-        },
-        {
-          "x": 576,
-          "y": 150
-        },
-        {
-          "x": 576,
-          "y": 154
-        },
-        {
-          "x": 627,
-          "y": 154
-        }
-      ]
-    },
-    {
-      "id": "027cd180-1314-dd87-3377-31cf9d547d34",
-      "source": {
-        "id": "37be88df-92ec-8c83-3519-97d6fd41dfbd",
-        "name": "hybrid5",
-        "pId": "3d1c02ed-1216-d7ed-0273-2af4e3539175",
-        "parent": {
-          "id": "3d1c02ed-1216-d7ed-0273-2af4e3539175",
-          "name": "3d1c02ed1216d7ed0273"
-        }
-      },
-      "target": {
-        "id": "68390be0-b93e-e919-1f77-723a7f16adff",
-        "name": "hybrid2",
-        "pId": "5a4bf250-81b3-dbad-b6dc-dd68c65734ed",
-        "parent": {
-          "id": "5a4bf250-81b3-dbad-b6dc-dd68c65734ed",
-          "name": "5a4bf25081b3dbadb6dc"
-        }
-      },
-      "color": "Blue",
-      "vertices": [
-        {
-          "x": 392,
-          "y": 128
-        },
-        {
-          "x": 423.5,
-          "y": 128
-        },
-        {
-          "x": 423.5,
-          "y": 132
-        },
-        {
-          "x": 455,
-          "y": 132
-        }
-      ]
-    },
-    {
-      "id": "fe655a1c-1112-dd6a-2e26-21d0c9dfc65d",
-      "source": {
-        "id": "81f5fba2-0414-3cea-2ca0-5d14f51a3758",
-        "name": "output1",
-        "pId": "e9acf1cd-f41f-3c77-0fef-cf5800b31c08",
-        "parent": {
-          "id": "e9acf1cd-f41f-3c77-0fef-cf5800b31c08",
-          "name": "start"
-        }
-      },
-      "target": {
-        "id": "0fdd6dac-ed5d-1119-21e5-bdede9b8411e",
-        "name": "hybrid0",
-        "pId": "3d1c02ed-1216-d7ed-0273-2af4e3539175",
-        "parent": {
-          "id": "3d1c02ed-1216-d7ed-0273-2af4e3539175",
-          "name": "3d1c02ed1216d7ed0273"
-        }
-      },
-      "color": "Blue",
-      "vertices": [
-        {
-          "x": 202,
-          "y": 111
-        },
-        {
-          "x": 262,
-          "y": 111
-        },
-        {
-          "x": 262,
-          "y": 128
-        },
-        {
-          "x": 322,
-          "y": 128
-        }
-      ]
-    }
-  ]
+  "lines": []
 }

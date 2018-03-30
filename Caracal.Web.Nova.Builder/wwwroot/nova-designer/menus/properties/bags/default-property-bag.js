@@ -28,10 +28,12 @@ class DefaultPropertyBag {
         else
             this.shape.properties.find(p => p.name === name).value = value;
 
-        if (name === "label" && this.shape["name"] === this.shape["label"])
-            document.querySelector("#name").value = value;
-
-        if (name === "caption" && this.shape["name"] === this.shape["text"])
-            document.querySelector("#name").value = value;
+        const property = this.shape.properties.find(p => p.name === name);
+        
+        if (property.sync) {
+            property.sync.forEach(p => {
+                document.querySelector(`#${p}`).value = this.shape[p];
+            });
+        }
     }
 }

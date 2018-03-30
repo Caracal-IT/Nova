@@ -1,5 +1,5 @@
 class FormHeader extends draw2d.shape.layout.HorizontalLayout {
-    constructor(onSelect, text, container, contextMenu){
+    constructor(onSelect, caption, container, contextMenu) {
         super({
             stroke: 0,
             radius: 0,
@@ -12,50 +12,78 @@ class FormHeader extends draw2d.shape.layout.HorizontalLayout {
         this.images = [];
 
         this.createPorts();
-        this.addTitle(text);
+        this.addCaption(caption);
+        this._caption = caption;
+        this._label = caption;
         // this.images.push(this.addImage(draw2d.shape.icon.Contract));
         // this.images.push(this.addImage(draw2d.shape.icon.Expand, false));
     }
 
-    addTitle(text){        
-        this.titleLabel = new draw2d.shape.basic.Label({
+    get label() {
+        return this._label;
+    }
+
+    set label(value) {
+        this._label = value;
+    }
+
+    get caption() {
+        return this._caption;
+    }
+
+    set caption(value) {
+        this.syncLabel(value);
+        this.captionLabel.setText(value);
+    }
+    
+    syncLabel(value) {
+        if (this._caption === this._label)
+            this._label = value;
+            
+        this._caption = value;
+    }
+    
+    addCaption(text) {
+        this.captionLabel = new draw2d.shape.basic.Label({
             text: text,
-            fontColor:"#ffffff",
-            stroke:0,
-            fontSize:10,
-            fontFamily:"Verdana",
-            padding:{left:5, right:60 - text.length}
+            fontColor: "#ffffff",
+            stroke: 0,
+            fontSize: 10,
+            fontFamily: "Verdana",
+            padding: {left: 5, right: 60 - text.length}
         });
-        
-        this.titleLabel.onContextMenu = () => this.contextMenu.show();
+
+        this.captionLabel.onContextMenu = () => this.contextMenu.show();
 
         let editor = new draw2d.ui.LabelInplaceEditor({
             onCommit: () => {
+                this.syncLabel(this.captionLabel.getText());
+
                 if (this.onSelect)
                     this.onSelect(this.container);
             }
         });
 
-        this.titleLabel.installEditor(editor);
-        
-        super.add(this.titleLabel);
+        this.captionLabel.installEditor(editor);
+
+        super.add(this.captionLabel);
     }
 
-    createPorts(){
+    createPorts() {
         super.createPort("input", new draw2d.layout.locator.LeftLocator());
         super.createPort("input", new draw2d.layout.locator.RightLocator());
         super.createPort("input", new draw2d.layout.locator.TopLocator());
     }
-    
-    addImage(image, visible = true){
-        let img = new image({ minWidth:20, minHeight:20, width:20, height:20, visible: visible});
+
+    addImage(image, visible = true) {
+        let img = new image({minWidth: 20, minHeight: 20, width: 20, height: 20, visible: visible});
         img.on("click", () => this.toggle());
         super.add(img);
 
         return img;
     }
 
-    toggle(){
+    toggle() {
         this.images.forEach(img => img.setVisible(!img.isVisible()));
         this.container.toggle();
     }
@@ -67,9 +95,10 @@ class FormHeader extends draw2d.shape.layout.HorizontalLayout {
     get definition() {
         return {
             id: this.id,
-            name: "_header_",            
+            name: "_header_",
             type: "paper-header",
-            label: this.titleLabel.getText(),
+            label: this.label,
+            caption: this.caption,
             outputPorts: [],
             properties: []
         };

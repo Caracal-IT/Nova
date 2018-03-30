@@ -100,8 +100,10 @@ class ProcessParser {
         const controls = form.value.controls;
 
         controls.forEach(control => {
-            if (control.name === "_header_")
+            if (control.name === "_header_") {
                 figure.label = control.label;
+                figure.caption = control.caption;
+            }
             else 
                this.addControl(control, figure);
         });
@@ -116,6 +118,7 @@ class ProcessParser {
             figureCtrl = figure.createInputControl(control.name);
 
         figureCtrl.label = control.label;
+        figureCtrl.caption = control.caption;
         figureCtrl.name = control.name;
         figureCtrl.id = control.id;
 
