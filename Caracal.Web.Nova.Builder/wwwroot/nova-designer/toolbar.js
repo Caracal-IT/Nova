@@ -7,8 +7,8 @@ class Toolbar {
         
         this.undoButton = this.registerDisabledButton("#undoButton", () => view.undo());
         this.redoButton = this.registerDisabledButton("#redoButton", () => view.redo());
-        this.deleteButton = this.registerDisabledButton("#deleteButton", () => view.delete());
-        this.colorDropdown = this.registerSelect("#colorDropdown", () => {});
+        this.deleteButton = this.registerDisabledButton("#deleteButton", () => this.onDelete(view));
+        this.colorDropdown = this.registerSelect("#colorDropdown", (sender) => this.onChangeColor(sender));
 
         this.registerButton("#zoomInButton", () => view.zoomIn());
         this.registerButton("#zoomResetButton", () => view.zoomReset());
@@ -20,7 +20,7 @@ class Toolbar {
     registerSelect(selector, clickHandler){
         let select = $(selector);
         select[0].disabled = true;
-        select.click(() => clickHandler());
+        select.change((sender) => clickHandler(sender));
 
         return select;
     }
@@ -40,12 +40,36 @@ class Toolbar {
     }
 
     onSelectionChanged(emitter, event){
+        this.figure = event.figure;
+        
         this.colorDropdown[0].disabled = (event.figure === null);
         
         if (this.colorDropdown[0].disabled) 
             this.colorDropdown[0].value = "";
+        else if (event.figure.formColor) {
+            this.colorDropdown[0].value = event.figure.formColor.name;
+            this.colorDropdown[0].style.color = event.figure.formColor.name;
+        }
         
         this.deleteButton.button( "option", "disabled", event.figure === null );
+    }
+    
+    onDelete(view){
+        if (this.figure && this.figure.selectedItem) {
+            this.figure.selectedItem.remove();
+            this.figure.onSelect(this.figure);
+        }
+        else
+            view.delete();
+    }
+    
+    onChangeColor(sender){
+        this.colorDropdown[0].style.color = sender.target.value;
+
+        if (this.figure && this.figure.changeColor && sender.target.value){
+            const formColor = FormColor.GetColour(sender.target.value);
+            this.figure.changeColor(formColor);
+        }
     }
 
     stackChanged(event) {

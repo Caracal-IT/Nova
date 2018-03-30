@@ -162,10 +162,13 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         const bgColor = new draw2d.util.Color(this.container.formColor.secondary);
         
         super.setBackgroundColor(bgColor.darker(0.10));
+        
+        this.container.selectedItem = this;
     }
 
     unSelectItem(){
         super.setBackgroundColor(undefined);
+        this.container.selectedItem = null;
     }
 
     changeColor(formColor) {

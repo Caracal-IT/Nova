@@ -16,6 +16,8 @@ class Form extends draw2d.shape.layout.VerticalLayout {
         this.controls = [];
         this.createHeader();
         
+        this.selectedItem = null;
+        
         this.caption = caption;
         this.name = this.id.replace(/-/g, "").substring(0, 20);
         
