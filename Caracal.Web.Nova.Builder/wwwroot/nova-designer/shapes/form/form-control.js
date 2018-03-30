@@ -195,3 +195,5 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         return portsIds;
     }
 }
+
+// .replace(/([a-z](?=[A-Z]))/g, '$1 ')
