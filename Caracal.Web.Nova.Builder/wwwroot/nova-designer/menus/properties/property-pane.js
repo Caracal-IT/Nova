@@ -76,6 +76,9 @@ class PropertyPane {
     }
     
     createProperty(p){
+        if(p.type && p.type === "ignore")
+            return;
+        
         const row = document.createElement("tr");
         this.table.appendChild(row);
         

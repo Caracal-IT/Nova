@@ -14,7 +14,7 @@ class Factory {
 class ActivityFactory {
     ApiActivity() {
         let properties = [
-            { name: "mappings", value: [] },
+            { name: "mappings", type: "ignore", value: [] },
             { name: "api", value: "/api/smart-object/reservation/1" },
             {
                 name: "method", 
