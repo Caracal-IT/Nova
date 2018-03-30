@@ -94,7 +94,7 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
     }
 
     addCaptionLabel(){
-        this.captionLabel = this.createCaptionLabel("Label", {left: 5, right: (107 - 30)}, true);
+        this.captionLabel = FormControl.createCaptionLabel("Label", {left: 5, right: (107 - 30)}, true);
         super.add(this.captionLabel);
 
         const contextMenu = new FormContextMenu(this);
@@ -102,7 +102,7 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
 
         let editor = new draw2d.ui.LabelInplaceEditor({
             onCommit: () => {
-                this.captionLabel.padding.right = (107 - 6 * this.captionLabel.text.length)
+                this.captionLabel.padding.right = (107 - 6 * this.captionLabel.text.length);
                 this.container.refresh();
 
                 this.syncLabelAndName(this.captionLabel.text);
@@ -116,13 +116,13 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
     }
 
     addUp(){
-        let up = this.createCaptionLabel("⬆");
+        let up = FormControl.createCaptionLabel("⬆");
         super.add(up, new draw2d.layout.locator.RightLocator());
         up.on('click', () => this.moveUp());
     }
 
     addDown(){
-        let down = this.createCaptionLabel("⬇");
+        let down = FormControl.createCaptionLabel("⬇");
         super.add(down, new draw2d.layout.locator.RightLocator());
         down.on('click', () => this.moveDown());
     }
@@ -135,7 +135,7 @@ class FormControl extends draw2d.shape.layout.HorizontalLayout {
         this.container.moveDown(this.index);
     }
 
-    createCaptionLabel(text, padding = {}, resizeable = false) {
+    static createCaptionLabel(text, padding = {}, resizeable = false) {
         return new draw2d.shape.basic.Label({
             text: text,
             padding: padding,
