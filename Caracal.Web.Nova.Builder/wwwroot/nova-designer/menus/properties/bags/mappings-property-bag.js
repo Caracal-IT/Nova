@@ -4,19 +4,11 @@ class MappingsPropertyBag {
         this.headerButton = "➕";
         this.shape = shape;
         this.includeColumnHeaders = true;
-        
-        this.mappings = [
-            {source: "id", destination: "id", action: "inout"},
-            {source: "firstname", destination: "firstname", action: "inout"},
-            {source: "surname", destination: "surname", action: "inout"},
-            {source: "hotel", destination: "hotel", action: "inout"},
-            {source: "roomNumber", destination: "roomNumber", action: "inout"},
-            {source: "reply", destination: "reply", action: "inout"}
-        ];
     }
     
     get properties() {
-        return this.mappings; //this.shape.properties;
+        const mappings = this.shape.properties.find(p => p.name === "mappings");
+        return mappings.value;
     }
     
     get columns() {
@@ -32,32 +24,23 @@ class MappingsPropertyBag {
                 ]}
         ];
     }
-
+    
     onHeaderAction(sender){
-        sender.createProperty({source: "source", destination: "destination", action: "inout"});
+        const property = {source: "source", destination: "destination", action: "inout"};
+        this.properties.push(property);
+        sender.createProperty(property);
     }
     
-    onChange(item, source, parent, pane){
-        if (item.name === "action" && source.value === "delete"){
+    onChange(column, property, source, parent, pane){
+        const index = this.properties.indexOf(property);
+        
+        if (column.name === "action" && source.value === "delete"){
+            this.properties.splice(index, 1);
+            
             parent.remove();
             pane.showHideHeader();
         } 
-    }
-
-    getProperty(name) {
-        if (name === "label" || name === "name")
-            return this.shape[name];
-        else
-            return this.shape.properties.find(p => p.name === name).value;
-    }
-
-    setProperty(name, value){
-        if (name === "label" || name === "name")
-            this.shape[name] = value;
-        else
-            this.shape.properties.find(p => p.name === name).value = value;
-
-        if (name === "label" && this.shape["name"] === this.shape["label"])
-            document.querySelector("#name").value = value;
+        else 
+            this.properties[index][column.name] = source.value;
     }
 }

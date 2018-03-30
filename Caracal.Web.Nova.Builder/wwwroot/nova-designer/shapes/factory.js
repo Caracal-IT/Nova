@@ -14,6 +14,7 @@ class Factory {
 class ActivityFactory {
     ApiActivity() {
         let properties = [
+            { name: "mappings", value: [] },
             { name: "api", value: "/api/smart-object/reservation/1" },
             {
                 name: "method", 
@@ -29,6 +30,7 @@ class ActivityFactory {
         const act = new Activity("Webservice Activity", "Webservice", draw2d.shape.icon.GlobeAlt);
         act.type = "ApiActivity";
         act.properties.push(...properties);
+        act.mappings = [];
         act.changeColor(FormColor.GetColour("Purple"));
         act.addPropertyBag(new MappingsPropertyBag(act));
 

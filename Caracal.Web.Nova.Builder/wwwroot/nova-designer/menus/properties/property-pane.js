@@ -85,7 +85,7 @@ class PropertyPane {
             if (c.type === "label") 
                 cell.innerText = p[c.name];
             else if (c.type === "input")
-                this.createInputPropertyItem(c, p, cell);
+                this.createInputPropertyItem(c, p, cell, row);
             else if (c.type === "select") 
                 this.createSelectPropertyItem(c, p, cell, row);
             else if (c.type === "control")
@@ -97,10 +97,13 @@ class PropertyPane {
         this.showHideHeader();
     }
     
-    createInputPropertyItem(column, property, cell){
+    createInputPropertyItem(column, property, cell, row){
         const input = document.createElement("input");
         input.value = property[column.name];
         cell.appendChild(input);
+
+        if (this.bag.onChange)
+            input.onchange = () => this.bag.onChange(column, property, input, row, this);
     }
     
     createSelectPropertyItem(column, property, cell, row) {
@@ -118,7 +121,7 @@ class PropertyPane {
         cell.appendChild(select);
 
         if (this.bag.onChange)
-            select.onchange = () => this.bag.onChange(column, select, row, this);
+            select.onchange = () => this.bag.onChange(column, property, select, row, this);
     }
     
     createControl(p) {

@@ -31,7 +31,7 @@
       "label": "Personal Details",
       "type": "Panel",
       "factory": "shapeFactory",
-      "color": "WhiteSmoke",
+      "color": "Khaki",
       "x": 43,
       "y": 5,
       "width": 730,
@@ -42,13 +42,13 @@
       "name": "start",
       "factory": "shapeFactory",
       "type": "CodeActivity",
-      "x": 114,
-      "y": 126,
+      "x": 129,
+      "y": 155,
       "outputPorts": [
-        "4ffd98ef-5477-df75-8ae1-f7680fda506b",
-        "e79d9b6b-094d-c19e-641b-047b176c5732",
-        "a4a5c72c-976c-4a67-98b3-fa25f40690a4",
-        "bccaccbe-8af2-543e-b58c-972090623883"
+        "b7e8cabe-0d75-9c32-070d-4b319899a5ea",
+        "b361ab61-1005-13dc-b722-1a616f42d141",
+        "e3e0577e-5fba-202d-7fe4-46d028d0cf1e",
+        "e25f60bc-471e-7f32-ce2c-fd07e75deed4"
       ],
       "inputPorts": [],
       "properties": [
@@ -64,33 +64,43 @@
       "label": "Webservice Activity",
       "type": "ApiActivity",
       "factory": "activityFactory",
-      "color": "Purple",
+      "color": "Gold",
       "x": 280,
-      "y": 28,
+      "y": 44,
       "labelPos": {
         "x": -22,
         "y": -30
       },
       "outputPorts": [
-        "0ac17653-900f-d370-4a02-3376b3359874",
-        "3a52105d-503e-e96b-eae9-d672cd30abf1",
-        "fadbc2a0-44dc-5d10-4300-bc28973e89d1",
-        "edc6d826-85c4-f6ce-12c2-ed1e171890b5",
-        "5308bb1a-373e-de12-60b2-f17fb1be1015",
-        "97f4c079-e234-57ef-0b3c-b7fd4b307c3d",
-        "a8951bb9-2b7c-1dc6-dfb9-9004d0ed6393",
-        "7e1a257d-2b5c-26fa-a394-714ad7a8bebf",
-        "1b333818-c2d5-8d23-e9bd-7bd4715ce23d",
-        "7f68b844-3436-8695-8c31-905a955ed2f4",
-        "3f067ed5-5403-75fd-0b5b-fa9e1cd3c9f0",
-        "2b0bcf2f-4864-d3c3-3405-f2e579cd6da2",
-        "bb34c6b6-c75d-c27b-cfec-281d7305392d",
-        "f64e4194-7d46-4268-f9cc-a34476c33ca3",
-        "9b61a5f1-7949-b663-8479-cbb6fae2a6b5",
-        "e18f5786-df72-aab3-aed3-b109b027a130"
+        "9a1b22ea-ca46-be84-eab7-9cf22cdbd89e",
+        "047754c7-88a4-d261-cb08-7705093687f3",
+        "76e542e0-2c75-95b6-cdec-fbac6c466a16",
+        "fdecbd93-ea50-72a0-088c-cc4efb30799a",
+        "f6eebf1b-57fd-cb55-434b-61579f7c0f60",
+        "d0afc659-0be9-d358-743e-cd2014613806",
+        "3d22de5b-da11-c3ee-b53c-04d932853aab",
+        "d7897b3f-b17b-7ab3-91ee-887c81e6a443",
+        "691460c5-f2de-b18e-ffee-26b27c1c864c",
+        "4396d582-7f99-c61e-a675-1076a2968a76",
+        "c851b14a-493d-aa2c-c964-fa6465794b8c",
+        "48500bef-178c-0127-cd8f-7849f6ac0cae",
+        "7ea5d4c1-a58e-cde0-f0ea-e1bf58f9e779",
+        "1c5f792c-700d-ac59-cc63-50c0599608fd",
+        "434a77b7-ce0e-c658-c399-c3fa7385d627",
+        "ac680cf0-2b38-39fe-77a7-2e7f71f2f305"
       ],
       "inputPorts": [],
       "properties": [
+        {
+          "name": "mappings",
+          "value": [
+            {
+              "source": "id4",
+              "destination": "id",
+              "action": "inout"
+            }
+          ]
+        },
         {
           "name": "api",
           "value": "/api/smart-object/reservation/1"
@@ -115,7 +125,7 @@
           "value": {
             "controls": [
               {
-                "id": "a8e4e017-03a9-3d23-4efb-b1e26940f7b9",
+                "id": "2b672e94-ba33-aeb5-fe5a-ad3a4132de31",
                 "name": "_header_",
                 "type": "paper-header",
                 "label": "Personal Details",
@@ -159,8 +169,8 @@
                 "name": "Hotel",
                 "label": "Hotel",
                 "outputPorts": [
-                  "6e7528b9-6298-14dc-037a-36fe441a283c",
-                  "47b47586-606d-ff60-019c-b3b80d22cf13"
+                  "bc221daf-28dc-b6e7-667b-ecf08caff135",
+                  "47dc3697-bac0-18aa-7b89-28ba7fc669f0"
                 ],
                 "properties": [
                   {
@@ -178,9 +188,9 @@
         }
       ],
       "inputPorts": [
-        "e6aec76b-eaf8-493f-ce88-7ddda00d9e81",
-        "04895990-0864-0213-5ce1-5970aefa8746",
-        "20da301d-a0e0-e32c-18c8-072509760ea1"
+        "ab2ce943-8a8d-ea05-0a5d-c7b5da737b47",
+        "55f235db-0373-5c88-3c06-c1ccd5984ebb",
+        "dc04a872-803e-115a-feca-919dcf8ae98c"
       ]
     },
     {
@@ -197,7 +207,7 @@
           "value": {
             "controls": [
               {
-                "id": "905a74d5-a710-dfd2-748c-b946036ec3b4",
+                "id": "8fb9cbf0-91be-31a2-7da1-585722183f67",
                 "name": "_header_",
                 "type": "paper-header",
                 "label": "Hotel Details",
@@ -241,8 +251,8 @@
                 "name": "Back",
                 "label": "Back",
                 "outputPorts": [
-                  "75cb1fa0-45a8-5511-0687-562e3d2bbca1",
-                  "03c77500-9ad0-ee03-27f9-1f8fbee8e73c"
+                  "86dbf01f-6250-f73b-a3a0-498f93b36694",
+                  "3f79272c-49fb-c03d-5611-bfcd9b6f1f9a"
                 ],
                 "properties": [
                   {
@@ -260,8 +270,8 @@
                 "name": "Make Booking",
                 "label": "Make Booking",
                 "outputPorts": [
-                  "2adbc550-308e-e5ec-bd93-45d3e66fe923",
-                  "04cfb64e-2286-6c2a-c3a1-8d954da0054b"
+                  "e1f994e3-8621-182d-b002-90b0e71e8458",
+                  "42418070-826b-2c26-0abd-6414e2ab7744"
                 ],
                 "properties": [
                   {
@@ -279,9 +289,9 @@
         }
       ],
       "inputPorts": [
-        "16895d57-e634-84e8-2e24-b51120ae947c",
-        "fff3e454-13e5-2a25-ee2c-b546260ae8fa",
-        "a005315e-8ea4-1eb8-4996-41c585b256c6"
+        "cf234913-6ed3-4733-b1e1-f75bcd672642",
+        "a27c6529-1bf3-672d-830c-92e7464834e6",
+        "c9c95377-abfd-125d-baa5-7fad3ec0db53"
       ]
     },
     {
@@ -298,25 +308,60 @@
         "y": -28
       },
       "outputPorts": [
-        "61cfc7ff-3dd8-5b69-885c-d4e526231b80",
-        "54364326-8bde-0efc-7c61-1fdb0bf9c643",
-        "fc9be5a4-5fc3-3535-f395-c44c6b5eb2c3",
-        "8fa26381-03f9-8d0c-6c28-976f88e29757",
-        "2da6e50d-bde5-2b45-f1d0-1ca42a785deb",
-        "bfb12be2-f010-f9da-38b5-cbbade257f40",
-        "c9648017-3854-260f-a536-ef8391b97285",
-        "f01080e9-5f9d-ad21-7299-a71df6c6f26c",
-        "3aef45cc-95d6-5e9a-58cf-3b456578e77f",
-        "5c7f1d1d-3505-e7ca-fa1c-a30cf6350af4",
-        "ffca3413-608f-33f0-4918-ed596f300c40",
-        "d8e954af-8b10-8e95-9076-f4726adae8f7",
-        "18869231-c703-e5af-9742-817d9c7024a6",
-        "9dceee16-6e28-88b4-9a5b-68a4eda9484e",
-        "a47c7564-555f-969d-6740-1eae11d38a18",
-        "035d71d9-7665-f219-74c4-2cea590fa108"
+        "7b09aede-b975-097e-f9d0-397d45eccacc",
+        "09413959-c7e0-19a2-4bd8-055d592dd357",
+        "22a202c8-ae5d-95ae-80ba-dcadea152e30",
+        "dd7eda50-f793-df55-c705-e7dd17916db8",
+        "6e0cd3a6-57ed-b795-2adb-0911aaeadadb",
+        "0edf02a5-7d97-a600-d587-96b1e5e304f9",
+        "93fe9e7b-3b27-d4e4-fb05-d37fd297538c",
+        "503a237e-8280-18ff-e70e-cff5ee1ebc66",
+        "851bbb43-b8f2-782d-5f9a-b6ff2ef8ef81",
+        "8ef91df4-d79a-a61a-b2ef-1c07e9c31d1a",
+        "59aec6df-e12d-2348-1442-745b2f7ada17",
+        "c45399f2-f0a4-3ddd-1822-3993d024a83c",
+        "99f16b5f-8308-e41b-6786-ef1764834409",
+        "7b66acb6-9c20-0d88-c3a7-f9c5b307cf98",
+        "b78ffdc7-d116-dc9a-4029-8399b60803ee",
+        "eed867cc-14aa-ba54-ba99-bd8b7af4d405"
       ],
       "inputPorts": [],
       "properties": [
+        {
+          "name": "mappings",
+          "value": [
+            {
+              "source": "id",
+              "destination": "id",
+              "action": "inout"
+            },
+            {
+              "source": "firstname",
+              "destination": "firstname",
+              "action": "inout"
+            },
+            {
+              "source": "surname",
+              "destination": "surname",
+              "action": "inout"
+            },
+            {
+              "source": "hotel",
+              "destination": "hotel",
+              "action": "inout"
+            },
+            {
+              "source": "roomNumber",
+              "destination": "roomNumber",
+              "action": "inout"
+            },
+            {
+              "source": "reply",
+              "destination": "reply",
+              "action": "inout"
+            }
+          ]
+        },
         {
           "name": "api",
           "value": "/api/smart-object/reservation/"
@@ -341,22 +386,22 @@
         "y": 10
       },
       "outputPorts": [
-        "eec6e80e-9b61-e4df-c78a-fb94d4986781",
-        "0e0dce5b-6f53-a253-c059-3fb572014931",
-        "7d926906-396f-bda3-c5d2-890594ff78ed",
-        "09fe7acb-69c7-ecb8-dcd5-6ca521f1a67c",
-        "ed1c21ae-1c5b-c1ff-afda-99cfa487ff12",
-        "1150a60b-b639-4ffa-1254-7bd5ec727b74",
-        "36618184-2437-b12d-8028-b793a4142648",
-        "c3ce8716-6e23-dd60-8456-4b7a69e0dbe0",
-        "d2a54c4e-54bf-67a7-67b4-c536cdc7d165",
-        "069b1af6-2d44-e65d-4f04-46e7bb7b4c82",
-        "be130c10-97dd-9c49-974c-fc92bfe2442f",
-        "6ebe519c-bf43-abf7-7b12-f419f61ee625",
-        "232873ce-974b-4093-af8b-e27e0ad74d55",
-        "3d676f21-188c-4ca5-d7bf-920d562f9c7e",
-        "7f3d40ee-5e84-fd90-8a86-a022a067d05f",
-        "a29bb3ae-2309-cb9d-84d7-9eb7944f4fa4"
+        "265b504e-f4ea-2ffc-42de-7a78a5cd6481",
+        "c9436147-416c-5e70-9108-eb83038a9794",
+        "66e78165-4f86-3c79-32b2-406d59f7b79c",
+        "b2c9aad2-3352-4538-aeb7-aad4a0338528",
+        "b7e61dd9-7761-ab21-0ec8-36e8f946d696",
+        "8a249007-67d9-8d95-5b18-1b47988e53c8",
+        "8eead73f-62ab-c3fe-cfa7-f60b01518d8e",
+        "45c41ccb-e46a-84c9-01d5-7a530ea8ae86",
+        "80a45609-3db2-ca1c-f904-8caa048f203e",
+        "32e432ac-3a6a-a247-e684-603683d0b413",
+        "5b8bbc85-8309-4ddb-1f81-e4a5476b246d",
+        "da953a64-085e-08a5-8daf-1d4ec10ee916",
+        "d9c19a14-22a8-21f1-64ae-427b20c78834",
+        "5922e541-d600-b84d-89fb-961e99187de4",
+        "6498e95d-ffad-7da7-329c-6fe8c6b6379d",
+        "97f2165e-f6cd-36c8-5f8c-7f7da167449a"
       ],
       "inputPorts": [],
       "properties": [
@@ -388,7 +433,7 @@
           "value": {
             "controls": [
               {
-                "id": "533ba231-b347-2b9e-d630-b236798fd303",
+                "id": "4c455162-d5e7-3df9-fc56-62b4838cf92a",
                 "name": "_header_",
                 "type": "paper-header",
                 "label": "Confirmation",
@@ -416,8 +461,8 @@
                 "name": "Make Reservation",
                 "label": "Make Reservation",
                 "outputPorts": [
-                  "9a9b488d-0a14-9261-e293-4aedfad83745",
-                  "1953bf8e-d6ad-a1d4-19bf-3e93cd535a8e"
+                  "70160ca2-d2ad-44ea-2da1-cf9c4cd6c126",
+                  "54574d16-0d31-68c8-5b62-db484efe3335"
                 ],
                 "properties": [
                   {
@@ -435,17 +480,97 @@
         }
       ],
       "inputPorts": [
-        "281eaea6-fec0-05e0-d4c6-ecea6f12c521",
-        "6ab729fe-565a-6b76-db77-7407890b73a2",
-        "1a7f4ed2-b646-eb5d-af80-2b39569b7441"
+        "f6be5844-3bd3-74d5-2671-dfee1c9e869f",
+        "43850711-55f6-13cd-b73b-a968f5e866d4",
+        "23b67f8b-e7d0-f93a-5daa-e23bad13362e"
       ]
     }
   ],
   "lines": [
     {
+      "id": "66b26478-fa6e-fce9-1845-1b64d1bc04e2",
+      "source": {
+        "id": "b361ab61-1005-13dc-b722-1a616f42d141",
+        "name": "output1",
+        "pId": "e9acf1cd-f41f-3c77-0fef-cf5800b31c08",
+        "parent": {
+          "id": "e9acf1cd-f41f-3c77-0fef-cf5800b31c08",
+          "name": "start"
+        }
+      },
+      "target": {
+        "id": "1c5f792c-700d-ac59-cc63-50c0599608fd",
+        "name": "hybrid13",
+        "pId": "aa286770-e2f4-f7f5-19ca-28c365c11929",
+        "parent": {
+          "id": "aa286770-e2f4-f7f5-19ca-28c365c11929",
+          "name": "aa286770e2f4f7f519ca"
+        }
+      },
+      "color": "Gold",
+      "vertices": [
+        {
+          "x": 179,
+          "y": 180
+        },
+        {
+          "x": 315,
+          "y": 180
+        },
+        {
+          "x": 315,
+          "y": 114
+        }
+      ]
+    },
+    {
+      "id": "5ce8ad84-2cbe-1546-28f9-7bde2c1163d4",
+      "source": {
+        "id": "d0afc659-0be9-d358-743e-cd2014613806",
+        "name": "hybrid5",
+        "pId": "aa286770-e2f4-f7f5-19ca-28c365c11929",
+        "parent": {
+          "id": "aa286770-e2f4-f7f5-19ca-28c365c11929",
+          "name": "aa286770e2f4f7f519ca"
+        }
+      },
+      "target": {
+        "id": "dc04a872-803e-115a-feca-919dcf8ae98c",
+        "name": "input2",
+        "pId": "2b672e94-ba33-aeb5-fe5a-ad3a4132de31",
+        "parent": {
+          "id": "fdbf51a0-b645-7c9d-23dd-06aca8f73729",
+          "name": "fdbf51a0b6457c9d23dd"
+        }
+      },
+      "color": "Blue",
+      "vertices": [
+        {
+          "x": 350,
+          "y": 79
+        },
+        {
+          "x": 451.75,
+          "y": 79
+        },
+        {
+          "x": 451.75,
+          "y": 85
+        },
+        {
+          "x": 555,
+          "y": 85
+        },
+        {
+          "x": 555,
+          "y": 123
+        }
+      ]
+    },
+    {
       "id": "1cebf578-f0e5-b8b1-f3dc-763e676d550f",
       "source": {
-        "id": "1953bf8e-d6ad-a1d4-19bf-3e93cd535a8e",
+        "id": "54574d16-0d31-68c8-5b62-db484efe3335",
         "name": "output1",
         "pId": "dc5e7c43-3744-2418-38aa-25e62a7a55fc",
         "parent": {
@@ -454,7 +579,7 @@
         }
       },
       "target": {
-        "id": "edc6d826-85c4-f6ce-12c2-ed1e171890b5",
+        "id": "fdecbd93-ea50-72a0-088c-cc4efb30799a",
         "name": "hybrid3",
         "pId": "aa286770-e2f4-f7f5-19ca-28c365c11929",
         "parent": {
@@ -465,12 +590,12 @@
       "color": "Blue",
       "vertices": [
         {
-          "x": 443,
-          "y": 600.75
+          "x": 440.015625,
+          "y": 599.75
         },
         {
           "x": 463,
-          "y": 600.75
+          "y": 599.75
         },
         {
           "x": 463,
@@ -482,69 +607,101 @@
         },
         {
           "x": 21,
-          "y": 81
+          "y": 97
         },
         {
           "x": 280,
-          "y": 81
+          "y": 97
         }
       ]
     },
     {
-      "id": "851e8e6c-a1b6-ab11-b55f-e4b93143b423",
+      "id": "36c73c26-b679-b263-315a-69b50e2caa87",
       "source": {
-        "id": "e79d9b6b-094d-c19e-641b-047b176c5732",
-        "name": "output1",
-        "pId": "e9acf1cd-f41f-3c77-0fef-cf5800b31c08",
+        "id": "45c41ccb-e46a-84c9-01d5-7a530ea8ae86",
+        "name": "hybrid7",
+        "pId": "a2aa8cb2-91d7-79ce-dec2-a873f5b1c19e",
         "parent": {
-          "id": "e9acf1cd-f41f-3c77-0fef-cf5800b31c08",
-          "name": "start"
+          "id": "a2aa8cb2-91d7-79ce-dec2-a873f5b1c19e",
+          "name": "a2aa8cb291d779cedec2"
         }
       },
       "target": {
-        "id": "0ac17653-900f-d370-4a02-3376b3359874",
-        "name": "hybrid0",
-        "pId": "aa286770-e2f4-f7f5-19ca-28c365c11929",
+        "id": "23b67f8b-e7d0-f93a-5daa-e23bad13362e",
+        "name": "input2",
+        "pId": "4c455162-d5e7-3df9-fc56-62b4838cf92a",
         "parent": {
-          "id": "aa286770-e2f4-f7f5-19ca-28c365c11929",
-          "name": "aa286770e2f4f7f519ca"
+          "id": "894b0d3d-da1b-541d-2eff-a20e1eb025d4",
+          "name": "894b0d3dda1b541d2eff"
         }
       },
       "color": "Blue",
       "vertices": [
         {
-          "x": 164,
-          "y": 151
+          "x": 232,
+          "y": 533
         },
         {
-          "x": 240,
-          "y": 151
+          "x": 365.0078125,
+          "y": 533
         },
         {
-          "x": 240,
-          "y": 63
-        },
-        {
-          "x": 280,
-          "y": 63
+          "x": 365.0078125,
+          "y": 545
         }
       ]
     },
     {
-      "id": "5ce8ad84-2cbe-1546-28f9-7bde2c1163d4",
+      "id": "d172e2af-f809-f3d0-8a87-d71269e82cb0",
       "source": {
-        "id": "97f4c079-e234-57ef-0b3c-b7fd4b307c3d",
-        "name": "hybrid5",
-        "pId": "aa286770-e2f4-f7f5-19ca-28c365c11929",
+        "id": "47dc3697-bac0-18aa-7b89-28ba7fc669f0",
+        "name": "output1",
+        "pId": "5e88adf6-511d-9709-7e2d-a535fdee208e",
         "parent": {
-          "id": "aa286770-e2f4-f7f5-19ca-28c365c11929",
-          "name": "aa286770e2f4f7f519ca"
+          "id": "fdbf51a0-b645-7c9d-23dd-06aca8f73729",
+          "name": "fdbf51a0b6457c9d23dd"
         }
       },
       "target": {
-        "id": "20da301d-a0e0-e32c-18c8-072509760ea1",
+        "id": "c9c95377-abfd-125d-baa5-7fad3ec0db53",
         "name": "input2",
-        "pId": "a8e4e017-03a9-3d23-4efb-b1e26940f7b9",
+        "pId": "8fb9cbf0-91be-31a2-7da1-585722183f67",
+        "parent": {
+          "id": "60e06f93-73f9-954e-5210-3cb6d094f62e",
+          "name": "60e06f9373f9954e5210"
+        }
+      },
+      "color": "Blue",
+      "vertices": [
+        {
+          "x": 630,
+          "y": 200.25
+        },
+        {
+          "x": 674,
+          "y": 200.25
+        },
+        {
+          "x": 674,
+          "y": 305
+        }
+      ]
+    },
+    {
+      "id": "172111bc-c954-7db4-5d7f-eca6deffce95",
+      "source": {
+        "id": "86dbf01f-6250-f73b-a3a0-498f93b36694",
+        "name": "output0",
+        "pId": "26a8553d-79e9-726a-6d80-2e0b436c0a91",
+        "parent": {
+          "id": "60e06f93-73f9-954e-5210-3cb6d094f62e",
+          "name": "60e06f9373f9954e5210"
+        }
+      },
+      "target": {
+        "id": "ab2ce943-8a8d-ea05-0a5d-c7b5da737b47",
+        "name": "input0",
+        "pId": "2b672e94-ba33-aeb5-fe5a-ad3a4132de31",
         "parent": {
           "id": "fdbf51a0-b645-7c9d-23dd-06aca8f73729",
           "name": "fdbf51a0b6457c9d23dd"
@@ -553,31 +710,27 @@
       "color": "Blue",
       "vertices": [
         {
-          "x": 350,
-          "y": 63
+          "x": 599,
+          "y": 382.25
         },
         {
-          "x": 451.75,
-          "y": 63
+          "x": 411,
+          "y": 382.25
         },
         {
-          "x": 451.75,
-          "y": 103
+          "x": 411,
+          "y": 133
         },
         {
-          "x": 556.5,
-          "y": 103
-        },
-        {
-          "x": 556.5,
-          "y": 123
+          "x": 480,
+          "y": 133
         }
       ]
     },
     {
       "id": "dccaf6c5-de7c-da6b-50a9-f3c8daf04850",
       "source": {
-        "id": "2adbc550-308e-e5ec-bd93-45d3e66fe923",
+        "id": "e1f994e3-8621-182d-b002-90b0e71e8458",
         "name": "output0",
         "pId": "2841e18b-e380-c7eb-be0e-0cd49d5f34f4",
         "parent": {
@@ -586,7 +739,7 @@
         }
       },
       "target": {
-        "id": "5c7f1d1d-3505-e7ca-fa1c-a30cf6350af4",
+        "id": "8ef91df4-d79a-a61a-b2ef-1c07e9c31d1a",
         "name": "hybrid9",
         "pId": "860fccb5-e435-7ca4-59b3-18fd2e5d7b80",
         "parent": {
@@ -598,11 +751,11 @@
       "vertices": [
         {
           "x": 599,
-          "y": 405.75
+          "y": 404.75
         },
         {
           "x": 415,
-          "y": 405.75
+          "y": 404.75
         },
         {
           "x": 415,
@@ -615,49 +768,9 @@
       ]
     },
     {
-      "id": "172111bc-c954-7db4-5d7f-eca6deffce95",
-      "source": {
-        "id": "75cb1fa0-45a8-5511-0687-562e3d2bbca1",
-        "name": "output0",
-        "pId": "26a8553d-79e9-726a-6d80-2e0b436c0a91",
-        "parent": {
-          "id": "60e06f93-73f9-954e-5210-3cb6d094f62e",
-          "name": "60e06f9373f9954e5210"
-        }
-      },
-      "target": {
-        "id": "e6aec76b-eaf8-493f-ce88-7ddda00d9e81",
-        "name": "input0",
-        "pId": "a8e4e017-03a9-3d23-4efb-b1e26940f7b9",
-        "parent": {
-          "id": "fdbf51a0-b645-7c9d-23dd-06aca8f73729",
-          "name": "fdbf51a0b6457c9d23dd"
-        }
-      },
-      "color": "Blue",
-      "vertices": [
-        {
-          "x": 599,
-          "y": 383.25
-        },
-        {
-          "x": 411,
-          "y": 383.25
-        },
-        {
-          "x": 411,
-          "y": 133.5
-        },
-        {
-          "x": 480,
-          "y": 133.5
-        }
-      ]
-    },
-    {
       "id": "b84da131-7f93-9404-e011-e514bf4cbc5a",
       "source": {
-        "id": "035d71d9-7665-f219-74c4-2cea590fa108",
+        "id": "eed867cc-14aa-ba54-ba99-bd8b7af4d405",
         "name": "hybrid15",
         "pId": "860fccb5-e435-7ca4-59b3-18fd2e5d7b80",
         "parent": {
@@ -666,7 +779,7 @@
         }
       },
       "target": {
-        "id": "232873ce-974b-4093-af8b-e27e0ad74d55",
+        "id": "d9c19a14-22a8-21f1-64ae-427b20c78834",
         "name": "hybrid12",
         "pId": "a2aa8cb2-91d7-79ce-dec2-a873f5b1c19e",
         "parent": {
@@ -691,78 +804,6 @@
         {
           "x": 215,
           "y": 516
-        }
-      ]
-    },
-    {
-      "id": "d172e2af-f809-f3d0-8a87-d71269e82cb0",
-      "source": {
-        "id": "47b47586-606d-ff60-019c-b3b80d22cf13",
-        "name": "output1",
-        "pId": "5e88adf6-511d-9709-7e2d-a535fdee208e",
-        "parent": {
-          "id": "fdbf51a0-b645-7c9d-23dd-06aca8f73729",
-          "name": "fdbf51a0b6457c9d23dd"
-        }
-      },
-      "target": {
-        "id": "a005315e-8ea4-1eb8-4996-41c585b256c6",
-        "name": "input2",
-        "pId": "905a74d5-a710-dfd2-748c-b946036ec3b4",
-        "parent": {
-          "id": "60e06f93-73f9-954e-5210-3cb6d094f62e",
-          "name": "60e06f9373f9954e5210"
-        }
-      },
-      "color": "Blue",
-      "vertices": [
-        {
-          "x": 633,
-          "y": 201.25
-        },
-        {
-          "x": 675.5,
-          "y": 201.25
-        },
-        {
-          "x": 675.5,
-          "y": 305
-        }
-      ]
-    },
-    {
-      "id": "36c73c26-b679-b263-315a-69b50e2caa87",
-      "source": {
-        "id": "c3ce8716-6e23-dd60-8456-4b7a69e0dbe0",
-        "name": "hybrid7",
-        "pId": "a2aa8cb2-91d7-79ce-dec2-a873f5b1c19e",
-        "parent": {
-          "id": "a2aa8cb2-91d7-79ce-dec2-a873f5b1c19e",
-          "name": "a2aa8cb291d779cedec2"
-        }
-      },
-      "target": {
-        "id": "1a7f4ed2-b646-eb5d-af80-2b39569b7441",
-        "name": "input2",
-        "pId": "533ba231-b347-2b9e-d630-b236798fd303",
-        "parent": {
-          "id": "894b0d3d-da1b-541d-2eff-a20e1eb025d4",
-          "name": "894b0d3dda1b541d2eff"
-        }
-      },
-      "color": "Blue",
-      "vertices": [
-        {
-          "x": 232,
-          "y": 533
-        },
-        {
-          "x": 366.5,
-          "y": 533
-        },
-        {
-          "x": 366.5,
-          "y": 545
         }
       ]
     }

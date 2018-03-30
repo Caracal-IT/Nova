@@ -34,10 +34,6 @@ namespace Caracal.Web.Nova.Builder.Model.Shapes {
       
       SetOutputPort(token, metadata);
 
-      if ((string) metadata["type"] == "ApiActivity") {
-        metadata.Add("mappings", new List<string>());
-      }
-
       return metadata;
     }
 
@@ -103,10 +99,19 @@ namespace Caracal.Web.Nova.Builder.Model.Shapes {
     private object GetPropetyValue(JToken value) {
       if(value is JValue)
         return value.Value<JValue>().Value;
+
+      if (value is JArray)
+        return value.Select(GetPropetyListItem).ToList();
       
       var items = new Dictionary<string, object>();
       AddProperties(items, value.First);
       return items;
+    }
+
+    private object GetPropetyListItem(JToken item) {
+      return item
+        .Select(p => p.Value<JProperty>())
+        .ToDictionary(p => p.Name, p => p.Value);
     }
   }
 }
