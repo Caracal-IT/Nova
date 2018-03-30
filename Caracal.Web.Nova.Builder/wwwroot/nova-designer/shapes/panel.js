@@ -1,30 +1,30 @@
 class Panel extends draw2d.shape.composite.Raft {
-    constructor(text, w, h){
+    constructor(caption, w, h){
         super({
             radius: 5
         });
 
         this.properties = [
-            { name: "name" },
-            { name: "label" }
+            { name: "caption" },
+            { name: "name" }
         ];
         
         this.addContextMenu();
-        this.addLabel();
+        this.addCaptionLabel();
 
         super.setDimension(w, h);
         this.changeColor(FormColor.GetColour("WhiteSmoke"));
 
-        this.label = text;
+        this.caption = caption;
         this.name = this.id.replace(/-/g, "").substring(0, 20);
     }
 
-    get label(){
-        return this.controlLabel.getText();
+    get caption() {
+        return this.captionLabel.getText();
     }
 
-    set label(text){
-        this.controlLabel.setText(text);
+    set caption(value){
+        this.captionLabel.setText(value);
     }
 
     getPropertyBags() {
@@ -39,29 +39,29 @@ class Panel extends draw2d.shape.composite.Raft {
         this.onContextMenu = () => this.contextMenu.show();
     }
 
-    addLabel() {
-        this.controlLabel = new draw2d.shape.basic.Label({
-            text:"Panel",
+    addCaptionLabel() {
+        this.captionLabel = new draw2d.shape.basic.Label({
+            text: "Panel",
             radius: 5,
             padding: {top:4, right:2, bottom:4,left:3}
         });
-        super.add(this.controlLabel, new draw2d.layout.locator.PortLocator());
-        this.controlLabel.onContextMenu = () => this.contextMenu.show();
+        super.add(this.captionLabel, new draw2d.layout.locator.PortLocator());
+        this.captionLabel.onContextMenu = () => this.contextMenu.show();
     }
 
     changeColor(formColor) {
         this.formColor = formColor;
         
         this.setBackgroundColor(formColor.secondary);
-        this.controlLabel.setBackgroundColor(formColor.primary);
-        this.controlLabel.setFontColor(formColor.font);
+        this.captionLabel.setBackgroundColor(formColor.primary);
+        this.captionLabel.setFontColor(formColor.font);
     }
 
     get definition() {
         return {
             id: this.id,
             name: this.name,
-            label: this.label,
+            caption: this.caption,
             type: "Panel",
             factory: "shapeFactory",
             color: this.formColor.name,

@@ -1,7 +1,7 @@
 class Header extends draw2d.shape.basic.Label{
-    constructor(text) {
+    constructor(caption) {
         super({
-            text:text,
+            text:caption,
             padding:{right:23},
             fontSize:60,
             fontColor:"#00CED1",
@@ -11,20 +11,20 @@ class Header extends draw2d.shape.basic.Label{
 
         this.properties = [
             { name: "name" },
-            { name: "label", type: "textarea" }
+            { name: "caption", type: "textarea" }
         ];
         
         this.addContextMenu();
 
-        this.label = text;
+        this.caption = caption;
         this.name = this.id.replace(/-/g, "").substring(0, 20);
     }
 
-    get label(){
+    get caption(){
         return this.getText();
     }
 
-    set label(text){
+    set caption(text){
         this.setText(text);
     }
 
@@ -44,7 +44,7 @@ class Header extends draw2d.shape.basic.Label{
         return {
             id: this.id,
             name: this.name,
-            label: this.label,
+            caption: this.caption,
             type: "Header",
             factory: "shapeFactory",
             x: this.x,

@@ -16,19 +16,22 @@ class DefaultPropertyBag {
     }
 
     getProperty(name) {
-        if (name === "label" || name === "name")
+        if (name === "caption" || name === "label" || name === "name")
             return this.shape[name];
         else
             return this.shape.properties.find(p => p.name === name).value;
     }
 
     setProperty(name, value){
-        if (name === "label" || name === "name")
+        if (name === "caption" || name === "label" || name === "name")
             this.shape[name] = value;
         else
             this.shape.properties.find(p => p.name === name).value = value;
 
         if (name === "label" && this.shape["name"] === this.shape["label"])
+            document.querySelector("#name").value = value;
+
+        if (name === "caption" && this.shape["name"] === this.shape["text"])
             document.querySelector("#name").value = value;
     }
 }
