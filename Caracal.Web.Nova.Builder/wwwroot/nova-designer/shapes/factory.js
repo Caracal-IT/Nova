@@ -115,14 +115,20 @@ class ShapeFactory {
     }
 
     Header() {
-        return new Header("Title");
+        const header = new Header("Header");
+        header.changeColor(FormColor.GetColour("Blue"));
+        return header;
     }
 
     Label() {
-        return new Label("Label");
+        const label =  new Label("Label");
+        label.changeColor(FormColor.GetColour("Silver"));
+        return label;
     }
 
     Note(){
-        return new Note("Note");
+        const note =  new Note("Note");
+        note.changeColor(FormColor.GetColour("Silver"));
+        return note;
     }
 }

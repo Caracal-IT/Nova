@@ -23,6 +23,13 @@ class Note extends draw2d.shape.note.PostIt  {
         this.setText(value);
     }
 
+    changeColor(formColor) {
+        this.formColor = formColor;
+        this.setFontColor(formColor.panel.font);
+        this.setBackgroundColor(formColor.primary);
+        this.setColor(formColor.secondary);
+    }
+    
     getPropertyBags() {
         const bags = [];
         bags.push(new DefaultPropertyBag(this));

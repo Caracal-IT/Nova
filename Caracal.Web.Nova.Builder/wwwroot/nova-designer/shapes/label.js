@@ -28,6 +28,11 @@ class Label extends draw2d.shape.basic.Label {
         this.setText(value);
     }
 
+    changeColor(formColor) {
+        this.formColor = formColor;
+        this.setFontColor(formColor.primary);
+    }
+    
     getPropertyBags() {
         const bags = [];
         bags.push(new DefaultPropertyBag(this));
