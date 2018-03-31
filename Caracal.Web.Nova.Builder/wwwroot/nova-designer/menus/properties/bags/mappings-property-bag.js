@@ -15,7 +15,7 @@ class MappingsPropertyBag {
         return [
             {name: "source", type: "input"},
             {name: "destination", type: "input"},
-            {name: "action", type: "select",
+            {name: "direction", title:"action", type: "select",
                 items: [
                     { name: "in", value: "in" },
                     { name: "out", value: "out" },
@@ -26,7 +26,7 @@ class MappingsPropertyBag {
     }
     
     onHeaderAction(sender){
-        const property = {source: "source", destination: "destination", action: "inout"};
+        const property = {source: "source", destination: "destination", direction: "inout"};
         this.properties.push(property);
         sender.createProperty(property);
     }
@@ -34,7 +34,7 @@ class MappingsPropertyBag {
     onChange(column, property, source, parent, pane){
         const index = this.properties.indexOf(property);
         
-        if (column.name === "action" && source.value === "delete"){
+        if (column.title === "action" && source.value === "delete"){
             this.properties.splice(index, 1);
             
             parent.remove();

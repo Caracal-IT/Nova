@@ -68,7 +68,11 @@ class PropertyPane {
         this.bag.columns.forEach(c => {
             let cell = document.createElement("th");
 
-            cell.innerText = c.name;
+            if(c.title)
+                cell.innerText = c.title;
+            else
+                cell.innerText = c.name;
+            
             cell.setAttribute("style", "background:#C0C0C0;color:white");
 
             row.appendChild(cell);
