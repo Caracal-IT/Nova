@@ -18,6 +18,8 @@ export class NovaAlertActivity extends Activity {
     }
 
     execute(parameters: any) {
+        console.log(this);
+        console.log(this.title);
         (<any>this.notificationService)[this.style](this.title, this.message);
         this.workflow.next(this.nextActivity);
     }

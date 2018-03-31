@@ -2,5 +2,9 @@
   "firstname": "Ettiene",
   "surname": "Mare",
   "hotel": "Pretoria Hilton",
-  "roomNumber": "11"
+  "roomNumber": "11",
+  "FirstName": "aaa",
+  "Surname": "aaa",
+  "Hotel": "aaa",
+  "Room": "aaa"
 }
