@@ -50,6 +50,7 @@ class Header extends draw2d.shape.basic.Label{
             id: this.id,
             name: this.name,
             caption: this.caption,
+            color: this.formColor.name,
             type: "Header",
             factory: "shapeFactory",
             x: this.x,

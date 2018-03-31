@@ -50,6 +50,7 @@ class Label extends draw2d.shape.basic.Label {
             id: this.id,
             name: this.name,
             caption: this.caption,
+            color: this.formColor.name,
             type: "Label",
             factory: "shapeFactory",
             x: this.x,

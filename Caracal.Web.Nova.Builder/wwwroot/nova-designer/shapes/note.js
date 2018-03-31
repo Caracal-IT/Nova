@@ -47,6 +47,7 @@ class Note extends draw2d.shape.note.PostIt  {
             id: this.id,
             name: this.name,
             caption: this.caption,
+            color: this.formColor.name,
             type: "Note",
             factory: "shapeFactory",
             x: this.x,
