@@ -72,7 +72,7 @@ class ActivityFactory {
         const act = new Activity("Alert Activity", "Alert", draw2d.shape.icon.CodeTalk);
         act.type = "NovaAlertActivity";
         act.properties.push(...properties);
-        act.changeColor(FormColor.GetColour("Orange"));
+        act.changeColor(FormColor.GetColour("Pink"));
 
         return act;
     }
