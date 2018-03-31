@@ -56,7 +56,7 @@ class ActivityFactory {
             { name: "message", value: "Data saved" },
             { 
                 name: "style", 
-                value: "primary",
+                value: "default",
                 type: "select",
                 items: [
                     { name: "default", value: "default" },
