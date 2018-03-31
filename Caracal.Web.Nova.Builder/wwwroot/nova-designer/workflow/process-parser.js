@@ -35,6 +35,9 @@ class ProcessParser {
 
         if (shape.name === "start")
             figure.properties.filter(p => p.name === "workflow")["value"] = this.process.name;
+        
+        if (shape.color)
+            this.addColor(shape, figure);
     }
     
     createShape(shape) {
