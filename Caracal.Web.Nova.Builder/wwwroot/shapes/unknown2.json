@@ -1,0 +1,926 @@
+{
+  "name": "registration",
+  "shapes": [
+    {
+      "id": "855e7465-bbbf-316d-4b66-0ebf9e9f8439",
+      "name": "855e7465bbbf316d4b66",
+      "caption": "Panel",
+      "type": "Panel",
+      "factory": "shapeFactory",
+      "color": "Gold",
+      "x": 28,
+      "y": 465,
+      "width": 730,
+      "height": 150
+    },
+    {
+      "id": "d7ba02e0-9cc2-ca89-cf6a-e48e953930f9",
+      "name": "d7ba02e09cc2ca89cf6a",
+      "caption": "Hotel Details",
+      "type": "Panel",
+      "factory": "shapeFactory",
+      "color": "Orange",
+      "x": 31,
+      "y": 296,
+      "width": 730,
+      "height": 150
+    },
+    {
+      "id": "46404a49-8577-2677-9d2e-f94555e483c2",
+      "name": "46404a49857726779d2e",
+      "caption": "Personal Details",
+      "type": "Panel",
+      "factory": "shapeFactory",
+      "color": "Aqua",
+      "x": 29,
+      "y": 127,
+      "width": 730,
+      "height": 150
+    },
+    {
+      "id": "64a9d0bf-b314-eb90-ebf7-bed8d40f5888",
+      "name": "start",
+      "factory": "shapeFactory",
+      "type": "CodeActivity",
+      "x": 63,
+      "y": 218,
+      "outputPorts": [
+        "53f2c0e1-e587-3a7c-8e94-5f54a644a5ee",
+        "eaf3cb93-74c4-84f0-ecea-e351657367f0",
+        "aef57623-565e-37a0-f790-7f58b28c2ed3",
+        "ecae1c04-d55d-fd77-4a6f-76b3b3e16346"
+      ],
+      "inputPorts": [],
+      "properties": [
+        {
+          "name": "code",
+          "value": "function execute(params, wf, notify) { }"
+        }
+      ]
+    },
+    {
+      "id": "97bd46db-f1ad-345f-c5e0-2701262dae37",
+      "name": "97bd46dbf1ad345fc5e0",
+      "caption": "Get Reservation",
+      "type": "ApiActivity",
+      "factory": "activityFactory",
+      "color": "Aqua",
+      "x": 209,
+      "y": 163,
+      "labelPos": {
+        "x": -12,
+        "y": -26.984375
+      },
+      "outputPorts": [
+        "09ae282a-5048-0990-8171-a6584ddcaac1",
+        "06856487-196c-01c7-a435-764e56499303",
+        "bb17dc7d-0ae6-e308-524a-6f08a690e393",
+        "7408f573-2e58-1f7c-9c91-e4e87f8ab61e",
+        "d778ac73-4716-795b-7ba9-ba9ccbb0e8ce",
+        "6480270b-4106-6a08-d941-047102e42634",
+        "dee35be3-86bd-6060-b5ff-3b9e0ca86f08",
+        "ae2665e5-039a-ec95-a08d-62b0b5c51ca8",
+        "eaff6161-d995-0cbe-30eb-1f230a58be70",
+        "46efacf8-114b-17dc-c2b9-526883326a96",
+        "f22cc053-f42e-7664-a61e-0e03f70739ef",
+        "25d0df67-5628-95bf-71e0-85bc317822d7",
+        "255fc596-ef08-149e-0324-c4ebd220f022",
+        "3f00558d-8ed6-1acd-7867-772c21754141",
+        "bbe28fe9-84a2-2b98-cd94-781e71466241",
+        "28044875-4d6e-7293-c6ed-99c77ebd326b"
+      ],
+      "inputPorts": [],
+      "properties": [
+        {
+          "name": "mappings",
+          "value": []
+        },
+        {
+          "name": "api",
+          "value": "/api/smart-object/reservation/1"
+        },
+        {
+          "name": "method",
+          "value": "get"
+        }
+      ]
+    },
+    {
+      "id": "84211b59-afaf-db39-7f5c-ac5cb986e133",
+      "name": "84211b59afafdb397f5c",
+      "type": "FormActivity",
+      "factory": "shapeFactory",
+      "color": "Aqua",
+      "x": 358,
+      "y": 139,
+      "properties": [
+        {
+          "name": "form",
+          "value": {
+            "controls": [
+              {
+                "id": "952c2e42-ab04-3e06-896a-6736919333d0",
+                "name": "_header_",
+                "type": "paper-header",
+                "label": "Personal Details",
+                "caption": "Personal Details",
+                "outputPorts": [],
+                "properties": []
+              },
+              {
+                "id": "9fd9187f-86b6-1996-237e-e42ba409a15a",
+                "name": "FirstName",
+                "label": "First Name",
+                "caption": "FirstName",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-input"
+                  },
+                  {
+                    "name": "placeholder",
+                    "value": "Please select an item"
+                  }
+                ]
+              },
+              {
+                "id": "4fa309b5-83f6-1d71-7af4-7c82ac3573f7",
+                "name": "Surname",
+                "label": "Surname",
+                "caption": "Surname",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-input"
+                  },
+                  {
+                    "name": "placeholder",
+                    "value": "Please select an item"
+                  }
+                ]
+              },
+              {
+                "id": "3d9e360b-f20c-a905-b523-c7a88a47729d",
+                "name": "Hotel",
+                "label": "Hotel",
+                "caption": "Hotel",
+                "outputPorts": [
+                  "088f6fc4-7345-beea-a6d1-742cbed5d74c",
+                  "03a402ee-d2e7-3160-95e6-4658c9392ea2"
+                ],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-button"
+                  },
+                  {
+                    "name": "style",
+                    "value": "btn btn-outline-primary"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "inputPorts": [
+        "ba9b79ec-5618-a64b-2238-72642c4a8fe0",
+        "1e5f9734-98e5-e35d-1474-daec684d374a",
+        "af697a21-b795-4d40-56ec-57e542e68f6a"
+      ]
+    },
+    {
+      "id": "48f1ad5a-aa10-6160-d79c-80598881d0d3",
+      "name": "48f1ad5aaa106160d79c",
+      "type": "FormActivity",
+      "factory": "shapeFactory",
+      "color": "Orange",
+      "x": 502,
+      "y": 323,
+      "properties": [
+        {
+          "name": "form",
+          "value": {
+            "controls": [
+              {
+                "id": "1898d24b-342f-181b-d1d6-af6a42f08f1e",
+                "name": "_header_",
+                "type": "paper-header",
+                "label": "Hotel Details",
+                "caption": "Hotel Details",
+                "outputPorts": [],
+                "properties": []
+              },
+              {
+                "id": "927ad073-1b32-de52-119f-ce245ae33b89",
+                "name": "Hotel",
+                "label": "Hotel",
+                "caption": "Hotel",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-input"
+                  },
+                  {
+                    "name": "placeholder",
+                    "value": "Please select an item"
+                  }
+                ]
+              },
+              {
+                "id": "2588ab2d-9ba6-dc21-f4ea-7a59f20e0821",
+                "name": "Room",
+                "label": "Room",
+                "caption": "Room",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-input"
+                  },
+                  {
+                    "name": "placeholder",
+                    "value": "Please select an item"
+                  }
+                ]
+              },
+              {
+                "id": "a41ddb41-d6ac-9a9d-2e85-30ff1cd8db71",
+                "name": "PersonalDetails",
+                "label": "Personal Details",
+                "caption": "Personal Details",
+                "outputPorts": [
+                  "c2d06922-52b9-8117-2f7c-d11c31f8218d",
+                  "84dd128f-1cca-33ea-31c3-2e25961a9873"
+                ],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-button"
+                  },
+                  {
+                    "name": "style",
+                    "value": "btn btn-outline-secondary"
+                  }
+                ]
+              },
+              {
+                "id": "0be2fcf8-6e9d-0523-7a5b-a7fcd6aef36d",
+                "name": "MakeReservation",
+                "label": "Make Reservation",
+                "caption": "Make Reservation",
+                "outputPorts": [
+                  "ccea7192-cb2e-9074-308b-a667a88b4c99",
+                  "b91960e8-3bff-b2d1-124a-8896abd5470e"
+                ],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-button"
+                  },
+                  {
+                    "name": "style",
+                    "value": "btn btn-outline-primary"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "inputPorts": [
+        "8758bb83-83a7-72ba-79fc-1a51da39b100",
+        "b281a58a-a677-3628-8abb-37690887d04b",
+        "d0d666e1-b9f8-cc04-b845-c971db15bd76"
+      ]
+    },
+    {
+      "id": "bb0b44c6-b61d-d946-449b-b9ac6a043ce6",
+      "name": "bb0b44c6b61dd946449b",
+      "caption": "Make Reservation",
+      "type": "ApiActivity",
+      "factory": "activityFactory",
+      "color": "Orange",
+      "x": 184,
+      "y": 337,
+      "labelPos": {
+        "x": -18,
+        "y": -26.984375
+      },
+      "outputPorts": [
+        "ceac469b-45b8-0dc0-c355-3e58ef9fc135",
+        "bc25a6e9-dfaf-049a-937e-34e3d742a74d",
+        "1a018375-4082-3b4e-0724-23538efb0353",
+        "17b8af71-653a-3f13-adbd-7d742c0d7596",
+        "665cb090-c774-2ac0-3b8e-f1c27a5ba2e9",
+        "33ff241c-6ec3-935f-e914-484531c9490f",
+        "2a9942d0-8b70-7c2f-0e4c-357446418d48",
+        "b733cfdb-0b88-b0dd-3fdd-f2b5b9a91a95",
+        "b451f096-073d-3472-a557-df0a5ed1acb8",
+        "4ba7984e-7c53-ba79-eb43-36b513a194a9",
+        "7ca27b2e-e88d-2fb3-1035-80bfc9324664",
+        "5ed22178-5d40-c540-f374-227bd570d19a",
+        "65789041-91fb-3df8-5d8e-f56cef792de0",
+        "1684eb54-205a-1e85-a2f7-e4dbf38c3979",
+        "2d9f98e9-7af1-ce8d-840a-9a8239ae9394",
+        "12c283ce-021a-3035-6f45-a4ee99b81c3f"
+      ],
+      "inputPorts": [],
+      "properties": [
+        {
+          "name": "mappings",
+          "value": [
+            {
+              "source": "id",
+              "destination": "id",
+              "direction": "inout"
+            },
+            {
+              "source": "FirstName",
+              "destination": "FirstName",
+              "action": "inout"
+            },
+            {
+              "source": "Surname",
+              "destination": "Surname",
+              "action": "inout"
+            },
+            {
+              "source": "Hotel",
+              "destination": "Hotel",
+              "action": "inout"
+            },
+            {
+              "source": "Room",
+              "destination": "Room",
+              "action": "inout"
+            },
+            {
+              "source": "Reply",
+              "destination": "ReplyMessage",
+              "action": "inout"
+            }
+          ]
+        },
+        {
+          "name": "api",
+          "value": "/api/smart-object/reservation/"
+        },
+        {
+          "name": "method",
+          "value": "post"
+        }
+      ]
+    },
+    {
+      "id": "f08aea38-bbfc-beeb-a4de-bc0cf0f04198",
+      "name": "f08aea38bbfcbeeba4de",
+      "caption": "Response Message",
+      "type": "NovaAlertActivity",
+      "factory": "activityFactory",
+      "color": "Gold",
+      "x": 224,
+      "y": 505,
+      "labelPos": {
+        "x": -13.03125,
+        "y": -30
+      },
+      "outputPorts": [
+        "948b7a44-260a-eac6-facc-7362f0ac26b0",
+        "7bf8dde1-e1c9-bf7f-45a5-507cb1ee4557",
+        "8f5a0647-eff2-03b1-c547-e4d9d558ab08",
+        "06f2f0b3-e02e-daba-8773-2d2c2d73f2dc",
+        "c3a9e2b8-320a-48b7-2350-383bbee8f067",
+        "2a7e0df9-f341-95e9-cd33-0f6324cf2d21",
+        "a9b1429a-de69-31ec-ef9c-b137878b70b3",
+        "00be3fba-a7d7-a93c-521d-8892028fade4",
+        "d141f64e-7932-77fb-9dbb-b7acb3bf33f2",
+        "3a367c78-7184-f407-25cc-5db02caee927",
+        "60562607-b234-e0ff-2655-41911974a59f",
+        "e11a7c40-fd64-d7c8-8a4d-138692121240",
+        "24de3c8e-8266-a8c3-82fe-1d9b7350af68",
+        "ce9993a8-95bb-2635-0247-acdfcd200fdf",
+        "a0a7eb87-0cda-e459-6ea5-cd9118e8ad98",
+        "d00371ae-6cc2-17cf-2a88-7b357d8e337c"
+      ],
+      "inputPorts": [],
+      "properties": [
+        {
+          "name": "title",
+          "value": "Reservation"
+        },
+        {
+          "name": "message",
+          "value": "Reservation for {{FirstName}} successfull!"
+        },
+        {
+          "name": "style",
+          "value": "success"
+        }
+      ]
+    },
+    {
+      "id": "64c05257-0e8e-6f88-29a2-6e5e5424b6ad",
+      "name": "64c052570e8e6f8829a2",
+      "type": "FormActivity",
+      "factory": "shapeFactory",
+      "color": "Gold",
+      "x": 391,
+      "y": 492,
+      "properties": [
+        {
+          "name": "form",
+          "value": {
+            "controls": [
+              {
+                "id": "4264f6ed-7696-2a3a-82a8-9b0e2fa11d79",
+                "name": "_header_",
+                "type": "paper-header",
+                "label": "Confirmation",
+                "caption": "Confirmation",
+                "outputPorts": [],
+                "properties": []
+              },
+              {
+                "id": "53e63a91-79ab-49ea-f11b-1271521da9f9",
+                "name": "Name",
+                "label": "Name",
+                "caption": "Name",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-label"
+                  },
+                  {
+                    "name": "text",
+                    "value": "Welcome {{FirstName}} {{Surname}}!!"
+                  }
+                ]
+              },
+              {
+                "id": "2bb941af-a99d-b472-e2aa-10a077356105",
+                "name": "Reply",
+                "label": "Reply",
+                "caption": "Reply",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-input"
+                  },
+                  {
+                    "name": "placeholder",
+                    "value": "Please select an item"
+                  }
+                ]
+              },
+              {
+                "id": "d30d25d6-5d9c-48a3-8ad1-0235d34abeba",
+                "name": "ReplyMessage",
+                "label": "Reply Message",
+                "caption": "ReplyMessage",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-label"
+                  },
+                  {
+                    "name": "text",
+                    "value": "Reply : {{Reply}}"
+                  }
+                ]
+              },
+              {
+                "id": "3923fa7b-c2bf-3bca-f7f3-3b24f6a9107d",
+                "name": "MakeReservation",
+                "label": "Make Reservation",
+                "caption": "Make Reservation",
+                "outputPorts": [
+                  "48e127bb-9231-a1d6-55a2-f7b41f012cb3",
+                  "1046c0f0-a892-4702-8b5b-2098916f071e"
+                ],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-button"
+                  },
+                  {
+                    "name": "style",
+                    "value": "btn btn-outline-primary"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "inputPorts": [
+        "95d614a5-bd5a-1f70-e77b-6854aeda7922",
+        "d9339c5e-86b7-8b79-5fce-e9385853794b",
+        "dc752bd3-f469-1f1f-d29b-b7d138a81cab"
+      ]
+    },
+    {
+      "id": "fe468ec5-444e-3416-0513-cf640fb93de3",
+      "name": "fe468ec5444e34160513",
+      "caption": "Set Reply Message",
+      "type": "CodeActivity",
+      "factory": "activityFactory",
+      "color": "Orange",
+      "x": 325,
+      "y": 341,
+      "labelPos": {
+        "x": 0,
+        "y": -28
+      },
+      "outputPorts": [
+        "d80e5f59-9e5e-6d67-d39f-6ff7f7660aaa",
+        "ba5ab54f-f9b7-138f-73c3-27283239e0f3",
+        "367e6946-d0e9-a55b-d76f-552bcb75ddb7",
+        "e777e07c-19d3-5b3f-3938-5fad4f390251",
+        "bc489d4d-f6d9-98c2-59ae-60a3caece051",
+        "984af9bd-97a9-2519-d883-ce235ba44e47",
+        "900e15db-87d9-0548-4365-f3c380ea2c1c",
+        "e13287cd-73a1-baa6-b60b-830e51f4077a",
+        "b3d57cbf-374b-7c77-299b-25c12be50135",
+        "93433d5b-8c3e-ce0a-b24c-f541bd023479",
+        "2e3a4f49-9aaa-1af4-82f8-ecafec1dd015",
+        "bf5b6efe-12d8-3c3d-f99c-221ab1b3b718",
+        "038e7b6f-d36a-e713-f1aa-0b4327c6d17c",
+        "29fb8bd6-2da1-0a63-0594-37551efd476c",
+        "e25ddd7b-2be7-ccd2-5abd-0f2e89ab89d4",
+        "d1b17493-2f14-c4f2-45d1-0026beefdda6"
+      ],
+      "inputPorts": [],
+      "properties": [
+        {
+          "name": "code",
+          "value": "function execute(params, wf, notify) { \nwf.model.Reply = \n`Set in code activity: ${wf.model.FirstName}`;\n}"
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "id": "744e997d-5506-8a56-334f-b23a15c33045",
+      "source": {
+        "id": "e777e07c-19d3-5b3f-3938-5fad4f390251",
+        "name": "hybrid3",
+        "pId": "fe468ec5-444e-3416-0513-cf640fb93de3",
+        "parent": {
+          "id": "fe468ec5-444e-3416-0513-cf640fb93de3",
+          "name": "fe468ec5444e34160513"
+        }
+      },
+      "target": {
+        "id": "33ff241c-6ec3-935f-e914-484531c9490f",
+        "name": "hybrid5",
+        "pId": "bb0b44c6-b61d-d946-449b-b9ac6a043ce6",
+        "parent": {
+          "id": "bb0b44c6-b61d-d946-449b-b9ac6a043ce6",
+          "name": "bb0b44c6b61dd946449b"
+        }
+      },
+      "color": "Orange",
+      "vertices": [
+        {
+          "x": 325,
+          "y": 394
+        },
+        {
+          "x": 289.5,
+          "y": 394
+        },
+        {
+          "x": 289.5,
+          "y": 372
+        },
+        {
+          "x": 254,
+          "y": 372
+        }
+      ]
+    },
+    {
+      "id": "e3f54f9a-98fc-3698-9ffe-b378d51f0e9b",
+      "source": {
+        "id": "ceac469b-45b8-0dc0-c355-3e58ef9fc135",
+        "name": "hybrid0",
+        "pId": "bb0b44c6-b61d-d946-449b-b9ac6a043ce6",
+        "parent": {
+          "id": "bb0b44c6-b61d-d946-449b-b9ac6a043ce6",
+          "name": "bb0b44c6b61dd946449b"
+        }
+      },
+      "target": {
+        "id": "948b7a44-260a-eac6-facc-7362f0ac26b0",
+        "name": "hybrid0",
+        "pId": "f08aea38-bbfc-beeb-a4de-bc0cf0f04198",
+        "parent": {
+          "id": "f08aea38-bbfc-beeb-a4de-bc0cf0f04198",
+          "name": "f08aea38bbfcbeeba4de"
+        }
+      },
+      "color": "Gold",
+      "vertices": [
+        {
+          "x": 184,
+          "y": 372
+        },
+        {
+          "x": 148,
+          "y": 372
+        },
+        {
+          "x": 148,
+          "y": 540
+        },
+        {
+          "x": 224,
+          "y": 540
+        }
+      ]
+    },
+    {
+      "id": "35297bf2-890d-0a8b-8c07-f2af70360625",
+      "source": {
+        "id": "ccea7192-cb2e-9074-308b-a667a88b4c99",
+        "name": "output0",
+        "pId": "0be2fcf8-6e9d-0523-7a5b-a7fcd6aef36d",
+        "parent": {
+          "id": "48f1ad5a-aa10-6160-d79c-80598881d0d3",
+          "name": "48f1ad5aaa106160d79c"
+        }
+      },
+      "target": {
+        "id": "984af9bd-97a9-2519-d883-ce235ba44e47",
+        "name": "hybrid5",
+        "pId": "fe468ec5-444e-3416-0513-cf640fb93de3",
+        "parent": {
+          "id": "fe468ec5-444e-3416-0513-cf640fb93de3",
+          "name": "fe468ec5444e34160513"
+        }
+      },
+      "color": "Orange",
+      "vertices": [
+        {
+          "x": 502,
+          "y": 423
+        },
+        {
+          "x": 448.5,
+          "y": 423
+        },
+        {
+          "x": 448.5,
+          "y": 376
+        },
+        {
+          "x": 395,
+          "y": 376
+        }
+      ]
+    },
+    {
+      "id": "2cb8587b-a6cf-e2f0-3da3-bbc3e43032a5",
+      "source": {
+        "id": "eaff6161-d995-0cbe-30eb-1f230a58be70",
+        "name": "hybrid8",
+        "pId": "97bd46db-f1ad-345f-c5e0-2701262dae37",
+        "parent": {
+          "id": "97bd46db-f1ad-345f-c5e0-2701262dae37",
+          "name": "97bd46dbf1ad345fc5e0"
+        }
+      },
+      "target": {
+        "id": "ba9b79ec-5618-a64b-2238-72642c4a8fe0",
+        "name": "input0",
+        "pId": "952c2e42-ab04-3e06-896a-6736919333d0",
+        "parent": {
+          "id": "84211b59-afaf-db39-7f5c-ac5cb986e133",
+          "name": "84211b59afafdb397f5c"
+        }
+      },
+      "color": "Aqua",
+      "vertices": [
+        {
+          "x": 279,
+          "y": 216
+        },
+        {
+          "x": 318.5,
+          "y": 216
+        },
+        {
+          "x": 318.5,
+          "y": 150
+        },
+        {
+          "x": 358,
+          "y": 150
+        }
+      ]
+    },
+    {
+      "id": "7baaa70b-5b98-2c32-871c-fdbafc01d8c1",
+      "source": {
+        "id": "eaf3cb93-74c4-84f0-ecea-e351657367f0",
+        "name": "output1",
+        "pId": "64a9d0bf-b314-eb90-ebf7-bed8d40f5888",
+        "parent": {
+          "id": "64a9d0bf-b314-eb90-ebf7-bed8d40f5888",
+          "name": "start"
+        }
+      },
+      "target": {
+        "id": "09ae282a-5048-0990-8171-a6584ddcaac1",
+        "name": "hybrid0",
+        "pId": "97bd46db-f1ad-345f-c5e0-2701262dae37",
+        "parent": {
+          "id": "97bd46db-f1ad-345f-c5e0-2701262dae37",
+          "name": "97bd46dbf1ad345fc5e0"
+        }
+      },
+      "color": "Aqua",
+      "vertices": [
+        {
+          "x": 113,
+          "y": 243
+        },
+        {
+          "x": 161,
+          "y": 243
+        },
+        {
+          "x": 161,
+          "y": 198
+        },
+        {
+          "x": 209,
+          "y": 198
+        }
+      ]
+    },
+    {
+      "id": "19923209-1bd2-8d51-a64e-361647199193",
+      "source": {
+        "id": "03a402ee-d2e7-3160-95e6-4658c9392ea2",
+        "name": "output1",
+        "pId": "3d9e360b-f20c-a905-b523-c7a88a47729d",
+        "parent": {
+          "id": "84211b59-afaf-db39-7f5c-ac5cb986e133",
+          "name": "84211b59afafdb397f5c"
+        }
+      },
+      "target": {
+        "id": "d0d666e1-b9f8-cc04-b845-c971db15bd76",
+        "name": "input2",
+        "pId": "1898d24b-342f-181b-d1d6-af6a42f08f1e",
+        "parent": {
+          "id": "48f1ad5a-aa10-6160-d79c-80598881d0d3",
+          "name": "48f1ad5aaa106160d79c"
+        }
+      },
+      "color": "Orange",
+      "vertices": [
+        {
+          "x": 508,
+          "y": 216.5
+        },
+        {
+          "x": 577.0078125,
+          "y": 216.5
+        },
+        {
+          "x": 577.0078125,
+          "y": 324
+        }
+      ]
+    },
+    {
+      "id": "0132ae0b-ad51-4bdc-0bd1-265ae43e1f90",
+      "source": {
+        "id": "84dd128f-1cca-33ea-31c3-2e25961a9873",
+        "name": "output1",
+        "pId": "a41ddb41-d6ac-9a9d-2e85-30ff1cd8db71",
+        "parent": {
+          "id": "48f1ad5a-aa10-6160-d79c-80598881d0d3",
+          "name": "48f1ad5aaa106160d79c"
+        }
+      },
+      "target": {
+        "id": "1e5f9734-98e5-e35d-1474-daec684d374a",
+        "name": "input1",
+        "pId": "952c2e42-ab04-3e06-896a-6736919333d0",
+        "parent": {
+          "id": "84211b59-afaf-db39-7f5c-ac5cb986e133",
+          "name": "84211b59afafdb397f5c"
+        }
+      },
+      "color": "Aqua",
+      "vertices": [
+        {
+          "x": 652.015625,
+          "y": 401.25
+        },
+        {
+          "x": 672.015625,
+          "y": 401.25
+        },
+        {
+          "x": 672.015625,
+          "y": 150
+        },
+        {
+          "x": 508,
+          "y": 150
+        }
+      ]
+    },
+    {
+      "id": "ca321a9a-f241-02db-2274-bf31290c12e2",
+      "source": {
+        "id": "48e127bb-9231-a1d6-55a2-f7b41f012cb3",
+        "name": "output0",
+        "pId": "3923fa7b-c2bf-3bca-f7f3-3b24f6a9107d",
+        "parent": {
+          "id": "64c05257-0e8e-6f88-29a2-6e5e5424b6ad",
+          "name": "64c052570e8e6f8829a2"
+        }
+      },
+      "target": {
+        "id": "bb17dc7d-0ae6-e308-524a-6f08a690e393",
+        "name": "hybrid2",
+        "pId": "97bd46db-f1ad-345f-c5e0-2701262dae37",
+        "parent": {
+          "id": "97bd46db-f1ad-345f-c5e0-2701262dae37",
+          "name": "97bd46dbf1ad345fc5e0"
+        }
+      },
+      "color": "Aqua",
+      "vertices": [
+        {
+          "x": 391,
+          "y": 592.75
+        },
+        {
+          "x": 8,
+          "y": 592.75
+        },
+        {
+          "x": 8,
+          "y": 180
+        },
+        {
+          "x": 209,
+          "y": 180
+        }
+      ]
+    },
+    {
+      "id": "f01784c7-3cf0-7175-cedf-f10b95315bf6",
+      "source": {
+        "id": "2a7e0df9-f341-95e9-cd33-0f6324cf2d21",
+        "name": "hybrid5",
+        "pId": "f08aea38-bbfc-beeb-a4de-bc0cf0f04198",
+        "parent": {
+          "id": "f08aea38-bbfc-beeb-a4de-bc0cf0f04198",
+          "name": "f08aea38bbfcbeeba4de"
+        }
+      },
+      "target": {
+        "id": "95d614a5-bd5a-1f70-e77b-6854aeda7922",
+        "name": "input0",
+        "pId": "4264f6ed-7696-2a3a-82a8-9b0e2fa11d79",
+        "parent": {
+          "id": "64c05257-0e8e-6f88-29a2-6e5e5424b6ad",
+          "name": "64c052570e8e6f8829a2"
+        }
+      },
+      "color": "Gold",
+      "vertices": [
+        {
+          "x": 294,
+          "y": 540
+        },
+        {
+          "x": 342.5,
+          "y": 540
+        },
+        {
+          "x": 342.5,
+          "y": 503
+        },
+        {
+          "x": 391,
+          "y": 503
+        }
+      ]
+    }
+  ]
+}
