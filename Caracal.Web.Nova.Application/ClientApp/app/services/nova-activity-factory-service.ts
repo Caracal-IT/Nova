@@ -1,6 +1,6 @@
 import {ActivityFactoryService, Activity} from "nova-workflow";
 
-export class NovaActivityFactoryService extends ActivityFactoryService{
+export class NovaActivityFactoryService extends ActivityFactoryService {
     private NovaAlertActivity(metadata: any) {
         return new NovaAlertActivity(metadata);
     }
@@ -9,6 +9,8 @@ export class NovaActivityFactoryService extends ActivityFactoryService{
 export class NovaAlertActivity extends Activity {
     nextActivity = "";
     message = "";
+    title = "Success";
+    style = "success";
     
     constructor(metadata: any) {
         super();
@@ -16,7 +18,7 @@ export class NovaAlertActivity extends Activity {
     }
 
     execute(parameters: any) {
-        this.notificationService.success("Success", this.message);
+        this.notificationService[this.style](this.title, this.message);
         this.workflow.next(this.nextActivity);
     }
 }

@@ -59,10 +59,9 @@ class ActivityFactory {
                 value: "primary",
                 type: "select",
                 items: [
-                    { name: "primary", value: "primary" },
-                    { name: "secondary", value: "secondary" },
+                    { name: "default", value: "default" },
                     { name: "success", value: "success" },
-                    { name: "danger", value: "danger" },
+                    { name: "error", value: "error" },
                     { name: "warning", value: "warning" },
                     { name: "info", value: "info" }
                 ]
