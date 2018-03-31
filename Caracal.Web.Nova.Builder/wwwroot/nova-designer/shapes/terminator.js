@@ -52,6 +52,7 @@ class Terminator extends draw2d.shape.basic.Circle {
         return {
           id: this.id,
           name: this.name, 
+          color: this.formColor.name,
           factory: "shapeFactory",
           type: "CodeActivity",
           x: this.x,
