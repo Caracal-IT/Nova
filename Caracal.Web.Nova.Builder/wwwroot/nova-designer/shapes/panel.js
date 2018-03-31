@@ -13,7 +13,6 @@ class Panel extends draw2d.shape.composite.Raft {
         this.addCaptionLabel();
 
         super.setDimension(w, h);
-        this.changeColor(FormColor.GetColour("WhiteSmoke"));
 
         this.caption = caption;
         this.name = this.id.replace(/-/g, "").substring(0, 20);
@@ -35,7 +34,7 @@ class Panel extends draw2d.shape.composite.Raft {
     }
 
     addContextMenu() {
-        this.contextMenu = new ColorContextMenu(this, FormColor.PanelColors());
+        this.contextMenu = new ColorContextMenu(this);
         this.onContextMenu = () => this.contextMenu.show();
     }
 
@@ -52,9 +51,9 @@ class Panel extends draw2d.shape.composite.Raft {
     changeColor(formColor) {
         this.formColor = formColor;
         
-        this.setBackgroundColor(formColor.secondary);
-        this.captionLabel.setBackgroundColor(formColor.primary);
-        this.captionLabel.setFontColor(formColor.font);
+        this.setBackgroundColor(formColor.panel.secondary);
+        this.captionLabel.setBackgroundColor(formColor.panel.primary);
+        this.captionLabel.setFontColor(formColor.panel.font);
     }
 
     get definition() {

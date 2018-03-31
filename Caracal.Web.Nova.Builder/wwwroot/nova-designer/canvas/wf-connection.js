@@ -16,7 +16,7 @@ class WFConnection extends draw2d.Connection{
 
         this.contextMenu = new ColorContextMenu(this);
         this.onContextMenu = () => this.contextMenu.show();
-        this.changeColor(FormColor.GetColour("Blue"));
+        this.changeColor(FormColor.GetColour("Aqua"));
     }
 
     delegateTarget(draggedFigure) {
@@ -26,7 +26,7 @@ class WFConnection extends draw2d.Connection{
     changeColor(formColor) {
         this.formColor = formColor;
         
-        this.setColor(formColor.secondary);
+        this.setColor(formColor.line);
         this.setOutlineColor(formColor.primary);
     }
 

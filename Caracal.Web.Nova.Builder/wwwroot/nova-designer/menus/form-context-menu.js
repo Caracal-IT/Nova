@@ -1,7 +1,7 @@
 class FormContextMenu {
-    constructor(container, colors = FormColor.FormColors()){
+    constructor(container){
         this.container = container;
-        this.colors = colors;
+        this.colors = FormColor.GetColours();
     }
 
     show(){

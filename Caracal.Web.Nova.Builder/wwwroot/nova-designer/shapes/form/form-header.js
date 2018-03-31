@@ -98,6 +98,7 @@ class FormHeader extends draw2d.shape.layout.HorizontalLayout {
 
     changeColor(formColor) {
         super.setBackgroundColor(formColor.primary);
+        this.captionLabel.setFontColor(formColor.font);
     }
 
     get definition() {

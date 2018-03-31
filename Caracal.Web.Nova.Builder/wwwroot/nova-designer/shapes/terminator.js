@@ -1,7 +1,6 @@
 class Terminator extends draw2d.shape.basic.Circle {
-    constructor(text, color, port, fontColor = "#FFFFFF"){
+    constructor(text, port){
         super({
-            bgColor: color,
             resizeable: false
         });
 
@@ -10,8 +9,7 @@ class Terminator extends draw2d.shape.basic.Circle {
             
         this.label = new draw2d.shape.basic.Label({
             text:text,
-            color:color,
-            fontColor:fontColor
+            bold: true
         });
 
         super.add(this.label, new draw2d.layout.locator.CenterLocator);
@@ -39,6 +37,15 @@ class Terminator extends draw2d.shape.basic.Circle {
     
     set name(value) {
         this._name = value;
+    }
+
+    changeColor(formColor) {
+        this.formColor = formColor;
+
+        this.setBackgroundColor(formColor.secondary);
+        this.label.setColor(formColor.secondary);
+        this.label.setFontColor(formColor.primary);
+        this.setColor(formColor.primary);
     }
     
     get definition() {

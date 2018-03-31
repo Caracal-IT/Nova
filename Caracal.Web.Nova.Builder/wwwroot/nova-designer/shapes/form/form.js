@@ -20,8 +20,6 @@ class Form extends draw2d.shape.layout.VerticalLayout {
         
         this.caption = caption;
         this.name = this.id.replace(/-/g, "").substring(0, 20);
-        
-        this.changeColor(FormColor.GetColour("Blue"));
         this.outputLocator = new CollapsibleOutputLocator();
         
         if (this.onSelect)

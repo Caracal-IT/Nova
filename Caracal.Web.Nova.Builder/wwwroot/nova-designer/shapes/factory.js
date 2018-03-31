@@ -31,7 +31,7 @@ class ActivityFactory {
         act.type = "ApiActivity";
         act.properties.push(...properties);
         act.mappings = [];
-        act.changeColor(FormColor.GetColour("Purple"));
+        act.changeColor(FormColor.GetColour("Fuchsia"));
         act.addPropertyBag(new MappingsPropertyBag(act));
 
         return act;
@@ -45,7 +45,7 @@ class ActivityFactory {
         const act = new Activity("Code Activity", "Code", draw2d.shape.icon.Gear2);
         act.type = "CodeActivity";
         act.properties.push(...properties);
-        act.changeColor(FormColor.GetColour("Gold"));
+        act.changeColor(FormColor.GetColour("Pistachio"));
 
         return act;
     }
@@ -72,7 +72,7 @@ class ActivityFactory {
         const act = new Activity("Alert Activity", "Alert", draw2d.shape.icon.CodeTalk);
         act.type = "NovaAlertActivity";
         act.properties.push(...properties);
-        act.changeColor(FormColor.GetColour("Pink"));
+        act.changeColor(FormColor.GetColour("Orange"));
 
         return act;
     }
@@ -84,7 +84,9 @@ class ShapeFactory {
     }
 
     FormActivity() {
-        return new Form("Form Activity", this.onSelect);
+        const act = new Form("Form Activity", this.onSelect);
+        act.changeColor(FormColor.GetColour("Blue"));
+        return act;
     }
 
     start() {
@@ -92,18 +94,24 @@ class ShapeFactory {
             { name: "workflow", value: "registration" }
         ];
         
-        const startAct = new Terminator("Start", "#AFEEEE", "output", "#008080");
+        const startAct = new Terminator("Start", "output");
         startAct.properties.push(...properties);
+        startAct.changeColor(FormColor.GetColour("Aqua"));
         
         return startAct;
     }
 
     end() {
-        return new Terminator("End", "#F08080", "input");
+        const terminator = new Terminator("End", "input");
+        terminator.changeColor(FormColor.GetColour("Fuchsia"));
+        
+        return terminator;
     }
 
     Panel() {
-        return new Panel("Panel", 730, 150);
+        const panel = new Panel("Panel", 730, 150);
+        panel.changeColor(FormColor.GetColour("Silver"));
+        return panel;
     }
 
     Header() {

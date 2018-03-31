@@ -2,17 +2,74 @@
   "name": "registration",
   "shapes": [
     {
-      "id": "e9acf1cd-f41f-3c77-0fef-cf5800b31c08",
+      "id": "033cedec-3e3c-c5e9-865d-af7da14f84db",
+      "name": "033cedec3e3cc5e9865d",
+      "caption": "Panel",
+      "type": "Panel",
+      "factory": "shapeFactory",
+      "color": "Aqua",
+      "x": 69,
+      "y": 252,
+      "width": 730,
+      "height": 124
+    },
+    {
+      "id": "67230d76-27e7-a63d-61f6-f9c1463ccee6",
+      "name": "67230d7627e7a63d61f6",
+      "caption": "Panel",
+      "type": "Panel",
+      "factory": "shapeFactory",
+      "color": "Pistachio",
+      "x": 74,
+      "y": 414,
+      "width": 730,
+      "height": 150
+    },
+    {
+      "id": "cbf8c030-f8a3-f679-c882-356f0af0baae",
+      "name": "cbf8c030f8a3f679c882",
+      "caption": "Panel",
+      "type": "Panel",
+      "factory": "shapeFactory",
+      "color": "Gold",
+      "x": 63,
+      "y": 45,
+      "width": 730,
+      "height": 150
+    },
+    {
+      "id": "dfac7272-d68a-721e-ac9a-fa87e3873cc1",
+      "name": "end",
+      "factory": "shapeFactory",
+      "type": "CodeActivity",
+      "x": 91,
+      "y": 308,
+      "outputPorts": [],
+      "inputPorts": [
+        "86975aa6-aaf8-de67-17ca-1591d5d4940f",
+        "703b3d60-bcf2-9d7f-2b1d-95e149befdaf",
+        "c8ae39dd-8bb6-a0c1-7065-b7471900c342",
+        "273a5f2b-2ddd-4dd5-37af-521b6b39bcf7"
+      ],
+      "properties": [
+        {
+          "name": "code",
+          "value": "function execute(params, wf, notify) { }"
+        }
+      ]
+    },
+    {
+      "id": "b342ad2c-46ae-43f6-2562-79bdc677545d",
       "name": "start",
       "factory": "shapeFactory",
       "type": "CodeActivity",
-      "x": 152,
-      "y": 86,
+      "x": 280,
+      "y": 319,
       "outputPorts": [
-        "0fce03ab-9a34-b68b-4392-73b9389a15a0",
-        "c5c8c65f-6e09-6582-5102-4e02fb45f9de",
-        "097cbcd6-3ce8-7d51-91b5-03d2ff4c0754",
-        "e6a4f1c1-d31a-2066-192a-ea4e37a1436c"
+        "ed742d53-ac2a-5be4-eb33-bc6d67a2181d",
+        "b008c427-d0a4-b6ed-3946-c0bec0cdd62a",
+        "0e7a1864-1ad9-ac7d-237b-b6082777b26c",
+        "db3de07a-9896-64e4-b8e7-150b5ec9385e"
       ],
       "inputPorts": [],
       "properties": [
@@ -23,20 +80,20 @@
       ]
     },
     {
-      "id": "23771210-011d-6016-739f-a2736c51f992",
-      "name": "23771210011d6016739f",
+      "id": "4cc90df9-9fc8-b18c-6009-b8c14bf14eb5",
+      "name": "4cc90df99fc8b18c6009",
       "type": "FormActivity",
       "factory": "shapeFactory",
-      "color": "Teal",
-      "x": 456,
-      "y": 57,
+      "color": "Aqua",
+      "x": 390,
+      "y": 266,
       "properties": [
         {
           "name": "form",
           "value": {
             "controls": [
               {
-                "id": "a84d6be9-083f-eb7b-4e5c-322549e22159",
+                "id": "05d93ce7-c9f9-42d8-9e01-b3f8f13cfefb",
                 "name": "_header_",
                 "type": "paper-header",
                 "label": "Form Activity",
@@ -45,7 +102,7 @@
                 "properties": []
               },
               {
-                "id": "4f63c6fd-52b8-e6f7-6608-188e25421a93",
+                "id": "2f2c287c-61e8-cf84-827b-d95ba72f89b5",
                 "name": "Name",
                 "label": "Name",
                 "caption": "Name",
@@ -62,24 +119,59 @@
                 ]
               },
               {
-                "id": "380e5dfa-4c5d-6417-b6a5-b4fe8d8993ac",
-                "name": "Name",
-                "label": "Name",
-                "caption": "Name",
-                "outputPorts": [],
+                "id": "13f3fd7d-ccf7-22f5-93cd-b89bbcad33e2",
+                "name": "Continue",
+                "label": "Continue",
+                "caption": "Continue",
+                "outputPorts": [
+                  "28163723-6122-b234-efd7-ae0cd7f2c497",
+                  "cd18babd-7d1c-3cda-adbc-af0f588efe54"
+                ],
                 "properties": [
                   {
                     "name": "type",
-                    "value": "paper-input"
+                    "value": "paper-button"
                   },
                   {
-                    "name": "placeholder",
-                    "value": "ccc select an item"
+                    "name": "style",
+                    "value": "btn btn-outline-primary"
                   }
                 ]
+              }
+            ]
+          }
+        }
+      ],
+      "inputPorts": [
+        "93a770bd-943b-774f-5487-388ed337fb28",
+        "487f0ad1-8500-ed00-3d18-52ae12b5b472",
+        "75381604-6f25-7202-36ff-9afc3c7593e8"
+      ]
+    },
+    {
+      "id": "4af68822-ef16-d539-cd45-a3d301b01c6e",
+      "name": "4af68822ef16d539cd45",
+      "type": "FormActivity",
+      "factory": "shapeFactory",
+      "color": "Pink",
+      "x": 635,
+      "y": 285,
+      "properties": [
+        {
+          "name": "form",
+          "value": {
+            "controls": [
+              {
+                "id": "cee4f9fe-5aa4-7a04-fdcc-ec9873cda589",
+                "name": "_header_",
+                "type": "paper-header",
+                "label": "Form Activity",
+                "caption": "Form Activity",
+                "outputPorts": [],
+                "properties": []
               },
               {
-                "id": "0cf6f03a-05d7-f258-a297-4aea78223a0d",
+                "id": "3a00439b-2832-541f-fffe-c214f6dc18c5",
                 "name": "Name",
                 "label": "Name",
                 "caption": "Name",
@@ -100,50 +192,418 @@
         }
       ],
       "inputPorts": [
-        "32930911-c4db-c6f6-4bec-465d6ab4bc97",
-        "ec7c009e-7a9a-4d3a-4e8a-6981aeb2552c",
-        "ea376979-4385-ec58-db61-194d0f25253c"
+        "4ce77862-0af1-0f6f-1e5e-d604260644de",
+        "069996f6-502e-5a20-14d6-92d498d05ac4",
+        "2880457b-dde8-98d8-4b4d-f111575bc326"
+      ]
+    },
+    {
+      "id": "6453523e-997e-da85-2614-b8150b5ee335",
+      "name": "6453523e997eda852614",
+      "caption": "Webservice Activity",
+      "type": "ApiActivity",
+      "factory": "activityFactory",
+      "color": "Pink",
+      "x": 176,
+      "y": 273,
+      "labelPos": {
+        "x": -19,
+        "y": -32
+      },
+      "outputPorts": [
+        "e5ed22e4-93ad-2a11-cdf6-1583c6d9ad75",
+        "aeec8099-48a6-b1c1-1b92-756cfdcd3f41",
+        "a8f5cc24-cd55-dcff-cbc5-81fc0dca9fa0",
+        "5650ea1c-d0b4-c810-6714-55329d696138",
+        "89e9091d-7c54-af9a-8a8b-a82f5807b08a",
+        "6a1008bb-05db-f8f9-ec61-e628e1df489c",
+        "5a6af258-c135-2c07-9e1c-7f0636914ae4",
+        "ec5f3897-fe0e-208d-e9b3-8ff237b4f43f",
+        "6b3801c1-b014-1e2e-4cb0-f2310cf3a29e",
+        "a9604e50-1f63-54f9-4b1b-9d35e5405f55",
+        "297f62a8-6149-d9b2-4121-c6e8d97cb860",
+        "df676650-216e-cffc-6edf-4c338ce28122",
+        "a3304753-89ac-8375-2fdf-a43c5162c834",
+        "c05c3435-b55a-e4ad-c5dd-20fe3bb40ef8",
+        "4c757cfe-449d-43d5-ca53-ae8b8959040d",
+        "e12f42af-fb49-d68b-dc5a-5760a0626b80"
+      ],
+      "inputPorts": [],
+      "properties": [
+        {
+          "name": "mappings",
+          "value": []
+        },
+        {
+          "name": "api",
+          "value": "/api/smart-object/reservation/1"
+        },
+        {
+          "name": "method",
+          "value": "get"
+        }
+      ]
+    },
+    {
+      "id": "ca40f1be-a360-a149-2786-fbc9c82644b6",
+      "name": "ca40f1bea360a1492786",
+      "caption": "Code Activity",
+      "type": "CodeActivity",
+      "factory": "activityFactory",
+      "color": "Pistachio",
+      "x": 147,
+      "y": 451,
+      "labelPos": {
+        "x": 0,
+        "y": -28
+      },
+      "outputPorts": [
+        "df6e584d-06ae-a53f-7c71-456cabb29431",
+        "33ffc4fb-3a80-db56-4eac-d328462b45bb",
+        "15aaa105-8c35-b8d4-d1c2-ff4d65b45ac3",
+        "d0990cdb-073a-a26d-e733-39e485db8c4f",
+        "1dca4fb8-ebe2-0f0e-7dbc-bd371aa3f172",
+        "97cbf889-64fc-1977-df0b-897ab1ef41d7",
+        "6cf1ad3f-dd79-01ab-e12a-89bddb0db958",
+        "447e9840-99b3-5123-da2c-edb9e8127578",
+        "9f7ae67c-944c-3ab4-2b86-eb11a639673f",
+        "40dc16bf-35da-3998-6cc0-7ed5e09db03b",
+        "7e4e9d9e-3743-ed89-c1a5-b85e43b568a9",
+        "7c30fe99-8cd7-2c89-79af-179f5bac4c92",
+        "8ffae5d3-c570-39ba-7c9b-cc731a19cb4b",
+        "d04c2bb2-213d-a822-bc39-9266d0aeacb5",
+        "b3043566-4339-21e9-7c8d-70e2e86745a1",
+        "186a589c-3ba1-eec6-4c49-c2cf8fe75f8d"
+      ],
+      "inputPorts": [],
+      "properties": [
+        {
+          "name": "code",
+          "value": "function execute(params, wf, notify) { }"
+        }
+      ]
+    },
+    {
+      "id": "f02acb17-1c73-527e-836e-14bd8fed6071",
+      "name": "f02acb171c73527e836e",
+      "type": "FormActivity",
+      "factory": "shapeFactory",
+      "color": "Pistachio",
+      "x": 346,
+      "y": 454,
+      "properties": [
+        {
+          "name": "form",
+          "value": {
+            "controls": [
+              {
+                "id": "ece23363-d1e4-1a48-9681-d48223270722",
+                "name": "_header_",
+                "type": "paper-header",
+                "label": "Form Activity",
+                "caption": "Form Activity",
+                "outputPorts": [],
+                "properties": []
+              },
+              {
+                "id": "b43141f7-add5-194c-8fa4-51c5f7cd5ec4",
+                "name": "Name",
+                "label": "Name",
+                "caption": "Name",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-input"
+                  },
+                  {
+                    "name": "placeholder",
+                    "value": "Please select an item"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "inputPorts": [
+        "34d1cb53-38c5-b907-8c25-bd2918281a32",
+        "b452bbdf-9fb6-e6f7-03f5-9612cdb7e003",
+        "392f2390-648d-f0e6-adb2-8fbfc8075b92"
+      ]
+    },
+    {
+      "id": "dcf40d58-bd35-1a20-8248-141b5c850bf8",
+      "name": "dcf40d58bd351a208248",
+      "type": "FormActivity",
+      "factory": "shapeFactory",
+      "color": "Gold",
+      "x": 392,
+      "y": 81,
+      "properties": [
+        {
+          "name": "form",
+          "value": {
+            "controls": [
+              {
+                "id": "5a0f999e-a98a-377d-3fff-2d6a44979bda",
+                "name": "_header_",
+                "type": "paper-header",
+                "label": "Form Activity",
+                "caption": "Form Activity",
+                "outputPorts": [],
+                "properties": []
+              },
+              {
+                "id": "3cb57e30-4628-1cd4-272a-a2c387143c80",
+                "name": "Name",
+                "label": "Name",
+                "caption": "Name",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-input"
+                  },
+                  {
+                    "name": "placeholder",
+                    "value": "Please select an item"
+                  }
+                ]
+              },
+              {
+                "id": "5b5e7754-a8d8-8581-bd40-000a3171ac60",
+                "name": "Name",
+                "label": "Name",
+                "caption": "Name",
+                "outputPorts": [],
+                "properties": [
+                  {
+                    "name": "type",
+                    "value": "paper-input"
+                  },
+                  {
+                    "name": "placeholder",
+                    "value": "Please select an item"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "inputPorts": [
+        "63006e5e-68ef-9da5-ec2c-9416939d6ce4",
+        "17ad09bb-7e39-c4fd-8f13-5023a5f9efd5",
+        "be56b4ff-b864-4fe7-02d3-778e19949890"
+      ]
+    },
+    {
+      "id": "0961763a-f6db-97c1-82be-76008c23d6ac",
+      "name": "0961763af6db97c182be",
+      "caption": "Alert Activity",
+      "type": "NovaAlertActivity",
+      "factory": "activityFactory",
+      "color": "Gold",
+      "x": 207,
+      "y": 94,
+      "labelPos": {
+        "x": 0,
+        "y": -28
+      },
+      "outputPorts": [
+        "9de6b693-a36e-2be2-9e0a-d3c9d9792618",
+        "9182d4c3-c9e1-975b-c59d-61d3e9f5517b",
+        "1deb00e1-5fdb-6649-1927-27212c206fe6",
+        "46354f0a-cbd5-306f-5e46-4ddca5626030",
+        "c3adee92-d1a4-aaa5-60a6-615a21183314",
+        "5603b6d7-af18-25d2-01a7-92d2ff056c93",
+        "4b135593-9581-4d99-292a-cec81effe3dd",
+        "d77a8e9a-bc0c-d293-1676-0cc051f8fc23",
+        "ff5188a9-3f81-fb38-e460-cb6325f701e1",
+        "ad1d628b-90de-d050-4633-d40bfd26a887",
+        "c9459a04-3f6f-42b2-b0ab-ab32959f285a",
+        "0e47242a-8f79-ff9b-841d-c9479359ded4",
+        "36ed5bca-b54a-266c-f953-1bbd4290effa",
+        "c150bda2-accb-9e21-4b02-90e1e96f5773",
+        "201764ec-68da-640c-5189-f666dd032975",
+        "2423ad81-3104-a2e9-05b8-a6e167e00489"
+      ],
+      "inputPorts": [],
+      "properties": [
+        {
+          "name": "title",
+          "value": "Success"
+        },
+        {
+          "name": "message",
+          "value": "Data saved"
+        },
+        {
+          "name": "style",
+          "value": "primary"
+        }
       ]
     }
   ],
   "lines": [
     {
-      "id": "89bfcb46-b36d-3cee-3f44-ece271bf3395",
+      "id": "fa9a3fb5-5f3a-446f-beeb-6c496e7ceef2",
       "source": {
-        "id": "c5c8c65f-6e09-6582-5102-4e02fb45f9de",
+        "id": "cd18babd-7d1c-3cda-adbc-af0f588efe54",
         "name": "output1",
-        "pId": "e9acf1cd-f41f-3c77-0fef-cf5800b31c08",
+        "pId": "13f3fd7d-ccf7-22f5-93cd-b89bbcad33e2",
         "parent": {
-          "id": "e9acf1cd-f41f-3c77-0fef-cf5800b31c08",
+          "id": "4cc90df9-9fc8-b18c-6009-b8c14bf14eb5",
+          "name": "4cc90df99fc8b18c6009"
+        }
+      },
+      "target": {
+        "id": "4ce77862-0af1-0f6f-1e5e-d604260644de",
+        "name": "input0",
+        "pId": "cee4f9fe-5aa4-7a04-fdcc-ec9873cda589",
+        "parent": {
+          "id": "4af68822-ef16-d539-cd45-a3d301b01c6e",
+          "name": "4af68822ef16d539cd45"
+        }
+      },
+      "color": "Aqua",
+      "vertices": [
+        {
+          "x": 540,
+          "y": 321.75
+        },
+        {
+          "x": 587.5,
+          "y": 321.75
+        },
+        {
+          "x": 587.5,
+          "y": 296
+        },
+        {
+          "x": 635,
+          "y": 296
+        }
+      ]
+    },
+    {
+      "id": "9722330e-9a59-ec22-a850-9fcfc5fc7f93",
+      "source": {
+        "id": "97cbf889-64fc-1977-df0b-897ab1ef41d7",
+        "name": "hybrid5",
+        "pId": "ca40f1be-a360-a149-2786-fbc9c82644b6",
+        "parent": {
+          "id": "ca40f1be-a360-a149-2786-fbc9c82644b6",
+          "name": "ca40f1bea360a1492786"
+        }
+      },
+      "target": {
+        "id": "34d1cb53-38c5-b907-8c25-bd2918281a32",
+        "name": "input0",
+        "pId": "ece23363-d1e4-1a48-9681-d48223270722",
+        "parent": {
+          "id": "f02acb17-1c73-527e-836e-14bd8fed6071",
+          "name": "f02acb171c73527e836e"
+        }
+      },
+      "color": "Pistachio",
+      "vertices": [
+        {
+          "x": 217,
+          "y": 486
+        },
+        {
+          "x": 287,
+          "y": 486
+        },
+        {
+          "x": 287,
+          "y": 465
+        },
+        {
+          "x": 346,
+          "y": 465
+        }
+      ]
+    },
+    {
+      "id": "19f29ab1-beec-e141-83de-2cd8af52fc3f",
+      "source": {
+        "id": "5603b6d7-af18-25d2-01a7-92d2ff056c93",
+        "name": "hybrid5",
+        "pId": "0961763a-f6db-97c1-82be-76008c23d6ac",
+        "parent": {
+          "id": "0961763a-f6db-97c1-82be-76008c23d6ac",
+          "name": "0961763af6db97c182be"
+        }
+      },
+      "target": {
+        "id": "63006e5e-68ef-9da5-ec2c-9416939d6ce4",
+        "name": "input0",
+        "pId": "5a0f999e-a98a-377d-3fff-2d6a44979bda",
+        "parent": {
+          "id": "dcf40d58-bd35-1a20-8248-141b5c850bf8",
+          "name": "dcf40d58bd351a208248"
+        }
+      },
+      "color": "Gold",
+      "vertices": [
+        {
+          "x": 277,
+          "y": 129
+        },
+        {
+          "x": 334.5,
+          "y": 129
+        },
+        {
+          "x": 334.5,
+          "y": 92
+        },
+        {
+          "x": 392,
+          "y": 92
+        }
+      ]
+    },
+    {
+      "id": "b1862d86-89a6-390f-5327-c0fe526bf200",
+      "source": {
+        "id": "b008c427-d0a4-b6ed-3946-c0bec0cdd62a",
+        "name": "output1",
+        "pId": "b342ad2c-46ae-43f6-2562-79bdc677545d",
+        "parent": {
+          "id": "b342ad2c-46ae-43f6-2562-79bdc677545d",
           "name": "start"
         }
       },
       "target": {
-        "id": "32930911-c4db-c6f6-4bec-465d6ab4bc97",
+        "id": "93a770bd-943b-774f-5487-388ed337fb28",
         "name": "input0",
-        "pId": "a84d6be9-083f-eb7b-4e5c-322549e22159",
+        "pId": "05d93ce7-c9f9-42d8-9e01-b3f8f13cfefb",
         "parent": {
-          "id": "23771210-011d-6016-739f-a2736c51f992",
-          "name": "23771210011d6016739f"
+          "id": "4cc90df9-9fc8-b18c-6009-b8c14bf14eb5",
+          "name": "4cc90df99fc8b18c6009"
         }
       },
-      "color": "Blue",
+      "color": "Pink",
       "vertices": [
         {
-          "x": 202,
-          "y": 111
+          "x": 330,
+          "y": 344
         },
         {
-          "x": 329,
-          "y": 111
+          "x": 360,
+          "y": 344
         },
         {
-          "x": 329,
-          "y": 68
+          "x": 360,
+          "y": 277
         },
         {
-          "x": 456,
-          "y": 68
+          "x": 390,
+          "y": 277
         }
       ]
     }
