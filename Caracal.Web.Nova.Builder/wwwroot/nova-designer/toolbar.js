@@ -13,6 +13,10 @@ class Toolbar {
         this.registerButton("#zoomInButton", () => view.zoomIn());
         this.registerButton("#zoomResetButton", () => view.zoomReset());
         this.registerButton("#zoomOutButton", () => view.zoomOut());
+
+        this.inputButton = this.registerDisabledButton("#inputButton", () => this.onAddControl("Input"));
+        this.outputButton = this.registerDisabledButton("#outputButton", () => this.onAddControl("Output"));
+        this.hideDisplayFormMenus();
         
         this.registerButton("#publishButton", () => workflowServer.publish());
     }
@@ -60,6 +64,15 @@ class Toolbar {
         }
         
         this.deleteButton.button( "option", "disabled", event.figure === null );
+        this.inputButton.button( "option", "disabled", event.figure === null );
+        this.outputButton.button( "option", "disabled", event.figure === null );
+        
+        this.hideDisplayFormMenus();
+    }
+    
+    hideDisplayFormMenus() {
+        this.inputButton[0].style = this.figure && this.figure.createInputControl ? "" : "display:none";
+        this.outputButton[0].style = this.figure && this.figure.createOutputControl ? "" : "display:none";
     }
     
     onDelete(view){
@@ -80,6 +93,11 @@ class Toolbar {
         }
     }
 
+    onAddControl(controlType){
+        if (this.figure && this.figure[`create${controlType}Control`]) 
+            this.figure[`create${controlType}Control`]();
+    }
+    
     stackChanged(event) {
         this.undoButton.button("option", "disabled", !event.getStack().canUndo());
         this.redoButton.button("option", "disabled", !event.getStack().canRedo());
