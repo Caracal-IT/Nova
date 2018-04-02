@@ -13,8 +13,8 @@ class MappingsPropertyBag {
     
     get columns() {
         return [
-            {name: "source", type: "input"},
-            {name: "destination", type: "input"},
+            {name: "source", title:"Api", type: "input"},
+            {name: "destination", title:"Process", type: "input"},
             {name: "direction", title:"action", type: "select",
                 items: [
                     { name: "in", value: "in" },
